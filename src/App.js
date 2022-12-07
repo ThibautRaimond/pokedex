@@ -1,5 +1,4 @@
 import Layout from "./components/Layout";
-
 import AnimatedRoutes from "./components/AnimatedRoutes";
 
 function App() {
