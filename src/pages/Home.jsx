@@ -1,3 +1,4 @@
+import AllPokemons from "../components/AllPokemons";
 import PokemonsSearchBar from "../components/PokemonsSearchBar";
 
 const Home = () => {

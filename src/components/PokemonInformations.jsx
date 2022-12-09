@@ -1,15 +1,14 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 const PokemonInformations = () => {
-
 	const [pokemon, setPokemon] = useState();
 	const [pokemonName, setPokemonName] = useState("");
 	const [pokemonId, setPokemonId] = useState("");
 	const [pokemonData, setPokemonData] = useState([]);
 	const [pokemonType, setPokemonType] = useState("");
 	const [pokemon2ndType, setPokemon2ndType] = useState("");
-	
+
 	const getPokemon = async () => {
 		const toArray = [];
 		try {
@@ -25,6 +24,7 @@ const PokemonInformations = () => {
 			};
 		} catch (e){}
 	};
+	
 };
 
 export default PokemonInformations;
