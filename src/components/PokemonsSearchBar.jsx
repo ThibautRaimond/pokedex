@@ -8,7 +8,8 @@ const PokemonsSearchBar = () => {
 	const [pokemonId, setPokemonId] = useState("");
 	const [pokemonData, setPokemonData] = useState([]);
 	const [pokemonType, setPokemonType] = useState("");
-
+	const [pokemon2ndType, setPokemon2ndType] = useState("");
+	
 	const getPokemon = async () => {
 		const toArray = [];
 		try {
@@ -19,9 +20,10 @@ const PokemonsSearchBar = () => {
 			setPokemonId(res.data.id)
 			setPokemonType(res.data.types[0].type.name);
 			setPokemonData(toArray);
-			console.log(res)
+			if (setPokemon2ndType(res.data.types[1].type.name) !== 'undefined'){
+				setPokemon2ndType(res.data.types[1].type.name);
+			};
 		} catch (e){
-			console.log(e)
 		}
 	};
 
@@ -53,9 +55,10 @@ const PokemonsSearchBar = () => {
 							<li>Pokemon N°{pokemonId}</li>
 						</ul>
 						<div className="pokemonStatsContainer">				
-							<div className="stat">
-								<p className="type">Type: {pokemonType}</p>
-								</div>
+							<ul className="stat">Type(s):
+								<li className="type"> {pokemonType}</li>
+								<li className="type">{pokemon2ndType}</li>
+								</ul>
 							<div className="stat">
 								Taille: {""}{Math.round(data.height * 3.9)}
 							</div>
