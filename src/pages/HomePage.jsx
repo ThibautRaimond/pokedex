@@ -36,8 +36,9 @@ const HomePage = () => {
         return pokemon.name.toLowerCase().includes(searchTerm.toLowerCase()) || pokemon.id.toString() === searchTerm;
     });
 
-    const handleGenerationChange = (index) => {
-        setGeneration(index);
+    const handleGenerationChange = (event) => {
+        const selectedGeneration = parseInt(event.target.value);
+        setGeneration(selectedGeneration);
         setOffset(0);
         setPokemonDetails([]);
     };
@@ -49,12 +50,15 @@ const HomePage = () => {
     return (
         <main>
             <h1>Liste des Pokémon</h1>
-            <div className="generation-buttons">
-                {generationPokemonCount.map((count, index) => (
-                    <button key={index} onClick={() => handleGenerationChange(index)}>
-                        Génération {index + 1}
-                    </button>
-                ))}
+            <div className="generation-select">
+                <label htmlFor="generation-select">Sélectionner une génération </label>
+                <select id="generation-select" value={generation} onChange={handleGenerationChange}>
+                    {generationPokemonCount.map((count, index) => (
+                        <option key={index} value={index}>
+                            {index + 1}
+                        </option>
+                    ))}
+                </select>
             </div>
             <input
                 type="text"
@@ -71,7 +75,7 @@ const HomePage = () => {
                     </li>
                 ))}
             </ul>
-            <button onClick={handleClick}>Charger plus</button>
+            <button onClick={handleClick}>Charger plus ↓</button>
         </main>
     );
 };
