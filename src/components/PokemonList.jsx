@@ -1,9 +1,17 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 
-const PokemonList = () => {
-	const [pokemonList, setPokemonList] = useState([]);
-	
+const PokemonList = ({ pokemonDetails }) => {
+	return (
+		<ul className="pokemons">
+			{pokemonDetails.map((pokemon, index) => (
+				<li className="pokemon" key={index}>
+					<p>{pokemon.name}</p>
+					<p>N° {pokemon.id}</p>
+					<img src={pokemon.image} alt={pokemon.name} />
+				</li>
+			))}
+		</ul>
+	);
 };
 
 export default PokemonList;

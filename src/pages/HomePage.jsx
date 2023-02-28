@@ -51,11 +51,11 @@ const HomePage = () => {
         <main>
             <h1>Liste des Pokémon</h1>
             <div className="generation-select">
-                <label htmlFor="generation-select">Sélectionner une génération </label>
+                <label htmlFor="generation-select">Sélectionner une génération :</label>
                 <select id="generation-select" value={generation} onChange={handleGenerationChange}>
                     {generationPokemonCount.map((count, index) => (
                         <option key={index} value={index}>
-                            {index + 1}
+                            Génération {index + 1}
                         </option>
                     ))}
                 </select>
@@ -75,7 +75,7 @@ const HomePage = () => {
                     </li>
                 ))}
             </ul>
-            <button onClick={handleClick}>Charger plus ↓</button>
+            <button onClick={handleClick}>Charger plus</button>
         </main>
     );
 };
