@@ -30,10 +30,7 @@ useEffect(() => {
 		const details = responses.map((response) => {
 			const name = response.data.names.find((n) => n.language.name === "fr").name;
 			const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${response.data.id}.png`;
-			const classes = response.data.genera
-				.filter((g) => g.language.name === "fr")
-				.map((g) => g.genus);
-			return { name, image, classes };
+			return { name, image};
 		});
 		setPokemonDetails(details);
 	};
@@ -58,6 +55,7 @@ return (
 				<li className="pokemon" key={index}>
 					<p>{pokemon.name}</p>
 						<img src={pokemon.image} alt={pokemon.name} />
+
 				</li>
 			))}
 		</ul>
