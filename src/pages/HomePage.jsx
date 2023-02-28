@@ -44,7 +44,12 @@ const HomePage = () => {
     };
 
     const handleClick = () => {
-        setOffset(offset + generationPokemonCount[generation]);
+        const newGeneration = generation + 1;
+        if (newGeneration < generationPokemonCount.length) {
+            setGeneration(newGeneration);
+            setOffset(0);
+            setPokemonDetails([]);
+        }
     };
 
     return (
