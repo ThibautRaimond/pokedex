@@ -61,7 +61,7 @@ const HomePage = () => {
 	};
 
 	return (
-		<main>
+		<main className="HomePage">
 			<h1>Liste des Pokémon</h1>
 			<div className="generation-select">
 				<label htmlFor="generation-select">Sélectionner une génération </label>
