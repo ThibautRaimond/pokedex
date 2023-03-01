@@ -11,7 +11,7 @@ const AnimatedRoutes = () => {
 		<AnimatePresence>
 			<Routes location={location.pathname} key={location.pathname}>
 				<Route path="/pokedex" element={<HomePage />} />
-				<Route path="/pokemon/:id" element={<PokemonDetailsPage />} />
+				<Route path="/pokedex/pokemon/:id" element={<PokemonDetailsPage />} />
 			</Routes>
 		</AnimatePresence>
 	);

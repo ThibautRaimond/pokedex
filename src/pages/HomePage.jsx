@@ -7,23 +7,6 @@ import "../styles/homePage.css";
 
 const generationPokemonCount = [151, 251, 386, 493, 649, 721, 809, 898];
 
-const translateNameToEnglish = async (name) => {
-	const response = await axios.post(
-		"https://translation.googleapis.com/language/translate/v2",
-		{},
-		{
-			params: {
-				q: name,
-				target: "en",
-				format: "text",
-				source: "fr",
-				key: "YOUR_API_KEY",
-			},
-		}
-	);
-	return response.data.data.translations[0].translatedText;
-};
-
 const HomePage = () => {
 	const [pokemonList, setPokemonList] = useState([]);
 	const [searchTerm, setSearchTerm] = useState("");
@@ -103,7 +86,7 @@ const HomePage = () => {
 			<ul className="pokemons">
 				{filteredPokemonDetails.map((pokemon, index) => (
 					<li className="pokemon" key={index}>
-						<Link to={`/pokemon/${pokemon.name}`}>
+						<Link to={`/pokedex/pokemon/${pokemon.id}`}>
 							<p>{pokemon.name}</p>
 							<p>N° {pokemon.id}</p>
 							<img src={pokemon.image} alt={pokemon.name} />

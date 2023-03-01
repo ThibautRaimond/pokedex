@@ -1,72 +1,54 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
-const translateNameToEnglish = async (name) => {
-	const response = await axios.post(
-		"https://translation.googleapis.com/language/translate/v2",
-		{},
-		{
-			params: {
-				q: name,
-				target: "en",
-				format: "text",
-				source: "fr",
-				key: "YOUR_API_KEY",
-			},
-		}
-	);
-	return response.data.data.translations[0].translatedText;
-};
+import axios from "axios";
 
 const PokemonDetailsPage = () => {
-	const [pokemonDetails, setPokemonDetails] = useState(null);
-	const { id } = useParams();
+	const { id } = useParams(); // récupère l'ID du Pokemon à partir de l'URL
+	const [pokemon, setPokemon] = useState({});
 
 	useEffect(() => {
-		const fetchPokemonDetails = async () => {
+		const fetchData = async () => {
 			const response = await axios.get(
-				`https://pokeapi.co/api/v2/pokemon/${id}`
+				`https://pokeapi.co/api/v2/pokemon/${id}`,
+				{ params: { language: "fr" } }
 			);
-			const { name, weight, height, sprites, stats } = response.data;
-			const imageUrl = sprites.other["official-artwork"].front_default;
-			const imageBackUrl = sprites.other["official-artwork"].back_default;
-			const shinyImageUrl = sprites.front_shiny;
-			const shinyImageBackUrl = sprites.back_shiny;
-			const newPokemonDetails = {
-				name,
-				id,
-				weight,
-				height,
-				imageUrl,
-				imageBackUrl,
-				shinyImageUrl,
-				shinyImageBackUrl,
-				stats,
-			};
-			setPokemonDetails(newPokemonDetails);
-		};
-		fetchPokemonDetails();
-	}, [id]);
+			const data = response.data;
 
-	if (!pokemonDetails) {
-		return <div>Loading...</div>;
-	}
+			setPokemon({
+				name: data.name,
+				id: data.id,
+				image: data.sprites.front_default,
+				imageBack: data.sprites.back_default,
+				weight: data.weight,
+				height: data.height,
+				types: data.types,
+			});
+		};
+		fetchData();
+	}, [id]);
 
 	return (
 		<div>
-			<h1>{pokemonDetails.name}</h1>
-			<img src={pokemonDetails.imageUrl} alt={pokemonDetails.name} />
-			<h2>Weight: {pokemonDetails.weight} kg</h2>
-			<h2>Height: {pokemonDetails.height / 10} m</h2>
-			<h2>Stats:</h2>
-			<ul>
-				{pokemonDetails.stats.map((stat) => (
-					<li key={stat.stat.name}>
-						{stat.stat.name}: {stat.base_stat}
-					</li>
-				))}
-			</ul>
+			<h1>Détails du Pokémon</h1>
+			<p>Nom : {pokemon.name}</p>
+			<p>ID : {pokemon.id}</p>
+			<div>
+				<img src={pokemon.image} alt={pokemon.name} />
+				<img src={pokemon.imageBack} alt={`${pokemon.name} dos`} />
+			</div>
+			<div>
+				Type(s):{" "}
+				{pokemon.types &&
+					pokemon.types.map((type, index) => (
+						<span key={index}>
+							{`${type.type.name}${
+								index === pokemon.types.length - 1 ? "" : ", "
+							}`}
+						</span>
+					))}
+			</div>
+			<div>Poids: {pokemon.weight / 10} kg</div>
+			<div>Taille: {pokemon.height / 10} m</div>
 		</div>
 	);
 };
