@@ -42,7 +42,7 @@ const Pokedex = () => {
 			}));
 
 			setPokemon({
-				name: data.names.find((name) => name.language.name === "fr").name,
+				name: data.name,
 				id: data.id,
 				image: data.sprites.front_default,
 				imageBack: data.sprites.back_default,
@@ -57,39 +57,26 @@ const Pokedex = () => {
 	}, [id]);
 
 	return (
-		<main className="pokemon-details">
-			<div>
-				<h1>Détails du Pokémon</h1>
-				<p>Nom : {pokemon.name}</p>
-				<p>ID : {pokemon.id}</p>
-				<div>
-					<img src={pokemon.image} alt={pokemon.name} />
-					<img src={pokemon.imageBack} alt={`${pokemon.name} dos`} />
-				</div>
-				<div>
-					Type(s):{" "}
-					{pokemon.types &&
-						pokemon.types.map((type, index) => (
-							<span key={index}>
-								{`${
-									type.type.names.find((name) => name.language.name === "fr")
-										.name
-								}${index === pokemon.types.length - 1 ? "" : ", "}`}
-							</span>
-						))}
-					Poids: {pokemon.weight / 10} kg Taille: {pokemon.height / 10} m
-				</div>
-				<div>
-					<h2>Description</h2>
-					<p>{pokemon.description}</p>
-				</div>
-				<div>
-					<h2>Localisation</h2>
-					{pokemon.locations.map((location, index) => (
-						<p key={index}>{location.name}</p>
-					))}
-				</div>
-			</div>
+		<main>
+						<div className="">
+							<h2>Type(s):</h2>
+							{pokemon.types &&
+								pokemon.types.map((type, index) => (
+									<span key={index}>
+										{`${type.type.name}${
+											index === pokemon.types.length - 1 ? "" : ", "
+										}`}
+									</span>
+								))}
+						</div>
+						<div className="flex">
+							Poids: {pokemon.weight / 10} {"  kg"}
+						</div>
+						<div className="flex">
+						Taille: {pokemon.height / 10} m
+						</div>
+						<h2 className=" description">Description:</h2>
+						<p>{pokemon.description}</p>
 		</main>
 	);
 };

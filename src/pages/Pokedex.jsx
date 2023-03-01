@@ -127,8 +127,8 @@ const Pokedex = () => {
 				</div>
 				<div id="right">
 					<div id="stats">
-						<div className="flex">
-							<h2>Type(s): </h2>
+						<div className="">
+							<h2>Type(s):</h2>
 							{pokemon.types &&
 								pokemon.types.map((type, index) => (
 									<span key={index}>
@@ -139,10 +139,10 @@ const Pokedex = () => {
 								))}
 						</div>
 						<div className="flex">
-							<h2 className="">Poids: </h2> {pokemon.weight / 10} kg
+							Poids: {pokemon.weight / 10} {"  kg"}
 						</div>
 						<div className="flex">
-						<h2>Taille:</h2> {pokemon.height / 10} m
+						Taille: {pokemon.height / 10} m
 						</div>
 						<h2 className=" description">Description:</h2>
 						<p>{pokemon.description}</p>
