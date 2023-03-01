@@ -6,6 +6,7 @@ import cssPokedex from "../styles/pokedex.css";
 
 const Pokedex = () => {
 	const { id } = useParams(); // récupère l'ID du Pokemon à partir de l'URL
+	
 	const [pokemon, setPokemon] = useState({
 		name: "",
 		id: "",
@@ -57,7 +58,7 @@ const Pokedex = () => {
 	}, [id]);
 
 	return (
-		<main>
+		<main className="pokedexContainer">
 			<div id="pokedex">
 				<div id="left">
 					<div id="logo"></div>
