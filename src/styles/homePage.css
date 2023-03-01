@@ -20,6 +20,7 @@ main{
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	border: solid 2px white;
+	text-align: center;
 	margin: 5px;
+	border: solid 2px white;
 }
