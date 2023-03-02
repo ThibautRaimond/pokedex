@@ -2,3 +2,12 @@
 	font-family: 'PKMN RBYGSC';
 	src: url('./fonts/PKMN\ RBYGSC.ttf') format('truetype');
 	}
+
+	body{
+		background-color: #222222;
+	}
+	
+	.main{
+		background-color: #222222;
+	}
+	

@@ -3,15 +3,11 @@
 	padding: 0;
 }
 
-body{
-	background-color: #222222;
-}
-
 .pokedexContainer{
 	background-color: #222222;
 	margin-top: 3em;
 	margin-bottom: 3em;
-	font-size: 1.3em;
+	font-size: 1.1em;
 }
 
 @media all {
@@ -734,6 +730,7 @@ body{
 		top: 130px;
 		left: 25px;
 		text-align: center;
+		font-size: 0.8em;
 
 		border-radius: 15px;
 		-webkit-border-radius: 15px;
