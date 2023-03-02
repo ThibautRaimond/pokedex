@@ -22,7 +22,12 @@ main{
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	margin: 5px;
 	border: solid 2px white;
-	
+	margin: 6px 7px auto;
+	transition: transform .6s;
 }
+
+.pokemon:hover {
+	transform: scale(1.05);
+	box-shadow: rgba(255, 255, 255, 0.637) 1.95px 1.95px 2.6px;
+	}

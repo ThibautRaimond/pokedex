@@ -25,9 +25,13 @@ align-items: center;
 	width: 70px;
 }
 
+.logoPokemon:hover{
+	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
 .navbar__title {
 	font-family: 'PKMN RBYGSC', sans-serif;
-	font-size: 2.5vw;
+	font-size: 2.4vw;
 	letter-spacing: 7px;
 	color: #c20303;
   }

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 import cssPokedex from "../styles/pokedex.css";
+import pokemontTypes from "../styles/pokemonTypes.css"
 
 const Pokedex = () => {
 	const { id } = useParams();
@@ -53,6 +54,50 @@ const Pokedex = () => {
 				return type;
 		}
 	};
+
+	const getTypeClassName = (type) => {
+		switch (type) {
+			case "normal":
+				return "normal";
+			case "fire":
+				return "fire";
+			case "water":
+				return "water";
+			case "electric":
+				return "electric";
+			case "grass":
+				return "grass";
+			case "ice":
+				return "ice";
+			case "fighting":
+				return "fighting";
+			case "poison":
+				return "poison";
+			case "ground":
+				return "ground";
+			case "flying":
+				return "flying";
+			case "psychic":
+				return "psychic";
+			case "bug":
+				return "bug";
+			case "rock":
+				return "rock";
+			case "ghost":
+				return "ghost";
+			case "dragon":
+				return "dragon";
+			case "dark":
+				return "dark";
+			case "steel":
+				return "steel";
+			case "fairy":
+				return "fairy";
+			default:
+				return "type";
+		}
+	};
+
 	useEffect(() => {
 		const fetchData = async () => {
 			const response = await axios.get(
@@ -172,10 +217,11 @@ const Pokedex = () => {
 								<p>
 									Types :{" "}
 									{pokemonTypes.map((type) => (
-										<span>{translateType(type)} </span>
+										<span className={getTypeClassName(type)}>
+											{translateType(type)}{" "}
+										</span>
 									))}
 								</p>
-								{/* Autres éléments de votre composant */}
 							</div>
 						</div>
 						<div className="flex">
