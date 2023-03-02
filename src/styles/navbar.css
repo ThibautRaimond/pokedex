@@ -1,16 +1,17 @@
 .navbar{
-	background-color: #222222;
+	width: 100%; 
+	height: 85px;
 	display: flex; 
 	justify-content: center;
 	align-items: center;
-	padding-left: 0.75rem; 
-	padding-right: 1rem; 
-	color: #D1D5DB; 
 	justify-content: space-between; 
 	align-items: center; 
-	width: 100%; 
+	padding-left: 0.75rem; 
+	padding-right: 1rem; 
+	margin-bottom: 1em;
+	color: #D1D5DB; 
+	background-color: #222222;
 	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
-	height: 85px;
 }
 
 .navbar__logoPokemonContainer{
@@ -23,3 +24,10 @@ align-items: center;
 	height: 70px;
 	width: 70px;
 }
+
+.navbar__title {
+	font-family: 'PKMN RBYGSC', sans-serif;
+	font-size: 25px;
+	color: #c20303;
+	letter-spacing: 7px;
+  }
