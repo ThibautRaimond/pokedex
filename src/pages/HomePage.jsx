@@ -5,19 +5,15 @@ import { Link } from "react-router-dom";
 import "../styles/resetCss.css";
 import "../styles/homePage.css";
 
-const generationPokemonCount = [151, 251, 386, 493, 649, 721, 809, 898];
-
 const HomePage = () => {
 	const [pokemonList, setPokemonList] = useState([]);
 	const [searchTerm, setSearchTerm] = useState("");
 	const [pokemonDetails, setPokemonDetails] = useState([]);
 	const [offset, setOffset] = useState(0);
-	const [generation, setGeneration] = useState(0);
 
 	const fetchData = async () => {
-		const count = generationPokemonCount[generation];
 		const response = await axios.get(
-			`https://pokeapi.co/api/v2/pokemon-species?limit=${count}&offset=${offset}`
+			`https://pokeapi.co/api/v2/pokemon-species?limit=&offset=${offset}`
 		);
 		const results = response.data.results;
 		const promises = results.map((pokemon) => axios.get(pokemon.url));
@@ -35,7 +31,7 @@ const HomePage = () => {
 
 	useEffect(() => {
 		fetchData();
-	}, [offset, generation]);
+	});
 
 	const filteredPokemonDetails = pokemonDetails.filter((pokemon) => {
 		return (
@@ -44,45 +40,10 @@ const HomePage = () => {
 		);
 	});
 
-	const handleGenerationChange = (event) => {
-		const selectedGeneration = parseInt(event.target.value);
-		setGeneration(selectedGeneration);
-		setOffset(0);
-		setPokemonDetails([]);
-	};
-
-	const handleClick = () => {
-		const newGeneration = generation + 1;
-		if (newGeneration < generationPokemonCount.length) {
-			setGeneration(newGeneration);
-			setOffset(0);
-			setPokemonDetails([]);
-		}
-	};
-
 	return (
 		<main className="HomePage">
 			<h1>Liste des Pokémon</h1>
-			<div className="generation-select">
-				<label htmlFor="generation-select">Sélectionner une génération </label>
-				<select
-					id="generation-select"
-					value={generation}
-					onChange={handleGenerationChange}
-				>
-					{generationPokemonCount.map((count, index) => (
-						<option key={index} value={index}>
-							{index + 1}
-						</option>
-					))}
-				</select>
-			</div>
-			<input
-				type="text"
-				placeholder="Rechercher par nom ou ID"
-				value={searchTerm}
-				onChange={(event) => setSearchTerm(event.target.value)}
-			/>
+			
 			<ul className="pokemons">
 				{filteredPokemonDetails.map((pokemon, index) => (
 					<li className="pokemon" key={index}>
@@ -94,7 +55,6 @@ const HomePage = () => {
 					</li>
 				))}
 			</ul>
-			<button onClick={handleClick}>+1 Génération</button>
 		</main>
 	);
 };

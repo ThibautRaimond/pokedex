@@ -287,7 +287,7 @@ body{
 		left: 0;
 	}
 
-	#pictureDiv
+	.pictureDiv
 	{
 		height: 155px;
 		width: 250px;
@@ -310,13 +310,15 @@ body{
 		align-items: center;
 		position: relative;
 	}
-	#picture{
+	.picture{
 		height: 125px;
 	}
 	#pokemonInfoDiv{
 		display: flex;
 		position: absolute;
-		bottom: 10px
+		bottom: -15px;
+		color: black;
+		font-weight: bold;
 	}
 	#pokemonInfo{
 		z-index: +1;
@@ -944,7 +946,7 @@ body{
 		margin-top: 5px;
 	}
 	.description{
-		margin-top: 5px;
+		margin-top: 10px;
 }
 
 }

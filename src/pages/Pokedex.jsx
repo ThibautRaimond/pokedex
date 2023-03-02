@@ -5,57 +5,92 @@ import axios from "axios";
 import cssPokedex from "../styles/pokedex.css";
 
 const Pokedex = () => {
-	const { id } = useParams(); // récupère l'ID du Pokemon à partir de l'URL
-	
-	const [pokemon, setPokemon] = useState({
-		name: "",
-		id: "",
-		image: "",
-		imageBack: "",
-		weight: "",
-		height: "",
-		types: [],
-		description: "",
-		locations: [],
-	});
-
+	const { id } = useParams();
+	const [pokemon, setPokemon] = useState(null);
+	const [pokemonTypes, setPokemonTypes] = useState([]);
+	const [pokemonWeight, setPokemonWeight] = useState(null);
+	const [pokemonHeight, setPokemonHeight] = useState(null);
+	const [pokemonLocation, setPokemonLocation] = useState(null);
+	const translateType = (type) => {
+		switch (type) {
+			case "normal":
+				return "Normal";
+			case "fire":
+				return "Feu";
+			case "water":
+				return "Eau";
+			case "electric":
+				return "Électrique";
+			case "grass":
+				return "Plante";
+			case "ice":
+				return "Glace";
+			case "fighting":
+				return "Combat";
+			case "poison":
+				return "Poison";
+			case "ground":
+				return "Sol";
+			case "flying":
+				return "Vol";
+			case "psychic":
+				return "Psy";
+			case "bug":
+				return "Insecte";
+			case "rock":
+				return "Roche";
+			case "ghost":
+				return "Spectre";
+			case "dragon":
+				return "Dragon";
+			case "dark":
+				return "Ténèbres";
+			case "steel":
+				return "Acier";
+			case "fairy":
+				return "Fée";
+			default:
+				return type;
+		}
+	};
 	useEffect(() => {
 		const fetchData = async () => {
 			const response = await axios.get(
-				`https://pokeapi.co/api/v2/pokemon/${id}`,
-				{ params: { language: "fr" } }
+				`https://pokeapi.co/api/v2/pokemon/${id}`
 			);
-			const data = response.data;
-
-			const speciesResponse = await axios.get(data.species.url);
-			const speciesData = speciesResponse.data;
-
-			const description = speciesData.flavor_text_entries.find(
-				(entry) => entry.language.name === "fr"
+			const speciesResponse = await axios.get(response.data.species.url);
+			const name = speciesResponse.data.names.find(
+				(n) => n.language.name === "fr"
+			).name;
+			const description = speciesResponse.data.flavor_text_entries.find(
+				(t) => t.language.name === "fr"
 			).flavor_text;
+			const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+			const backImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${id}.png`;
 
-			const locationsResponse = await axios.get(data.location_area_encounters);
-			const locationsData = locationsResponse.data;
+			setPokemon({ name, description, image, backImage });
 
-			const locations = locationsData.map((location) => ({
-				name: location.location_area.name,
-				url: location.location_area.url,
-			}));
+			const types = response.data.types.map((t) => t.type.name);
+			setPokemonTypes(types);
 
-			setPokemon({
-				name: data.name,
-				id: data.id,
-				image: data.sprites.front_default,
-				imageBack: data.sprites.back_default,
-				weight: data.weight,
-				height: data.height,
-				types: data.types,
-				description: description,
-				locations: locations,
-			});
+			const weight = response.data.weight;
+			setPokemonWeight(weight);
+
+			const height = response.data.height;
+			setPokemonHeight(height);
+
+			const locationResponse = await axios.get(
+				`https://pokeapi.co/api/v2/pokemon/${id}/encounters`
+			);
+			const locations = locationResponse.data.map((l) => l.location_area.name);
+			setPokemonLocation(locations);
 		};
 		fetchData();
 	}, [id]);
+
+	if (!pokemon) {
+		return <div>Loading...</div>;
+	}
 
 	return (
 		<main className="pokedexContainer">
@@ -85,24 +120,28 @@ const Pokedex = () => {
 						</div>
 						<div id="whiteContainer">
 							<div id="pictureDiv">
-								<img id="picture" src={pokemon.image} alt={pokemon.name} />
 								<img
-									id="picture"
-									src={pokemon.imageBack}
+									className="picture"
+									src={pokemon.image}
+									alt={pokemon.name}
+								/>
+								<img
+									className="picture"
+									src={pokemon.backImage}
 									alt={`${pokemon.name} dos`}
 								/>
 							</div>
 							<div id="pokemonInfoDiv">
 								<p id="pokemonInfo">{pokemon.name} Pokemon N°</p>
-								<p id="pokemonInfo">{pokemon.id}</p>
+								<p id="pokemonInfo">{id}</p>
 							</div>
 						</div>
 						<div id="buttonbottomPicture"></div>
 						<div id="speakers">
-							<div class="sp"></div>
-							<div class="sp"></div>
-							<div class="sp"></div>
-							<div class="sp"></div>
+							<div className="sp"></div>
+							<div className="sp"></div>
+							<div className="sp"></div>
+							<div className="sp"></div>
 						</div>
 					</div>
 					<div id="bigbluebutton"></div>
@@ -128,23 +167,21 @@ const Pokedex = () => {
 				</div>
 				<div id="right">
 					<div id="stats">
-						<div className="">
-							<h2>Type(s):</h2>
-							{pokemon.types &&
-								pokemon.types.map((type, index) => (
-									<span key={index}>
-										{`${type.type.name}${
-											index === pokemon.types.length - 1 ? "" : ", "
-										}`}
-									</span>
-								))}
+						<div className="pokemonTypes">
+							<div>
+								<p>
+									Types :{" "}
+									{pokemonTypes.map((type) => (
+										<span>{translateType(type)} </span>
+									))}
+								</p>
+								{/* Autres éléments de votre composant */}
+							</div>
 						</div>
 						<div className="flex">
-							Poids: {pokemon.weight / 10} {"  kg"}
+							Poids: {pokemonWeight / 10} {"  kg"}
 						</div>
-						<div className="flex">
-						Taille: {pokemon.height / 10} m
-						</div>
+						<div className="flex">Taille: {pokemonHeight / 10} m</div>
 						<h2 className=" description">Description:</h2>
 						<p>{pokemon.description}</p>
 						{/* <div className="">
@@ -155,18 +192,18 @@ const Pokedex = () => {
 					</div>
 
 					<div id="blueButtons1">
-						<div class="blueButton"></div>
-						<div class="blueButton"></div>
-						<div class="blueButton"></div>
-						<div class="blueButton"></div>
-						<div class="blueButton"></div>
+						<div className="blueButton"></div>
+						<div className="blueButton"></div>
+						<div className="blueButton"></div>
+						<div className="blueButton"></div>
+						<div className="blueButton"></div>
 					</div>
 					<div id="blueButtons2">
-						<div class="blueButton"></div>
-						<div class="blueButton"></div>
-						<div class="blueButton"></div>
-						<div class="blueButton"></div>
-						<div class="blueButton"></div>
+						<div className="blueButton"></div>
+						<div className="blueButton"></div>
+						<div className="blueButton"></div>
+						<div className="blueButton"></div>
+						<div className="blueButton"></div>
 					</div>
 					<div id="miniButtonGlass4"></div>
 					<div id="miniButtonGlass5"></div>

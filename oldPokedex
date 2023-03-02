@@ -1,48 +1,64 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
-import "../styles/resetCss.css";
-import "../styles/homePage.css";
+import cssPokedex from "../styles/pokedex.css";
 
 const Pokedex = () => {
-	const [pokemonList, setPokemonList] = useState([]);
-	const [searchTerm, setSearchTerm] = useState("");
-	const [pokemonDetails, setPokemonDetails] = useState([]);
-	const [offset, setOffset] = useState(0);
-	const [generation, setGeneration] = useState(0);
-
-	const fetchData = async () => {
-		const response = await axios.get(
-			`https://pokeapi.co/api/v2/pokemon-species?limit=$&offset=${offset}`
-		);
-		const results = response.data.results;
-		const promises = results.map((pokemon) => axios.get(pokemon.url));
-		const responses = await Promise.all(promises);
-		const details = responses.map((response) => {
-			const name = response.data.names.find(
-				(n) => n.language.name === "fr"
-			).name;
-			const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${response.data.id}.png`;
-			const id = response.data.id;
-			return { name, image, id };
-		});
-		setPokemonDetails([...pokemonDetails, ...details]);
-	};
-
-	useEffect(() => {
-		fetchData();
-	}, [offset, generation]);
-
-	const filteredPokemonDetails = pokemonDetails.filter((pokemon) => {
-		return (
-			pokemon.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-			pokemon.id.toString() === searchTerm
-		);
+	const { id } = useParams(); // récupère l'ID du Pokemon à partir de l'URL
+	
+	const [pokemon, setPokemon] = useState({
+		name: "",
+		id: "",
+		image: "",
+		imageBack: "",
+		weight: "",
+		height: "",
+		types: [],
+		description: "",
+		locations: [],
 	});
 
+	useEffect(() => {
+		const fetchData = async () => {
+			const response = await axios.get(
+				`https://pokeapi.co/api/v2/pokemon/${id}`,
+				{ params: { language: "fr" } }
+			);
+			const data = response.data;
+
+			const speciesResponse = await axios.get(data.species.url);
+			const speciesData = speciesResponse.data;
+
+			const description = speciesData.flavor_text_entries.find(
+				(entry) => entry.language.name === "fr"
+			).flavor_text;
+
+			const locationsResponse = await axios.get(data.location_area_encounters);
+			const locationsData = locationsResponse.data;
+
+			const locations = locationsData.map((location) => ({
+				name: location.location_area.name,
+				url: location.location_area.url,
+			}));
+
+			setPokemon({
+				name: data.name,
+				id: data.id,
+				image: data.sprites.front_default,
+				imageBack: data.sprites.back_default,
+				weight: data.weight,
+				height: data.height,
+				types: data.types,
+				description: description,
+				locations: locations,
+			});
+		};
+		fetchData();
+	}, [id]);
+
 	return (
-		<main>
+		<main className="pokedexContainer">
 			<div id="pokedex">
 				<div id="left">
 					<div id="logo"></div>
@@ -83,10 +99,10 @@ const Pokedex = () => {
 						</div>
 						<div id="buttonbottomPicture"></div>
 						<div id="speakers">
-							<div class="sp"></div>
-							<div class="sp"></div>
-							<div class="sp"></div>
-							<div class="sp"></div>
+							<div  className="sp"></div>
+							<div  className="sp"></div>
+							<div  className="sp"></div>
+							<div  className="sp"></div>
 						</div>
 					</div>
 					<div id="bigbluebutton"></div>
@@ -110,6 +126,7 @@ const Pokedex = () => {
 						</div>
 					</div>
 				</div>
+				
 				<div id="right">
 					<div id="stats">
 						<div className="">
@@ -139,18 +156,18 @@ const Pokedex = () => {
 					</div>
 
 					<div id="blueButtons1">
-						<div class="blueButton"></div>
-						<div class="blueButton"></div>
-						<div class="blueButton"></div>
-						<div class="blueButton"></div>
-						<div class="blueButton"></div>
+						<div  className="blueButton"></div>
+						<div  className="blueButton"></div>
+						<div  className="blueButton"></div>
+						<div  className="blueButton"></div>
+						<div  className="blueButton"></div>
 					</div>
 					<div id="blueButtons2">
-						<div class="blueButton"></div>
-						<div class="blueButton"></div>
-						<div class="blueButton"></div>
-						<div class="blueButton"></div>
-						<div class="blueButton"></div>
+						<div  className="blueButton"></div>
+						<div  className="blueButton"></div>
+						<div  className="blueButton"></div>
+						<div  className="blueButton"></div>
+						<div  className="blueButton"></div>
 					</div>
 					<div id="miniButtonGlass4"></div>
 					<div id="miniButtonGlass5"></div>
