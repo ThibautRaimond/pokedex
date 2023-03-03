@@ -1,7 +1,4 @@
 .pokedexPage{
-	display: flex;
-	justify-content: center; 
-	align-items: center;
 	min-width: 800px;
 }
 
@@ -318,9 +315,8 @@
 	.pokemonInfoDiv{
 		display: flex;
 		position: absolute;
-		bottom: -15px;
-		color: black;
-		font-weight: bold;
+		bottom: 15px;
+		color: white;
 	}
 	.pokemonInfo{
 		z-index: +1;
