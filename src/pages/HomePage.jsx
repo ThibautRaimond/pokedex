@@ -61,8 +61,8 @@ const HomePage = () => {
 	};
 
 	return (
-		<main className="HomePage">
-			<Navbar className="pokedexPageNav" />
+		<main className="homePage">
+			<Navbar className="homePageNavbar" />
 			<h1>Liste des Pokémon</h1>
 			<div className="generation-select">
 				<label htmlFor="generation-select">Sélectionner une génération </label>

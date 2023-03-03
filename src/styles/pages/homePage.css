@@ -1,10 +1,14 @@
-.HomePage{
-	background-color: #222222;
-	color: white;
+.homePage{
+	background-color: #fff;
+	color: black;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+}
+
+.generation-select{
+	margin-bottom: 2px;
 }
 
 .pokemons{
@@ -19,12 +23,14 @@
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	border: solid 2px white;
 	margin: 6px 7px auto;
-	transition: transform .6s;
+	transition: box-shadow .3s;
+	border-radius:10px;
+	border: 1px solid #ccc;
+	background: #fff;
+	float: left;
 }
 
 .pokemon:hover {
-	transform: scale(1.05);
-	box-shadow: rgba(255, 255, 255, 0.637) 1.95px 1.95px 2.6px;
+	box-shadow: 0 0 11px rgba(33,33,33,.2); 
 	}

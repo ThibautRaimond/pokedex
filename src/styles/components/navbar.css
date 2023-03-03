@@ -9,15 +9,14 @@
 	padding-left: 0.75rem; 
 	padding-right: 1rem; 
 	margin-bottom: 1em;
-	color: #D1D5DB; 
-	background-color: #222222;
+	background-color: #fff;
 	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
 }
 
 .navbar__logoPokemonContainer{
-display: flex;
-justify-content: center;
-align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .logoPokemon{
@@ -26,7 +25,7 @@ align-items: center;
 }
 
 .logoPokemon:hover{
-	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+	box-shadow: rgba(255, 255, 255, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .navbar__title {
@@ -34,10 +33,22 @@ align-items: center;
 	font-size: 2.4vw;
 	letter-spacing: 7px;
 	color: #c20303;
-  }
+}
 
-  @media screen and (min-width: 1600px) {
+.dark .navbar {
+	background-color: #222;
+	color: #fff;
+}
+
+.dark .navbar__title {
+	color: #fff;
+}
+
+@media screen and (min-width: 1600px) {
 	.navbar__title {
-	   font-size: 30px;
+		font-size: 30px;
 	}
-  }
+	.dark .navbar__title {
+		color: #fff;
+	}
+}

@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import ModeToggle from "./ModeToggle";
 
 import "../styles/components/navbar.css";
 import LogoPokemon from "../assets/pokemon.png";
 
 const Navbar = () => {
+	const [darkMode, setDarkMode] = useState(false);
+
+	const handleToggle = () => {
+		setDarkMode(!darkMode);
+		document.body.classList.toggle("dark");
+	};
+
 	return (
 		<nav className="navbar">
 			<Link to="/pokedex" className="navbar__logoPokemonContainer">
@@ -18,13 +26,7 @@ const Navbar = () => {
 
 			<h1 className="navbar__title">POKEDEX</h1>
 
-			<Link
-				to="https://thibautraimond.github.io/portfolio/"
-				target="_blank"
-				className="navbar__porfolioLinkContainer"
-			>
-				<h2 className="navbar__porfolioLink">Mon Porfolio</h2>
-			</Link>
+			<ModeToggle onToggle={handleToggle} />
 		</nav>
 	);
 };

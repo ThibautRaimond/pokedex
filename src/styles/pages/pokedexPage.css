@@ -7,7 +7,7 @@
 }
 
 	.pokedexContainer{
-	background-color: #222222;
+	background-color: #fff;
 	margin-bottom: 3em;
 	font-size: 1.1em;
 	min-width: 800px;
@@ -675,7 +675,7 @@
 	{
 		width: 350px;
 		height: 80px;
-		background-color: #222222;
+		background-color: #fff;
 
 		border-top-right-radius: 30px;
 		-webkit-border-top-right-radius: 30px;
@@ -687,7 +687,7 @@
 	{
 		width: 216px;
 		height: 100px;
-		background-color: #222222;
+		background-color: #fff;
 		float: left;
 
 		position: absolute;
