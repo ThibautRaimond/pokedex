@@ -64,9 +64,9 @@ const HomePage = () => {
 		<main className="homePage">
 			<Navbar className="homePageNavbar" />
 			<div className="generation-select">
-				<label htmlFor="generation-select">Sélectionner une génération </label>
+				<label htmlFor="generationText">Sélectionner une génération </label>
 				<select
-					id="generation-select"
+					className="generationSelect"
 					value={generation}
 					onChange={handleGenerationChange}
 				>
@@ -95,7 +95,7 @@ const HomePage = () => {
 					</li>
 				))}
 			</ul>
-			<button onClick={handleClick}>+1 Génération</button>
+			<button onClick={handleClick} className="morePokemonsButton">+1 Génération</button>
 		</main>
 	);
 };

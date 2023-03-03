@@ -11,9 +11,36 @@
 	color: #fff;
 }
 
-.generation-select, .searchPokemon {
-	margin-bottom: 2px;
-}
+.generationSelect{
+		margin-bottom: 2px;
+		border: 1px solid var(--select-border);
+		border-radius: 0.25em;
+		padding: 0.25em 0.5em;
+		cursor: pointer;
+		line-height: 1.1;
+		background-color: #222;
+		background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+		border: 1px solid #222;
+	}
+	.searchPokemon {
+		margin-bottom: 2px;
+		font-family: 'Roboto', sans-serif;
+		color: #fff;
+		font-size: 1.2rem;
+		padding: 5px 0 5px 30px;
+		border-radius: 0.2rem;
+		background-color: #222222f5;
+		border: none;
+		width: 15em;
+		display: block;
+		border-bottom: 0.3rem solid transparent;
+		transition: all 0.3s;
+	}
+
+	.dark .searchPokemon {
+		color: #222;
+		background-color: #fff;
+	}
 
 .pokemons{
 	display: flex;
@@ -44,5 +71,35 @@
 	box-shadow: 0 0 11px rgba(33,33,33,.2); 
 	}
 .dark .pokemon:hover {
+	box-shadow: 0 0 11px rgba(180, 180, 180, 0.2); 
+}
+
+.morePokemonsButton{
+	margin: 1em 0 0.5em 0;
+  background: #bb0909;
+  border-radius: 999px;
+  box-shadow: #ad0c0c 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+}
+
+.morePokemonsButton:hover {
+	box-shadow: 0 0 11px rgba(33,33,33,.2); 
+	}
+.dark .morePokemonsButton:hover {
 	box-shadow: 0 0 11px rgba(180, 180, 180, 0.2); 
 }
