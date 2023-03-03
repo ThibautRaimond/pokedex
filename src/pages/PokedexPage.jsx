@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 import Navbar from "../components/Navbar"
-import cssPokedex from "../styles/pokedex.css";
-import pokemontTypes from "../styles/pokemonTypes.css";
+import "../styles/pokedexPage.css";
+import "../styles/pokemonTypes.css";
 
 const PokedexPage = () => {
 	const { id } = useParams();
