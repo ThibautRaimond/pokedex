@@ -1,3 +1,7 @@
+.htmlPokedex{
+	min-width: 800px;
+}
+
 .pokedexPageContainer{
 	display: flex;
 	justify-content: center;
