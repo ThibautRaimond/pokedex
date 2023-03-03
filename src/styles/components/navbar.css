@@ -18,12 +18,10 @@
 	justify-content: center;
 	align-items: center;
 }
-
 .logoPokemon{
 	height: 70px;
 	width: 70px;
 }
-
 .logoPokemon:hover{
 	box-shadow: rgba(255, 255, 255, 0.15) 1.95px 1.95px 2.6px;
 }
@@ -35,20 +33,16 @@
 	color: #c20303;
 }
 
+/* dark-mode */
 .dark .navbar {
 	background-color: #222;
 	color: #fff;
+	box-shadow: 0 0 11px rgba(0, 0, 0, 0.2); 
 }
-
-.dark .navbar__title {
-	color: #fff;
-}
+/* ------- */
 
 @media screen and (min-width: 1600px) {
 	.navbar__title {
 		font-size: 30px;
-	}
-	.dark .navbar__title {
-		color: #fff;
 	}
 }

@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar";
 import "../styles/pages/pokedexPage.css";
 import "../styles/pokemonTypes.css";
 
-const PokedexPage = ({ onToggle }) => {
+const Pokedex = ({ onToggle }) => {
 	const { id } = useParams();
 	const [pokemon, setPokemon] = useState(null);
 	const [pokemonTypes, setPokemonTypes] = useState([]);
@@ -136,9 +136,6 @@ const PokedexPage = ({ onToggle }) => {
 
 	if (pokemon) {
 		return (
-			<main className="pokedexPage">
-				<Navbar onToggle={onToggle} className="pokedexPageNavbar" />
-				<div className="test">
 					<div className="pokedexContainer">
 						<div className="pokedex">
 							<div className="left">
@@ -265,9 +262,7 @@ const PokedexPage = ({ onToggle }) => {
 							</div>
 						</div>
 					</div>
-				</div>
-			</main>
 		);
 	}
 };
-export default PokedexPage;
+export default Pokedex;
