@@ -138,7 +138,6 @@ const PokedexPage = ({ onToggle }) => {
 		return (
 			<main className="pokedexPage">
 				<Navbar onToggle={onToggle} className="pokedexPageNavbar" />
-				<div className="test">
 					<div className="pokedexContainer">
 						<div className="pokedex">
 							<div className="left">
@@ -265,7 +264,6 @@ const PokedexPage = ({ onToggle }) => {
 							</div>
 						</div>
 					</div>
-				</div>
 			</main>
 		);
 	}

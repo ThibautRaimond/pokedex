@@ -1,10 +1,5 @@
 .pokedexPage {
 	min-width: 800px;
-	z-index: 1;
-}
-
-.test{
-	background-color: #001c91;
 }
 
 .pokedexPageNav {
@@ -16,6 +11,7 @@
 	margin-bottom: 3em;
 	font-size: 1.1em;
 	min-width: 800px;
+	height: 100vh;
 }
 .dark .pokedexContainer{
 	background-color: #222;

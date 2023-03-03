@@ -8,7 +8,7 @@ const ModeToggle = ({ onToggle }) => {
 	return (
 		<div className="toggle">
 			<input type="checkbox" id="toggle-switch" onChange={handleToggle} />
-			<label htmlFor="toggle-switch">Toggle</label>
+			<label htmlFor="toggle-switch">Mode nuit</label>
 		</div>
 	);
 };
