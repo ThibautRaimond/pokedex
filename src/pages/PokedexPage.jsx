@@ -142,32 +142,32 @@ const PokedexPage = () => {
 		<main className="pokedexPage">
 			<Navbar />
 			<div className="pokedexContainer">
-				<div id="pokedex">
-					<div id="left">
-						<div id="logo"></div>
-						<div id="bg_curve1_left"></div>
-						<div id="bg_curve2_left"></div>
-						<div id="curve1_left">
-							<div id="buttonGlass">
-								<div id="reflect"> </div>
+				<div className="pokedex">
+					<div className="left">
+						<div className="logo"></div>
+						<div className="bg_curve1_left"></div>
+						<div className="bg_curve2_left"></div>
+						<div className="curve1_left">
+							<div className="buttonGlass">
+								<div className="reflect"> </div>
 							</div>
-							<div id="miniButtonGlass1"></div>
-							<div id="miniButtonGlass2"></div>
-							<div id="miniButtonGlass3"></div>
+							<div className="miniButtonGlass1"></div>
+							<div className="miniButtonGlass2"></div>
+							<div className="miniButtonGlass3"></div>
 						</div>
-						<div id="curve2_left">
-							<div id="junction">
-								<div id="junction1"></div>
-								<div id="junction2"></div>
+						<div className="curve2_left">
+							<div className="junction">
+								<div className="junction1"></div>
+								<div className="junction2"></div>
 							</div>
 						</div>
-						<div id="screen">
-							<div id="topPicture">
-								<div id="buttontopPicture1"></div>
-								<div id="buttontopPicture2"></div>
+						<div className="screen">
+							<div className="topPicture">
+								<div className="buttontopPicture1"></div>
+								<div className="buttontopPicture2"></div>
 							</div>
-							<div id="whiteContainer">
-								<div id="pictureDiv">
+							<div className="whiteContainer">
+								<div className="pictureDiv">
 									<img
 										className="picture"
 										src={pokemon.image}
@@ -179,42 +179,42 @@ const PokedexPage = () => {
 										alt={`${pokemon.name} dos`}
 									/>
 								</div>
-								<div id="pokemonInfoDiv">
-									<p id="pokemonInfo">{pokemon.name} Pokemon N°</p>
-									<p id="pokemonInfo">{id}</p>
+								<div className="pokemonInfoDiv">
+									<p className="pokemonInfo">{pokemon.name} Pokemon N°</p>
+									<p className="pokemonInfo">{id}</p>
 								</div>
 							</div>
-							<div id="buttonbottomPicture"></div>
-							<div id="speakers">
+							<div className="buttonbottomPicture"></div>
+							<div className="speakers">
 								<div className="sp"></div>
 								<div className="sp"></div>
 								<div className="sp"></div>
 								<div className="sp"></div>
 							</div>
 						</div>
-						<div id="bigbluebutton"></div>
-						<div id="barbutton1"></div>
-						<div id="barbutton2"></div>
-						<div id="cross">
-							<div id="leftcross">
-								<div id="leftT"></div>
+						<div className="bigbluebutton"></div>
+						<div className="barbutton1"></div>
+						<div className="barbutton2"></div>
+						<div className="cross">
+							<div className="leftcross">
+								<div className="leftT"></div>
 							</div>
-							<div id="topcross">
-								<div id="upT"></div>
+							<div className="topcross">
+								<div className="upT"></div>
 							</div>
-							<div id="rightcross">
-								<div id="rightT"></div>
+							<div className="rightcross">
+								<div className="rightT"></div>
 							</div>
-							<div id="midcross">
-								<div id="midCircle"></div>
+							<div className="mclassNamecross">
+								<div className="mclassNameCircle"></div>
 							</div>
-							<div id="botcross">
-								<div id="downT"></div>
+							<div className="botcross">
+								<div className="downT"></div>
 							</div>
 						</div>
 					</div>
-					<div id="right">
-						<div id="stats">
+					<div className="right">
+						<div className="stats">
 							<div className="pokemonTypes">
 								<div>
 									<p>
@@ -240,30 +240,30 @@ const PokedexPage = () => {
 						</div> */}
 						</div>
 
-						<div id="blueButtons1">
+						<div className="blueButtons1">
 							<div className="blueButton"></div>
 							<div className="blueButton"></div>
 							<div className="blueButton"></div>
 							<div className="blueButton"></div>
 							<div className="blueButton"></div>
 						</div>
-						<div id="blueButtons2">
+						<div className="blueButtons2">
 							<div className="blueButton"></div>
 							<div className="blueButton"></div>
 							<div className="blueButton"></div>
 							<div className="blueButton"></div>
 							<div className="blueButton"></div>
 						</div>
-						<div id="miniButtonGlass4"></div>
-						<div id="miniButtonGlass5"></div>
-						<div id="barbutton3"></div>
-						<div id="barbutton4"></div>
-						<div id="yellowBox1"></div>
-						<div id="yellowBox2"></div>
-						<div id="bg_curve1_right"></div>
-						<div id="bg_curve2_right"></div>
-						<div id="curve1_right"></div>
-						<div id="curve2_right"></div>
+						<div className="miniButtonGlass4"></div>
+						<div className="miniButtonGlass5"></div>
+						<div className="barbutton3"></div>
+						<div className="barbutton4"></div>
+						<div className="yellowBox1"></div>
+						<div className="yellowBox2"></div>
+						<div className="bg_curve1_right"></div>
+						<div className="bg_curve2_right"></div>
+						<div className="curve1_right"></div>
+						<div className="curve2_right"></div>
 					</div>
 				</div>
 			</div>

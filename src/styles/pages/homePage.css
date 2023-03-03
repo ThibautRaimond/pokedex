@@ -1,8 +1,5 @@
 .HomePage{
 	background-color: #222222;
-}
-
-main{
 	color: white;
 	display: flex;
 	flex-direction: column;

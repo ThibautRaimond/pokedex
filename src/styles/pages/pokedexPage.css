@@ -1,11 +1,11 @@
-.pokedexPageNav{
-	min-width: 800px;
-}
-
 .pokedexPage{
 	display: flex;
 	justify-content: center; 
 	align-items: center;
+	min-width: 800px;
+}
+
+.pokedexPageNav{
 	min-width: 800px;
 }
 
@@ -16,13 +16,13 @@
 	min-width: 800px;
 }
 
-	div#pokedex
+	div.pokedex
 	{
 		width: 750px;
 		margin: 50px auto 0 auto;
 	}
 
-	div#left
+	div.left
 	{
 		width: 400px;
 		height: 500px;
@@ -31,7 +31,7 @@
 		z-index: 1;
 	}
 
-	div#right
+	div.right
 	{
 		width: 350px;
 		height: 500px;
@@ -43,7 +43,7 @@
 
 	/* //// LEFT PART //// */
 
-	div#curve1_left
+	div.curve1_left
 	{
 		width: 201px;
 		height: 85px;
@@ -72,7 +72,7 @@
 	}
 
 
-	div#bg_curve1_left
+	div.bg_curve1_left
 	{
 		width: 400px;
 		height: 80px;
@@ -84,7 +84,7 @@
 		-o-border-top-left-radius: 30px;
 	}
 
-	div#curve2_left
+	div.curve2_left
 	{
 		width: 216px;
 		height: 451px;
@@ -101,7 +101,7 @@
 		-o-border-top-left-radius: 85px 60px;
 	}
 
-	div#bg_curve2_left
+	div.bg_curve2_left
 	{
 		width: 400px;
 		height: 420px;
@@ -118,7 +118,7 @@
 		-o-border-bottom-left-radius: 30px;
 	}
 
-	div#buttonGlass
+	div.buttonGlass
 	{
 		width: 60px;
 		height: 60px;
@@ -142,7 +142,7 @@
 	   	-o-border-radius: 35px;
 	}
 
-	div#reflect
+	div.reflect
 	{
 		width: 30px;
 		height: 18px;
@@ -156,7 +156,7 @@
 	   	-o-border-radius: 15px 9px;
 	}
 
-	div#miniButtonGlass1
+	div.miniButtonGlass1
 	{
 		width: 20px;
 		height: 20px;
@@ -179,7 +179,7 @@
 		background: -o-radial-gradient(#fb7b7b, #fb0505);
 	}
 
-	div#miniButtonGlass2
+	div.miniButtonGlass2
 	{
 		width: 20px;
 		height: 20px;
@@ -202,7 +202,7 @@
 		background: -o-radial-gradient(#fbfb9b, #fbfb05);
 	}
 
-	div#miniButtonGlass3
+	div.miniButtonGlass3
 	{
 		width: 20px;
 		height: 20px;
@@ -225,7 +225,7 @@
 		background: -o-radial-gradient(#b0fb7b, #50fb05);
 	}
 
-	div#junction
+	div.junction
 	{
 		width: 60px;
 		height: 451px;
@@ -238,7 +238,7 @@
 		background: -o-linear-gradient(left, #8b0000 0%, #c00d0d 50%, #8b0000 100%);
 	}
 
-	div#junction1
+	div.junction1
 	{
 		height: 40px;
 		background-color: #5e0000;
@@ -249,7 +249,7 @@
 		border-bottom: 2px solid #000000;
 	}
 
-	div#junction2
+	div.junction2
 	{
 		height: 40px;
 		background-color: #5e0000;
@@ -259,7 +259,7 @@
 		border-bottom: 2px solid #000000;
 	}
 
-	div#screen
+	div.screen
 	{
 		height: 245px;
 		width: 280px;
@@ -277,7 +277,7 @@
 		-o-border-radius: 15px;
 	}
 
-	div#screen:after
+	div.screen:after
 	{
 		content: "";
 		border-top: 40px solid #b0b0b0;
@@ -305,7 +305,7 @@
 		align-items: start;
 		position: relative;
 	}
-	#whiteContainer{
+	.whiteContainer{
 		width: 250px;
 		display: flex;
 		flex-direction: column;
@@ -315,24 +315,24 @@
 	.picture{
 		height: 125px;
 	}
-	#pokemonInfoDiv{
+	.pokemonInfoDiv{
 		display: flex;
 		position: absolute;
 		bottom: -15px;
 		color: black;
 		font-weight: bold;
 	}
-	#pokemonInfo{
+	.pokemonInfo{
 		z-index: +1;
 	}
 
-	div#topPicture
+	div.topPicture
 	{
 		margin: 6px auto;
 		width: 40px;
 	}
 
-	div#buttontopPicture1, div#buttontopPicture2
+	div.buttontopPicture1, div.buttontopPicture2
 	{
 		height: 8px;
 		width: 8px;
@@ -346,12 +346,12 @@
 		-o-border-radius: 15px;
 	}
 
-	div#buttontopPicture1
+	div.buttontopPicture1
 	{
 		margin-right: 20px;
 	}
 
-	div#buttonbottomPicture
+	div.buttonbottomPicture
 	{
 		height: 26px;
 		width: 26px;
@@ -375,7 +375,7 @@
 		background: -o-linear-gradient(top, #c00d0d 0%, #8b0000 80%);
 	}
 
-	div#speakers
+	div.speakers
 	{
 		float: right;
 		width: 75px;
@@ -395,7 +395,7 @@
 		-o-border-radius: 30px;
 	}
 
-	div#bigbluebutton
+	div.bigbluebutton
 	{
 		height: 50px;
 		width: 50px;
@@ -409,7 +409,7 @@
 		-o-border-radius: 100px;
 	}
 
-	div#barbutton1
+	div.barbutton1
 	{
 		height: 13px;
 		width: 50px;
@@ -429,7 +429,7 @@
 		-o-box-shadow: -1px 2px#0e3810;
 	}
 
-	div#barbutton2
+	div.barbutton2
 	{
 		height: 13px;
 		width: 50px;
@@ -450,7 +450,7 @@
 		-o-box-shadow: -1px 2px #0e2336;
 	}
 
-	div#cross
+	div.cross
 	{
 		width: 90px;
 		height: 90px;
@@ -460,7 +460,7 @@
 		left: 230px;
 	}
 
-	div#topcross
+	div.topcross
 	{
 		width: 30px;
 		height: 30px;
@@ -486,7 +486,7 @@
 		-o-border-top-right-radius: 5px;
 	}
 
-	div#leftcross
+	div.leftcross
 	{
 		width: 30px;
 		height: 30px;
@@ -513,7 +513,7 @@
 		-o-border-bottom-left-radius: 5px;
 	}
 
-	div#midcross
+	div.midcross
 	{
 		width: 30px;
 		height: 30px;
@@ -529,7 +529,7 @@
 		-o-box-shadow: -3px 2px #010101;
 	}
 
-	div#rightcross
+	div.rightcross
 	{
 		width: 30px;
 		height: 30px;
@@ -555,7 +555,7 @@
 		-o-border-bottom-right-radius: 5px;
 	}
 
-	div#botcross
+	div.botcross
 	{
 		width: 30px;
 		height: 30px;
@@ -581,7 +581,7 @@
 		-o-border-bottom-right-radius: 5px;
 	}
 
-	div#upT
+	div.upT
 	{
 		width: 0;
 		height: 0;
@@ -594,7 +594,7 @@
 		left: 4px;
 	}
 
-	div#downT
+	div.downT
 	{
 		width: 0;
 		height: 0;
@@ -607,7 +607,7 @@
 		left: 4px;
 	}
 
-	div#leftT
+	div.leftT
 	{
 		width: 0;
 		height: 0;
@@ -620,7 +620,7 @@
 		left: 4px;
 	}
 
-	div#rightT
+	div.rightT
 	{
 		width: 0;
 		height: 0;
@@ -633,7 +633,7 @@
 		right: 5px;
 	}
 
-	div#midCircle
+	div.midCircle
 	{
 		width: 20px;
 		height: 20px;
@@ -657,7 +657,7 @@
 
 	/* //// RIGHT PART //// */
 
-	div#curve1_right
+	div.curve1_right
 	{
 		width: 166px;
 		height: 451px;
@@ -675,7 +675,7 @@
 	}
 
 
-	div#bg_curve1_right
+	div.bg_curve1_right
 	{
 		width: 350px;
 		height: 80px;
@@ -687,7 +687,7 @@
 		-o-border-top-right-radius: 30px;
 	}
 
-	div#curve2_right
+	div.curve2_right
 	{
 		width: 216px;
 		height: 100px;
@@ -704,7 +704,7 @@
 		-o-border-bottom-left-radius: 85px 60px;
 	}
 
-	div#bg_curve2_right
+	div.bg_curve2_right
 	{
 		width: 350px;
 		height: 420px;
@@ -721,7 +721,7 @@
 		-o-box-shadow: -10px 9px #5e0000;
 	}
 
-	div#stats
+	div.stats
 	{
 		height: 150px;
 		width: 300px;
@@ -749,7 +749,7 @@
 		-o-box-shadow: 0 0 20px #000 inset;
 	}
 
-	div#blueButtons1
+	div.blueButtons1
 	{
 		z-index: 1;
 
@@ -758,7 +758,7 @@
 		left: 49px;
 	}
 
-	div#blueButtons2
+	div.blueButtons2
 	{
 		z-index: 1;
 
@@ -789,7 +789,7 @@
 		-o-box-shadow: -1px 2px #001c91;
 	}
 
-	div#barbutton3
+	div.barbutton3
 	{
 		height: 13px;
 		width: 50px;
@@ -816,7 +816,7 @@
 		-o-box-shadow: -1px 2px #000000;
 	}
 
-	div#barbutton4
+	div.barbutton4
 	{
 		height: 13px;
 		width: 50px;
@@ -843,7 +843,7 @@
 		-o-box-shadow: -1px 2px #2c0000;
 	}
 
-	div#miniButtonGlass4
+	div.miniButtonGlass4
 	{
 		width: 15px;
 		height: 15px;
@@ -871,7 +871,7 @@
 		background: -o-radial-gradient(#ff9b5b, #fb6505);
 	}
 
-	div#miniButtonGlass5
+	div.miniButtonGlass5
 	{
 		width: 15px;
 		height: 15px;
@@ -898,7 +898,7 @@
 		background: -o-radial-gradient(#0abd0a, #057b05);
 	}
 
-	div#yellowBox1
+	div.yellowBox1
 	{
 		width: 140px;
 		height: 70px;
@@ -921,7 +921,7 @@
 		-o-box-shadow: 0 0 20px #000 inset;
 	}
 
-	div#yellowBox2
+	div.yellowBox2
 	{
 		width: 140px;
 		height: 70px;
