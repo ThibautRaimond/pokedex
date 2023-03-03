@@ -1,0 +1,12 @@
+function Pokedex() {
+		return (
+			<FilterCSS cssFile="/pokedex.css">
+				<div className="pokedexPageContainer">
+					<p>coucou</p>
+				</div>
+			</FilterCSS>
+		);
+	}
+};
+
+export default Pokedex;
