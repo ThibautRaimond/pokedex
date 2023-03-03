@@ -63,7 +63,6 @@ const HomePage = () => {
 	return (
 		<main className="homePage">
 			<Navbar className="homePageNavbar" />
-			<h1>Liste des Pokémon</h1>
 			<div className="generation-select">
 				<label htmlFor="generation-select">Sélectionner une génération </label>
 				<select
@@ -83,6 +82,7 @@ const HomePage = () => {
 				placeholder="Rechercher par nom ou ID"
 				value={searchTerm}
 				onChange={(event) => setSearchTerm(event.target.value)}
+				className="searchPokemon"
 			/>
 			<ul className="pokemons">
 				{filteredPokemonDetails.map((pokemon, index) => (
