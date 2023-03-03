@@ -1,64 +1,58 @@
 .toggle {
 	display: inline-block;
 	position: relative;
-	width: 3.75rem;
-	height: 1.5rem;
-	cursor: pointer;
-  }
-  
-  .toggle-input {
-	position: absolute;
-	opacity: 0;
-	width: 0;
-	height: 0;
-  }
-  
-  .toggle-label {
+	width: 60px;
+	height: 30px;
+	margin-right: 1.5em;
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
-	position: relative;
-	height: 100%;
+  }
+  
+  .toggle input[type="checkbox"] {
+	display: none;
+  }
+  
+  .toggle label {
+	display: block;
+	position: relative; /* Ajout de la propriété "position" */
+	left: 0; /* Ajout de la propriété "left" */
 	width: 100%;
-	background-color: #d3d3d3;
-	border-radius: 30px;
-	transition: background-color 0.2s;
+	height: 100%;
+	border-radius: 15px;
+	background-color: #222;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out; /* Ajout de la propriété "transition" */
   }
   
-  .toggle-thumb {
+  .toggle label:after {
+	content: "";
+	display: block;
 	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	height: 1.125rem;
-	width: 1.125rem;
-	background-color: white;
+	top: 2px;
+	left: 2px;
+	width: 26px;
+	height: 26px;
 	border-radius: 50%;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-	transition: transform 0.2s, background-color 0.2s;
+	background-color: #fff;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
   
-  .toggle-text {
-	color: #333;
-	font-size: 0.875rem;
-	font-weight: bold;
-	padding: 0.125rem 0.375rem;
-	transition: color 0.2s;
+  .toggle input[type="checkbox"]:checked + label {
+	background-color: #007bff;
   }
   
-  .toggle-input:checked + .toggle-label {
-	background-color: #333;
+  .toggle input[type="checkbox"]:checked + label:after {
+	transform: translateX(30px);
   }
-  
-  .toggle-input:checked + .toggle-label .toggle-thumb {
-	transform: translate3d(1.875rem, -50%, 0);
-	background-color: #333;
+
+  .moon{
+	display: flex;
+	justify-content: center;
+	margin: 2px 13px 0 0;
   }
-  
-  .toggle-input:checked + .toggle-label .toggle-text:first-child {
-	color: white;
+  .sun{
+	display: flex;
+	justify-content: center;
+	margin: 3px 0 0 15px;
   }
-  
-  .toggle-input:checked + .toggle-label .toggle-text:last-child {
-	color: white;
-  }
-  
