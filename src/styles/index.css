@@ -10,3 +10,7 @@
 	#root{
 		min-width: 350px;
 	}
+	.dark {
+		background-color: #222;
+	}
+	
