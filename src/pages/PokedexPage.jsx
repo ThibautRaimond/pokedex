@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 import Navbar from "../components/Navbar"
-import "../styles/pokedexPage.css";
+import "../styles/pages/pokedexPage.css";
 import "../styles/pokemonTypes.css";
 
 const PokedexPage = () => {

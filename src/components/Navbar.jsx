@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import NavbarCss from "../styles/navbar.css";
+import "../styles/components/navbar.css";
 import LogoPokemon from "../assets/pokemon.png";
 
 const Navbar = () => {

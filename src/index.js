@@ -1,16 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
-import indexCss from "./styles/index.css";
-
 import { BrowserRouter } from "react-router-dom";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+import App from "./App";
 
-// Ajouter une classe à l'élément racine en fonction de l'URL chargée
-if (window.location.pathname.includes("/pokedex/pokemon")) {
-	document.documentElement.classList.add("htmlPokedex");
-}
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
 	<React.StrictMode>

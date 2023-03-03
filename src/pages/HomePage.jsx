@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import Navbar from "../components/Navbar"
 import "../styles/resetCss.css";
-import "../styles/homePage.css";
+import "../styles/pages/homePage.css";
 
 const generationPokemonCount = [151, 251, 386, 493, 649, 721, 809, 898];
 
