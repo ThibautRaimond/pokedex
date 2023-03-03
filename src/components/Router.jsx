@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 import HomePage from "../pages/HomePage";
-import Pokedex from "../pages/Pokedex";
+import Pokedex from "../pages/PokedexPage";
 
 const Routeur = () => {
 	const location = useLocation();

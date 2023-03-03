@@ -1,13 +1,9 @@
-import Layout from "./components/Layout";
-import AnimatedRoutes from "./components/AnimatedRoutes";
-import ResetScroll from "./components/ResetScroll";
+
+import Router from "./components/Router";
 
 function App() {
 	return (
-		<Layout>
-			<ResetScroll />
-			<AnimatedRoutes />
-		</Layout>
+			<Router />
 	);
 }
 

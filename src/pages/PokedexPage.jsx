@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
+import Navbar from "../components/Navbar"
 import cssPokedex from "../styles/pokedex.css";
 import pokemontTypes from "../styles/pokemonTypes.css";
 
-const Pokedex = () => {
+const PokedexPage = () => {
 	const { id } = useParams();
 	const [pokemon, setPokemon] = useState(null);
 	const [pokemonTypes, setPokemonTypes] = useState([]);
@@ -138,7 +139,8 @@ const Pokedex = () => {
 	}
 
 	return (
-		<div className="pokedexPageContainer">
+		<main className="pokedexPage">
+			<Navbar />
 			<div className="pokedexContainer">
 				<div id="pokedex">
 					<div id="left">
@@ -265,8 +267,8 @@ const Pokedex = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</main>
 	);
 };
 
-export default Pokedex;
+export default PokedexPage;

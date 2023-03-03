@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+
+import Navbar from "../components/Navbar"
 import "../styles/resetCss.css";
 import "../styles/homePage.css";
 
 const generationPokemonCount = [151, 251, 386, 493, 649, 721, 809, 898];
+
 
 const HomePage = () => {
 	const [pokemonList, setPokemonList] = useState([]);
@@ -61,6 +64,7 @@ const HomePage = () => {
 
 	return (
 		<main className="HomePage">
+			<Navbar className="pokedexPageNav"/>
 			<h1>Liste des Pokémon</h1>
 			<div className="generation-select">
 				<label htmlFor="generation-select">Sélectionner une génération </label>
