@@ -117,3 +117,21 @@
 	} .dark .morePokemonsButton:hover {
 	box-shadow: 0 0 11px rgba(180, 180, 180, 0.2); 
 }
+
+.pokemon {
+	display: flex;
+  }
+  
+  .pokemon::before,
+  .pokemon::after {
+	content: "";
+	flex-grow: 1;
+  }
+  
+  .pokemon::before {
+	margin-right: 5px;
+  }
+  
+  .pokemon::after {
+	margin-left: 5px;
+  }
