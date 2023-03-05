@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-import Navbar from "../components/Navbar";
+
 import "../styles/resetCss.css";
 import "../styles/pages/homePage.css";
 
@@ -62,7 +62,6 @@ const HomePage = () => {
 
 	return (
 		<main className="homePage">
-			<Navbar className="homePageNavbar" />
 			<div className="generation-select">
 				<label htmlFor="generationText">Sélectionner une génération </label>
 				<select

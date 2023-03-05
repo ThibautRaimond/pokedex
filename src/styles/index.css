@@ -7,10 +7,10 @@
 		margin: 0;
 		padding: 0;
 	}
-	#root{
-		min-width: 350px;
-	}
+	/* #root{
+		min-width: 100%;
+
+	} */
 	.dark {
 		background-color: #222;
 	}
-	

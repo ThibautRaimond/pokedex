@@ -14,20 +14,20 @@ const Navbar = () => {
 	};
 
 	return (
-		<nav className="navbar">
-			<Link to="/pokedex" className="navbar__logoPokemonContainer">
-				<img
-					className="logoPokemon"
-					src={LogoPokemon}
-					alt="Logo Pokemon"
-					style={{ width: "75px" }}
-				/>
-			</Link>
+			<nav className="navbar">
+				<Link to="/pokedex" className="navbar__logoPokemonContainer">
+					<img
+						className="logoPokemon"
+						src={LogoPokemon}
+						alt="Logo Pokemon"
+						style={{ width: "75px" }}
+					/>
+				</Link>
 
-			<h1 className="navbar__title">POKEDEX</h1>
+				<h1 className="navbar__title">POKEDEX</h1>
 
-			<ModeToggle onToggle={handleToggle} />
-		</nav>
+				<ModeToggle onToggle={handleToggle} />
+			</nav>
 	);
 };
 
