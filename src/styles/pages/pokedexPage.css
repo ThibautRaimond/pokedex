@@ -307,8 +307,13 @@ div.screen:after
 .pokemonName{
 	font-weight: bold;
 }
-.types{
+.typesContainer{
+	display: flex;
 	margin-top: 4px;
+}
+.typesH2{
+	font-weight: bold;
+	margin-right: 5px;
 }
 
 div.topPicture
@@ -718,7 +723,7 @@ div.stats
 {
 	height: 150px;
 	width: 300px;
-	padding: 10px;
+	padding: 5px;
 	color: #fff;
 	z-index: 1;
 	font-size: 13px;
@@ -936,15 +941,43 @@ div.yellowBox2
 	-o-box-shadow: 0 0 20px #000 inset;
 }
 
-.flex{
+.weightHeightDiv{
+	margin-top: 5px;
+	display: flex;
+	justify-content: space-around;
+}
+.weightDiv{
+	display: flex;
+}
+.heightDiv{
+	display: flex;
+}
+.weightH2{
+	margin-right: 5px;
+}
+.heightH2{
+	margin-right: 5px;
+}
+.categoryH2{
+	margin-right: 5px;
+}
+.categoryContainer{
 	display: flex;
 	justify-content: center;
-	margin-top: 5px;
+	margin-top: 10px;
 }
+.genderContainer{
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+}
+.genderH2{
+	margin-right: 5px;
+}
+
 .description{
 	margin-top: 10px;
 }
-
 
 .pokedexContainer {
 	background-color: #fff;

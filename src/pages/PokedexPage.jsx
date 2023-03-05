@@ -11,7 +11,9 @@ const PokedexPage = ({ onToggle }) => {
 	const [pokemonTypes, setPokemonTypes] = useState([]);
 	const [pokemonWeight, setPokemonWeight] = useState(null);
 	const [pokemonHeight, setPokemonHeight] = useState(null);
-	const [pokemonLocation, setPokemonLocation] = useState(null);
+	const [pokemonCategory, setPokemonCategory] = useState(null);
+	const [pokemonGenders, setPokemonGenders] = useState([]);
+
 	const translateType = (type) => {
 		switch (type) {
 			case "normal":
@@ -105,7 +107,9 @@ const PokedexPage = ({ onToggle }) => {
 			const response = await axios.get(
 				`https://pokeapi.co/api/v2/pokemon/${id}`
 			);
-			const speciesResponse = await axios.get(response.data.species.url);
+			const speciesUrl = response.data.species.url;
+			const speciesResponse = await axios.get(speciesUrl);
+
 			const name = speciesResponse.data.names.find(
 				(n) => n.language.name === "fr"
 			).name;
@@ -126,15 +130,25 @@ const PokedexPage = ({ onToggle }) => {
 			const height = response.data.height;
 			setPokemonHeight(height);
 
-			const locationResponse = await axios.get(
-				`https://pokeapi.co/api/v2/pokemon/${id}/encounters`
-			);
-			const locations = locationResponse.data.map((l) => l.location_area.name);
-			setPokemonLocation(locations);
+			const category = speciesResponse.data.genera.find(
+				(g) => g.language.name === "fr"
+			).genus;
+			setPokemonCategory(category);
+
+			const genders = speciesResponse.data.gender_rate;
+			if (genders === -1) {
+				setPokemonGenders(["Non genré"]);
+			} else if (genders === 0) {
+				setPokemonGenders(["Male"]);
+			} else if (genders === 8) {
+				setPokemonGenders(["Female"]);
+			} else {
+				setPokemonGenders(["Male", "Female"]);
+			}
 		};
+
 		fetchData();
 	}, [id]);
-
 	if (pokemon) {
 		return (
 			<div className="pokedex">
@@ -177,16 +191,19 @@ const PokedexPage = ({ onToggle }) => {
 							</div>
 
 							<div className="pokemonInfoDiv">
-								<p className="pokemonInfo"> Pokemon N°{id}: <span className="pokemonName">{pokemon.name}</span></p>
-								<p className="types">
-									Types:{" "}
+								<p className="pokemonInfo">
+									<span className="pokemonName">{pokemon.name}:</span> Pokemon
+									N°{id}
+								</p>
+								<p className="typesContainer">
+									<h2 className="typesH2">Type(s): </h2>
 									{pokemonTypes
 										.map((type) => (
-											<span className={getTypeClassName(type)} type>
+											<span className={`pokedexType ${getTypeClassName(type)}`}>
 												{translateType(type)}
 											</span>
 										))
-										.reduce((prev, curr) => [prev, " / ", curr])}
+										.reduce((prev, curr) => [prev, " ", curr])}
 								</p>
 							</div>
 						</div>
@@ -221,18 +238,32 @@ const PokedexPage = ({ onToggle }) => {
 				</div>
 				<div className="right">
 					<div className="stats">
+						<div className="weightHeightDiv">
+							<div className="weightDiv">
+								<h2 className="weightH2">Poids: </h2>
+								{pokemonWeight / 10} kg
+							</div>
+							<div className="heightDiv">
+								<h2 className="heightH2">Taille: </h2>
+								{pokemonHeight / 10} m
+							</div>
+						</div>
+						<div className="categoryContainer">
+							<h2 className="categoryH2">Catégorie:</h2>
+							<p> {pokemonCategory}</p>
+						</div>
+
+						<div className="genderContainer">
+							<h2 className="genderH2">Genre(s):</h2>
+							<p>
+								{pokemonGenders.length === 2
+									? pokemonGenders.join(" & ")
+									: pokemonGenders}
+							</p>
+						</div>
+
 						<h2 className=" description">Description:</h2>
 						<p>{pokemon.description}</p>
-
-						<div className="flex">
-							Poids: {pokemonWeight / 10} {"  kg"}
-						</div>
-						<div className="flex">Taille: {pokemonHeight / 10} m</div>
-						{/* <div className="">
-							<h2>Localisations: </h2>
-							{pokemon.locations &&
-								pokemon.locations.map((location) => location.name).join(", ")}
-							</div> */}
 					</div>
 
 					<div className="blueButtons1">
