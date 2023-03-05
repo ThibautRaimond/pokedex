@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-
 import "../styles/resetCss.css";
 import "../styles/pages/homePage.css";
 
@@ -22,14 +21,20 @@ const HomePage = () => {
 		const results = response.data.results;
 		const promises = results.map((pokemon) => axios.get(pokemon.url));
 		const responses = await Promise.all(promises);
-		const details = responses.map((response) => {
-			const name = response.data.names.find(
-				(n) => n.language.name === "fr"
-			).name;
-			const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${response.data.id}.png`;
-			const id = response.data.id;
-			return { name, image, id };
-		});
+		const details = await Promise.all(
+			responses.map(async (response) => {
+				const name = response.data.names.find(
+					(n) => n.language.name === "fr"
+				).name;
+				const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${response.data.id}.png`;
+				const id = response.data.id;
+				const pokemonResponse = await axios.get(
+					`https://pokeapi.co/api/v2/pokemon/${id}`
+				);
+				const types = pokemonResponse.data.types.map((type) => type.type.name);
+				return { name, image, id, types };
+			})
+		);
 		setPokemonDetails([...pokemonDetails, ...details]);
 	};
 
@@ -85,16 +90,21 @@ const HomePage = () => {
 			/>
 			<ul className="pokemons">
 				{filteredPokemonDetails.map((pokemon, index) => (
-					<li className="pokemon" key={index}>
+					<li className={`pokemon ${pokemon.types.join(" ")}`} key={index}>
 						<Link to={`/pokedex/pokemon/${pokemon.id}`}>
+							<div className="NameAndId">
 							<p>{pokemon.name}</p>
 							<p>N° {pokemon.id}</p>
+							</div>
 							<img src={pokemon.image} alt={pokemon.name} />
 						</Link>
 					</li>
 				))}
 			</ul>
-			<button onClick={handleClick} className="morePokemonsButton">+1 Génération</button>
+
+			<button onClick={handleClick} className="morePokemonsButton">
+				+1 Génération
+			</button>
 		</main>
 	);
 };

@@ -139,9 +139,9 @@ const PokedexPage = ({ onToggle }) => {
 			if (genders === -1) {
 				setPokemonGenders(["Non genré"]);
 			} else if (genders === 0) {
-				setPokemonGenders(["Male"]);
+				setPokemonGenders(["Mâle"]);
 			} else if (genders === 8) {
-				setPokemonGenders(["Female"]);
+				setPokemonGenders(["Femelle"]);
 			} else {
 				setPokemonGenders(["Mâle", "Femelle"]);
 			}
