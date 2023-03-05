@@ -61,6 +61,7 @@
 	margin: 2px;
 	transition: box-shadow .3s;
 	border: 1px solid #ccc;
+	border-radius: 20px;
 	background: #fff;
 	float: left;
 	transition: all 0.4s;
@@ -70,18 +71,20 @@
 	border: 1px solid #464646;
 }
 .pokemon:hover {
-	border: 1px solid #222; 
-	box-shadow: #222;
-} .dark .pokemon:hover {
+	box-shadow: rgba(0, 0, 0, 0.562) 100px 200px 260px  -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+	border: 2px solid #20202088;
+}
+.dark .pokemon:hover{
+	box-shadow: rgb(255, 255, 255) 80px 180px 240px -12px inset, rgba(207, 207, 207, 0.3) 0px 18px 36px -18px inset;
+	border: 2px solid #77767688;
 }
 
 .NameAndId{
-	border-radius: 10px 10px 0px 0px ;
 	background-color: #fff;
 	color: #000;
+	border-radius: 20px 20px 0px 0px ;
 	border: 1px solid #ccc;
 	border-bottom: 2px solid #ccc;
-	border-radius: 10px;
 }.dark .NameAndId{
 	background-color: #222;
 	color: #fff;
@@ -118,10 +121,6 @@
 	} .dark .morePokemonsButton:hover {
 	box-shadow: 0 0 11px rgba(180, 180, 180, 0.2); 
 }
-
-.pokemon {
-	display: flex;
-  }
   
   .pokemon::before,
   .pokemon::after {
