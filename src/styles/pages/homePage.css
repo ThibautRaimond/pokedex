@@ -9,7 +9,6 @@
 	background-color: #222;
 	color: #fff;
 }
-
 .generationSelect{
 		margin-bottom: 2px;
 		border: 1px solid var(--select-border);
@@ -21,6 +20,7 @@
 		background-image: linear-gradient(to top, #222, #222222f5 33%);
 		border: 1px solid #fff;
 		color: #fff;
+		
 	}.dark .generationSelect{
 		background-color: #fff;
 		background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
@@ -65,6 +65,8 @@
 	background: #fff;
 	float: left;
 	transition: all 0.4s;
+	font-family: Helvetica, sans-serif;
+	
 }.dark .pokemon{
 	color: #fff;
 	background-color: #222;
@@ -117,6 +119,8 @@
 	color: #000;
 }
 .morePokemonsButton:hover {
+	font-family: 'Press Start 2P', sans-serif;
+	font-size: 12px;
 	box-shadow: 0 0 11px rgba(33,33,33,.2); 
 	} .dark .morePokemonsButton:hover {
 	box-shadow: 0 0 11px rgba(180, 180, 180, 0.2); 

@@ -67,7 +67,7 @@ const HomePage = () => {
 
 	return (
 		<main className="homePage">
-			<div className="generation-select">
+			<div className="generationSelectContainer">
 				<label htmlFor="generationText">Sélectionner une génération </label>
 				<select
 					className="generationSelect"
@@ -97,7 +97,7 @@ const HomePage = () => {
 						<Link to={`/pokedex/pokemon/${pokemon.id}`}>
 							<div className="NameAndId">
 							<p >{pokemon.name}</p>
-							<p>N° {pokemon.id}</p>
+							<p>N°{pokemon.id}</p>
 							</div>
 							<img src={pokemon.image} alt={pokemon.name} />
 						</Link>

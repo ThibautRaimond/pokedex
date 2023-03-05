@@ -1,16 +1,16 @@
 @font-face {
-	font-family: 'PKMN RBYGSC';
-	src: url('./fonts/PKMN\ RBYGSC.ttf') format('truetype');
+	font-family: 'Press Start 2P';
+	src: url('./fonts/PressStart2P.ttf');
 	}
+@font-face {
+	font-family: 'Poppins';
+	src: url('./fonts/Poppins-Black.ttf');
+}
 	
 	* {
 		margin: 0;
 		padding: 0;
 	}
-	/* #root{
-		min-width: 100%;
-
-	} */
 	.dark {
 		background-color: #222;
 	}

@@ -191,10 +191,10 @@ const PokedexPage = ({ onToggle }) => {
 							</div>
 
 							<div className="pokemonInfoDiv">
-								<p className="pokemonInfo">
-									<span className="pokemonName">{pokemon.name}:</span> Pokemon
-									N°{id}
-								</p>
+								
+									<h2 className="pokemonName">{pokemon.name}</h2> 
+									<h2>Pokemon N°{id}</h2>
+								
 								<p className="typesContainer">
 									<h2 className="typesH2">Type(s): </h2>
 									{pokemonTypes
