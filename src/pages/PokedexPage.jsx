@@ -161,7 +161,8 @@ const PokedexPage = ({ onToggle }) => {
 							<div className="buttontopPicture1"></div>
 							<div className="buttontopPicture2"></div>
 						</div>
-						<div className="whiteContainer">
+
+						<div className="greyContainer">
 							<div className="pictureDiv">
 								<img
 									className="picture"
@@ -174,9 +175,19 @@ const PokedexPage = ({ onToggle }) => {
 									alt={`${pokemon.name} dos`}
 								/>
 							</div>
+
 							<div className="pokemonInfoDiv">
-								<p className="pokemonInfo">{pokemon.name} Pokemon N°</p>
-								<p className="pokemonInfo">{id}</p>
+								<p className="pokemonInfo"> Pokemon N°{id}: <span className="pokemonName">{pokemon.name}</span></p>
+								<p className="types">
+									Types:{" "}
+									{pokemonTypes
+										.map((type) => (
+											<span className={getTypeClassName(type)} type>
+												{translateType(type)}
+											</span>
+										))
+										.reduce((prev, curr) => [prev, " / ", curr])}
+								</p>
 							</div>
 						</div>
 						<div className="buttonbottomPicture"></div>
@@ -210,22 +221,8 @@ const PokedexPage = ({ onToggle }) => {
 				</div>
 				<div className="right">
 					<div className="stats">
-						<div className="pokemonTypes">
-							<div>
-								<p>
-									Types:{" "}
-									{pokemonTypes
-										.map((type) => (
-											<span className={getTypeClassName(type)} type>
-												{translateType(type)}
-											</span>
-										))
-										.reduce((prev, curr) => [prev, " / ", curr])}
-								</p>
-							</div>
 						<h2 className=" description">Description:</h2>
 						<p>{pokemon.description}</p>
-						</div>
 
 						<div className="flex">
 							Poids: {pokemonWeight / 10} {"  kg"}

@@ -1,125 +1,124 @@
 .normal {
 	background-color: #a8a878;
 	color: #fff;
-	padding: 4px;
-	border-radius: 100%;
+	padding: 2px;
+	
 }
 
 .fire {
 	background-color: #f08030;
 	color: #fff;
-	padding: 4px;
-	border-radius: 100%;
+	padding: 2px;
 }
 
 .water {
 	background-color: #6890f0;
 	color: #fff;
-	padding: 4px;
-	border-radius: 100%;
+	padding: 2px;
+	
 }
 
 .electric {
 	background-color: #f8d030;
 	color: #fff;
-	padding: 4px;
-	border-radius: 100%;
+	padding: 2px;
+	
 }
 
 .grass {
 	background-color: #78c850;
 	color: #fff;
-	padding: 4px;
-	border-radius: 100%;
+	padding: 2px;
+	
 }
 
 .ice {
 	background-color: #98d8d8;
 	color: #000;
-	padding: 4px;
-	border-radius: 100%;
+	padding: 2px;
+	
 }
 
 .fighting {
 	background-color: #c03028;
 	color: #fff;
-	padding: 4px;
-	border-radius: 100%;
+	padding: 2px;
+	
 }
 
 .poison {
 	background-color: #a040a0;
 	color: #fff;
-	padding: 4px;
-	border-radius: 100%;
+	padding: 2px;
+	
 }
 
 .ground {
 	background-color: #e0c068;
 	color: #000;
-	padding: 4px;
-	border-radius: 100%;
+	padding: 2px;
+	
 }
 
 .flying {
 	background-color: #a890f0;
 	color: #fff;
-	padding: 4px;
-	border-radius: 100%;
+	padding: 2px;
+	
 }
 
 .psychic {
 	background-color: #f85888;
 	color: #fff;
-	padding: 4px;
-	border-radius: 100%;
+	padding: 2px;
+	
 }
 
 .bug {
 	background-color: #a8b820;
 	color: #fff;
-	padding: 4px;
-	border-radius: 100%;
+	padding: 2px;
+	
 }
 
 .rock {
 	background-color: #b8a038;
 	color: #fff;
-	padding: 4px;
-	border-radius: 100%;
+	padding: 2px;
+	
 }
 
 .ghost {
 	background-color: #705898;
 	color: #fff;
-	padding: 4px;
-	border-radius: 100%;
+	padding: 2px;
+	
 }
 
 .dragon {
 	background-color: #7038f8;
 	color: #fff;
-	padding: 4px;
-	border-radius: 100%;
+	padding: 2px;
+	
 }
 
 .Dark {
 	background-color: #705848;
 	color: #fff;
-	padding: 4px;
-	border-radius: 100%;
+	padding: 2px;
+	
 }
 
 .steel {
 	background-color: #b8b8d0;
 	color: #000;
-	padding: 4px;
-	border-radius: 100%;
+	padding: 2px;
+	
 }
 
 .fairy {
 	background-color: #ee99ac;
 	color: #000;
-	padding: 4px;
-	border-radius: 100%;
+	padding: 2px;
+	
 }
