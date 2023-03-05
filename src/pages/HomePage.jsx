@@ -95,7 +95,7 @@ const HomePage = () => {
 					<span className="right"></span>
 				
 						<Link to={`/pokedex/pokemon/${pokemon.id}`}>
-							<div className={`nameAndId ${pokemon.types[1]}`} key={index}>
+							<div>
 							<p >{pokemon.name}</p>
 							<p>N° {pokemon.id}</p>
 							</div>
