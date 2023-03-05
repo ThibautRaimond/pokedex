@@ -199,7 +199,7 @@ const PokedexPage = ({ onToggle }) => {
 									<h2 className="typesH2">Type(s): </h2>
 									{pokemonTypes
 										.map((type) => (
-											<span className={`pokedexType ${getTypeClassName(type)}`}>
+											<span className={`${getTypeClassName(type)} pokedexType`}>
 												{translateType(type)}
 											</span>
 										))

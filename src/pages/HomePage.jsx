@@ -90,12 +90,12 @@ const HomePage = () => {
 			/>
 			<ul className="pokemons">
 				{filteredPokemonDetails.map((pokemon, index) => (
-					<li className={`pokemon ${pokemon.types[0]}`} key={index}>
+					<li className={` ${pokemon.types[0]} pokemon`} key={index}>
 					<span className="left"></span>
 					<span className="right"></span>
 				
 						<Link to={`/pokedex/pokemon/${pokemon.id}`}>
-							<div className="NameAndId">
+							<div className={`nameAndId ${pokemon.types[1]}`} key={index}>
 							<p >{pokemon.name}</p>
 							<p>N° {pokemon.id}</p>
 							</div>

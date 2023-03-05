@@ -1,15 +1,3 @@
-.pokedexType{
-	padding: 2px 8px;
-	border-radius: 5px;
-	margin: 0px 2px;
-}
-
-.pokedexType{
-	padding: 2px 8px;
-	border-radius: 5px;
-	margin: 0px 2px;
-}
-
 .normal {
 	background-color: #a8a878;
 	color: #fff;
@@ -190,4 +178,10 @@
 .dark .fairy {
 	background-color: #ee99ac;
 	color: #000;
+}
+
+.pokedexType{
+	padding: 2px 8px;
+	border-radius: 5px;
+	margin: 0px 2px;
 }

@@ -58,9 +58,8 @@
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	margin: 6px 7px auto;
+	margin: 2px;
 	transition: box-shadow .3s;
-	border-radius:10px;
 	border: 1px solid #ccc;
 	background: #fff;
 	float: left;
@@ -81,6 +80,7 @@
 	color: #000;
 	border: 1px solid #ccc;
 	border-bottom: 2px solid #ccc;
+	border-radius: 10px;
 }.dark .NameAndId{
 	background-color: #222;
 	color: #fff;
