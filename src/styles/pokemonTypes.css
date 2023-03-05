@@ -1,95 +1,125 @@
-.type{
-	padding: 10px;
-	margin: 10px;
-}
-
 .normal {
 	background-color: #a8a878;
 	color: #fff;
-  }
-  
-  .fire {
+	padding: 4px;
+	border-radius: 100%;
+}
+
+.fire {
 	background-color: #f08030;
 	color: #fff;
-  }
-  
-  .water {
+	padding: 4px;
+	border-radius: 100%;
+}
+
+.water {
 	background-color: #6890f0;
 	color: #fff;
-  }
-  
-  .electric {
+	padding: 4px;
+	border-radius: 100%;
+}
+
+.electric {
 	background-color: #f8d030;
 	color: #fff;
-  }
-  
-  .grass {
+	padding: 4px;
+	border-radius: 100%;
+}
+
+.grass {
 	background-color: #78c850;
 	color: #fff;
-  }
-  
-  .ice {
+	padding: 4px;
+	border-radius: 100%;
+}
+
+.ice {
 	background-color: #98d8d8;
 	color: #000;
-  }
-  
-  .fighting {
+	padding: 4px;
+	border-radius: 100%;
+}
+
+.fighting {
 	background-color: #c03028;
 	color: #fff;
-  }
-  
-  .poison {
+	padding: 4px;
+	border-radius: 100%;
+}
+
+.poison {
 	background-color: #a040a0;
 	color: #fff;
-  }
-  
-  .ground {
+	padding: 4px;
+	border-radius: 100%;
+}
+
+.ground {
 	background-color: #e0c068;
 	color: #000;
-  }
-  
-  .flying {
+	padding: 4px;
+	border-radius: 100%;
+}
+
+.flying {
 	background-color: #a890f0;
 	color: #fff;
-  }
-  
-  .psychic {
+	padding: 4px;
+	border-radius: 100%;
+}
+
+.psychic {
 	background-color: #f85888;
 	color: #fff;
-  }
-  
-  .bug {
+	padding: 4px;
+	border-radius: 100%;
+}
+
+.bug {
 	background-color: #a8b820;
 	color: #fff;
-  }
-  
-  .rock {
+	padding: 4px;
+	border-radius: 100%;
+}
+
+.rock {
 	background-color: #b8a038;
 	color: #fff;
-  }
-  
-  .ghost {
+	padding: 4px;
+	border-radius: 100%;
+}
+
+.ghost {
 	background-color: #705898;
 	color: #fff;
-  }
-  
-  .dragon {
+	padding: 4px;
+	border-radius: 100%;
+}
+
+.dragon {
 	background-color: #7038f8;
 	color: #fff;
-  }
-  
-  .Dark {
+	padding: 4px;
+	border-radius: 100%;
+}
+
+.Dark {
 	background-color: #705848;
 	color: #fff;
-  }
-  
-  .steel {
+	padding: 4px;
+	border-radius: 100%;
+}
+
+.steel {
 	background-color: #b8b8d0;
 	color: #000;
-  }
-  
-  .fairy {
+	padding: 4px;
+	border-radius: 100%;
+}
+
+.fairy {
 	background-color: #ee99ac;
 	color: #000;
-  }
-  
+	padding: 4px;
+	border-radius: 100%;
+}

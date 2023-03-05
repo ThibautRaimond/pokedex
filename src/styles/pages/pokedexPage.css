@@ -25,6 +25,9 @@ div.right {
 
 
 /* --------------------------- LEFT PART --------------------------- */
+.test{
+	background-color: none;
+}
 
 div.curve1_left {
 	width: 201px;
