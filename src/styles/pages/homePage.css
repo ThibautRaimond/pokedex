@@ -9,6 +9,17 @@
 	background-color: #222;
 	color: #fff;
 }
+
+.generationSelectContainer{
+	font-family: 'Press Start 2P', sans-serif;
+	display: flex;
+	align-items: center;
+}
+
+.generationText{
+
+}
+
 .generationSelect{
 		margin-bottom: 2px;
 		border: 1px solid var(--select-border);
@@ -19,8 +30,7 @@
 		background-color: #222;
 		background-image: linear-gradient(to top, #222, #222222f5 33%);
 		border: 1px solid #fff;
-		color: #fff;
-		
+		color: #fff;		
 	}.dark .generationSelect{
 		background-color: #fff;
 		background-image: linear-gradient(to top, #f9f9f9, #fff 33%);

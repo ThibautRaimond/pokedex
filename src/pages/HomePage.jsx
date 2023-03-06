@@ -68,7 +68,7 @@ const HomePage = () => {
 	return (
 		<main className="homePage">
 			<div className="generationSelectContainer">
-				<label htmlFor="generationText">Sélectionner une génération </label>
+				<label htmlFor="generationText">Génération(s) </label>
 				<select
 					className="generationSelect"
 					value={generation}
