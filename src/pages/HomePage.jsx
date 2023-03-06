@@ -6,7 +6,7 @@ import "../styles/resetCss.css";
 import "../styles/pages/homePage.css";
 import "../styles/loader.css"
 
-const generationPokemonCount = [151, 251, 386, 493, 649, 721, 809, 1008];
+const generationPokemonCount = [151, 251, 386, 493, 649, 721, 809, 898];
 const HomePage = () => {
 	const [loading, setLoading] = useState(true);
 	const [searchTerm, setSearchTerm] = useState("");
