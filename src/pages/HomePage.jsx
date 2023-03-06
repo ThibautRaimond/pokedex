@@ -4,14 +4,23 @@ import { Link } from "react-router-dom";
 
 import "../styles/resetCss.css";
 import "../styles/pages/homePage.css";
+import "../styles/loader.css"
 
-const generationPokemonCount = [151, 251, 386, 493, 649, 721, 809, 898];
-
+const generationPokemonCount = [151, 251, 386, 493, 649, 721, 809, 1008];
 const HomePage = () => {
+	const [loading, setLoading] = useState(true);
 	const [searchTerm, setSearchTerm] = useState("");
 	const [pokemonDetails, setPokemonDetails] = useState([]);
 	const [offset, setOffset] = useState(0);
 	const [generation, setGeneration] = useState(0);
+
+	const handleGenerationChange = (event) => {
+		setGeneration(parseInt(event.target.value));
+	};
+
+	const handleClick = () => {
+		setOffset((prevOffset) => prevOffset + generationPokemonCount[generation]);
+	};
 
 	const fetchData = async () => {
 		const count = generationPokemonCount[generation];
@@ -36,6 +45,7 @@ const HomePage = () => {
 			})
 		);
 		setPokemonDetails([...pokemonDetails, ...details]);
+		setLoading(false);
 	};
 
 	useEffect(() => {
@@ -48,22 +58,6 @@ const HomePage = () => {
 			pokemon.id.toString() === searchTerm
 		);
 	});
-
-	const handleGenerationChange = (event) => {
-		const selectedGeneration = parseInt(event.target.value);
-		setGeneration(selectedGeneration);
-		setOffset(0);
-		setPokemonDetails([]);
-	};
-
-	const handleClick = () => {
-		const newGeneration = generation + 1;
-		if (newGeneration < generationPokemonCount.length) {
-			setGeneration(newGeneration);
-			setOffset(0);
-			setPokemonDetails([]);
-		}
-	};
 
 	return (
 		<main className="homePage">
@@ -88,22 +82,31 @@ const HomePage = () => {
 				onChange={(event) => setSearchTerm(event.target.value)}
 				className="searchPokemon"
 			/>
-			<ul className="pokemons">
-				{filteredPokemonDetails.map((pokemon, index) => (
-					<li className={` ${pokemon.types[0]} pokemon`} key={index}>
-					<span className="left"></span>
-					<span className="right"></span>
+
+			{loading ? (
+				<div className="loader"> 
+				<p className="loaderText">Chargement des pokemons</p>
+				<div class="lds-facebook"><div></div><div></div><div></div></div>
+				</div>
 				
-						<Link to={`/pokedex/pokemon/${pokemon.id}`}>
-							<div className="NameAndId">
-							<p >{pokemon.name}</p>
-							<p>N°{pokemon.id}</p>
-							</div>
-							<img src={pokemon.image} alt={pokemon.name} />
-						</Link>
-					</li>
-				))}
-			</ul>
+			) : (
+				<ul className="pokemons">
+					{filteredPokemonDetails.map((pokemon, index) => (
+						<li className={` ${pokemon.types[0]} pokemon`} key={index}>
+							<span className="left"></span>
+							<span className="right"></span>
+
+							<Link to={`/pokedex/pokemon/${pokemon.id}`}>
+								<div className="NameAndId">
+									<p>{pokemon.name}</p>
+									<p>N°{pokemon.id}</p>
+								</div>
+								<img src={pokemon.image} alt={pokemon.name} />
+							</Link>
+						</li>
+					))}
+				</ul>
+			)}
 
 			<button onClick={handleClick} className="morePokemonsButton">
 				+1 Génération
