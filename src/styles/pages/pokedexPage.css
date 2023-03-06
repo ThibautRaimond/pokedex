@@ -947,10 +947,11 @@ div.yellowBox2
 }
 .weightDiv{
 	display: flex;
+	margin-right: 6px ;
 }
 .heightDiv{
 	display: flex;
-	margin-left: 5px;
+	margin-left: 6px;
 }
 .weightH2{
 	margin-right: 5px;
