@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/pokedex/static/css/main.9eb21d75.css",
-    "main.js": "/pokedex/static/js/main.f12c120c.js",
+    "main.js": "/pokedex/static/js/main.47ad1d48.js",
     "static/media/Poppins-Black.ttf": "/pokedex/static/media/Poppins-Black.eacee5bb9c7fee5939ae.ttf",
     "static/media/PressStart2P.ttf": "/pokedex/static/media/PressStart2P.2ebf1a35a67b4271603e.ttf",
     "static/media/pokemon.png": "/pokedex/static/media/pokemon.d4fe64320c02b186927e.png",
     "index.html": "/pokedex/index.html",
     "main.9eb21d75.css.map": "/pokedex/static/css/main.9eb21d75.css.map",
-    "main.f12c120c.js.map": "/pokedex/static/js/main.f12c120c.js.map"
+    "main.47ad1d48.js.map": "/pokedex/static/js/main.47ad1d48.js.map"
   },
   "entrypoints": [
     "static/css/main.9eb21d75.css",
-    "static/js/main.f12c120c.js"
+    "static/js/main.47ad1d48.js"
   ]
 }
