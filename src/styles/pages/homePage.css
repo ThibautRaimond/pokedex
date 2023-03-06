@@ -109,7 +109,7 @@
 	background: #fffb00;
 	box-shadow: rgb(255, 2, 2) 0px -23px 45px 3px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 	box-sizing: border-box;
-	color: #222222;
+	color: black;
 	cursor: pointer;
 	font-family: 'Press Start 2P', sans-serif;
 	font-size: 12px;
@@ -131,5 +131,5 @@
 	transform: scale(0.98);
 	color: #fff;
 } .darkMode .morePokemonsButton:hover {
-	color: #222;
+	color: black;
 	}

@@ -292,7 +292,7 @@ div.screen:after
 }
 .pokemonInfoDiv{
 	position: absolute;
-	bottom: 10px;
+	bottom: 6px;
 	color: white;
 	display: flex;
 	flex-wrap: wrap;
@@ -306,6 +306,9 @@ div.screen:after
 }
 .pokemonName{
 	font-weight: bold;
+}
+.pokemonId{
+	margin-top: 4px;
 }
 .typesContainer{
 	display: flex;
