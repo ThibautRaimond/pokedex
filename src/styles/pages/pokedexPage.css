@@ -14,7 +14,7 @@ div.left {
 	float: left;
 	position: relative;
 	z-index: 1;
-	font-size: 11px;
+	font-size: 10px;
 	font-family: 'Press Start 2P', sans-serif;
 }
 
@@ -23,14 +23,11 @@ div.right {
 	height: 500px;
 	float: left;
 	position: relative;
-	font-size: 16px;
+	font-size: 13px;
 }
 
 
 /* --------------------------- LEFT PART --------------------------- */
-.test{
-	background-color: none;
-}
 
 div.curve1_left {
 	width: 201px;
@@ -242,14 +239,13 @@ div.junction2
 div.screen
 {
 	height: 260px;
-	width: 280px;
-	padding: 0 20px;
+	width: 290px;
+	padding: 0 20px 0 11px;
 	background-color: #b0b0b0;
 	float:left;
 	position: absolute;
 	top: 110px;
 	left: 19px;
-
 	border-radius: 15px;
 	-webkit-border-radius: 15px;
 	-moz-border-radius: 15px;
@@ -262,7 +258,6 @@ div.screen:after
 	border-top: 40px solid #b0b0b0;
 	border-left: 40px solid #c00d0d;
 	height: 0;
-
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -270,7 +265,7 @@ div.screen:after
 
 .greyContainer{
 	height: 180px;
-	width: 250px;
+	width: 270px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -282,7 +277,6 @@ div.screen:after
 	-webkit-border-radius: 15px;
 	-moz-border-radius: 15px;
 	-o-border-radius: 15px;
-	display: flex;
 }
 .pictureDiv
 {
@@ -316,10 +310,11 @@ div.screen:after
 .typesContainer{
 	display: flex;
 	margin-top: 4px;
+	font-size: 8px;
 }
 .typesH2{
 	font-weight: bold;
-	margin-right: 5px;
+	margin: 4px 5px 0 0;
 }
 
 div.topPicture
