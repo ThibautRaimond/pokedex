@@ -10,7 +10,7 @@ const Navbar = () => {
 
 	const handleToggle = () => {
 		setDarkMode(!darkMode);
-		document.body.classList.toggle("dark");
+		document.body.classList.toggle("darkMode");
 	};
 
 	return (

@@ -5,7 +5,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-}.dark .homePage{
+}.darkMode .homePage{
 	background-color: #222;
 	color: #fff;
 }
@@ -31,7 +31,7 @@
 		background-image: linear-gradient(to top, #222, #222222f5 33%);
 		border: 1px solid #fff;
 		color: #fff;		
-	}.dark .generationSelect{
+	}.darkMode .generationSelect{
 		background-color: #fff;
 		background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
 		border: 1px solid #222;
@@ -51,7 +51,7 @@
 		display: block;
 		border-bottom: 0.3rem solid transparent;
 		transition: all 0.3s;
-	}.dark .searchPokemon {
+	}.darkMode .searchPokemon {
 		color: #222;
 		background-color: #fff;
 	}
@@ -72,12 +72,11 @@
 	transition: box-shadow .3s;
 	border: 1px solid #ccc;
 	border-radius: 20px;
-	background: #fff;
 	float: left;
 	transition: all 0.4s;
 	font-family: Helvetica, sans-serif;
 	
-}.dark .pokemon{
+}.darkMode .pokemon{
 	color: #fff;
 	background-color: #222;
 	border: 1px solid #464646;
@@ -87,7 +86,7 @@
 	border: 2px solid #20202088;
 	font-weight: bold;
 }
-.dark .pokemon:hover{
+.darkMode .pokemon:hover{
 	box-shadow: rgb(255, 255, 255) 80px 180px 240px -12px inset, rgba(207, 207, 207, 0.3) 0px 18px 36px -18px inset;
 	border: 2px solid #77767688;
 }
@@ -98,7 +97,7 @@
 	border-radius: 20px 20px 0px 0px ;
 	border: 1px solid #ccc;
 	border-bottom: 2px solid #ccc;
-}.dark .NameAndId{
+}.darkMode .NameAndId{
 	background-color: #222;
 	color: #fff;
 	border: 1px solid #464646;
@@ -125,12 +124,12 @@
 	word-break: break-word;
 	border: 0;
 	transition: 0.2s all;
-} .dark .morePokemonsButton {
+} .darkMode .morePokemonsButton {
 	color: #fff
 }
 .morePokemonsButton:hover {
 	transform: scale(0.98);
 	color: #fff;
-} .dark .morePokemonsButton:hover {
+} .darkMode .morePokemonsButton:hover {
 	color: #222;
 	}

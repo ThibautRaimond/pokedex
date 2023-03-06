@@ -678,7 +678,7 @@ div.bg_curve1_right
 	-moz-border-top-right-radius: 30px;
 	-o-border-top-right-radius: 30px;
 }
-.dark div.bg_curve1_right{
+.darkMode div.bg_curve1_right{
 	background-color: #222;
 }
 
@@ -699,7 +699,7 @@ div.curve2_right
 	-moz-border-bottom-left-radius: 85px 60px;
 	-o-border-bottom-left-radius: 85px 60px;
 }
-.dark div.curve2_right{
+.darkMode div.curve2_right{
 	background-color: #222;
 }
 

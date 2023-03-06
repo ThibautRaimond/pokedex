@@ -35,7 +35,7 @@
 }
 
 /* dark-mode */
-.dark .navbar {
+.darkMode .navbar {
 	background-color: #222;
 	color: #fff;
 	box-shadow: 0 0 11px rgba(0, 0, 0, 0.2); 

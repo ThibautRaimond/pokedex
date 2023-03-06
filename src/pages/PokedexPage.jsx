@@ -92,7 +92,7 @@ const PokedexPage = ({ onToggle }) => {
 			case "dragon":
 				return "dragon";
 			case "dark":
-				return "Dark";
+				return "dark";
 			case "steel":
 				return "steel";
 			case "fairy":
@@ -191,10 +191,9 @@ const PokedexPage = ({ onToggle }) => {
 							</div>
 
 							<div className="pokemonInfoDiv">
-								
-									<h2 className="pokemonName">{pokemon.name}</h2> 
-									<h2>Pokemon N°{id}</h2>
-								
+								<h2 className="pokemonName">{pokemon.name}</h2>
+								<h2>Pokemon N°{id}</h2>
+
 								<p className="typesContainer">
 									<h2 className="typesH2">Type(s): </h2>
 									{pokemonTypes
