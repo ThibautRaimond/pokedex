@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/pokedex/static/css/main.f315b9ef.css",
-    "main.js": "/pokedex/static/js/main.97cadb78.js",
+    "main.css": "/pokedex/static/css/main.c4cb9e99.css",
+    "main.js": "/pokedex/static/js/main.207e94cb.js",
     "static/media/Poppins-Black.ttf": "/pokedex/static/media/Poppins-Black.eacee5bb9c7fee5939ae.ttf",
     "static/media/PressStart2P.ttf": "/pokedex/static/media/PressStart2P.2ebf1a35a67b4271603e.ttf",
     "static/media/pokemon.png": "/pokedex/static/media/pokemon.d4fe64320c02b186927e.png",
     "index.html": "/pokedex/index.html",
-    "main.f315b9ef.css.map": "/pokedex/static/css/main.f315b9ef.css.map",
-    "main.97cadb78.js.map": "/pokedex/static/js/main.97cadb78.js.map"
+    "main.c4cb9e99.css.map": "/pokedex/static/css/main.c4cb9e99.css.map",
+    "main.207e94cb.js.map": "/pokedex/static/js/main.207e94cb.js.map"
   },
   "entrypoints": [
-    "static/css/main.f315b9ef.css",
-    "static/js/main.97cadb78.js"
+    "static/css/main.c4cb9e99.css",
+    "static/js/main.207e94cb.js"
   ]
 }
