@@ -2,105 +2,20 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
+import { translateType, getTypeClassName } from '../components/functionsForType';
 import "../styles/pages/pokedexPage.css";
 import "../styles/pokemonTypes.css";
 
 const PokedexPage = ({ onToggle }) => {
+	// useParams récupère l'id présent dans l'URL
 	const { id } = useParams();
+	// toutes les infos des pokemons qu'on va pouvoir render:
 	const [pokemon, setPokemon] = useState(null);
 	const [pokemonTypes, setPokemonTypes] = useState([]);
 	const [pokemonWeight, setPokemonWeight] = useState(null);
 	const [pokemonHeight, setPokemonHeight] = useState(null);
 	const [pokemonCategory, setPokemonCategory] = useState(null);
 	const [pokemonGenders, setPokemonGenders] = useState([]);
-
-	const translateType = (type) => {
-		switch (type) {
-			case "normal":
-				return "Normal";
-			case "fire":
-				return "Feu";
-			case "water":
-				return "Eau";
-			case "electric":
-				return "Électrique";
-			case "grass":
-				return "Plante";
-			case "ice":
-				return "Glace";
-			case "fighting":
-				return "Combat";
-			case "poison":
-				return "Poison";
-			case "ground":
-				return "Sol";
-			case "flying":
-				return "Vol";
-			case "psychic":
-				return "Psy";
-			case "bug":
-				return "Insecte";
-			case "rock":
-				return "Roche";
-			case "ghost":
-				return "Spectre";
-			case "dragon":
-				return "Dragon";
-			case "dark":
-				return "Ténèbres";
-			case "steel":
-				return "Acier";
-			case "fairy":
-				return "Fée";
-			default:
-				return type;
-		}
-	};
-
-	const typesText = pokemonTypes.map((type) => translateType(type)).join(" ");
-
-	const getTypeClassName = (type) => {
-		switch (type) {
-			case "normal":
-				return "normal";
-			case "fire":
-				return "fire";
-			case "water":
-				return "water";
-			case "electric":
-				return "electric";
-			case "grass":
-				return "grass";
-			case "ice":
-				return "ice";
-			case "fighting":
-				return "fighting";
-			case "poison":
-				return "poison";
-			case "ground":
-				return "ground";
-			case "flying":
-				return "flying";
-			case "psychic":
-				return "psychic";
-			case "bug":
-				return "bug";
-			case "rock":
-				return "rock";
-			case "ghost":
-				return "ghost";
-			case "dragon":
-				return "dragon";
-			case "dark":
-				return "dark";
-			case "steel":
-				return "steel";
-			case "fairy":
-				return "fairy";
-			default:
-				return "type";
-		}
-	};
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -113,9 +28,11 @@ const PokedexPage = ({ onToggle }) => {
 			const name = speciesResponse.data.names.find(
 				(n) => n.language.name === "fr"
 			).name;
+
 			const description = speciesResponse.data.flavor_text_entries.find(
 				(t) => t.language.name === "fr"
 			).flavor_text;
+
 			const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
 			const backImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${id}.png`;
 
