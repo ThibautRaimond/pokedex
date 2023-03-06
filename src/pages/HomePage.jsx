@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import "../styles/resetCss.css";
 import "../styles/pages/homePage.css";
-import "../styles/loader.css"
+import "../styles/loader.css";
 
 const generationPokemonCount = [151, 251, 386, 493, 649, 721, 809, 898];
 const HomePage = () => {
@@ -52,9 +52,14 @@ const HomePage = () => {
 		fetchData();
 	}, [offset, generation]);
 
+	function removeAccents(str) {
+		return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+	}
 	const filteredPokemonDetails = pokemonDetails.filter((pokemon) => {
+		const nameWithoutAccents = removeAccents(pokemon.name.toLowerCase());
+		const searchTermWithoutAccents = removeAccents(searchTerm.toLowerCase());
 		return (
-			pokemon.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+			nameWithoutAccents.includes(searchTermWithoutAccents) ||
 			pokemon.id.toString() === searchTerm
 		);
 	});
@@ -84,11 +89,14 @@ const HomePage = () => {
 			/>
 
 			{loading ? (
-				<div className="loader"> 
-				<p className="loaderText">Chargement des pokemons</p>
-				<div class="lds-facebook"><div></div><div></div><div></div></div>
+				<div className="loader">
+					<p className="loaderText">Chargement des pokemons</p>
+					<div class="lds-facebook">
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
 				</div>
-				
 			) : (
 				<ul className="pokemons">
 					{filteredPokemonDetails.map((pokemon, index) => (
