@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-import { translateType, getTypeClassName } from '../components/functionsForType';
+import { translateType, getTypeClassName } from '../components/utils/functionsForType';
 import "../styles/pages/pokedexPage.css";
-import "../styles/pokemonTypes.css";
+import "../styles/components/pokemonTypes.css";
 
 const PokedexPage = () => {
 	// useParams récupère l'id présent dans l'URL

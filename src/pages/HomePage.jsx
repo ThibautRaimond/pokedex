@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-import "../styles/resetCss.css";
+import Loader from '../components/Loader';
 import "../styles/pages/homePage.css";
-import "../styles/loader.css";
+
 
 // Compteur de pokemon par génération:
 const generationPokemonCount = [151, 251, 386, 493, 649, 721, 809, 898];
@@ -135,23 +135,7 @@ const HomePage = () => {
 
 			{/* Loader activé au chargement le page*/}
 			{loading ? (
-				<div className="loader">
-					<p className="loaderText">Chargement des pokemons</p>
-					<div class="lds-spinner">
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-						<div></div>
-					</div>
-				</div>
+				<Loader />
 			) : (
 				<ul className="pokemons">
 					{selectedPokemons.map((pokemon, index) => (
@@ -169,9 +153,13 @@ const HomePage = () => {
 				</ul>
 			)}
 
-			<button onClick={handleClick} className="morePokemonsButton">
-				+1 Génération
-			</button>
+			{loading ? (
+				""
+			) : (
+				<button onClick={handleClick} className="morePokemonsButton">
+					+1 Génération
+				</button>
+			)}
 		</main>
 	);
 };

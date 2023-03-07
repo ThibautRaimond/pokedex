@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Router from "./components/Router";
+import Router from "./components/utils/Router";
 
 function App() {
 	const [isDarkMode, setIsDarkMode] = useState(false);
