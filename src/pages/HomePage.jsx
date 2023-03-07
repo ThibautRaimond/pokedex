@@ -108,12 +108,10 @@ const HomePage = () => {
 	// button +1 Generation" en bas de page
 	// vérifie la position de la génération et en rajoute une:
 	const handleClick = () => {
-		console.log("HandleClick");
 		setgenIndexForApi(
 			(generationPosition) =>
 				generationPosition + generationPokemonCount[generation]
 		);
-		setGeneration(generation + 1);
 	};
 
 	// --------------------------------------------------------------------------------
