@@ -60,6 +60,11 @@
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
+	opacity: 0;
+	transition: opacity 4s ease-in-out;
+}
+.pokemons--loaded {
+	opacity: 1;
 }
 
 .pokemon{

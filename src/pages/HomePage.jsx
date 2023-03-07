@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-import Loader from '../components/Loader';
+import Loader from "../components/Loader";
 import "../styles/pages/homePage.css";
-
 
 // Compteur de pokemon par génération:
 const generationPokemonCount = [151, 251, 386, 493, 649, 721, 809, 898];
@@ -70,27 +69,8 @@ const HomePage = () => {
 	const [loading, setLoading] = useState(true);
 
 	// --------------------------------------------------------------------------------
-	// Utilisation de la data:
 
-	// "Intérupteur": attend un évenement pour extraire les generation:
-	const handleGenerationChange = (event) => {
-		// parseInt transforme l'extraction en nombre entier:
-		setGeneration(parseInt(event.target.value));
-	};
-
-	// +1GenerationButton: vérifie la position de la generation et en rajoute une:
-	const handleClick = () => {
-		setgenIndexForApi(
-			(generationPosition) =>
-				generationPosition + generationPokemonCount[generation]
-		);
-	};
-
-	// Dès qu'il y a changement demande concernant la génération on met à jour à la data:
-	useEffect(() => {
-		fetchData();
-	}, [genIndexForApi, generation]);
-
+	// "Rechercher par nom ou ID"
 	// fonction pour que le insert fonctionne sans accents:
 	function removeAccents(str) {
 		return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -108,6 +88,35 @@ const HomePage = () => {
 	});
 
 	// --------------------------------------------------------------------------------
+
+	// CHANGEMENT DE GENERATION:
+
+	// Dès qu'il y a changement demande concernant la génération on met à jour à la data:
+	useEffect(() => {
+		console.log("useEffect");
+		fetchData();
+	}, [genIndexForApi, generation]);
+
+	// SelectGeneration en haut de page:
+	// Intérupteur: attend un événement pour extraire les generation:
+	const selectGenerationChange = (event) => {
+		// parseInt transforme l'extraction en nombre entier:
+		setGeneration(parseInt(event.target.value));
+		console.log("handleGenCHange");
+	};
+
+	// button +1 Generation" en bas de page
+	// vérifie la position de la génération et en rajoute une:
+	const handleClick = () => {
+		console.log("HandleClick");
+		setgenIndexForApi(
+			(generationPosition) =>
+				generationPosition + generationPokemonCount[generation]
+		);
+		setGeneration(generation + 1);
+	};
+
+	// --------------------------------------------------------------------------------
 	return (
 		<main className="homePage">
 			<div className="generationSelectContainer">
@@ -115,7 +124,7 @@ const HomePage = () => {
 				<select
 					className="generationSelect"
 					value={generation}
-					onChange={handleGenerationChange}
+					onChange={selectGenerationChange}
 				>
 					{generationPokemonCount.map((count, index) => (
 						<option key={index} value={index}>
@@ -137,7 +146,7 @@ const HomePage = () => {
 			{loading ? (
 				<Loader />
 			) : (
-				<ul className="pokemons">
+				<ul className={`pokemons${loading ? "" : " pokemons--loaded"}`}>
 					{selectedPokemons.map((pokemon, index) => (
 						// On attribue la class correspondante en fonction de l'index du chaque pokemon
 						<li className={` ${pokemon.types[0]} pokemon`} key={index}>
