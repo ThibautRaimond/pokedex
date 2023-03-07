@@ -6,7 +6,7 @@ import { translateType, getTypeClassName } from '../components/functionsForType'
 import "../styles/pages/pokedexPage.css";
 import "../styles/pokemonTypes.css";
 
-const PokedexPage = ({ onToggle }) => {
+const PokedexPage = () => {
 	// useParams récupère l'id présent dans l'URL
 	const { id } = useParams();
 	// toutes les infos des pokemons qu'on va pouvoir render:
@@ -18,6 +18,7 @@ const PokedexPage = ({ onToggle }) => {
 	const [pokemonGenders, setPokemonGenders] = useState([]);
 
 	useEffect(() => {
+		// on selectionne la data du pokemon concerné grace au id récupéré dans l'url:
 		const fetchData = async () => {
 			const response = await axios.get(
 				`https://pokeapi.co/api/v2/pokemon/${id}`
