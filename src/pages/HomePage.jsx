@@ -93,9 +93,14 @@ const HomePage = () => {
 
 	// Dès qu'il y a changement demande concernant la génération on met à jour à la data:
 	useEffect(() => {
-		console.log("useEffect");
+		// active le loader:
+		setLoading(true);
+		// on appel la data
 		fetchData();
+		// les dépendances sont: Index de la requête API et la gen selectionné:
 	}, [genIndexForApi, generation]);
+
+	// ------
 
 	// SelectGeneration en haut de page:
 	// Intérupteur: attend un événement pour extraire les generation:
@@ -108,6 +113,8 @@ const HomePage = () => {
 		setGeneration(parseInt(event.target.value));
 		console.log("handleGenCHange");
 	};
+
+	// ------
 
 	// button +1 Generation" en bas de page
 	// vérifie la position de la génération et en rajoute une:
