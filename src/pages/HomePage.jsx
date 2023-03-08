@@ -103,8 +103,7 @@ const HomePage = () => {
 		// Vide le contenu de la liste avant de l'exécuter:
 		const pokemonList = document.querySelector(".pokemons");
 		pokemonList.innerHTML = "";
-		// Relancer le chargement des données:
-		setLoading(true);
+
 		// parseInt transforme l'extraction en nombre entier:
 		setGeneration(parseInt(event.target.value));
 		console.log("handleGenCHange");

@@ -6,6 +6,9 @@
 	margin-top: 2em;
 	font-family: 'Press Start 2P', sans-serif;
 }
+.loaderText{
+	color: #C20303;
+}
 .lds-spinner {
 	color: official;
 	display: inline-block;
