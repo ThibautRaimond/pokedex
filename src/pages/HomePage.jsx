@@ -100,6 +100,11 @@ const HomePage = () => {
 	// SelectGeneration en haut de page:
 	// Intérupteur: attend un événement pour extraire les generation:
 	const selectGenerationChange = (event) => {
+		// Vide le contenu de la liste avant de l'exécuter:
+		const pokemonList = document.querySelector(".pokemons");
+		pokemonList.innerHTML = "";
+		// Relancer le chargement des données:
+		setLoading(true);
 		// parseInt transforme l'extraction en nombre entier:
 		setGeneration(parseInt(event.target.value));
 		console.log("handleGenCHange");
@@ -107,12 +112,17 @@ const HomePage = () => {
 
 	// button +1 Generation" en bas de page
 	// vérifie la position de la génération et en rajoute une:
-	const handleClick = () => {
-		setgenIndexForApi(
-			(generationPosition) =>
-				generationPosition + generationPokemonCount[generation]
-		);
-	};
+	function handleClick() {
+		// Gestion du +1 dans le select
+		const selectElement = document.querySelector(".generationSelect");
+		const currentValue = parseInt(selectElement.value);
+		const maxValue = selectElement.options.length - 1;
+		const nextValue = Math.min(currentValue + 1, maxValue);
+		selectElement.value = nextValue;
+
+		// appel de la fonction de changement de génération:
+		selectGenerationChange({ target: { value: nextValue } });
+	}
 
 	// --------------------------------------------------------------------------------
 	return (
