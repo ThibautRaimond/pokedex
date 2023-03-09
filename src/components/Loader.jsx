@@ -1,26 +1,5 @@
-import React from "react";
-import "../styles/components/loader.css";
+import "./Loader.css";
 
-function Loader() {
-	return (
-		<div className="loader">
-			<p className="loaderText">Chargement des pokemons</p>
-			<div className="lds-spinner">
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-			</div>
-		</div>
-	);
-}
+const Loader = () => <div className="ball"></div>;
 
 export default Loader;

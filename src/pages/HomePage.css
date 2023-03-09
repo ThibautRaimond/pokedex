@@ -60,11 +60,6 @@
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
-	opacity: 0;
-	transition: opacity 4s ease-in-out;
-}
-.pokemons--loaded {
-	opacity: 1;
 }
 
 .pokemon{
@@ -78,9 +73,6 @@
 	border: 1px solid #ccc;
 	border-radius: 20px;
 	float: left;
-	transition: all 0.4s;
-	font-family: Helvetica, sans-serif;
-	
 }.darkMode .pokemon{
 	color: #fff;
 	background-color: #222;
@@ -95,6 +87,8 @@
 	box-shadow: rgb(255, 255, 255) 80px 180px 240px -12px inset, rgba(207, 207, 207, 0.3) 0px 18px 36px -18px inset;
 	border: 2px solid #77767688;
 }
+
+
 
 .NameAndId{
 	background-color: #fff;

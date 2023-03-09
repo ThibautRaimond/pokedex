@@ -1,17 +1,12 @@
-import React, { useState } from "react";
-import Router from "./components/utils/Router";
+import Router from "./components/Router";
+import Layout from "./components/Layout/Layout";
 
-function App() {
-	const [isDarkMode, setIsDarkMode] = useState(false);
-
-	const toggleMode = () => {
-		setIsDarkMode(!isDarkMode);
-	};
-
+const App = () => {
+	
 	return (
-		<div className={isDarkMode ? "dark-mode" : "light-mode"}>
+		<Layout>
 			<Router />
-		</div>
+		</Layout>
 	);
 }
 
