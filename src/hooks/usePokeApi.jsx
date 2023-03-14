@@ -8,8 +8,23 @@ const fetchJsonData = async (url) => {
 const speciesBaseUrl = "https://pokeapi.co/api/v2/pokemon-species";
 const baseUrl = "https://pokeapi.co/api/v2/pokemon";
 
-const useSpeciesApi = (params) => {
-	const { from = 1, to = 898 } = params;
+const generations = {
+	gen1: { from: 1, to: 151 },
+	gen2: { from: 152, to: 251 },
+	gen3: { from: 252, to: 386 },
+	gen4: { from: 387, to: 493 },
+	gen5: { from: 494, to: 649 },
+	gen6: { from: 650, to: 721 },
+	gen7: { from: 722, to: 809 },
+	gen8: { from: 810, to: 898 },
+};
+export { generations };
+
+const useSpeciesApi = ({
+	gen = "gen1",
+	from = generations[gen].from,
+	to = generations[gen].to,
+}) => {
 	const [data, setData] = useState(null);
 	const [isLoading, setIsLoading] = useState(false);
 	const [isError, setIsError] = useState(false);
@@ -19,17 +34,13 @@ const useSpeciesApi = (params) => {
 			setIsLoading(true);
 			setIsError(false);
 
-			// Fetch(fonction qui questionne un URL) qui remplace axios:
 			try {
-				// Recuperation des données depuis l'api + convertion en json:
 				const response = await fetch(
 					`${speciesBaseUrl}?offset=${from - 1}&limit=${to}`
 				);
 				const json = await response.json();
 
-				// Nouveau call API pour chaque Pokemon pour acceder aux données traduites et aux types:
 				const translatedPokemons = await Promise.all(
-					// url necessaire pour le onClick des pokemons
 					json.results.map(async ({ url }) => {
 						const { names, id } = await fetchJsonData(url);
 						const { types } = await fetchJsonData(`${baseUrl}/${id}`);
@@ -49,11 +60,9 @@ const useSpeciesApi = (params) => {
 
 			setIsLoading(false);
 		})();
-	}, [from, to]);
+	}, [gen, from, to]);
 
 	return { data, isLoading, isError };
 };
 
 export { useSpeciesApi };
-
-

@@ -1,47 +1,72 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useSpeciesApi } from "../hooks/usePokeApi";
+
+import { useSpeciesApi, generations } from "../hooks/usePokeApi";
 import Loader from "../components/Loader";
 import "./HomePage.css";
 
-const HomePage = () => {
-	const { data, isLoading, isError } = useSpeciesApi({ from: 1, to: 151 });
+const { gen1, gen2, gen3, gen4, gen5, gen6, gen7, gen8 } = generations;
 
-	// Rechercher par nom ou ID:
-	// fonction pour que le insert fonctionne sans accents:
-	
-	// function removeAccents(str) {
-	// 	return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-	// }
-	// // on filtre tout les pokemons et réinitialise les accents:
-	// const selectedPokemons = pokemonDetails.filter((pokemon) => {
-	// 	// sur le pokemon recherché:
-	// 	const nameWithoutAccents = removeAccents(pokemon.name.toLowerCase());
-	// 	// et dans le input:
-	// 	const searchTermWithoutAccents = removeAccents(searchTerm.toLowerCase());
-	// 	return (
-	// 		nameWithoutAccents.includes(searchTermWithoutAccents) ||
-	// 		pokemon.id.toString() === searchTerm
-	// 	);
-	// });
+const HomePage = () => {
+	// Déclaration du state "generations" initialisé à un objet avec toutes les générations
+	const [generationsState, setGenerationsState] = useState({
+		gen1: true,
+		gen2: false,
+		gen3: false,
+		gen4: false,
+		gen5: false,
+		gen6: false,
+		gen7: false,
+		gen8: false,
+	});
+
+	const selectedGenerations = Object.entries(generationsState)
+		.filter(([gen, isSelected]) => isSelected)
+		.map(([gen, isSelected]) => gen);
+
+	const genFrom = selectedGenerations.reduce(
+		(acc, gen) => Math.min(acc, generations[gen].from),
+		Number.MAX_SAFE_INTEGER
+	);
+	const genTo = selectedGenerations.reduce(
+		(acc, gen) => Math.max(acc, generations[gen].to),
+		Number.MIN_SAFE_INTEGER
+	);
+
+	// Utilisation du hook useSpeciesApi avec les valeurs actuelles de "genFrom" et "genTo"
+	const { data, isLoading, isError } = useSpeciesApi({
+		from: genFrom,
+		to: genTo,
+	});
+
+	const handleChangeGeneration = (gen) => {
+		setGenerationsState({
+			...generationsState,
+			[gen]: !generationsState[gen],
+		});
+	};
 
 	return (
 		<main className="homePage">
 			<div className="generationSelectContainer">
-				<label htmlFor="generationText">Génération(s) </label>
+				<label htmlFor="generationText">Générations </label>
+				{Object.entries(generationsState).map(([gen, isSelected]) => (
+					<label key={gen} htmlFor={gen}>
+						<input
+							type="checkbox"
+							name={gen}
+							id={gen}
+							checked={isSelected}
+							onChange={() => handleChangeGeneration(gen)}
+						/>
+						{gen.toUpperCase()}{" "}
+					</label>
+				))}
 			</div>
-			<input
-				type="text"
-				placeholder="Rechercher par nom ou ID"
-				// value={searchTerm}
-				// on recherche les pokemons (via name & ID) en fonction de la GEN
-				// onChange={(event) => setSearchTerm(event.target.value)}
-				className="searchPokemon"
-			/>
 
 			{isLoading && <Loader />}
 			{isError && <p>Dommage...</p>}
 			{data && (
-
 				<ul className={"pokemons"}>
 					{data.map(({ id, name, types, sprite }, index) => (
 						// On attribue la class correspondante en fonction de l'index du chaque pokemon
@@ -60,4 +85,5 @@ const HomePage = () => {
 		</main>
 	);
 };
+
 export default HomePage;
