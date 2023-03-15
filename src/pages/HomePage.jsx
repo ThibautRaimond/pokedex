@@ -2,48 +2,24 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { useSpeciesApi } from "../hooks/usePokeApi";
-import { useGeneretions, generations } from "../hooks/useGenerations"
+import { useGenerations } from "../hooks/useGenerations";
 import Loader from "../components/Loader";
 import "./HomePage.css";
 
 const HomePage = () => {
-	// Déclaration du state "generations" initialisé à un objet avec toutes les générations
-	const [generationsState, setGenerationsState] = useState({
-		1: true,
-		2: false,
-		3: false,
-		4: false,
-		5: false,
-		6: false,
-		7: false,
-		8: false,
-	});
-
-	const selectedGenerations = Object.entries(generationsState)
-		.filter(([gen, isSelected]) => isSelected)
-		.map(([gen, isSelected]) => gen);
-
-	const genFrom = selectedGenerations.reduce(
-		(acc, gen) => Math.min(acc, generations[gen].from),
-		Number.MAX_SAFE_INTEGER
-	);
-	const genTo = selectedGenerations.reduce(
-		(acc, gen) => Math.max(acc, generations[gen].to),
-		Number.MIN_SAFE_INTEGER
-	);
+	const {
+		generationsState,
+		selectedGenerations,
+		genFrom,
+		genTo,
+		handleChangeGeneration,
+	} = useGenerations();
 
 	// Utilisation du hook useSpeciesApi avec les valeurs actuelles de "genFrom" et "genTo"
 	const { data, isLoading, isError } = useSpeciesApi({
 		from: genFrom,
 		to: genTo,
 	});
-
-	const handleChangeGeneration = (gen) => {
-		setGenerationsState({
-			...generationsState,
-			[gen]: !generationsState[gen],
-		});
-	};
 
 	return (
 		<main className="homePage">
