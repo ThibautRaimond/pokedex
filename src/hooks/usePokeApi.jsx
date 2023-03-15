@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { generations } from "./useGenerations"
+import { generations } from "./useGenerations";
 
 const fetchJsonData = async (url) => {
 	const response = await fetch(url);
@@ -25,7 +25,7 @@ const useSpeciesApi = ({
 
 			try {
 				const response = await fetch(
-					`${speciesBaseUrl}?offset=${from - 1}&limit=${to}`
+					`${speciesBaseUrl}?offset=${from - 1}&limit=${to - from + 1}`
 				);
 				const json = await response.json();
 
