@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { generations } from "./useGenerations"
 
 const fetchJsonData = async (url) => {
 	const response = await fetch(url);
@@ -8,20 +9,8 @@ const fetchJsonData = async (url) => {
 const speciesBaseUrl = "https://pokeapi.co/api/v2/pokemon-species";
 const baseUrl = "https://pokeapi.co/api/v2/pokemon";
 
-const generations = {
-	gen1: { from: 1, to: 151 },
-	gen2: { from: 152, to: 251 },
-	gen3: { from: 252, to: 386 },
-	gen4: { from: 387, to: 493 },
-	gen5: { from: 494, to: 649 },
-	gen6: { from: 650, to: 721 },
-	gen7: { from: 722, to: 809 },
-	gen8: { from: 810, to: 898 },
-};
-export { generations };
-
 const useSpeciesApi = ({
-	gen = "gen1",
+	gen = "1",
 	from = generations[gen].from,
 	to = generations[gen].to,
 }) => {

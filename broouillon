@@ -1,0 +1,61 @@
+import { useSpeciesApi } from "../hooks/usePokeApi";
+
+import { Link } from "react-router-dom";
+import { useSpeciesApi } from "../hooks/usePokeApi";
+import Loader from "../components/Loader";
+import useGenerations from "../hooks/useGenerations";
+import "./HomePage.css";
+
+const { gen1, gen2, gen3, gen4, gen5, gen6, gen7, gen8 } = generations;
+
+const HomePage = () => {
+	const {
+		selectedGenerations,
+		handleGenerationSelection,
+		getSelectedGenerations,
+	} = useGenerations();
+
+	const { data, isLoading, isError } = useSpeciesApi({
+		generations: getSelectedGenerations(),
+	});
+
+	return (
+		<main className="homePage">
+			<div className="generationSelectContainer">
+				<label htmlFor="generationText">Générations</label>
+				{Object.entries(selectedGenerations).map(([gen, isSelected]) => (
+					<div key={gen}>
+						<input
+							type="checkbox"
+							id={gen}
+							name={gen}
+							checked={isSelected}
+							onChange={handleGenerationSelection}
+						/>
+						<label htmlFor={gen}>{`Gen ${gen.slice(-1)}`}</label>
+					</div>
+				))}
+			</div>
+
+			{isLoading && <Loader />}
+			{isError && <p>Dommage...</p>}
+			{data && (
+				<ul className={"pokemons"}>
+					{data.map(({ id, name, types, sprite }, index) => (
+						<li className={` ${types[0]} pokemon`} key={index}>
+							<Link to={`/pokedex/pokemon/${id}`}>
+								<div className="NameAndId">
+									<p>{name}</p>
+									<p>N°{id}</p>
+								</div>
+								<img src={sprite} alt={name} />
+							</Link>
+						</li>
+					))}
+				</ul>
+			)}
+		</main>
+	);
+};
+
+export default HomePage;

@@ -1,23 +1,22 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { useSpeciesApi, generations } from "../hooks/usePokeApi";
+import { useSpeciesApi } from "../hooks/usePokeApi";
+import { useGeneretions, generations } from "../hooks/useGenerations"
 import Loader from "../components/Loader";
 import "./HomePage.css";
-
-const { gen1, gen2, gen3, gen4, gen5, gen6, gen7, gen8 } = generations;
 
 const HomePage = () => {
 	// Déclaration du state "generations" initialisé à un objet avec toutes les générations
 	const [generationsState, setGenerationsState] = useState({
-		gen1: true,
-		gen2: false,
-		gen3: false,
-		gen4: false,
-		gen5: false,
-		gen6: false,
-		gen7: false,
-		gen8: false,
+		1: true,
+		2: false,
+		3: false,
+		4: false,
+		5: false,
+		6: false,
+		7: false,
+		8: false,
 	});
 
 	const selectedGenerations = Object.entries(generationsState)

@@ -80,12 +80,11 @@
 }
 .pokemon:hover {
 	box-shadow: rgba(0, 0, 0, 0.726) 200px 0px 0px  -12px inset, rgb(0, 0, 0) 10px 18px 36px -18px inset;
-	border: 2px solid #20202088;
-	font-weight: bold;
+	border: 1px solid #20202088;
 }
 .darkMode .pokemon:hover{
 	box-shadow: rgb(255, 255, 255) 80px 180px 240px -12px inset, rgba(207, 207, 207, 0.3) 0px 18px 36px -18px inset;
-	border: 2px solid #77767688;
+	border: 1px solid #77767688;
 }
 
 
