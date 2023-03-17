@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 import { generations } from "./useGenerations";
 
 const fetchJsonData = async (url) => {

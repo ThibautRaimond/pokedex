@@ -1,8 +1,3 @@
-.pokedexBody{
-	min-width: 750px;
-	min-height: 800px;
-}
-
 .pokedex {
 	width: 750px;
 	margin: 20px auto 0 auto;	
@@ -16,6 +11,7 @@ div.left {
 	z-index: 1;
 	font-size: 10px;
 	font-family: 'Press Start 2P', sans-serif;
+	
 }
 
 div.right {
