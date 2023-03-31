@@ -1,26 +1,25 @@
-import { Link } from "react-router-dom";
-import { useTheme } from "../../hooks/useTheme";
-import ThemeToggler from "../Inputs/Toggle";
+import { Link, useLocation } from "react-router-dom";
+import { AiTwotoneHome } from "react-icons/ai";
 
+import { useTheme } from "../../hooks/useTheme";
+import ThemeToggler from "../Inputs/toggleTheme";
 import "./Navbar.css";
-import LogoPokemon from "../../assets/pokemon.png";
 
 const Navbar = () => {
 	const { theme, toggleTheme } = useTheme();
+	const location = useLocation();
 
 	return (
 		<nav className="navbar">
-			<Link to="/pokedex" className="navbar__logoPokemonContainer">
-				<img
-					className="logoPokemon"
-					src={LogoPokemon}
-					alt="Logo Pokemon"
-					style={{ width: "75px" }}
-				/>
+			<Link
+				to="/pokedex"
+				onClick={() => {
+					if (location.pathname === "/pokedex") window.location.reload();
+				}}
+			>
+				<AiTwotoneHome className="closeIcon menuIcon" alt="Bouton Accueil"/>
 			</Link>
-
 			<h1 className="navbar__title">POKEDEX</h1>
-
 			<ThemeToggler onChange={toggleTheme} state={theme} icons={["🌙", "☀️"]} />
 		</nav>
 	);

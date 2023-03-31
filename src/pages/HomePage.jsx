@@ -12,12 +12,8 @@ const HomePage = () => {
 
 	const [selectedTypes, setSelectedTypes] = useState([]);
 
-	const {
-		generationsState,
-		genFrom,
-		genTo,
-		handleChangeGeneration,
-	} = useGenerations();
+	const { generationsState, genFrom, genTo, handleChangeGeneration } =
+		useGenerations();
 
 	// Utilisation du hook useSpeciesApi avec les valeurs actuelles de "genFrom" et "genTo"
 	const { data, isLoading, isError } = useSpeciesApi({
@@ -26,9 +22,14 @@ const HomePage = () => {
 	});
 
 	return (
-		<main className="homePage">
-			<div className="generationSelectContainer">
-				<label htmlFor="generationText">Générations </label>
+		<main className="homePageContainer">
+			<div className="homePageContainer__searchPokemonContainer">
+
+
+			<div className="searchPokemonContainer__generationSelectContainer">
+				<label htmlFor="generationSelectContainer__generationText">
+					Générations{" "}
+				</label>
 				{Object.entries(generationsState).map(([gen, isSelected]) => (
 					<label key={gen} htmlFor={gen}>
 						<input
@@ -43,7 +44,7 @@ const HomePage = () => {
 				))}
 			</div>
 
-			<div className="typeSelectContainer">
+			<div className="searchPokemonContainer__typeSelectContainer">
 				<label htmlFor="typeSelect"></label>
 				{[
 					"normal",
@@ -84,20 +85,19 @@ const HomePage = () => {
 				))}
 			</div>
 
-			<div className="searchPokemonContainer">
-				<input
-				className="searchPokemon"
-					type="text"
-					placeholder="Rechercher un Pokémon..."
-					value={searchQuery}
-					onChange={(e) => setSearchQuery(e.target.value)}
-				/>
-			</div>
+			<input
+				className="homePageContainer__searchPokemonByName"
+				type="text"
+				placeholder="Nom du pokemon"
+				value={searchQuery}
+				onChange={(e) => setSearchQuery(e.target.value)}
+			/>
+				</div>
 
 			{isLoading && <Loader />}
 			{isError && <p>Dommage...</p>}
 			{data && (
-				<ul className={"pokemons"}>
+				<ul className={"homePageContainer__pokemonsContainer"}>
 					{data
 						.filter(
 							({ name, types }) =>
@@ -117,9 +117,12 @@ const HomePage = () => {
 						)
 						.map(({ id, name, types, sprite }, index) => (
 							// On attribue la class correspondante en fonction de l'index du chaque pokemon
-							<li className={` ${types[0]} pokemon`} key={index}>
+							<li
+								className={` ${types[0]} pokemonsContainer__pokemon`}
+								key={index}
+							>
 								<Link to={`/pokedex/pokemon/${id}`}>
-									<div className="NameAndId">
+									<div className="pokemon__NameAndId">
 										<p>{name}</p>
 										<p>N°{id}</p>
 									</div>

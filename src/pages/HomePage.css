@@ -1,36 +1,51 @@
-.homePage{
+body { cursor:url('../assets/pokedex.png'), auto;}
+
+.homePageContainer{
 	background-color: #fff;
 	color: black;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-}.darkMode .homePage{
+}.darkMode .homePageContainer{
 	background-color: #222;
 	color: #fff;
 }
 
-.generationSelectContainer{
-	font-family: 'Press Start 2P', sans-serif;
+/* --- */
+.homePageContainer__searchPokemonContainer{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
+}
+
+/* --- */
+.searchPokemonContainer__generationSelectContainer{
 	display: flex;
 	align-items: center;
+	font-family: 'Roboto', sans-serif;
+}
+.generationSelectContainer__generationText{
+
 }
 
-.generationText{
-
-}
-.typeSelectContainer{
+/* -- */
+.searchPokemonContainer__typeSelectContainer{
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
+	font-family: 'Roboto', sans-serif;
 }
-.searchPokemon {
+
+/* --- */
+.homePageContainer__searchPokemonByName {
 		margin: 2px 0 5px 0;
 		font-family: 'Roboto', sans-serif;
 		color: #fff;
-		font-size: 1.2rem;
-		padding: 5px 0 5px 30px;
+		font-size: 1rem;
+		padding: 5px 0 5px 0px;
 		border-radius: 0.2rem;
 		background-color: #222222f5;
 		border: none;
@@ -38,18 +53,19 @@
 		display: block;
 		border-bottom: 0.3rem solid transparent;
 		transition: all 0.3s;
-	}.darkMode .searchPokemon {
+	}.darkMode .homePageContainer__searchPokemonByName {
 		color: #222;
 		background-color: #fff;
 	}
 
-.pokemons{
+	/* -------- */
+.homePageContainer__pokemonsContainer{
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
 }
 
-.pokemon{
+.pokemonsContainer__pokemon{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -60,29 +76,24 @@
 	border: 1px solid #ccc;
 	border-radius: 20px;
 	float: left;
-}.darkMode .pokemon{
+}.darkMode .pokemonsContainer__pokemon{
 	color: #fff;
 	background-color: #222;
 	border: 1px solid #464646;
 }
-.pokemon:hover {
-	box-shadow: rgba(0, 0, 0, 0.726) 200px 0px 0px  -12px inset, rgb(0, 0, 0) 10px 18px 36px -18px inset;
+.pokemonsContainer__pokemon:hover {
+	cursor: url('../assets/pokedex.png'), auto;
 	border: 1px solid #20202088;
-}
-.darkMode .pokemon:hover{
-	box-shadow: rgb(255, 255, 255) 80px 180px 240px -12px inset, rgba(207, 207, 207, 0.3) 0px 18px 36px -18px inset;
-	border: 1px solid #77767688;
-}
+}  
 
 
-
-.NameAndId{
+.pokemon__NameAndId{
 	background-color: #fff;
 	color: #000;
 	border-radius: 20px 20px 0px 0px ;
 	border: 1px solid #ccc;
 	border-bottom: 2px solid #ccc;
-}.darkMode .NameAndId{
+}.darkMode .pokemon__NameAndId{
 	background-color: #222;
 	color: #fff;
 	border: 1px solid #464646;

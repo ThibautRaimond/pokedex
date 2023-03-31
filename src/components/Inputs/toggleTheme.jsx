@@ -1,6 +1,6 @@
-import "./Toggle.css";
+import "./toggleTheme.css";
 
-const Toggle = ({ onChange, state, icons }) => {
+const toggleTheme = ({ onChange, state, icons }) => {
 	return (
 		<div className="toggle">
 			<input
@@ -29,6 +29,4 @@ const Toggle = ({ onChange, state, icons }) => {
 	);
 };
 
-export default Toggle;
-
-//
+export default toggleTheme;

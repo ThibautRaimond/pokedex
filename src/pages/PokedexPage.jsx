@@ -69,144 +69,60 @@ const PokedexPage = () => {
 	}, [id]);
 	if (pokemon) {
 		return (
-			<div className="pokedex">
-				<div className="left">
-					<div className="logo"></div>
-					<div className="bg_curve1_left"></div>
-					<div className="bg_curve2_left"></div>
-					<div className="curve1_left">
-						<div className="buttonGlass">
-							<div className="reflect"> </div>
-						</div>
-						<div className="miniButtonGlass1"></div>
-						<div className="miniButtonGlass2"></div>
-						<div className="miniButtonGlass3"></div>
-					</div>
-					<div className="curve2_left">
-						<div className="junction">
-							<div className="junction1"></div>
-							<div className="junction2"></div>
-						</div>
-					</div>
-					<div className="screen">
-						<div className="topPicture">
-							<div className="buttontopPicture1"></div>
-							<div className="buttontopPicture2"></div>
-						</div>
+			<div className="pokedexPageContainer">
+				<div className="pokedexPageContainer__imgContainer">
+					<img
+						className="imgContainer__img"
+						src={pokemon.image}
+						alt={pokemon.name}
+					/>
+					<img
+						className="imgContainer__img"
+						src={pokemon.backImage}
+						alt={`${pokemon.name} dos`}
+					/>
+				</div>
+				<div className="pokedexPageContainer__nameAndIdContainer">
+					<h2 className="nameAndIdContainer__pokemonName">{pokemon.name}</h2>
+					<h2 className="nameAndIdContainer__pokemonId">Pokemon N°{id}</h2>
+				</div>
+				<div className="pokedexPageContainer__typesContainer">
+					<h2 className="typesContainer__typesTitle">Type(s): </h2>
+					{pokemonTypes.map((type) => (
+						<span
+							className={`${getTypeClassName(type)} pokedexType`}
+							key={type}
+						>
+							{translateType(type)}
+						</span>
+					))}
+				</div>
 
-						<div className="greyContainer">
-							<div className="pictureDiv">
-								<img
-									className="picture"
-									src={pokemon.image}
-									alt={pokemon.name}
-								/>
-								<img
-									className="picture"
-									src={pokemon.backImage}
-									alt={`${pokemon.name} dos`}
-								/>
-							</div>
-
-							<div className="pokemonInfoDiv">
-								<h2 className="pokemonName">{pokemon.name}</h2>
-								<h2 className="pokemonId">Pokemon N°{id}</h2>
-
-								<p className="typesContainer">
-									<h2 className="typesH2">Type(s): </h2>
-									{pokemonTypes
-										.map((type) => (
-											<span className={`${getTypeClassName(type)} pokedexType`}>
-												{translateType(type)}
-											</span>
-										))
-										.reduce((prev, curr) => [prev, " ", curr])}
-								</p>
-							</div>
-						</div>
-						<div className="buttonbottomPicture"></div>
-						<div className="speakers">
-							<div className="sp"></div>
-							<div className="sp"></div>
-							<div className="sp"></div>
-							<div className="sp"></div>
-						</div>
+				<div className="pokedexPageContainer__weightAndHeightContainer">
+					<div className="pokedexPageContainer__weightContainer">
+						<h2 className="weightContainer__weightTitle">Poids: </h2>
+						<p className="weightContainer__weight">{pokemonWeight / 10} kg </p>
 					</div>
-					<div className="bigbluebutton"></div>
-					<div className="barbutton1"></div>
-					<div className="barbutton2"></div>
-					<div className="cross">
-						<div className="leftcross">
-							<div className="leftT"></div>
-						</div>
-						<div className="topcross">
-							<div className="upT"></div>
-						</div>
-						<div className="rightcross">
-							<div className="rightT"></div>
-						</div>
-						<div className="mclassNamecross">
-							<div className="mclassNameCircle"></div>
-						</div>
-						<div className="botcross">
-							<div className="downT"></div>
-						</div>
+					<div className="pokedexPageContainer__heightContainer">
+						<h2 className="heightContainer__heightTitle">Taille: </h2>
+						<p className="heightContainer__height">{pokemonHeight / 10} m</p>
 					</div>
 				</div>
-				<div className="right">
-					<div className="stats">
-						<div className="weightHeightDiv">
-							<div className="weightDiv">
-								<h2 className="weightH2">Poids: </h2>
-								{pokemonWeight / 10} kg
-							</div>
-							<div className="heightDiv">
-								<h2 className="heightH2">Taille: </h2>
-								{pokemonHeight / 10} m
-							</div>
-						</div>
-						<div className="categoryContainer">
-							<h2 className="categoryH2">Catégorie:</h2>
-							<p> {pokemonCategory}</p>
-						</div>
 
-						<div className="genderContainer">
-							<h2 className="genderH2">Genre(s):</h2>
-							<p>
-								{pokemonGenders.length === 2
-									? pokemonGenders.join(" & ")
-									: pokemonGenders}
-							</p>
-						</div>
+				<div className="pokedexPageContainer____categoryContainer">
+					<h2 className="categoryContainer__categoryTitle">Catégorie:</h2>
+					<p className="categoryContainer__category">{pokemonCategory}</p>
+				</div>
 
-						<h2 className=" description">Description:</h2>
-						<p>{pokemon.description}</p>
-					</div>
-
-					<div className="blueButtons1">
-						<div className="blueButton"></div>
-						<div className="blueButton"></div>
-						<div className="blueButton"></div>
-						<div className="blueButton"></div>
-						<div className="blueButton"></div>
-					</div>
-					<div className="blueButtons2">
-						<div className="blueButton"></div>
-						<div className="blueButton"></div>
-						<div className="blueButton"></div>
-						<div className="blueButton"></div>
-						<div className="blueButton"></div>
-					</div>
-					<div className="miniButtonGlass4"></div>
-					<div className="miniButtonGlass5"></div>
-					<div className="barbutton3"></div>
-					<div className="barbutton4"></div>
-					<div className="yellowBox1"></div>
-					<div className="yellowBox2"></div>
-					<div className="bg_curve1_right"></div>
-					<div className="bg_curve2_right"></div>
-					<div className="curve1_right"></div>
-					<div className="curve2_right"></div>
+				<div className="pokedexPageContainer____genderContainer">
+					<h2 className="genderContainer__genderTitle">Genre(s):</h2>
+					<p className="genderContainer__gender">
+						{pokemonGenders.length === 2
+							? pokemonGenders.join(" & ")
+							: pokemonGenders}
+					</p>
+					{/* <h2 className="descriptionH2">Description:</h2>
+				<p>{pokemon.description}</p> */}
 				</div>
 			</div>
 		);
