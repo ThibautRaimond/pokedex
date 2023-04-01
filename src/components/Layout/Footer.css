@@ -1,0 +1,48 @@
+.footerContainer{
+	width: 100vw;
+	display: flex;
+	justify-content: space-between;
+	align-items: end;
+}
+.darkMode .footerContainer{
+	background-color: #222;
+}
+
+.footerContainer__Portfolio{
+	margin-left: 1em;
+	font-size: 0.8em;
+}
+.footerContainer__Portfolio:hover{
+
+}
+.footerContainer__Portfolio{
+	margin-left: 1em;
+	font-size: 0.8em;
+}
+.darkMode .footerContainer__Portfolio{
+	color: black;
+}
+
+.footerContainer__Portfolio:hover {
+	color: #52a2c7;
+	text-decoration: underline;
+}
+
+.footerContainer__copyright{
+	color: #333;
+}
+.darkMode .footerContainer__copyright{
+	color: rgb(128, 128, 128);
+}
+.footerContainer__socialMedia{
+	margin: 0 1em;
+}
+.socialMedia__Linkedin{
+	color: #0e76a8;
+}
+.socialMedia__Github{
+	color: #333
+}
+.darkMode .socialMedia__Github{
+	color: #fff;
+}

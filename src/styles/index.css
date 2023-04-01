@@ -6,11 +6,7 @@
 	font-family: 'Poppins';
 	src: url('./fonts/Poppins-Black.ttf');
 }
-	
-	* {
-		margin: 0;
-		padding: 0;
-	}
-	.darkMode {
-		background-color: #222;
-	}
+
+.darkMode {
+background-color: #222;
+}
