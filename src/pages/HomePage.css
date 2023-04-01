@@ -34,7 +34,7 @@ input {
 
 /* --- */
 .generationSelectContainer__generationTitle{
-	margin-bottom: 0.1em;
+	margin-top: 0.4em;
 }
 .filterPokemonContainer__generationSelectContainer{
 	display: flex;
@@ -46,7 +46,7 @@ input {
 /* -- */
 .filterPokemonContainer__typeTitle{
 	margin-top: 0.5em;
-	margin-bottom: 0.1em;
+	margin-bottom: 0.2em;
 }
 .filterPokemonContainer__typeSelectContainer{
 	display: flex;
@@ -54,14 +54,19 @@ input {
 	justify-content: center;
 	align-items: center;
 	width: 290px;
-	margin: 0em 1em;
+	margin: 0 1em;
+	padding-left: 1em;
 	font-family: 'Roboto', sans-serif;
+}
+.test{
+	width: 6em;
+	margin: 0 0.5em;
 }
 /* --- */
 
 
 .homePageContainer__filterPokemonContainer.open {
-	height: 180px;
+	height: 260px;
 }
 
 .filterPokemonContainerWithButton__toggleDiv {
@@ -117,6 +122,7 @@ input {
 	justify-content: center;
 	align-items: center;
 	text-align: center;
+	width: 110px;
 	margin: 2px;
 	border: 1px solid #ccc;
 	border-radius: 20px;
@@ -136,6 +142,7 @@ input {
 
 
 .pokemon__NameAndId{
+	width: 110px;
 	background-color: #fff;
 	color: #000;
 	border-radius: 20px 20px 0px 0px ;
