@@ -60,7 +60,7 @@ input {
 
 
 .homePageContainer__filterPokemonContainer.open {
-	height: 160px;
+	height: 180px;
 }
 
 .filterPokemonContainerWithButton__toggleDiv {
