@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { RxCross2 } from "react-icons/rx";
 
 import { useSpeciesApi } from "../hooks/usePokeApi";
 import { useGenerations } from "../hooks/useGenerations";
@@ -21,68 +23,98 @@ const HomePage = () => {
 		to: genTo,
 	});
 
+	const [isOpen, setIsOpen] = useState(false);
+
+	const toggleDiv = () => {
+		setIsOpen(!isOpen);
+	};
+
 	return (
 		<main className="homePageContainer">
-			<div className="homePageContainer__searchPokemonContainer">
+			<div className="homePageContainer__filterPokemonContainerWithButton">
+				<div
+					className={`homePageContainer__filterPokemonContainer ${
+						isOpen ? "open" : ""
+					}`}
+				>
+					<h2 className="generationSelectContainer__generationTitle">
+						Génération(s):
+					</h2>
+					<div className="filterPokemonContainer__generationSelectContainer">
+						{Object.entries(generationsState).map(([gen, isSelected]) => (
+							<label key={gen} htmlFor={gen}>
+								<input
+									type="checkbox"
+									name={gen}
+									id={gen}
+									checked={isSelected}
+									onChange={() => handleChangeGeneration(gen)}
+								/>
+								{gen.toUpperCase()}{" "}
+							</label>
+						))}
+					</div>
 
+					<h2 className="filterPokemonContainer__typeTitle">Types:</h2>
+					<div className="filterPokemonContainer__typeSelectContainer">
+						{[
+							"normal",
+							"fighting",
+							"flying",
+							"poison",
+							"ground",
+							"rock",
+							"bug",
+							"ghost",
+							"steel",
+							"fire",
+							"water",
+							"grass",
+							"electric",
+							"psychic",
+							"ice",
+							"dragon",
+							"dark",
+							"fairy",
+						].map((type) => (
+							<label key={type}>
+								<input
+									type="checkbox"
+									name="typeSelect"
+									value={type}
+									checked={selectedTypes.includes(type)}
+									onChange={(event) => {
+										if (event.target.checked) {
+											setSelectedTypes([...selectedTypes, type]);
+										} else {
+											setSelectedTypes(selectedTypes.filter((t) => t !== type));
+										}
+									}}
+								/>
+								{translateType(type)}
+							</label>
+						))}
+					</div>
+				</div>
 
-			<div className="searchPokemonContainer__generationSelectContainer">
-				<label htmlFor="generationSelectContainer__generationText">
-					Générations{" "}
-				</label>
-				{Object.entries(generationsState).map(([gen, isSelected]) => (
-					<label key={gen} htmlFor={gen}>
-						<input
-							type="checkbox"
-							name={gen}
-							id={gen}
-							checked={isSelected}
-							onChange={() => handleChangeGeneration(gen)}
-						/>
-						{gen.toUpperCase()}{" "}
-					</label>
-				))}
-			</div>
-
-			<div className="searchPokemonContainer__typeSelectContainer">
-				<label htmlFor="typeSelect"></label>
-				{[
-					"normal",
-					"fighting",
-					"flying",
-					"poison",
-					"ground",
-					"rock",
-					"bug",
-					"ghost",
-					"steel",
-					"fire",
-					"water",
-					"grass",
-					"electric",
-					"psychic",
-					"ice",
-					"dragon",
-					"dark",
-					"fairy",
-				].map((type) => (
-					<label key={type}>
-						<input
-							type="checkbox"
-							name="typeSelect"
-							value={type}
-							checked={selectedTypes.includes(type)}
-							onChange={(event) => {
-								if (event.target.checked) {
-									setSelectedTypes([...selectedTypes, type]);
-								} else {
-									setSelectedTypes(selectedTypes.filter((t) => t !== type));
-								}
-							}}
-						/>
-						{translateType(type)}
-					</label>
-				))}
+				<div className="filterPokemonContainerWithButton__toggleDiv" onClick={toggleDiv}>
+					{isOpen ? (
+						<RxCross2 className="toggleDiv__toggler" size={25} />
+					) : (
+						<RxHamburgerMenu className="toggleDiv__toggler" size={25} />
+					)}
+					<span className="toggleDiv__openOrCloseFilter">
+						{isOpen ? (
+							<h3 className="openOrCloseFilter__filterTitle">
+								Fermer le filtre
+							</h3>
+						) : (
+							<h3 className="openOrCloseFilter__filterTitle">
+								Filtrer les pokemons
+							</h3>
+						)}
+					</span>
+				</div>
 			</div>
 
 			<input
@@ -92,7 +124,6 @@ const HomePage = () => {
 				value={searchQuery}
 				onChange={(e) => setSearchQuery(e.target.value)}
 			/>
-				</div>
 
 			{isLoading && <Loader />}
 			{isError && <p>Dommage...</p>}

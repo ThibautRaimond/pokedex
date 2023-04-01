@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { AiTwotoneHome } from "react-icons/ai";
+
 import { useTheme } from "../../hooks/useTheme";
 import ThemeToggler from "../Inputs/toggleTheme";
 import LogoPokemon from "../../assets/pokemon.png";
