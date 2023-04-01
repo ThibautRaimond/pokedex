@@ -64,9 +64,12 @@ input {
 }
 /* --- */
 
-
+.homePageContainer__filterPokemonContainer{
+	transition: 0.6s;
+}
 .homePageContainer__filterPokemonContainer.open {
 	height: 260px;
+	transition: 0.6s;
 }
 
 .filterPokemonContainerWithButton__toggleDiv {
