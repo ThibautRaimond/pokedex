@@ -6,6 +6,7 @@ import { RxCross2 } from "react-icons/rx";
 import { useSpeciesApi } from "../hooks/usePokeApi";
 import { useGenerations } from "../hooks/useGenerations";
 import { translateType } from "../locales/types";
+import ScrollToTopButton from "../components/Inputs/ScrollToTopButton";
 import Loader from "../components/Loader";
 import "./HomePage.css";
 
@@ -97,7 +98,10 @@ const HomePage = () => {
 					</div>
 				</div>
 
-				<div className="filterPokemonContainerWithButton__toggleDiv" onClick={toggleDiv}>
+				<div
+					className="filterPokemonContainerWithButton__toggleDiv"
+					onClick={toggleDiv}
+				>
 					{isOpen ? (
 						<RxCross2 className="toggleDiv__toggler" size={25} />
 					) : (
@@ -163,6 +167,7 @@ const HomePage = () => {
 						))}
 				</ul>
 			)}
+			<ScrollToTopButton />
 		</main>
 	);
 };
