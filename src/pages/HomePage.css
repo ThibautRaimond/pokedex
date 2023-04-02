@@ -18,7 +18,10 @@ body { cursor:url('../assets/pokedex.png'), auto;}
 	margin-bottom: 1em;
 	color: #222;
 }
-
+.darkMode .homePageContainer__filterPokemonContainerWithButton{
+	margin-bottom: 1em;
+	color: #f1f1f1ea;
+}
 /* --- */
 .homePageContainer__filterPokemonContainer{
 	display: flex;
