@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BsFillArrowUpCircleFill } from "react-icons/bs";
-import "./ScrollToTopButton.css";
+import "./ScrollButtons.css";
 
 const ScrollToTopButton = () => {
 	const [isVisible, setIsVisible] = useState(false);
@@ -29,7 +29,7 @@ const ScrollToTopButton = () => {
 
 	return (
 		<div
-			className={`scroll-to-top-button ${isVisible ? "visible" : ""}`}
+			className={`scrollButton scrollToTopButton ${isVisible ? "visible" : ""}`}
 			onClick={scrollToTop}
 		>
 			<BsFillArrowUpCircleFill size={30} alt="Remonter en haut de la page"/>

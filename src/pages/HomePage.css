@@ -70,7 +70,7 @@ body { cursor:url('../assets/pokedex.png'), auto;}
 	width: 220px;
 }
 .homePageContainer__filterPokemonContainer.open {
-	height: 300px;
+	height: 320px;
 	width: 332px;
 	transition: 0.6s;
 }
@@ -164,4 +164,13 @@ body { cursor:url('../assets/pokedex.png'), auto;}
 	color: #f1f1f1ea;
 	border: 1px solid #464646;
 	border-bottom: 2px solid 464646c;
+}
+
+
+.scroll-buttons-container {
+	display: flex;
+	justify-content: center;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 
@@ -6,10 +6,14 @@ import { useSpeciesApi } from "../hooks/usePokeApi";
 import { useGenerations } from "../hooks/useGenerations";
 import { translateType } from "../locales/types";
 import ScrollToTopButton from "../components/Inputs/ScrollToTopButton";
+import ScrollToBotButton from "../components/Inputs/ScrollToBotButton";
 import Loader from "../components/Loader";
 import "./HomePage.css";
 
 const HomePage = () => {
+
+	const contentRef = useRef(null);
+
 	const [searchQuery, setSearchQuery] = useState("");
 
 	const [selectedTypes, setSelectedTypes] = useState([]);
@@ -30,7 +34,8 @@ const HomePage = () => {
 	};
 
 	return (
-		<main className="homePageContainer">
+		<main className="homePage">
+			<div ref={contentRef} className="homePageContainer">
 			<div className="homePageContainer__filterPokemonContainerWithButton">
 				<div
 					className={`homePageContainer__filterPokemonContainer ${
@@ -131,7 +136,7 @@ const HomePage = () => {
 			{isLoading && <Loader />}
 			{isError && <p>Dommage...</p>}
 			{data && (
-				<ul className={"homePageContainer__pokemonsContainer"}>
+				<ul className={"homePageContainer__pokemonsContainer"} id="list-container">
 					{data
 						.filter(
 							({ name, types }) =>
@@ -166,7 +171,9 @@ const HomePage = () => {
 						))}
 				</ul>
 			)}
-			<ScrollToTopButton />
+				<ScrollToTopButton />
+				<ScrollToBotButton />
+				</div>
 		</main>
 	);
 };
