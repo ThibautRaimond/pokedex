@@ -7,6 +7,21 @@
 	src: url('./fonts/Poppins-Black.ttf');
 }
 
+html, body {
+	height: 100%;
+	margin: 0;
+}
+
+#root {
+	min-height: 100%;
+	position: relative;
+}  
+
+Layout {
+	min-height: 100%;
+	position: relative;
+}
+
 .darkMode {
 background-color: #222;
 }

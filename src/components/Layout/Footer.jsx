@@ -7,21 +7,18 @@ import "./Footer.css"
 const Footer = () => {
 	return (
 		<div className="footerContainer">
-
-			<Link to={`https://thibautraimond.github.io/portfolio/`} target="_blank">
-				<p className="footerContainer__Portfolio">Plus de projet sur ici sur mon portfolio</p>
-			</Link>
-
-
-			<div className="footerContainer__socialMedia">
+			<div className="footerContainer__socialsMediasContainer">
 				<Link to={`https://github.com/ThibautRaimond`} target="_blank">
-					<AiFillGithub size={30} className="socialMedia__Github"/>
+					<AiFillGithub size={45} className="socialsMediasContainer__SocialMedia socialsMediasContainer__Github"/>
 				</Link>
 				<Link to={`https://www.linkedin.com/in/thibaut-raimond-0a46791ab/`} target="_blank">
-					<AiFillLinkedin size={30} className="socialMedia__Linkedin"/>
+					<AiFillLinkedin size={45} className="socialsMediasContainer__SocialMedia socialsMediasContainer__Linkedin"/>
 				</Link>
 			</div>
 
+			<Link to={`https://thibautraimond.github.io/portfolio/`} target="_blank">
+				<p className="footerContainer__Portfolio">Plus de projet ici sur mon portfolio</p>
+			</Link>
 		</div>
 	);
 };
