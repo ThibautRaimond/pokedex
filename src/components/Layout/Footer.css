@@ -2,7 +2,8 @@
 	width: 100vw;
 	display: flex;
 	justify-content: space-between;
-	align-items: end;
+	align-items: center;
+	margin-top: 1em;
 }
 .darkMode .footerContainer{
 	background-color: #222;
@@ -20,7 +21,7 @@
 	font-size: 0.8em;
 }
 .darkMode .footerContainer__Portfolio{
-	color: black;
+	color: #fff;
 }
 
 .footerContainer__Portfolio:hover {

@@ -12,7 +12,6 @@ const Footer = () => {
 				<p className="footerContainer__Portfolio">Plus de projet sur ici sur mon portfolio</p>
 			</Link>
 
-			<p className="footerContainer__copyright">Free copyright</p>
 
 			<div className="footerContainer__socialMedia">
 				<Link to={`https://github.com/ThibautRaimond`} target="_blank">
