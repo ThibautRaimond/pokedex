@@ -5,6 +5,7 @@ import axios from "axios";
 import { translateType, getTypeClassName } from "../locales/types";
 import "./PokedexPage.css";
 import "../styles/pokemonTypes.css";
+import pokedexModel from "../assets/pokedexModel.png"
 
 const PokedexPage = () => {
 	// useParams récupère l'id présent dans l'URL
@@ -70,17 +71,18 @@ const PokedexPage = () => {
 	if (pokemon) {
 		return (
 			<div className="pokedexPageContainer">
+				<img src={pokedexModel} alt="pokedex" />
 				<div className="pokedexPageContainer__imgContainer">
 					<img
 						className="imgContainer__img"
 						src={pokemon.image}
 						alt={pokemon.name}
 					/>
-					<img
+					{/* <img
 						className="imgContainer__img"
 						src={pokemon.backImage}
 						alt={`${pokemon.name} dos`}
-					/>
+					/> */}
 				</div>
 				<div className="pokedexPageContainer__nameAndIdContainer">
 					<h2 className="nameAndIdContainer__pokemonName">{pokemon.name}</h2>
@@ -121,8 +123,11 @@ const PokedexPage = () => {
 							? pokemonGenders.join(" & ")
 							: pokemonGenders}
 					</p>
-					{/* <h2 className="descriptionH2">Description:</h2>
-				<p>{pokemon.description}</p> */}
+				</div>
+
+				<div className="pokedexPageContainer____descriptionContainer">
+					<h2 className="descriptionContainer__descriptionTitle">Description:</h2>
+				<p className="descriptionContainer__descriptionText">{pokemon.description}</p>
 				</div>
 			</div>
 		);

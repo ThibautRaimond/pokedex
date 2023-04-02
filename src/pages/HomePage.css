@@ -55,7 +55,6 @@ body { cursor:url('../assets/pokedex.png'), auto;}
 	justify-content: center;
 	align-items: center;
 	width: 300px;
-	margin: 0 1em;
 	padding-left: 1em;
 	font-family: 'Roboto', sans-serif;
 }
@@ -165,7 +164,6 @@ body { cursor:url('../assets/pokedex.png'), auto;}
 	border: 1px solid #464646;
 	border-bottom: 2px solid 464646c;
 }
-
 
 .scroll-buttons-container {
 	display: flex;

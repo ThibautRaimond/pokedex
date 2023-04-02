@@ -1,13 +1,12 @@
 .navbar{
-	min-width: 100vw;
 	height: 85px;
 	display: flex; 
 	justify-content: center;
 	align-items: center;
 	justify-content: space-between; 
 	align-items: center; 
-	padding: 0 1rem; 
-	margin: 1em 0;
+	padding: 1em; 
+	margin-bottom: 1.5em;
 	background-color: #fff;
 	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
 }
@@ -52,4 +51,3 @@
 		width: 50px;
 	}
 }
-
