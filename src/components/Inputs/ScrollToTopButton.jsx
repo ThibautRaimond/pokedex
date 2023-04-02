@@ -32,7 +32,7 @@ const ScrollToTopButton = () => {
 			className={`scroll-to-top-button ${isVisible ? "visible" : ""}`}
 			onClick={scrollToTop}
 		>
-			<BsFillArrowUpCircleFill size={30}/>
+			<BsFillArrowUpCircleFill size={30} alt="Remonter en haut de la page"/>
 		</div>
 	);
 };

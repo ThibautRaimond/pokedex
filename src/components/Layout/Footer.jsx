@@ -9,10 +9,10 @@ const Footer = () => {
 		<div className="footerContainer">
 			<div className="footerContainer__socialsMediasContainer">
 				<Link to={`https://github.com/ThibautRaimond`} target="_blank">
-					<AiFillGithub size={45} className="socialsMediasContainer__SocialMedia socialsMediasContainer__Github"/>
+					<AiFillGithub size={45} className="socialsMediasContainer__SocialMedia socialsMediasContainer__Github" alt="Logo Github"/>
 				</Link>
 				<Link to={`https://www.linkedin.com/in/thibaut-raimond-0a46791ab/`} target="_blank">
-					<AiFillLinkedin size={45} className="socialsMediasContainer__SocialMedia socialsMediasContainer__Linkedin"/>
+					<AiFillLinkedin size={45} className="socialsMediasContainer__SocialMedia socialsMediasContainer__Linkedin" alt="Logo Linkedin"/>
 				</Link>
 			</div>
 
