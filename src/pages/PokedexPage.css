@@ -3,6 +3,7 @@
 	flex-direction: column;
 	align-items: center;
 	padding-bottom: 7em ;
+	overflow: hidden;
 }
 @media screen and (min-height: 850px) {
 	.pokedexPageContainer{
@@ -14,6 +15,9 @@
 	width: 100%;
 	max-width: 425px;
 	position: relative;
+	max-width: 100%;
+	height: auto;
+	float: right;
 }
 /* --- */
 .pokedexPageContainer__imgContainer{
