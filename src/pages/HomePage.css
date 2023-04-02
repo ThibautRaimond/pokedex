@@ -7,7 +7,7 @@ body { cursor:url('../assets/pokedex.png'), auto;}
 	align-items: center;
 	padding-bottom: 6.5em;
 	background-color: #fff;
-	color: black;
+	color: #222;
 }.darkMode .homePageContainer{
 	background-color: #222;
 	color: #f1f1f1ea;
@@ -16,6 +16,7 @@ body { cursor:url('../assets/pokedex.png'), auto;}
 /* --- */
 .homePageContainer__filterPokemonContainerWithButton{
 	margin-bottom: 1em;
+	color: #222;
 }
 
 /* --- */
@@ -74,7 +75,7 @@ body { cursor:url('../assets/pokedex.png'), auto;}
 	align-items: center;
 	justify-content: center;
 	top: 0;
-	color: black;
+	color: #222;
 	padding: 5px 10px;
 	cursor: pointer;
 	max-width: 650px;
