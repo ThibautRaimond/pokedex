@@ -17,7 +17,7 @@ const Footer = () => {
 			</div>
 
 			<Link to={`https://thibautraimond.github.io/portfolio/`} target="_blank">
-				<p className="footerContainer__Portfolio">Plus de projet ici sur mon portfolio</p>
+				<p className="footerContainer__Portfolio">Plus de projets ici sur mon portfolio</p>
 			</Link>
 		</div>
 	);

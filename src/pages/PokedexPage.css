@@ -23,7 +23,7 @@
 .pokedexPageContainer__imgContainer{
 	position: absolute;
 	top: 17.5em;
-	margin-right: 1.5em;
+	margin-right: 2.1em;
 }
 .imgContainer__img{
 	width: 10em;
@@ -33,7 +33,7 @@
 .pokedexPageContainer__nameAndIdContainer{
 	position: absolute;
 	top: 28.5em;
-	margin-right: 1.5em;
+	margin-right: 2.2em;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -52,7 +52,7 @@ margin: 0em 0.5em;
 	align-items: center;
 	position: absolute;
 	top: 32.2em;
-	margin-right: 1.5em;
+	margin-right: 2.2em;
 	color: #f1f1f1ea;
 }
 .typesContainer__typesTitle{
@@ -64,7 +64,7 @@ margin: 0em 0.5em;
 	display: flex;
 	position: absolute;
 	top: 34.2em;
-	margin-right: 1.5em;
+	margin-right: 2.2em;
 	color: #f1f1f1ea;
 }
 .pokedexPageContainer__weightContainer{
@@ -90,7 +90,7 @@ margin: 0em 0.5em;
 	display: flex;
 	position: absolute;
 	top: 36.2em;
-	margin-right: 1.5em;
+	margin-right: 2.2em;
 	color: #f1f1f1ea;
 	
 }
@@ -106,7 +106,7 @@ margin: 0em 0.5em;
 	display: flex;
 	position: absolute;
 	top: 38.2em;
-	margin-right: 1.5em;
+	margin-right: 2.2em;
 	color: #f1f1f1ea;
 }
 .genderContainer__genderTitle{
@@ -120,7 +120,7 @@ margin: 0em 0.5em;
 .pokedexPageContainer____descriptionContainer{
 	position: absolute;
 	top: 40.2em;
-	margin-right: 1.5em;
+	margin-right: 2.2em;
 	width: 300px;
 	text-align: center;
 	color: #f1f1f1ea;
