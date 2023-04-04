@@ -116,14 +116,14 @@ const PokedexPage = () => {
 					<p className="categoryContainer__category">{pokemonCategory}</p>
 				</div>
 
-				<div className="pokedexPageContainer____genderContainer">
+				{/* <div className="pokedexPageContainer____genderContainer">
 					<h2 className="genderContainer__genderTitle">Genre(s):</h2>
 					<p className="genderContainer__gender">
 						{pokemonGenders.length === 2
 							? pokemonGenders.join(" & ")
 							: pokemonGenders}
 					</p>
-				</div>
+				</div> */}
 
 				<div className="pokedexPageContainer____descriptionContainer">
 					<h2 className="descriptionContainer__descriptionTitle">Description:</h2>
