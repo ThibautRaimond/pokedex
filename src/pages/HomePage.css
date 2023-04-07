@@ -147,17 +147,23 @@ body { cursor:url('../assets/pokedex.png'), auto;}
 	border: 1px solid #464646;
 }.darkMode .pokemonsContainer__pokemon:hover {
 	border: 1.5px solid #f1f1f1ea;
+} 
+
+.pokemonsContainer__pokemon:hover .pokemon__NameAndId{
+	border: 1.5px solid #464646;
+	border-bottom: 0;
 }  
-
-
-
+.darkMode .pokemonsContainer__pokemon:hover .pokemon__NameAndId{
+	border: 1.5px solid #f1f1f1ea;
+	border-bottom: 0;
+}  
 .pokemon__NameAndId{
 	width: 110px;
 	background-color: #fff;
 	color: #000;
 	border-radius: 20px 20px 0px 0px ;
 	border: 1px solid #ccc;
-	border-bottom: 2px solid #ccc;
+	border-bottom: 0;
 }.darkMode .pokemon__NameAndId{
 	background-color: #222;
 	color: #f1f1f1ea;
