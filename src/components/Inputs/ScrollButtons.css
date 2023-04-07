@@ -1,3 +1,11 @@
+.scroll-buttons-container {
+	display: flex;
+	justify-content: center;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
 .scrollButton {
 	display: flex;
 	justify-content: center;
@@ -33,3 +41,4 @@
 	bottom: 10px;
 	right: 5px;
 }
+
