@@ -177,16 +177,18 @@ body { cursor:url('../assets/pokedex.png'), auto;}
 }
 /* --- */
 .pokemonContainer__imgLoader{
-	position: absolute;
 	height: 96px;
 	width: 96px;
 	left: 6px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-top: 1px;
 }
-.pokemonContainer__img{
-	
+/* --- */
+.pokemonContainer__imgContainer{
+
+}
+.imgContainer__PokemonImg{
+
 }
 
