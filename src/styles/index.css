@@ -29,3 +29,7 @@ Layout {
 .darkMode {
 background-color: #222;
 }
+
+:focus {
+outline: revert;
+}

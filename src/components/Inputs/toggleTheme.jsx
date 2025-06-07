@@ -12,14 +12,14 @@ const toggleTheme = ({ onChange, state, icons }) => {
 			<label htmlFor="toggle-switch">
 				{state === "dark" && (
 					<span className="left"  alt="changer le thème en mode blanc">
-						<span role="img" aria-label="left" className="left">
+						<span role="img" alt="" className="left">
 							{icons[0] ? icons[0] : ""}
 						</span>
 					</span>
 				)}
 				{state === "light" && (
 					<span className="right">
-						<span role="img" aria-label="right" className="right" alt="changer le thème en mode sombre">
+						<span role="img" className="right" alt="">
 							{icons[1] ? icons[1] : ""}
 						</span>
 					</span>

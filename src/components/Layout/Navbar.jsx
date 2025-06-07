@@ -20,9 +20,9 @@ const Navbar = () => {
 		<nav className="navbar">
 			<Link to="/pokedex" onClick={handleHomeClick}>
 			<img
-						className="logoPokemon"
+						className="Accueil"
 						src={LogoPokemon}
-						alt="Logo Accueil"
+						alt="Accueil"
 						style={{ width: "75px" }}
 					/>
 			</Link>
