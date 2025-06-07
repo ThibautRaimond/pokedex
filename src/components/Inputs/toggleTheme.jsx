@@ -1,32 +1,46 @@
 import "./toggleTheme.css";
 
-const toggleTheme = ({ onChange, state, icons }) => {
+const ToggleTheme = ({ onChange, state, icons }) => {
+	const handleKeyDown = (e) => {
+		if (e.key === "Enter" || e.key === " ") {
+			e.preventDefault(); // empêche le scroll avec espace
+			onChange(); // déclenche le changement de thème
+		}
+	};
+
 	return (
-		<div className="toggle">
-			<input
-				type="checkbox"
+		<div className="toggleContainer">
+			<div
 				id="toggle-switch"
-				className="darkModeInput"
-				onChange={onChange}
+				className={`darkModeInput ${state === "dark" ? "inputChecked" : ""}`}
+				checked={state === "dark"}
+				readOnly
 			/>
-			<label htmlFor="toggle-switch">
+			<div
+				className="toggleLabel"
+				tabIndex="0"
+				role="button"
+				onClick={onChange}
+				onKeyDown={handleKeyDown}
+			>
+				<span className="toggleThumb"></span>
 				{state === "dark" && (
-					<span className="left"  alt="changer le thème en mode blanc">
-						<span role="img" alt="" className="left">
+					<span className="leftIcon" aria-label="Activé le thème clair">
+						<span role="img" className="leftIcon" alt="">
 							{icons[0] ? icons[0] : ""}
 						</span>
 					</span>
 				)}
 				{state === "light" && (
-					<span className="right">
-						<span role="img" className="right" alt="">
+					<span className="rightIcon" aria-label="Activé le thème foncé">
+						<span role="img" className="rightIcon" alt="">
 							{icons[1] ? icons[1] : ""}
 						</span>
 					</span>
 				)}
-			</label>
+			</div>
 		</div>
 	);
 };
 
-export default toggleTheme;
+export default ToggleTheme;

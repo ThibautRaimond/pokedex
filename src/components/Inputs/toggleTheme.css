@@ -1,4 +1,4 @@
-.toggle {
+.toggleContainer {
 	display: inline-block;
 	position: relative;
 	width: 60px;
@@ -8,22 +8,23 @@
 	align-items: center;
 }
 
-.toggle input[type="checkbox"] {
+.darkModeInput {
 	display: none;
 }
 
-.toggle label {
+.toggleLabel {
 	display: block;
-	position: relative; 
-	left: 0; 
+	position: relative;
+	left: 0;
 	width: 100%;
 	height: 100%;
 	border-radius: 15px;
 	background-color: #222;
 	cursor: pointer;
-	transition: all 0.3s ease-in-out; 
+	transition: all 0.3s ease-in-out;
 }
-.toggle label:after {
+
+.toggleThumb {
 	content: "";
 	display: block;
 	position: absolute;
@@ -34,24 +35,25 @@
 	border-radius: 50%;
 	background-color: #fff;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	transition: transform 0.3s ease-in-out;
 }
 
-.toggle input[type="checkbox"]:checked + label {
+.inputChecked + .toggleLabel {
 	background-color: #007bff;
 }
 
-.toggle input[type="checkbox"]:checked + label:after {
+.inputChecked + .toggleLabel .toggleThumb {
 	transform: translateX(30px);
 }
 
-.left{
+.leftIcon {
 	display: flex;
 	justify-content: center;
 	margin: 2px 13px 0 0;
 }
-.right{
+
+.rightIcon {
 	display: flex;
 	justify-content: center;
 	margin: 3px 0 0 13px;
 }
-

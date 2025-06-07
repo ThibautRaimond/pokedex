@@ -17,7 +17,7 @@ const Navbar = () => {
 	};
 
 	return (
-		<nav className="navbar">
+		<header><nav className="navbar">
 			<Link to="/pokedex" onClick={handleHomeClick}>
 			<img
 						className="Accueil"
@@ -29,6 +29,7 @@ const Navbar = () => {
 			<h1 className="navbar__title">POKEDEX</h1>
 			<ThemeToggler onChange={toggleTheme} state={theme} icons={["🌙", "☀️"]} />
 		</nav>
+		</header>
 	);
 };
 
