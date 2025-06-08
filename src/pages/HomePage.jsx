@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 
@@ -42,114 +42,106 @@ const HomePage = () => {
   return (
     <main className="homePage">
       <div ref={contentRef} className="homePageContainer">
-                 {/* Bouton toggle */}
-          <button
-            className="filterPokemonContainerWithButton__toggleDiv"
-            onClick={toggleDiv}
-            aria-expanded={isOpen}
-            aria-controls="filter-pokemon-container"
-            type="button"
-          >
-            {isOpen ? (
-              <RxCross2 className="toggleDiv__toggler" size={25} />
-            ) : (
-              <RxHamburgerMenu className="toggleDiv__toggler" size={25} />
-            )}
-            <span className="toggleDiv__openOrCloseFilter">
-              {isOpen ? (
-                <h3
-                  className="openOrCloseFilter__filterTitle"
-                  aria-label="Fermer le menu qui permet de filtrer les pokemons"
-                >
-                  Fermer le menu
-                </h3>
-              ) : (
-                <h3
-                  className="openOrCloseFilter__filterTitle"
-                  aria-label="Ouvrir le menu afin de filtrer les pokemons"
-                >
-                  Filtrer les pokemons
-                </h3>
-              )}
-            </span>
-          </button>
-        <div className="homePageContainer__filterPokemonContainerWithButton">
 
-          <div className={`homePageContainer__filterPokemonContainer ${isOpen ? "open" : ""}`} id="filter-pokemon-container">
-            <h2 className="generationSelectContainer__generationTitle" tabIndex={getTabIndex()}>
-              Génération(s):
-            </h2>
-            <div className="filterPokemonContainer__generationSelectContainer">
-              {Object.entries(generationsState).map(([gen, isSelected]) => (
-                <label key={gen} htmlFor={gen} tabIndex={getTabIndex()}>
-                  <input
-                    type="checkbox"
-                    name={gen}
-                    id={gen}
-                    checked={isSelected}
-                    onChange={() => handleChangeGeneration(gen)}
-                    tabIndex={getTabIndex()}
-                  />
-                  {gen.toUpperCase()}{" "}
-                </label>
-              ))}
-            </div>
+        {/* Bouton toggle */}
+        <button
+          className="filterPokemonContainerWithButton__toggleDiv"
+          onClick={toggleDiv}
+          aria-expanded={isOpen}
+          aria-controls="filter-pokemon-container"
+          type="button"
+        >
+          {isOpen ? (
+            <RxCross2 className="toggleDiv__toggler" size={25} />
+          ) : (
+            <RxHamburgerMenu className="toggleDiv__toggler" size={25} />
+          )}
+          <span className="toggleDiv__openOrCloseFilter">
+            <h3 className="openOrCloseFilter__filterTitle">
+              Filtrer les pokemons
+            </h3>
+          </span>
+        </button>
 
-            <h2 className="filterPokemonContainer__typeTitle" tabIndex={getTabIndex()}>
-              Types:
-            </h2>
-            <div className="filterPokemonContainer__typeSelectContainer">
-              {[
-                "normal",
-                "fighting",
-                "flying",
-                "poison",
-                "ground",
-                "rock",
-                "bug",
-                "ghost",
-                "steel",
-                "fire",
-                "water",
-                "grass",
-                "electric",
-                "psychic",
-                "ice",
-                "dragon",
-                "dark",
-                "fairy",
-              ].map((type) => (
-                <label key={type} className="typeSelectContainer__types" tabIndex={getTabIndex()}>
-                  <input
-                    type="checkbox"
-                    name="typeSelect"
-                    value={type}
-                    checked={selectedTypes.includes(type)}
-                    onChange={(event) => {
-                      if (event.target.checked) {
-                        setSelectedTypes([...selectedTypes, type]);
-                      } else {
-                        setSelectedTypes(selectedTypes.filter((t) => t !== type));
-                      }
-                    }}
-                    tabIndex={getTabIndex()}
-                  />
-                  {translateType(type)}
-                </label>
-              ))}
-            </div>
+        <div
+          className={`homePageContainer__filterPokemonContainer ${isOpen ? "open" : ""}`}
+          id="filter-pokemon-container"
+          aria-hidden={!isOpen}
+        >
+          {/* Barre de recherche */}
+          <input
+            className="homePageContainer__searchPokemonByName"
+            type="text"
+            placeholder="Nom du pokemon"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            aria-label="Recherche par nom de pokemon"
+            tabIndex={getTabIndex()}
+          />
+
+          <h2 className="generationSelectContainer__generationTitle" tabIndex={getTabIndex()}>
+            Génération(s):
+          </h2>
+          <div className="filterPokemonContainer__generationSelectContainer">
+            {Object.entries(generationsState).map(([gen, isSelected]) => (
+              <label key={gen} htmlFor={gen} tabIndex={getTabIndex()}>
+                <input
+                  type="checkbox"
+                  name={gen}
+                  id={gen}
+                  checked={isSelected}
+                  onChange={() => handleChangeGeneration(gen)}
+                  tabIndex={getTabIndex()}
+                />
+                {gen.toUpperCase()}{" "}
+              </label>
+            ))}
+          </div>
+
+          <h2 className="filterPokemonContainer__typeTitle" tabIndex={getTabIndex()}>
+            Types:
+          </h2>
+          <div className="filterPokemonContainer__typeSelectContainer">
+            {[
+              "normal",
+              "fighting",
+              "flying",
+              "poison",
+              "ground",
+              "rock",
+              "bug",
+              "ghost",
+              "steel",
+              "fire",
+              "water",
+              "grass",
+              "electric",
+              "psychic",
+              "ice",
+              "dragon",
+              "dark",
+              "fairy",
+            ].map((type) => (
+              <label key={type} className="typeSelectContainer__types" tabIndex={getTabIndex()}>
+                <input
+                  type="checkbox"
+                  name="typeSelect"
+                  value={type}
+                  checked={selectedTypes.includes(type)}
+                  onChange={(event) => {
+                    if (event.target.checked) {
+                      setSelectedTypes([...selectedTypes, type]);
+                    } else {
+                      setSelectedTypes(selectedTypes.filter((t) => t !== type));
+                    }
+                  }}
+                  tabIndex={getTabIndex()}
+                />
+                {translateType(type)}
+              </label>
+            ))}
           </div>
         </div>
-
-        {/* Barre de recherche */}
-        <input
-          className="homePageContainer__searchPokemonByName"
-          type="text"
-          placeholder="Nom du pokemon"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          aria-label="Recherche par nom de pokemon"
-        />
 
         {/* Loader ou erreur */}
         {isLoading && <PokeballLoader />}
