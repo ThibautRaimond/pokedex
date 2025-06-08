@@ -110,7 +110,7 @@ button.filterPokemonContainerWithButton__toggleDiv {
 	0 2px 4px -1px rgba(0, 0, 0, 0.06);
 	cursor: pointer;
 	transition: background-color 0.3s ease, box-shadow 0.3s ease;
-	margin-top: 0.2em;
+	width: 345px;
 }
 
 .darkMode button.filterPokemonContainerWithButton__toggleDiv {
