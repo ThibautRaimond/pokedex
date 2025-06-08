@@ -37,13 +37,13 @@ const HomePage = () => {
   };
 
   // Fonction pour déterminer tabIndex selon isOpen
-  const getTabIndex = () => (isOpen ? 0 : -1);
+    const getTabIndex = () => (isOpen ? 0 : -1);
 
   return (
     <main className="homePage">
       <div ref={contentRef} className="homePageContainer">
 
-        {/* Bouton toggle */}
+        {/* Bouton menu des filtres */}
         <button
           className="filterPokemonContainerWithButton__toggleDiv"
           onClick={toggleDiv}
@@ -57,9 +57,7 @@ const HomePage = () => {
             <RxHamburgerMenu className="toggleDiv__toggler" size={25} />
           )}
           <span className="toggleDiv__openOrCloseFilter">
-            <h3 className="openOrCloseFilter__filterTitle">
-              Filtrer les pokemons
-            </h3>
+            <h3 className="openOrCloseFilter__filterTitle">Filtrer les pokemons</h3>
           </span>
         </button>
 
@@ -79,12 +77,12 @@ const HomePage = () => {
             tabIndex={getTabIndex()}
           />
 
-          <h2 className="generationSelectContainer__generationTitle" tabIndex={getTabIndex()}>
+          <h2 className="generationSelectContainer__generationTitle">
             Génération(s):
           </h2>
           <div className="filterPokemonContainer__generationSelectContainer">
             {Object.entries(generationsState).map(([gen, isSelected]) => (
-              <label key={gen} htmlFor={gen} tabIndex={getTabIndex()}>
+              <label key={gen} htmlFor={gen}>
                 <input
                   type="checkbox"
                   name={gen}
@@ -93,12 +91,12 @@ const HomePage = () => {
                   onChange={() => handleChangeGeneration(gen)}
                   tabIndex={getTabIndex()}
                 />
-                {gen.toUpperCase()}{" "}
+                {gen.toUpperCase()}
               </label>
             ))}
           </div>
 
-          <h2 className="filterPokemonContainer__typeTitle" tabIndex={getTabIndex()}>
+          <h2 className="filterPokemonContainer__typeTitle">
             Types:
           </h2>
           <div className="filterPokemonContainer__typeSelectContainer">
@@ -122,7 +120,7 @@ const HomePage = () => {
               "dark",
               "fairy",
             ].map((type) => (
-              <label key={type} className="typeSelectContainer__types" tabIndex={getTabIndex()}>
+              <label key={type} className="typeSelectContainer__types">
                 <input
                   type="checkbox"
                   name="typeSelect"
@@ -156,7 +154,7 @@ const HomePage = () => {
                   name
                     .toLowerCase()
                     .normalize("NFD")
-                    .replace(/[\u0300-\u036f]/g, "") // supprime les accents
+                    .replace(/[\u0300-\u036f]/g, "")
                     .includes(
                       searchQuery
                         .toLowerCase()
