@@ -17,18 +17,64 @@ body {
 	color: #f1f1f1ea;
 }
 
-/* --- */
-.homePageContainer__filterPokemonContainerWithButton {
-	margin-bottom: 1em;
-	color: #222;
+/* --- FILTER BUTTON --- */
+
+button.filterPokemonContainerWithButton__toggleDiv {
+	/* reset styles par défaut du bouton :*/
+	all: unset;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	padding: 10px 16px;
+	margin: 0 auto 10px auto;
+	max-width: 650px;
+	background-color: #ffffff;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3),
+	0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	cursor: pointer;
+	transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.darkMode .homePageContainer__filterPokemonContainerWithButton {
-	margin-bottom: 1em;
+/* rétablie le focus sur le composant : */
+button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
+	outline: 2px solid #007bff;
+	outline-offset: 4px;
+	border-radius: 8px;
+}
+
+.darkMode button.filterPokemonContainerWithButton__toggleDiv {
+	background-color: #222222;
+}
+
+.toggleDiv__toggler {
+	color: #222;
+	transition: color 0.3s ease;
+}
+
+.darkMode .toggleDiv__toggler {
 	color: #f1f1f1ea;
 }
 
+.toggleDiv__openOrCloseFilter {
+	margin-left: 0.5em;
+	font-size: 1.1rem;
+	font-weight: 500;
+	color: #222;
+}
+
+.darkMode .toggleDiv__openOrCloseFilter {
+	color: #f1f1f1ea;
+}
+
+.openOrCloseFilter__filterTitle {
+	margin: 0;
+	font-size: 1rem;
+}
+
 /* --- */
+
 .homePageContainer__filterPokemonContainer {
 	display: flex;
 	flex-direction: column;
@@ -76,71 +122,22 @@ body {
 
 .homePageContainer__filterPokemonContainer {
 	transition: 0.6s;
-	width: 220px;
+	min-width: 310px;
 	margin-bottom: 1em;
 }
 
 .homePageContainer__filterPokemonContainer.open {
-	height: 300px;
-	width: 375px;
+	min-height: 300px;
+	min-width: 310px;
+	width: 500px;
 	transition: 0.6s;
 }
 
-/* --- FILTER BUTTON --- */
-
-/* rétablie le focus sur le composant : */
-button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
-	outline: 2px solid #007bff;
-	outline-offset: 4px;
-	border-radius: 8px;
-}
-
-button.filterPokemonContainerWithButton__toggleDiv {
-	all: unset;
-	/* reset styles par défaut du bouton */
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	position: relative;
-	padding: 10px 16px;
-	margin: 0 auto 10px auto;
-	max-width: 650px;
-	background-color: #ffffff;
-	border-radius: 8px;
-	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3),
-	0 2px 4px -1px rgba(0, 0, 0, 0.06);
-	cursor: pointer;
-	transition: background-color 0.3s ease, box-shadow 0.3s ease;
-	width: 345px;
-}
-
-.darkMode button.filterPokemonContainerWithButton__toggleDiv {
-	background-color: #222222;
-}
-
-.toggleDiv__toggler {
-	color: #222;
-	transition: color 0.3s ease;
-}
-
-.darkMode .toggleDiv__toggler {
-	color: #f1f1f1ea;
-}
-
-.toggleDiv__openOrCloseFilter {
-	margin-left: 0.5em;
-	font-size: 1.1rem;
-	font-weight: 500;
-	color: #222;
-}
-
-.darkMode .toggleDiv__openOrCloseFilter {
-	color: #f1f1f1ea;
-}
-
-.openOrCloseFilter__filterTitle {
-	margin: 0;
-	font-size: 1rem;
+@media (max-width: 410px) {
+	.homePageContainer__filterPokemonContainer.open {
+    height: 370px;
+	width: 310px;
+};
 }
 
 /* --- SEARCHBAR --- */

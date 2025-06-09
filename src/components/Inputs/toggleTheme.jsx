@@ -32,7 +32,7 @@ const ToggleTheme = ({ onChange, state, icons }) => {
 					</span>
 				)}
 				{state === "light" && (
-					<span className="rightIcon" aria-label="Activé le thème foncé">
+					<span className="rightIcon" aria-label="Activé le thème sombre">
 						<span role="img" className="rightIcon" alt="">
 							{icons[1] ? icons[1] : ""}
 						</span>
