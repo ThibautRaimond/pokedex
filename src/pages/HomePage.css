@@ -87,8 +87,9 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
 }
 
 /* --- */
-.generationSelectContainer__generationTitle {
-	margin-top: 0.4em;
+.generationSelectContainer__Legend {
+	font-weight: bold;
+	margin: auto;
 }
 
 .filterPokemonContainer__generationSelectContainer {
@@ -99,7 +100,9 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
 
 
 /* -- */
-.filterPokemonContainer__typeTitle {
+.TypesSelectContainer__Legend{
+		font-weight: bold;
+	margin: auto;
 	margin-top: 1em;
 	margin-bottom: 0.2em;
 }

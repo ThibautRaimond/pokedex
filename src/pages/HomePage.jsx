@@ -76,10 +76,12 @@ const HomePage = () => {
             aria-label="Recherche par nom de pokemon"
             tabIndex={getTabIndex()}
           />
+          
+        <fieldset>
+          <legend className="generationSelectContainer__Legend">
+            Générations:
+          </legend>
 
-          <h2 className="generationSelectContainer__generationTitle">
-            Génération(s):
-          </h2>
           <div className="filterPokemonContainer__generationSelectContainer">
             {Object.entries(generationsState).map(([gen, isSelected]) => (
               <label key={gen} htmlFor={gen}>
@@ -95,10 +97,12 @@ const HomePage = () => {
               </label>
             ))}
           </div>
+</fieldset>
 
-          <h2 className="filterPokemonContainer__typeTitle">
+<fieldset>
+          <legend className="TypesSelectContainer__Legend">
             Types:
-          </h2>
+          </legend>
           <div className="filterPokemonContainer__typeSelectContainer">
             {[
               "normal",
@@ -139,6 +143,7 @@ const HomePage = () => {
               </label>
             ))}
           </div>
+          </fieldset>
         </div>
 
         {/* Loader ou erreur */}
