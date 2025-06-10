@@ -30,12 +30,12 @@
 
 .fighting {
 	background-color: #c03028;
-	color: #000;
+	color: #ffffff;
 }
 
 .poison {
 	background-color: #a040a0;
-	color: #000;
+	color: #ffffff;
 }
 
 .ground {
@@ -65,13 +65,12 @@
 
 .ghost {
 	background-color: #705898;
-	color: #000;
-
+	color: #ffffff;
 }
 
 .dragon {
 	background-color: #7038f8;
-	color: #000;
+	color: #fcfcfc;
 }
 
 .dark {
@@ -89,7 +88,7 @@
 	color: #000;
 }
 
-.darkMode .normal {
+/* .darkMode .normal {
 	background-color: #a8a878;
 	color: #000;
 }
@@ -157,7 +156,6 @@
 .darkMode .ghost {
 	background-color: #705898;
 	color: #000;
-
 }
 
 .darkMode .dragon {
@@ -178,7 +176,7 @@
 .darkMode .fairy {
 	background-color: #ee99ac;
 	color: #000;
-}
+} */
 
 .pokedexType{
 	padding: 2px 8px;
