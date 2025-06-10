@@ -175,7 +175,7 @@ const HomePage = () => {
                   className={`${types[0]} pokemonsContainer__pokemonContainer`}
                   key={index}
                 >
-                  <Link to={`/pokedex/pokemon/${id}`} aria-label={`Visionner le pokemon ${name}`}>
+                  <Link to={`/pokedex/pokemon/${id}`} aria-label={`Visionner ${name} pokemon numéro ${id}`}>
                     <div className="pokemonContainer__NameAndId">
                       <p>{name}</p>
                       <p>N°{id}</p>
