@@ -2,8 +2,8 @@ import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 
+import { generations, useGenerations } from "../hooks/useGenerations";
 import { useSpeciesApi } from "../hooks/usePokeApi";
-import { useGenerations } from "../hooks/useGenerations";
 import { translateType } from "../locales/types";
 import ScrollToTopButton from "../components/Inputs/ScrollToTopButton";
 import ScrollToBotButton from "../components/Inputs/ScrollToBotButton";
@@ -17,7 +17,7 @@ const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedTypes, setSelectedTypes] = useState([]);
 
-  const { generationsState, genFrom, genTo, handleChangeGeneration } = useGenerations();
+const { selectedGeneration, genFrom, genTo, handleChangeGeneration } = useGenerations();
 
   const { data, isLoading, isError } = useSpeciesApi({
     from: genFrom,
@@ -66,42 +66,35 @@ const HomePage = () => {
           id="filter-pokemon-container"
           aria-hidden={!isOpen}
         >
-          {/* Barre de recherche */}
-          <input
-            className="homePageContainer__searchPokemonByName"
-            type="text"
-            placeholder="Nom du pokemon"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            aria-label="Recherche par nom de pokemon"
-            tabIndex={getTabIndex()}
-          />
-          
-        <fieldset>
-          <legend className="generationSelectContainer__Legend">
-            Générations:
-          </legend>
 
-          <div className="filterPokemonContainer__generationSelectContainer">
-            {Object.entries(generationsState).map(([gen, isSelected]) => (
-              <label key={gen} htmlFor={gen}>
-                <input
-                  type="checkbox"
-                  name={gen}
-                  id={gen}
-                  checked={isSelected}
-                  onChange={() => handleChangeGeneration(gen)}
-                  tabIndex={getTabIndex()}
-                />
-                {gen.toUpperCase()}
-              </label>
-            ))}
-          </div>
+        <fieldset>
+  <legend className="generationSelectContainer__Legend">
+    Choisir une génération :
+      </legend>
+
+  <div className="filterPokemonContainer__generationSelectContainer">
+    {Object.keys(generations).map((gen) => (
+  <label key={gen} htmlFor={`gen-${gen}`}>
+    <input
+      type="radio"
+      name="generation"
+      id={`gen-${gen}`}
+      value={gen}
+      checked={selectedGeneration === gen}
+      onChange={() => handleChangeGeneration(gen)}
+      tabIndex={getTabIndex()}
+    />
+    {gen.toUpperCase()}
+  </label>
+))}
+
+  </div>
 </fieldset>
+
 
 <fieldset>
           <legend className="TypesSelectContainer__Legend">
-            Types:
+            Filtrer par types
           </legend>
           <div className="filterPokemonContainer__typeSelectContainer">
             {[
@@ -144,6 +137,17 @@ const HomePage = () => {
             ))}
           </div>
           </fieldset>
+                   {/* Barre de recherche */}
+          <input
+            className="homePageContainer__searchPokemonByName"
+            type="text"
+            placeholder="Nom du pokemon"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            aria-label="Recherche par nom de pokemon"
+            tabIndex={getTabIndex()}
+          />
+          
         </div>
 
         {/* Loader ou erreur */}

@@ -28,11 +28,12 @@
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
+  "extends": ["react-app"],
+  "rules": {
+    "no-undef": "off",
+    "react/react-in-jsx-scope": "off"
+  }
+},
   "browserslist": {
     "production": [
       ">0.2%",

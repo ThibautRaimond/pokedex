@@ -17,6 +17,10 @@ body {
 	color: #f1f1f1ea;
 }
 
+.filterPokemonContainer__searchPokemonByName{
+	padding-top: ;
+}
+
 /* --- FILTER BUTTON --- */
 
 button.filterPokemonContainerWithButton__toggleDiv {
@@ -96,14 +100,14 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
 	display: flex;
 	align-items: center;
 	font-family: 'Roboto', sans-serif;
+	margin-bottom: 1em;
 }
 
 
 /* -- */
 .TypesSelectContainer__Legend{
-		font-weight: bold;
+	font-weight: bold;
 	margin: auto;
-	margin-top: 1em;
 	margin-bottom: 0.2em;
 }
 
@@ -147,7 +151,7 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
 .homePageContainer__searchPokemonByName {
 	width: 220px;
 	display: block;
-	margin-bottom: 1em;
+	margin-top: 1em;
 	padding: 10px 12px;
 	font-family: 'Roboto Mono', 'Courier New', monospace;
 	font-size: 1rem;
