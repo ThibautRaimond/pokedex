@@ -88,7 +88,7 @@
 	color: #000;
 }
 
-/* .darkMode .normal {
+.darkMode .normal {
 	background-color: #a8a878;
 	color: #000;
 }
@@ -176,7 +176,7 @@
 .darkMode .fairy {
 	background-color: #ee99ac;
 	color: #000;
-} */
+}
 
 .pokedexType{
 	padding: 2px 8px;
