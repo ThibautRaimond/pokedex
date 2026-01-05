@@ -50,6 +50,11 @@
 }
 
 .footerContainer__Portfolio:hover {
-	color: #52a2c7;
+	color: #050fd7;
+	text-decoration: underline;
+}
+
+.darkMode .footerContainer__Portfolio:hover {
+	color: #2de3f0;
 	text-decoration: underline;
 }

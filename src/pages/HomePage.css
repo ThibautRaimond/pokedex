@@ -191,6 +191,12 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
   color: #000;
 }
 
+
+.footerContainer__Portfolio:hover {
+color: #022d5b;
+}
+
+
 /* ===================== DARK MODE ===================== */
 .darkMode .floatingInput input {
   background-color: #1e1e1e;
