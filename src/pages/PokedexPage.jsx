@@ -94,7 +94,7 @@ const PokedexPage = () => {
 					<p className="typesContainer__typesTitle">Type(s): </p>
 					{pokemonTypes.map((type) => (
 						<span
-							className={`${getTypeClassName(type)} pokedexType`}
+							className="pokedexType"
 							key={type}
 						>
 							{translateType(type)}
