@@ -147,7 +147,6 @@ const HomePage = () => {
     onChange={(e) => setSearchQuery(e.target.value)}
     aria-label="Filtrer par nom"
     tabIndex={getTabIndex()}
-    required
   />
   <label htmlFor="searchPokemon">Filtrer par nom</label>
 </div>

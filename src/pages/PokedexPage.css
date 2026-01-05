@@ -56,7 +56,7 @@ margin: 0em 0.5em;
 	color: #f1f1f1ea;
 }
 .typesContainer__typesTitle{
-
+font-weight: bold;
 }
 
 /* --- */
@@ -73,6 +73,7 @@ margin: 0em 0.5em;
 }
 .weightContainer__weightTitle{
 	margin-right: 0.2em;
+	font-weight: bold;
 }
 .weightContainer__weight{
 
@@ -83,6 +84,7 @@ margin: 0em 0.5em;
 }
 .heightContainer__heightTitle{
 	margin-right: 0.2em;
+	font-weight: bold;
 }
 
 /* --- */
@@ -96,6 +98,7 @@ margin: 0em 0.5em;
 }
 .categoryContainer__categoryTitle{
 	margin-right: 0.2em;
+	font-weight: bold;
 }
 .categoryContainer__category{
 
@@ -125,7 +128,7 @@ margin: 0em 0.5em;
 	color: #f1f1f1ea;
 }
 .descriptionContainer__descriptionTitle{
-
+font-weight: bold;
 }
 .descriptionContainer__descriptionText{
 
