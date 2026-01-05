@@ -18,7 +18,7 @@
 	margin: 0 0.5em;
 	padding: 0.5em;
 	border-radius: 100%;
-	border: solid 1px #f7f4f4ea;
+	border: solid 1px #0a0a0aea;
 }
 .socialsMediasContainer__SocialMedia:hover{
 	padding: 0.25em;
@@ -26,13 +26,19 @@
 }
 .socialsMediasContainer__Linkedin{
 	color: #11a2e6;
-	
 }
+.darkMode .socialsMediasContainer__Linkedin{
+		border: solid 1px #f7f4f4ea;
+		color: #2ebdff;
+}
+
 .socialsMediasContainer__Github{
 	color: #333;
+	border: solid 1px #0a0a0aea;
 }
 .darkMode .socialsMediasContainer__Github{
 	color: #f1f1f1ea;
+	border: solid 1px #f7f4f4ea;
 }
 
 /* --- */
