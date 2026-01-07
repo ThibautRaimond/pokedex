@@ -12,7 +12,9 @@
 
 /* --- */
 .footerContainer__socialsMediasContainer{
-
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 .socialsMediasContainer__SocialMedia{
 	margin: 0 0.5em;
