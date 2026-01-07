@@ -17,7 +17,7 @@ const Navbar = () => {
 	};
 
 	return (
-		<header><nav className="navbar">
+		<header><nav className="navbar" aria-label="menu principal">
 			<Link to="/pokedex" onClick={handleHomeClick}>
 			<img
 						className="Accueil"
