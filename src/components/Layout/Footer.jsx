@@ -6,7 +6,7 @@ import "./Footer.css"
 
 const Footer = () => {
 	return (
-		<nav>
+		<nav aria-label="Liens professionnels">
 		<ul className="footerContainer">
 		<div className="footerContainer__socialsMediasContainer">
 		<li>
