@@ -90,47 +90,50 @@ const PokedexPage = () => {
 					<h2 className="nameAndIdContainer__pokemonName">{pokemon.name}</h2>
 					<p className="nameAndIdContainer__pokemonId">Pokemon N°{id}</p>
 				</div>
-				<div className="pokedexPageContainer__typesContainer">
-					<p className="typesContainer__typesTitle">Type(s): </p>
+				
+				<ul className="pokedexPageContainer">
+				<li className="pokedexPageContainer__typesContainer">
+					<p className="typesContainer__typesTitle">Type<span aria-hidden="true">(s)</span> :</p>
 					{pokemonTypes.map((type) => (
 						<span
-							className="pokedexType"
+							className="typesContainer__pokedexType"
 							key={type}
 						>
 							{translateType(type)}
 						</span>
 					))}
-				</div>
+				</li>
 
-				<div className="pokedexPageContainer__weightAndHeightContainer">
+				<li className="pokedexPageContainer__weightAndHeightContainer">
 					<div className="pokedexPageContainer__weightContainer">
-						<p className="weightContainer__weightTitle">Poids: </p>
+						<p className="weightContainer__weightTitle">Poids : </p>
 						<p className="weightContainer__weight">{pokemonWeight / 10} kg </p>
 					</div>
 					<div className="pokedexPageContainer__heightContainer">
-						<p className="heightContainer__heightTitle">Taille: </p>
+						<p className="heightContainer__heightTitle">Taille : </p>
 						<p className="heightContainer__height">{pokemonHeight / 10} m</p>
 					</div>
-				</div>
+				</li>
 
-				<div className="pokedexPageContainer____categoryContainer">
-					<p className="categoryContainer__categoryTitle">Catégorie:</p>
+				<li className="pokedexPageContainer____categoryContainer">
+					<p className="categoryContainer__categoryTitle">Catégorie :</p>
 					<p className="categoryContainer__category">{pokemonCategory}</p>
-				</div>
+				</li>
 
-				{/* <div className="pokedexPageContainer____genderContainer">
+				{/* <li className="pokedexPageContainer____genderContainer">
 					<p className="genderContainer__genderTitle">Genre(s):</p>
 					<p className="genderContainer__gender">
 						{pokemonGenders.length === 2
 							? pokemonGenders.join(" & ")
 							: pokemonGenders}
 					</p>
-				</div> */}
+				</li> */}
 
-				<div className="pokedexPageContainer____descriptionContainer">
-					<p className="descriptionContainer__descriptionTitle">Description:</p>
+				<li className="pokedexPageContainer____descriptionContainer">
+					<p className="descriptionContainer__descriptionTitle">Description :</p>
 				<p className="descriptionContainer__descriptionText">{pokemon.description}</p>
-				</div>
+				</li>
+				</ul>
 			</div>
 		);
 	}
