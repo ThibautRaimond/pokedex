@@ -61,17 +61,17 @@ const HomePage = () => {
     </span>
     </button>
     
-    <div
+    <ul
     className={`homePageContainer__filterPokemonContainer ${isOpen ? "open" : ""}`}
     id="filter-pokemon-container"
     aria-hidden={!isOpen}
     >
     
+    <li>
     <fieldset>
     <legend className="generationSelectContainer__Legend">
     Choisir une génération :
     </legend>
-    
     <div className="filterPokemonContainer__generationSelectContainer">
     {Object.keys(generations).map((gen) => (
       <label key={gen} htmlFor={`gen-${gen}`}>
@@ -87,11 +87,11 @@ const HomePage = () => {
       {gen.toUpperCase()}
       </label>
     ))}
-    
     </div>
     </fieldset>
+    </li>
     
-    
+    <li>
     <fieldset>
     <legend className="TypesSelectContainer__Legend">
     Filtrer par types
@@ -137,7 +137,9 @@ const HomePage = () => {
     ))}
     </div>
     </fieldset>
-    
+    </li>
+
+    <li>
     {/* Barre de recherche */}
 <div className="floatingInput">
   <input
@@ -150,9 +152,8 @@ const HomePage = () => {
   />
   <label htmlFor="searchPokemon">Filtrer par nom</label>
 </div>
-
-    
-    </div>
+</li>
+    </ul>
     
     {/* Loader ou erreur */}
     {isLoading && <PokeballLoader />}
