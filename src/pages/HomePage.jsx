@@ -44,7 +44,7 @@ const HomePage = () => {
   return (
     <main className="homePage">
       <Helmet>
-        <title>Accueil - Professeur thib</title>
+        <title>Accueil - Pokedex</title>
       </Helmet>
       <div ref={contentRef} className="homePageContainer">
         {/* Bouton menu des filtres */}

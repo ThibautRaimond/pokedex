@@ -73,7 +73,7 @@ const PokedexPage = () => {
     return (
       <main className="pokedexPageContainer">
         <Helmet>
-          <title>Pokedex de {pokemon.name} - Professeur thib</title>
+          <title>{pokemon.name} - Pokedex</title>
         </Helmet>
         <img src={pokedexModel} alt="" />
         <div className="pokedexPageContainer__imgContainer">
