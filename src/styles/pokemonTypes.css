@@ -1,180 +1,179 @@
 .normal {
-	background-color: #a8a878;
-	color: #000;
+  background-color: #a8a878;
+  color: #000;
 }
 
 .fire {
-	background-color: #f08030;
-	color: #000;
+  background-color: #f08030;
+  color: #000;
 }
 
 .water {
-	background-color: #6890f0;
-	color: #000;
+  background-color: #6890f0;
+  color: #000;
 }
 
 .electric {
-	background-color: #f8d030;
-	color: #000;
+  background-color: #f8d030;
+  color: #000;
 }
 
 .grass {
-	background-color: #78c850;
-	color: #000;
+  background-color: #78c850;
+  color: #000;
 }
 
 .ice {
-	background-color: #98d8d8;
-	color: #000;
+  background-color: #98d8d8;
+  color: #000;
 }
 
 .fighting {
-	background-color: #c03028;
-	color: #ffffff;
+  background-color: #c03028;
+  color: #ffffff;
 }
 
 .poison {
-	background-color: #a040a0;
-	color: #ffffff;
+  background-color: #a040a0;
+  color: #ffffff;
 }
 
 .ground {
-	background-color: #e0c068;
-	color: #000;
+  background-color: #e0c068;
+  color: #000;
 }
 
 .flying {
-	background-color: #a890f0;
-	color: #000;
+  background-color: #a890f0;
+  color: #000;
 }
 
 .psychic {
-	background-color: #f85888;
-	color: #000;
+  background-color: #f85888;
+  color: #000;
 }
 
 .bug {
-	background-color: #a8b820;
-	color: #000;
+  background-color: #a8b820;
+  color: #000;
 }
 
 .rock {
-	background-color: #b8a038;
-	color: #000;
+  background-color: #b8a038;
+  color: #000;
 }
 
 .ghost {
-	background-color: #705898;
-	color: #ffffff;
+  background-color: #705898;
+  color: #ffffff;
 }
 
 .dragon {
-	background-color: #7038f8;
-	color: #fcfcfc;
+  background-color: #7038f8;
+  color: #fcfcfc;
 }
 
 .dark {
-	background-color: #705848;
-	color: #fff;
+  background-color: #705848;
+  color: #fff;
 }
 
 .steel {
-	background-color: #b8b8d0;
-	color: #000;
+  background-color: #b8b8d0;
+  color: #000;
 }
 
 .fairy {
-	background-color: #ee99ac;
-	color: #000;
+  background-color: #ee99ac;
+  color: #000;
 }
 
 .darkMode .normal {
-	background-color: #a8a878;
-	color: #000;
+  background-color: #a8a878;
+  color: #000;
 }
 
 .darkMode .fire {
-	background-color: #f08030;
-	color: #000;
+  background-color: #f08030;
+  color: #000;
 }
 
 .darkMode .water {
-	background-color: #6890f0;
-	color: #000;
+  background-color: #6890f0;
+  color: #000;
 }
 
 .darkMode .electric {
-	background-color: #f8d030;
-	color: #000;
+  background-color: #f8d030;
+  color: #000;
 }
 
 .darkMode .grass {
-	background-color: #78c850;
-	color: #000;
+  background-color: #78c850;
+  color: #000;
 }
 
 .darkMode .ice {
-	background-color: #98d8d8;
-	color: #000;
+  background-color: #98d8d8;
+  color: #000;
 }
 
 .darkMode .fighting {
-	background-color: #c03028;
-	color: #000;
+  background-color: #c03028;
+  color: #000;
 }
 
 .darkMode .poison {
-	background-color: #a040a0;
-	color: #000;
+  background-color: #a040a0;
+  color: #000;
 }
 
 .darkMode .ground {
-	background-color: #e0c068;
-	color: #000;
+  background-color: #e0c068;
+  color: #000;
 }
 
 .darkMode .flying {
-	background-color: #a890f0;
-	color: #000;
+  background-color: #a890f0;
+  color: #000;
 }
 
 .darkMode .psychic {
-	background-color: #f85888;
-	color: #000;
+  background-color: #f85888;
+  color: #000;
 }
 
 .darkMode .bug {
-	background-color: #a8b820;
-	color: #000;
+  background-color: #a8b820;
+  color: #000;
 }
 
 .darkMode .rock {
-	background-color: #b8a038;
-	color: #000;
+  background-color: #b8a038;
+  color: #000;
 }
 
 .darkMode .ghost {
-	background-color: #705898;
-	color: #000;
+  background-color: #705898;
+  color: #000;
 }
 
 .darkMode .dragon {
-	background-color: #7038f8;
-	color: #000;
+  background-color: #7038f8;
+  color: #000;
 }
 
 .darkMode .dark {
-	background-color: #705848;
-	color: #000;
+  background-color: #705848;
+  color: #000;
 }
 
 .darkMode .steel {
-	background-color: #b8b8d0;
-	color: #000;
+  background-color: #b8b8d0;
+  color: #000;
 }
 
 .darkMode .fairy {
-	background-color: #ee99ac;
-	color: #000;
+  background-color: #ee99ac;
+  color: #000;
 }
-

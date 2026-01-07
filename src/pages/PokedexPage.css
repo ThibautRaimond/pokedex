@@ -1,111 +1,108 @@
-.pokedexPageContainer{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding-bottom: 4em ;
-	overflow: hidden;
+.pokedexPageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 4em;
+  overflow: hidden;
 }
 @media screen and (min-height: 850px) {
-	.pokedexPageContainer{
-		padding-bottom: 0em ;
-	}
+  .pokedexPageContainer {
+    padding-bottom: 0em;
+  }
 }
 
 .pokedex {
-	width: 100%;
-	max-width: 425px;
-	position: relative;
-	max-width: 100%;
-	height: auto;
-	float: right;
+  width: 100%;
+  max-width: 425px;
+  position: relative;
+  max-width: 100%;
+  height: auto;
+  float: right;
 }
 /* --- */
-.pokedexPageContainer__imgContainer{
-	position: absolute;
-	top: 17.5em;
-	margin-right: 2.1em;
+.pokedexPageContainer__imgContainer {
+  position: absolute;
+  top: 17.5em;
+  margin-right: 2.1em;
 }
-.imgContainer__img{
-	width: 10em;
+.imgContainer__img {
+  width: 10em;
 }
 
 /* --- */
-.pokedexPageContainer__nameAndIdContainer{
-	position: absolute;
-	top: 28.5em;
-	margin-right: 2.2em;
-	display: flex;
-	align-items: center;
-	flex-direction: column;
+.pokedexPageContainer__nameAndIdContainer {
+  position: absolute;
+  top: 28.5em;
+  margin-right: 2.2em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
-.nameAndIdContainer__pokemonName{
-margin: 0em 0.5em;
+.nameAndIdContainer__pokemonName {
+  margin: 0em 0.5em;
 }
-.nameAndIdContainer__pokemonId{
-	margin: 0em 0.5em;
+.nameAndIdContainer__pokemonId {
+  margin: 0em 0.5em;
 }
 
 /* --- */
-.pokedexPageContainer__typesContainer{
-	display: flex;
-	align-items: center;
-	position: absolute;
-	top: 32.2em;
-	margin-right: 2.2em;
-	color: #f1f1f1ea;
+.pokedexPageContainer__typesContainer {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 32.2em;
+  margin-right: 2.2em;
+  color: #f1f1f1ea;
 }
-.typesContainer__typesTitle{
-font-weight: bold;
-margin-right: 3px;
+.typesContainer__typesTitle {
+  font-weight: bold;
+  margin-right: 3px;
 }
 .typesContainer__pokedexType {
-	margin-left: 0.25em;
+  margin-left: 0.25em;
 }
 
 /* --- */
-.pokedexPageContainer__weightAndHeightContainer{
-	display: flex;
-	position: absolute;
-	top: 34.2em;
-	margin-right: 2.2em;
-	color: #f1f1f1ea;
+.pokedexPageContainer__weightAndHeightContainer {
+  display: flex;
+  position: absolute;
+  top: 34.2em;
+  margin-right: 2.2em;
+  color: #f1f1f1ea;
 }
-.pokedexPageContainer__weightContainer{
-	display: flex;
-	margin: 0em 0.5em;
+.pokedexPageContainer__weightContainer {
+  display: flex;
+  margin: 0em 0.5em;
 }
-.weightContainer__weightTitle{
-	margin-right: 0.2em;
-	font-weight: bold;
+.weightContainer__weightTitle {
+  margin-right: 0.2em;
+  font-weight: bold;
 }
-.weightContainer__weight{
-
+.weightContainer__weight {
 }
-.pokedexPageContainer__heightContainer{
-	display: flex;
-	margin: 0em 0.5em;
+.pokedexPageContainer__heightContainer {
+  display: flex;
+  margin: 0em 0.5em;
 }
-.heightContainer__heightTitle{
-	margin-right: 0.2em;
-	font-weight: bold;
+.heightContainer__heightTitle {
+  margin-right: 0.2em;
+  font-weight: bold;
 }
 
 /* --- */
-.pokedexPageContainer____categoryContainer{
-	display: flex;
-	position: absolute;
-	top: 36.2em;
-	margin-right: 2.2em;
-	color: #f1f1f1ea;
-	
+.pokedexPageContainer____categoryContainer {
+  display: flex;
+  position: absolute;
+  top: 36.2em;
+  margin-right: 2.2em;
+  color: #f1f1f1ea;
 }
-.categoryContainer__categoryTitle{
-	margin-right: 0.2em;
-	font-weight: bold;
+.categoryContainer__categoryTitle {
+  margin-right: 0.2em;
+  font-weight: bold;
 }
-.categoryContainer__category{
-
+.categoryContainer__category {
 }
 
 /* --- */
@@ -122,18 +119,17 @@ margin-right: 3px;
 } */
 
 /* --- */
-.pokedexPageContainer____descriptionContainer{
-	position: absolute;
+.pokedexPageContainer____descriptionContainer {
+  position: absolute;
 
-	top: 38.2em;
-	margin-right: 2.2em;
-	width: 300px;
-	text-align: center;
-	color: #f1f1f1ea;
+  top: 38.2em;
+  margin-right: 2.2em;
+  width: 300px;
+  text-align: center;
+  color: #f1f1f1ea;
 }
-.descriptionContainer__descriptionTitle{
-font-weight: bold;
+.descriptionContainer__descriptionTitle {
+  font-weight: bold;
 }
-.descriptionContainer__descriptionText{
-
+.descriptionContainer__descriptionText {
 }

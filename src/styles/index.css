@@ -1,48 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&display=swap");
 
 @font-face {
-	font-family: 'Press Start 2P';
-	src: url('./fonts/PressStart2P.ttf');
-	}
+  font-family: "Press Start 2P";
+  src: url("./fonts/PressStart2P.ttf");
+}
 @font-face {
-	font-family: 'Poppins';
-	src: url('./fonts/Poppins-Black.ttf');
+  font-family: "Poppins";
+  src: url("./fonts/Poppins-Black.ttf");
 }
 
-html, body {
-	height: 100%;
-	margin: 0;
-	font-family: 'Oxanium', cursive;
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Oxanium", cursive;
 }
 
 #root {
-	min-height: 100%;
-	position: relative;
-}  
+  min-height: 100%;
+  position: relative;
+}
 
 Layout {
-	min-height: 100%;
-	position: relative;
+  min-height: 100%;
+  position: relative;
 }
 
 .darkMode {
-background-color: #222;
+  background-color: #222;
 }
 
 :focus {
-outline: revert;
+  outline: revert;
 }
 
 .sr-only {
-	border: 0 !important;
-	clip: rect(1px, 1px, 1px, 1px) !important;
-	-webkit-clip-path: inset(50%) !important;
-			clip-path: inset(50%) !important;
-	height: 1px !important;
-	overflow: hidden !important;
-	padding: 0 !important;
-	position: absolute !important;
-	width: 1px !important;
-	white-space: nowrap !important;
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
 }

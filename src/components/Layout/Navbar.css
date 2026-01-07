@@ -1,53 +1,54 @@
-.navbar{
-	height: 85px;
-	display: flex; 
-	justify-content: center;
-	align-items: center;
-	justify-content: space-between; 
-	align-items: center; 
-	padding: 1em; 
-	margin-bottom: 1.5em;
-	background-color: #fff;
-	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
+.navbar {
+  height: 85px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  margin-bottom: 1.5em;
+  background-color: #fff;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-.menuIconContainer{
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.menuIconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.menuIcon{
-	cursor: pointer;
-	height: 40px;
-	width: 40px;
-	padding: 0.2em;
+.menuIcon {
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  padding: 0.2em;
 }
 
-.menuIcon:hover{
-
+.menuIcon:hover {
 }
 
 .navbar__title {
-	font-family: 'Press Start 2P', sans-serif;
-	font-size: 3vw;
-	letter-spacing: 7px;
-	color: #c20303;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 3vw;
+  letter-spacing: 7px;
+  color: #c20303;
 }
 
 /* dark-mode */
 .darkMode .navbar {
-	background-color: #222;
-	color: #fff;
-	box-shadow: 0 0 11px rgba(0, 0, 0, 0.2); 
+  background-color: #222;
+  color: #fff;
+  box-shadow: 0 0 11px rgba(0, 0, 0, 0.2);
 }
 /* ------- */
 
 @media screen and (min-width: 1600px) {
-	.navbar__title {
-		font-size: 30px;
-	}
-	.menuIcon{
-		height: 50px;
-		width: 50px;
-	}
+  .navbar__title {
+    font-size: 30px;
+  }
+  .menuIcon {
+    height: 50px;
+    width: 50px;
+  }
 }

@@ -1,68 +1,68 @@
-.footerContainer{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	position: absolute;
-	bottom: 0;
-	width: 100%;
+.footerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
-.darkMode .footerContainer{
-	background-color: #222;
-}
-
-/* --- */
-.footerContainer__socialsMediasContainer{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.socialsMediasContainer__SocialMedia{
-	margin: 0 0.5em;
-	padding: 0.5em;
-	border-radius: 100%;
-	border: solid 1px #0a0a0aea;
-}
-.socialsMediasContainer__SocialMedia:hover{
-	padding: 0.25em;
-	transition: 0.7s;
-}
-.socialsMediasContainer__Linkedin{
-	color: #11a2e6;
-}
-.darkMode .socialsMediasContainer__Linkedin{
-		border: solid 1px #f7f4f4ea;
-		color: #2ebdff;
-}
-
-.socialsMediasContainer__Github{
-	color: #333;
-	border: solid 1px #0a0a0aea;
-}
-.darkMode .socialsMediasContainer__Github{
-	color: #f1f1f1ea;
-	border: solid 1px #f7f4f4ea;
+.darkMode .footerContainer {
+  background-color: #222;
 }
 
 /* --- */
-
-.footerContainer__Portfolio{
-	margin-top: 0.5em;
-	padding-bottom: 1em;
-	font-size: 0.9em;
-	color:inherit;
-	transition: 0.5s;
-	color: #424242f8;
+.footerContainer__socialsMediasContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.darkMode .footerContainer__Portfolio{
-	color: #f1f1f1ea;
+.socialsMediasContainer__SocialMedia {
+  margin: 0 0.5em;
+  padding: 0.5em;
+  border-radius: 100%;
+  border: solid 1px #0a0a0aea;
+}
+.socialsMediasContainer__SocialMedia:hover {
+  padding: 0.25em;
+  transition: 0.7s;
+}
+.socialsMediasContainer__Linkedin {
+  color: #11a2e6;
+}
+.darkMode .socialsMediasContainer__Linkedin {
+  border: solid 1px #f7f4f4ea;
+  color: #2ebdff;
+}
+
+.socialsMediasContainer__Github {
+  color: #333;
+  border: solid 1px #0a0a0aea;
+}
+.darkMode .socialsMediasContainer__Github {
+  color: #f1f1f1ea;
+  border: solid 1px #f7f4f4ea;
+}
+
+/* --- */
+
+.footerContainer__Portfolio {
+  margin-top: 0.5em;
+  padding-bottom: 1em;
+  font-size: 0.9em;
+  color: inherit;
+  transition: 0.5s;
+  color: #424242f8;
+}
+.darkMode .footerContainer__Portfolio {
+  color: #f1f1f1ea;
 }
 
 .footerContainer__Portfolio:hover {
-	color: #050fd7;
-	text-decoration: underline;
+  color: #050fd7;
+  text-decoration: underline;
 }
 
 .darkMode .footerContainer__Portfolio:hover {
-	color: #2de3f0;
-	text-decoration: underline;
+  color: #2de3f0;
+  text-decoration: underline;
 }

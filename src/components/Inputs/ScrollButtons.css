@@ -1,44 +1,42 @@
 .scroll-buttons-container {
-	display: flex;
-	justify-content: center;
-	position: fixed;
-	bottom: 0;
-	width: 100%;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 .scrollButton {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: fixed;
-	z-index: 9999;
-	cursor: pointer;
-	opacity: 0;
-	transition: opacity 0.5s;
-	border-radius: 999px;
-	color: #fffffffb;
-	background-color: #1a1a1af8;
-	border: 1px solid #1a1a1af8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 9999;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.5s;
+  border-radius: 999px;
+  color: #fffffffb;
+  background-color: #1a1a1af8;
+  border: 1px solid #1a1a1af8;
 }
 
-.darkMode .scrollButton{
-	color: #000000ee;
-	background-color: #f7f4f4ea;
-	border: 1px solid #f7f4f4ea;
-
+.darkMode .scrollButton {
+  color: #000000ee;
+  background-color: #f7f4f4ea;
+  border: 1px solid #f7f4f4ea;
 }
 .scrollButton.visible {
-	opacity: 1;
+  opacity: 1;
 }
 
 /* --- */
 .scrollToTopButton {
-	bottom: 45px;
-	right: 5px;
+  bottom: 45px;
+  right: 5px;
 }
 /* --- */
-.scrollToBotButton{
-	bottom: 10px;
-	right: 5px;
+.scrollToBotButton {
+  bottom: 10px;
+  right: 5px;
 }
-
