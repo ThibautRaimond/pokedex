@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const generations = {
+export const generations = {
   1: { from: 1, to: 151 },
   2: { from: 152, to: 251 },
   3: { from: 252, to: 386 },
@@ -11,22 +11,34 @@ const generations = {
   8: { from: 810, to: 898 },
 };
 
-const useGenerations = () => {
-  const [selectedGeneration, setSelectedGeneration] = useState("1");
+export const useGenerations = () => {
+  // anciens noms conservés
+  const [selectedGeneration, setSelectedGeneration] = useState(1);
 
-  const genFrom = generations[selectedGeneration].from;
-  const genTo = generations[selectedGeneration].to;
+  // nouveaux sliders
+  const [genStart, setGenStart] = useState(1);
+  const [genEnd, setGenEnd] = useState(7);
+
+  const genFrom = generations[genStart].from;
+  const genTo = generations[genEnd].to;
 
   const handleChangeGeneration = (gen) => {
     setSelectedGeneration(gen);
+    setGenStart(gen);
+    setGenEnd(gen);
   };
 
   return {
+
     selectedGeneration,
+    handleChangeGeneration,
     genFrom,
     genTo,
-    handleChangeGeneration,
+
+
+    genStart,
+    genEnd,
+    setGenStart,
+    setGenEnd,
   };
 };
-
-export { generations, useGenerations };

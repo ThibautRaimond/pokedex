@@ -100,18 +100,13 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
   margin: auto;
 }
 
-.filterPokemonContainer__generationSelectContainer {
-  display: flex;
-  align-items: center;
-  font-family: "Roboto", sans-serif;
-  margin-bottom: 1em;
-}
 
 /* -- */
 .TypesSelectContainer__Legend {
   font-weight: bold;
   margin: auto;
   margin-bottom: 0.2em;
+  margin-top: 1em;
 }
 
 .filterPokemonContainer__typeSelectContainer {
@@ -121,6 +116,7 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
   align-items: center;
   padding-left: 1em;
   font-family: "Roboto", sans-serif;
+
 }
 
 .typeSelectContainer__types {
@@ -292,9 +288,114 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
   align-items: center;
 }
 
+
+
 /* --- */
 .pokemonContainer__imgContainer {
 }
 
 .imgContainer__PokemonImg {
+}
+
+
+/* --- */
+
+/* =============================== FIELDSET ================================ */
+
+.generationRange {
+  width: 100%;
+  max-width: 650px;
+  margin-bottom: 1.5em;
+}
+.generationRange_legend{
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* =============================== CONTAINER ================================ */
+
+.rangeContainer {
+  position: relative;
+  margin-bottom: 1em;
+  min-width: 250px;
+}
+
+/* =============================== INPUT RANGE - START ================================ */
+
+/* input */
+.rangeThumb {
+  position: absolute;
+  width: 100%;
+  height: 14px;
+  pointer-events: none;
+  appearance: none;
+  background: none;
+  z-index: 3;
+}
+.rangeThumb:focus {
+  outline: none;
+}
+.rangeThumb.start {
+  
+}
+
+.rangeThumb.end {
+  
+}
+
+/* circles */
+.rangeThumb::-webkit-slider-thumb {
+  pointer-events: all;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #000;
+  cursor: pointer;
+}
+.rangeThumb:focus-visible::-webkit-slider-thumb {
+    outline: auto;
+    outline-color: red;
+    box-shadow: 0 0 0 3px rgb(0, 0, 0);
+}
+.darkMode .rangeThumb:focus-visible::-webkit-slider-thumb {
+    box-shadow: 0 0 0 3px rgb(255, 255, 255);
+}
+
+/* =============================== TRACK ================================ */
+
+.rangeTrack {
+  position: relative;
+  height: 14px;
+  background: #ffffff;
+  border: 2px solid #000;
+  border-radius: 20px;
+}
+
+/* =============================== SELECTED RANGE ================================ */
+
+.rangeSelected {
+  position: absolute;
+  height: 100%;
+  background: #c01818;
+  border-radius: 20px;
+}
+
+/* =============================== LABELS ================================ */
+
+.rangeLabel {
+  position: absolute;
+  top: 1.1em;
+  font-size: 1.1rem;
+  pointer-events: none;
+}
+
+.rangeLabel.left {
+  left: 0;
+}
+
+.rangeLabel.right {
+  right: 0;
 }
