@@ -183,6 +183,7 @@ const HomePage = () => {
                 ].map((type) => (
                   <label key={type} className="typeSelectContainer__types">
                     <input
+                      className="input"
                       type="checkbox"
                       name="typeSelect"
                       value={type}

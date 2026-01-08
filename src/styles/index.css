@@ -49,7 +49,7 @@ Layout {
 
 .input:focus {
   outline: 2px solid #000000;
-  outline-offset: 2px;
+  outline-offset: 1px;
 }
 .darkMode .input:focus {
   outline: 2px solid #ffffff;
