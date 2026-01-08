@@ -107,20 +107,19 @@ const HomePage = () => {
       </label>
 
       <input
-        id="gen-start"
-        type="range"
-        min="1"
-        max="8"
-        value={genStart}
-        onChange={(e) =>
-          setGenStart(Math.min(Number(e.target.value), genEnd))
-        }
-        className="rangeThumb start "
-        aria-labelledby="gen-start-label"
-        aria-valuemin={1}
-        aria-valuemax={8}
-        aria-valuenow={genStart}
-      />
+  id="gen-start"
+  type="range"
+  min="1"
+  max="8"
+  value={genStart}
+  onChange={(e) => setGenStart(Math.min(Number(e.target.value), genEnd))}
+  className="rangeThumb start"
+  aria-labelledby="gen-start-label"
+  aria-valuemin={1}
+  aria-valuemax={8}
+  aria-valuenow={genStart}
+  tabIndex={getTabIndex()}
+/>
 
       {/* Slider fin */}
       <label
@@ -132,20 +131,19 @@ const HomePage = () => {
       </label>
 
       <input
-        id="gen-end"
-        type="range"
-        min="1"
-        max="8"
-        value={genEnd}
-        onChange={(e) =>
-          setGenEnd(Math.max(Number(e.target.value), genStart))
-        }
-        className="rangeThumb end"
-        aria-labelledby="gen-end-label"
-        aria-valuemin={1}
-        aria-valuemax={8}
-        aria-valuenow={genEnd}
-      />
+  id="gen-end"
+  type="range"
+  min="1"
+  max="8"
+  value={genEnd}
+  onChange={(e) => setGenEnd(Math.max(Number(e.target.value), genStart))}
+  className="rangeThumb end"
+  aria-labelledby="gen-end-label"
+  aria-valuemin={1}
+  aria-valuemax={8}
+  aria-valuenow={genEnd}
+  tabIndex={getTabIndex()}
+/>
 
       <div className="rangeTrack" aria-hidden="true">
         <div

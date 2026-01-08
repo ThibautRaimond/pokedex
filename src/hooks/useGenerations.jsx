@@ -17,7 +17,7 @@ export const useGenerations = () => {
 
   // nouveaux sliders
   const [genStart, setGenStart] = useState(1);
-  const [genEnd, setGenEnd] = useState(7);
+  const [genEnd, setGenEnd] = useState(8);
 
   const genFrom = generations[genStart].from;
   const genTo = generations[genEnd].to;
