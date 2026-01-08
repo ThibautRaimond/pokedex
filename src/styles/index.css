@@ -46,3 +46,11 @@ Layout {
   width: 1px !important;
   white-space: nowrap !important;
 }
+
+.input:focus {
+  outline: 2px solid #000000;
+  outline-offset: 2px;
+}
+.darkMode .input:focus {
+  outline: 2px solid #ffffff;
+}

@@ -23,6 +23,11 @@
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
+.toggleLabel:focus{
+    outline: auto;
+    outline-color: rgb(0, 0, 0);
+    box-shadow: 0 0 0 4px rgb(0, 0, 0);
+}
 
 .toggleThumb {
   content: "";

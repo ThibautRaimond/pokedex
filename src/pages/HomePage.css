@@ -46,9 +46,12 @@ button.filterPokemonContainerWithButton__toggleDiv {
 
 /* rétablie le focus sur le composant : */
 button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
-  outline: 2px solid #007bff;
+  outline: 2px solid #000000;
   outline-offset: 4px;
   border-radius: 8px;
+}
+.darkMode button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
+  outline: 2px solid #ffffff;
 }
 
 .darkMode button.filterPokemonContainerWithButton__toggleDiv {
@@ -344,7 +347,9 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
   
 }
 
-/* circles */
+/* ===== circles ===== */
+
+/* Chrome */
 .rangeThumb::-webkit-slider-thumb {
   pointer-events: all;
   appearance: none;
@@ -362,6 +367,25 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
 }
 .darkMode .rangeThumb:focus-visible::-webkit-slider-thumb {
     box-shadow: 0 0 0 3px rgb(255, 255, 255);
+}
+
+/* firefox : */
+.rangeThumb::-moz-range-thumb  {
+  pointer-events: all;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #000;
+  cursor: pointer;
+}
+.rangeThumb:focus::-moz-range-thumb {
+  outline: 2px solid #000000;
+  outline-offset: 1px;
+}
+.darkMode .rangeThumb:focus::-moz-range-thumb {
+  outline: 2px solid #ffffff;
 }
 
 /* =============================== TRACK ================================ */
