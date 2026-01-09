@@ -11,6 +11,7 @@ import ScrollToTopButton from "../components/Inputs/ScrollToTopButton";
 import ScrollToBotButton from "../components/Inputs/ScrollToBotButton";
 import PokeballLoader from "../components/Inputs/PokeballLoader";
 import CircleLoader from "../components/Inputs/CircleLoader";
+import "../components/Layout/SkipLink.css";
 import "./HomePage.css";
 
 const HomePage = () => {
@@ -176,7 +177,25 @@ const genLabel = (gen) => {
           </li>
 
           <li>
-            <fieldset>
+            <fieldset className="typesFieldset">
+              <a
+                href="#searchPokemon"
+                className="skip-link-types"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const searchInput = document.getElementById("searchPokemon");
+                  if (searchInput) {
+                    searchInput.focus();
+                  }
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Escape") {
+                    e.currentTarget.blur();
+                  }
+                }}
+              >
+                Passer les filtres par types
+              </a>
               <legend className="TypesSelectContainer__Legend">
                 Filtrer par types
               </legend>

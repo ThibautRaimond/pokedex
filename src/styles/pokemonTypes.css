@@ -1,31 +1,31 @@
 .normal {
   background-color: #a8a878;
-  color: #000;
+  color: #222;
 }
 
 .fire {
   background-color: #f08030;
-  color: #000;
+  color: #222;
 }
 
 .water {
   background-color: #6890f0;
-  color: #000;
+  color: #222;
 }
 
 .electric {
   background-color: #f8d030;
-  color: #000;
+  color: #222;
 }
 
 .grass {
   background-color: #78c850;
-  color: #000;
+  color: #222;
 }
 
 .ice {
   background-color: #98d8d8;
-  color: #000;
+  color: #222;
 }
 
 .fighting {
@@ -40,27 +40,27 @@
 
 .ground {
   background-color: #e0c068;
-  color: #000;
+  color: #222;
 }
 
 .flying {
   background-color: #a890f0;
-  color: #000;
+  color: #222;
 }
 
 .psychic {
   background-color: #f85888;
-  color: #000;
+  color: #222;
 }
 
 .bug {
   background-color: #a8b820;
-  color: #000;
+  color: #222;
 }
 
 .rock {
   background-color: #b8a038;
-  color: #000;
+  color: #222;
 }
 
 .ghost {
@@ -80,100 +80,100 @@
 
 .steel {
   background-color: #b8b8d0;
-  color: #000;
+  color: #222;
 }
 
 .fairy {
   background-color: #ee99ac;
-  color: #000;
+  color: #222;
 }
 
 .darkMode .normal {
   background-color: #a8a878;
-  color: #000;
+  color: #222;
 }
 
 .darkMode .fire {
   background-color: #f08030;
-  color: #000;
+  color: #222;
 }
 
 .darkMode .water {
   background-color: #6890f0;
-  color: #000;
+  color: #222;
 }
 
 .darkMode .electric {
   background-color: #f8d030;
-  color: #000;
+  color: #222;
 }
 
 .darkMode .grass {
   background-color: #78c850;
-  color: #000;
+  color: #222;
 }
 
 .darkMode .ice {
   background-color: #98d8d8;
-  color: #000;
+  color: #222;
 }
 
 .darkMode .fighting {
   background-color: #c03028;
-  color: #000;
+  color: #222;
 }
 
 .darkMode .poison {
   background-color: #a040a0;
-  color: #000;
+  color: #222;
 }
 
 .darkMode .ground {
   background-color: #e0c068;
-  color: #000;
+  color: #222;
 }
 
 .darkMode .flying {
   background-color: #a890f0;
-  color: #000;
+  color: #222;
 }
 
 .darkMode .psychic {
   background-color: #f85888;
-  color: #000;
+  color: #222;
 }
 
 .darkMode .bug {
   background-color: #a8b820;
-  color: #000;
+  color: #222;
 }
 
 .darkMode .rock {
   background-color: #b8a038;
-  color: #000;
+  color: #222;
 }
 
 .darkMode .ghost {
   background-color: #705898;
-  color: #000;
+  color: #222;
 }
 
 .darkMode .dragon {
   background-color: #7038f8;
-  color: #000;
+  color: #222;
 }
 
 .darkMode .dark {
   background-color: #705848;
-  color: #000;
+  color: #222;
 }
 
 .darkMode .steel {
   background-color: #b8b8d0;
-  color: #000;
+  color: #222;
 }
 
 .darkMode .fairy {
   background-color: #ee99ac;
-  color: #000;
+  color: #222;
 }

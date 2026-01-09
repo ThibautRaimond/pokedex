@@ -50,7 +50,7 @@ button.filterPokemonContainerWithButton__toggleDiv {
 
 /* rétablie le focus sur le composant : */
 button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
-  outline: 2px solid #000000;
+  outline: 2px solid #222222;
   outline-offset: 4px;
   border-radius: 8px;
 }
@@ -263,7 +263,7 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
 .pokemonContainer__NameAndId {
   width: 110px;
   background-color: #fff;
-  color: #000;
+  color: #222;
   border-radius: 20px 20px 0px 0px;
   border: 1px solid #ccc;
   border-bottom: 0;
@@ -352,7 +352,7 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
   height: 20px;
   border-radius: 50%;
   background: #ffffff;
-  border: 2px solid #000;
+  border: 2px solid #222;
   cursor: pointer;
 }
 .rangeThumb:focus-visible::-webkit-slider-thumb {
@@ -372,11 +372,11 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
   height: 20px;
   border-radius: 50%;
   background: #ffffff;
-  border: 2px solid #000;
+  border: 2px solid #222;
   cursor: pointer;
 }
 .rangeThumb:focus::-moz-range-thumb {
-  outline: 2px solid #000000;
+  outline: 2px solid #222222;
   outline-offset: 1px;
 }
 .darkMode .rangeThumb:focus::-moz-range-thumb {
@@ -389,7 +389,7 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
   position: relative;
   height: 14px;
   background: #ffffff;
-  border: 2px solid #000;
+  border: 2px solid #222;
   border-radius: 20px;
 }
 
