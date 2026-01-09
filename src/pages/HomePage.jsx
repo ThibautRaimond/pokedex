@@ -181,6 +181,7 @@ const genLabel = (gen) => {
               <a
                 href="#searchPokemon"
                 className="skip-link-types"
+                tabIndex={getTabIndex()}
                 onClick={(e) => {
                   e.preventDefault();
                   const searchInput = document.getElementById("searchPokemon");
