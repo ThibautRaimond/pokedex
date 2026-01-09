@@ -107,8 +107,7 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
   margin: auto;
 }
 
-
-/* -- */
+/* --- */
 .typesFieldset {
   margin: 0;
   padding: 0;
@@ -122,6 +121,7 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
   text-align: center;
   display: block;
   width: 100%;
+  margin-bottom: 5px;
 }
 
 .filterPokemonContainer__typeSelectContainer {
@@ -316,6 +316,9 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
 .generationRange_legend{
   margin-bottom: 0.5em;
   font-weight: bold;
+  display: block;
+  width: 100%;
+  padding: 0;
   text-align: center;
 }
 
