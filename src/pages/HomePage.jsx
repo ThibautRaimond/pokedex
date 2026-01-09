@@ -68,7 +68,7 @@ const genLabel = (gen) => {
   const getTabIndex = () => (isOpen ? 0 : -1);
 
   return (
-    <main className="homePage">
+    <div className="homePage">
       <Helmet>
         <title>Accueil - Pokedex</title>
       </Helmet>
@@ -302,7 +302,7 @@ const genLabel = (gen) => {
         <ScrollToTopButton alt="retourner en haut de la page" />
         <ScrollToBotButton alt="accéder au bas de la page" />
       </div>
-    </main>
+    </div>
   );
 };
 

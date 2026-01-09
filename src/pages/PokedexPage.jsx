@@ -8,7 +8,6 @@ import "../styles/pokemonTypes.css";
 import pokedexModel from "../assets/pokedexModel.png";
 
 const PokedexPage = () => {
-  
   // useParams récupère l'id présent dans l'URL
   const { id } = useParams();
   const currentId = Number(id);
@@ -36,9 +35,11 @@ const PokedexPage = () => {
       ).name;
 
       const descriptionEntry = speciesResponse.data.flavor_text_entries.find(
-  (t) => t.language.name === "fr"
-);
-const description = descriptionEntry ? descriptionEntry.flavor_text : "Description indisponible.";
+        (t) => t.language.name === "fr"
+      );
+      const description = descriptionEntry
+        ? descriptionEntry.flavor_text
+        : "Description indisponible.";
 
       const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
       const backImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${id}.png`;
@@ -75,7 +76,7 @@ const description = descriptionEntry ? descriptionEntry.flavor_text : "Descripti
   }, [id]);
   if (pokemon) {
     return (
-      <main className="pokedexPageContainer">
+      <div className="pokedexPageContainer">
         <Helmet>
           <title>{pokemon.name} - Pokedex</title>
         </Helmet>
@@ -97,36 +98,34 @@ const description = descriptionEntry ? descriptionEntry.flavor_text : "Descripti
         <div className="pokedexPageContainer__nameAndIdContainer">
           <h2 className="nameAndIdContainer__pokemonName">{pokemon.name}</h2>
           <div className="arrowAndIdContainer">
-  {currentId > MIN ? (
-    <Link
-      to={`/pokedex/pokemon/${currentId - 1}`}
-      className="arrow"
-      aria-label={`Pokemon numéro ${currentId - 1}`}
-    >
-      ◀
-    </Link>
-  ) : (
-    <span className="arrow disabled">ᐊ</span>
-  )}
+            {currentId > MIN ? (
+              <Link
+                to={`/pokedex/pokemon/${currentId - 1}`}
+                className="arrow"
+                aria-label="Pokemon précédent"
+              >
+                ◀
+              </Link>
+            ) : (
+              <span className="arrow disabled">ᐊ</span>
+            )}
 
-  <p className="nameAndIdContainer__pokemonId">
-    Pokemon N°{currentId}
-  </p>
+            <p className="nameAndIdContainer__pokemonId">
+              Pokemon N°{currentId}
+            </p>
 
-  {currentId < MAX ? (
-    <Link
-      to={`/pokedex/pokemon/${currentId + 1}`}
-      className="arrow"
-      aria-label={`Pokemon numéro ${currentId + 1}`}
-    >
-    ▶
-    </Link>
-  ) : (
-    <span className="arrow disabled">ᐅ</span>
-  )}
-</div>
-
-
+            {currentId < MAX ? (
+              <Link
+                to={`/pokedex/pokemon/${currentId + 1}`}
+                className="arrow"
+                aria-label="Pokemon suivant"
+              >
+                ▶
+              </Link>
+            ) : (
+              <span className="arrow disabled">ᐅ</span>
+            )}
+          </div>
         </div>
 
         <ul className="pokedexPageContainer">
@@ -177,7 +176,7 @@ const description = descriptionEntry ? descriptionEntry.flavor_text : "Descripti
             </p>
           </li>
         </ul>
-      </main>
+      </div>
     );
   }
 };

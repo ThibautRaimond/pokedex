@@ -1,0 +1,29 @@
+.skip-links {
+  display: contents;
+}
+
+.skip-link {
+  position: absolute;
+  top: -999px;
+  left: -999px;
+  z-index: 999;
+  padding: 1rem;
+  background-color: #000000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0.25rem;
+}
+
+.skip-link:focus,
+.skip-links.visible .skip-link {
+  top: 0;
+  left: 0;
+  outline: 2px solid #000000;
+  outline-offset: 1px;
+  margin-top: 10px;
+}
+
+.darkMode .skip-link:focus,
+.darkMode .skip-links.visible .skip-link {
+  outline: 2px solid #ffffff;
+}
