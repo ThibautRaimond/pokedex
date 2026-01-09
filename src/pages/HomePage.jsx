@@ -177,8 +177,7 @@ const genLabel = (gen) => {
           </li>
 
           <li>
-            <fieldset className="typesFieldset">
-              <a
+            <a
                 href="#searchPokemon"
                 className="skip-link-types"
                 tabIndex={getTabIndex()}
@@ -197,6 +196,8 @@ const genLabel = (gen) => {
               >
                 Passer les filtres par types
               </a>
+            <fieldset className="typesFieldset">
+              
               <legend className="TypesSelectContainer__Legend">
                 Filtrer par types
               </legend>
