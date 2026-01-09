@@ -109,11 +109,19 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
 
 
 /* -- */
+.typesFieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
 .TypesSelectContainer__Legend {
   font-weight: bold;
-  margin: auto;
-  margin-bottom: 0.2em;
-  margin-top: 1em;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  display: block;
+  width: 100%;
 }
 
 .filterPokemonContainer__typeSelectContainer {
@@ -487,3 +495,4 @@ background: #FF4747;
   outline: 2px solid #ffffff;
   outline-offset: 1px;
 }
+
