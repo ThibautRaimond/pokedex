@@ -10,6 +10,11 @@
     padding-bottom: 0em;
   }
 }
+@media screen and (max-width: 340px) {
+  .pokedexPageContainer {
+    padding-left: 15px;
+  }
+}
 
 .pokedex {
   width: 100%;
