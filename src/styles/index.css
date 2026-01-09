@@ -54,3 +54,8 @@ Layout {
 .darkMode .input:focus {
   outline: 2px solid #ffffff;
 }
+
+.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}

@@ -9,6 +9,7 @@ export const generations = {
   6: { from: 650, to: 721 },
   7: { from: 722, to: 809 },
   8: { from: 810, to: 898 },
+  9: { from: 899, to: 1010},
 };
 
 export const useGenerations = () => {
@@ -17,7 +18,7 @@ export const useGenerations = () => {
 
   // nouveaux sliders
   const [genStart, setGenStart] = useState(1);
-  const [genEnd, setGenEnd] = useState(8);
+  const [genEnd, setGenEnd] = useState(2);
 
   const genFrom = generations[genStart].from;
   const genTo = generations[genEnd].to;

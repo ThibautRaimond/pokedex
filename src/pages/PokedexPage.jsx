@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { Helmet } from "react-helmet";
-
 import { translateType, getTypeClassName } from "../locales/types";
 import "./PokedexPage.css";
 import "../styles/pokemonTypes.css";
 import pokedexModel from "../assets/pokedexModel.png";
 
 const PokedexPage = () => {
+  
   // useParams récupère l'id présent dans l'URL
   const { id } = useParams();
+  const currentId = Number(id);
+  const MIN = 1;
+  const MAX = 1010;
   // toutes les infos des pokemons qu'on va pouvoir render:
   const [pokemon, setPokemon] = useState(null);
   const [pokemonTypes, setPokemonTypes] = useState([]);
@@ -32,9 +35,10 @@ const PokedexPage = () => {
         (n) => n.language.name === "fr"
       ).name;
 
-      const description = speciesResponse.data.flavor_text_entries.find(
-        (t) => t.language.name === "fr"
-      ).flavor_text;
+      const descriptionEntry = speciesResponse.data.flavor_text_entries.find(
+  (t) => t.language.name === "fr"
+);
+const description = descriptionEntry ? descriptionEntry.flavor_text : "Description indisponible.";
 
       const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
       const backImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${id}.png`;
@@ -92,7 +96,37 @@ const PokedexPage = () => {
         </div>
         <div className="pokedexPageContainer__nameAndIdContainer">
           <h2 className="nameAndIdContainer__pokemonName">{pokemon.name}</h2>
-          <p className="nameAndIdContainer__pokemonId">Pokemon N°{id}</p>
+          <div className="arrowAndIdContainer">
+  {currentId > MIN ? (
+    <Link
+      to={`/pokedex/pokemon/${currentId - 1}`}
+      className="arrow"
+      aria-label={`Pokemon numéro ${currentId - 1}`}
+    >
+      ◀
+    </Link>
+  ) : (
+    <span className="arrow disabled">ᐊ</span>
+  )}
+
+  <p className="nameAndIdContainer__pokemonId">
+    Pokemon N°{currentId}
+  </p>
+
+  {currentId < MAX ? (
+    <Link
+      to={`/pokedex/pokemon/${currentId + 1}`}
+      className="arrow"
+      aria-label={`Pokemon numéro ${currentId + 1}`}
+    >
+    ▶
+    </Link>
+  ) : (
+    <span className="arrow disabled">ᐅ</span>
+  )}
+</div>
+
+
         </div>
 
         <ul className="pokedexPageContainer">

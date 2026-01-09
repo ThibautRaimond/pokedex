@@ -12,6 +12,11 @@
     0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
+.darkMode .navbar {
+  background-color: #222;
+  color: #fff;
+  box-shadow: 0 0 11px rgba(0, 0, 0, 0.2);
+}
 
 .menuIconContainer {
   display: flex;
@@ -34,13 +39,10 @@
   letter-spacing: 7px;
   color: #c20303;
 }
-
-/* dark-mode */
-.darkMode .navbar {
-  background-color: #222;
-  color: #fff;
-  box-shadow: 0 0 11px rgba(0, 0, 0, 0.2);
+.darkMode .navbar__title{
+    color: #FF4747;
 }
+
 /* ------- */
 
 @media screen and (min-width: 1600px) {

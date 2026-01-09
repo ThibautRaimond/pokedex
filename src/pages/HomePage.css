@@ -18,8 +18,12 @@ body {
 }
 
 .filterPokemonContainer__searchPokemonByName {
-  padding-top:;
+  
 }
+.inputSearchPokemon {
+
+}
+
 
 /* --- FILTER BUTTON --- */
 
@@ -157,12 +161,18 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
   padding: 12px 12px 12px 12px;
   font-size: 1rem;
   border-radius: 6px;
-  border: 2px solid #000000;
-  border-left: 8px solid #000000;
+  border: 2px solid #C20303;
+  border-left: 6px solid #C20303;
   outline: none;
   background-color: #ffffff;
-  color: #000000;
+  color: #222222;
 }
+.darkMode .floatingInput input {
+  border: 2px solid #FF4747;
+  border-left: 6px solid #FF4747;
+  background-color: #222222;
+}
+
 
 /* Label flottant */
 .floatingInput label {
@@ -170,7 +180,8 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
   left: 12px;
   top: 12px;
   color: #555;
-  font-size: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
   pointer-events: none;
   transition: 0.2s ease all;
   background-color: white;
@@ -182,8 +193,8 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
 .floatingInput input:not(:placeholder-shown) + label,
 .floatingInput input:valid + label {
   top: -8px;
-  font-size: 0.8rem;
-  color: #000;
+  font-size: 0.9rem;
+  color: #222;
 }
 
 .footerContainer__Portfolio:hover {
@@ -191,13 +202,6 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
 }
 
 /* ===================== DARK MODE ===================== */
-.darkMode .floatingInput input {
-  background-color: #1e1e1e;
-  color: #ffffff;
-  border: 2px solid #ffffff;
-  border-left: 8px solid #ffffff;
-}
-
 .darkMode .floatingInput label {
   color: #aaa;
   background-color: #1e1e1e;
@@ -207,7 +211,7 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
 .darkMode .floatingInput input:not(:placeholder-shown) + label,
 .darkMode .floatingInput input:valid + label {
   color: #ffffff;
-  background-color: #1e1e1e;
+  background-color: #222;
 }
 
 /* -------- */
@@ -226,20 +230,20 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
   text-align: center;
   width: 110px;
   margin: 2px;
-  border: 1px solid #ccc;
+  border: 1.5px solid #ccc;
   border-radius: 20px;
   float: left;
 }
 
 .pokemonsContainer__pokemonContainer:hover {
-  border: 1.5px solid #20202088;
+  border: 1.5px solid #808080;
 }
 
 /* --- */
 .darkMode .pokemonsContainer__pokemonContainer {
   color: #f1f1f1ea;
   background-color: #222;
-  border: 1px solid #464646;
+  border: 1.5px solid #464646;
 }
 
 .darkMode .pokemonsContainer__pokemonContainer:hover {
@@ -249,12 +253,10 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
 /* ----- */
 .pokemonsContainer__pokemonContainer:hover .pokemon__NameAndId {
   border: 1.5px solid #464646;
-  border-bottom: 0;
 }
 
 .darkMode .pokemonsContainer__pokemonContainer:hover .pokemon__NameAndId {
   border: 1.5px solid #f1f1f1ea;
-  border-bottom: 0;
 }
 
 /* ------ */
@@ -397,9 +399,10 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
   position: absolute;
   height: 100%;
   background: #c01818;
-  border-radius: 20px;
 }
-
+.darkMode .rangeSelected {
+background: #FF4747;
+}
 /* =============================== LABELS ================================ */
 
 .rangeLabel {

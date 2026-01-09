@@ -14,8 +14,8 @@ import CircleLoader from "../components/Inputs/CircleLoader";
 import "./HomePage.css";
 
 const HomePage = () => {
+  /* === Gestion API pokemon === */
   const contentRef = useRef(null);
-
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedTypes, setSelectedTypes] = useState([]);
 
@@ -35,6 +35,23 @@ const HomePage = () => {
     to: genTo,
   });
 
+  /* === Vocalisation du potentiomètre */
+const genLabel = (gen) => {
+  switch (gen) {
+    case 1: return "première génération";
+    case 2: return "deuxième génération";
+    case 3: return "troisième génération";
+    case 4: return "quatrième génération";
+    case 5: return "cinquième génération";
+    case 6: return "sixième génération";
+    case 7: return "septième génération";
+    case 8: return "huitième génération";
+    case 9: return "neuvième génération";
+    default: return `${gen}ᵉ génération`;
+  }
+};
+
+/* === Accordéon === */
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDiv = () => {
@@ -102,21 +119,22 @@ const HomePage = () => {
                 </label>
 
                 <input
-                  id="gen-start"
-                  type="range"
-                  min="1"
-                  max="8"
-                  value={genStart}
-                  onChange={(e) =>
-                    setGenStart(Math.min(Number(e.target.value), genEnd))
-                  }
-                  className="rangeThumb start"
-                  aria-labelledby="gen-start-label"
-                  aria-valuemin={1}
-                  aria-valuemax={8}
-                  aria-valuenow={genStart}
-                  tabIndex={getTabIndex()}
-                />
+  id="gen-start"
+  type="range"
+  min="1"
+  max="9"
+  value={genStart}
+  onChange={(e) =>
+    setGenStart(Math.min(Number(e.target.value), genEnd))
+  }
+  className="rangeThumb start"
+  aria-labelledby="gen-start-label"
+  aria-valuemin={1}
+  aria-valuemax={9}
+  aria-valuenow={genStart}
+  aria-valuetext={genLabel(genStart)}
+  tabIndex={getTabIndex()}
+/>
 
                 {/* Slider fin */}
                 <label id="gen-end-label" htmlFor="gen-end" className="sr-only">
@@ -124,28 +142,30 @@ const HomePage = () => {
                 </label>
 
                 <input
-                  id="gen-end"
-                  type="range"
-                  min="1"
-                  max="8"
-                  value={genEnd}
-                  onChange={(e) =>
-                    setGenEnd(Math.max(Number(e.target.value), genStart))
-                  }
-                  className="rangeThumb end"
-                  aria-labelledby="gen-end-label"
-                  aria-valuemin={1}
-                  aria-valuemax={8}
-                  aria-valuenow={genEnd}
-                  tabIndex={getTabIndex()}
-                />
+  id="gen-end"
+  type="range"
+  min="1"
+  max="9"
+  value={genEnd}
+  onChange={(e) =>
+    setGenEnd(Math.max(Number(e.target.value), genStart))
+  }
+  className="rangeThumb end"
+  aria-labelledby="gen-end-label"
+  aria-valuemin={1}
+  aria-valuemax={9}
+  aria-valuenow={genEnd}
+  aria-valuetext={genLabel(genEnd)}
+  tabIndex={getTabIndex()}
+/>
+
 
                 <div className="rangeTrack" aria-hidden="true">
                   <div
                     className="rangeSelected"
                     style={{
-                      left: `${((genStart - 1) / 7) * 100}%`,
-                      width: `${((genEnd - genStart) / 7) * 100}%`,
+                      left: `${((genStart - 1) / 8) * 100}%`,
+                      width: `${((genEnd - genStart) / 8) * 100}%`,
                     }}
                   />
                   <span className="rangeLabel left">Gen {genStart}</span>
@@ -210,7 +230,7 @@ const HomePage = () => {
             {/* Barre de recherche */}
             <div className="floatingInput">
               <input
-                className="input"
+                className="input inputSearchPokemon"
                 type="text"
                 id="searchPokemon"
                 value={searchQuery}

@@ -42,8 +42,16 @@
 .nameAndIdContainer__pokemonName {
   margin: 0em 0.5em;
 }
+
 .nameAndIdContainer__pokemonId {
   margin: 0em 0.5em;
+}
+.arrowAndIdContainer{
+  display: flex;
+}
+.arrow{
+  position: relative;
+  top: -3px;
 }
 
 /* --- */

@@ -13,8 +13,8 @@ const Footer = () => {
             <Link
               to={`https://github.com/ThibautRaimond`}
               target="_blank"
-              aria-label="Github de Thibaut Raimond"
             >
+              <span className="sr-only">Github de Thibaut Raimond onglet externe</span>
               <AiFillGithub
                 size={45}
                 className="socialsMediasContainer__SocialMedia socialsMediasContainer__Github"
@@ -26,8 +26,8 @@ const Footer = () => {
             <Link
               to={`https://www.linkedin.com/in/thibaut-raimond-0a46791ab/`}
               target="_blank"
-              aria-label="Linkedin de Thibaut Raimond"
             >
+            <span className="sr-only">Github de Thibaut Raimond onglet externe</span>
               <AiFillLinkedin
                 size={45}
                 className="socialsMediasContainer__SocialMedia socialsMediasContainer__Linkedin"
@@ -36,13 +36,12 @@ const Footer = () => {
             </Link>
           </li>
         </div>
-
         <li>
           <Link
             to={`https://thibautraimond.github.io/portfolio/`}
             target="_blank"
           >
-            <p className="footerContainer__Portfolio">Visiter mon portfolio</p>
+            <p className="footerContainer__Portfolio">Visiter mon portfolio <span className="sr-only">Onglet externe</span></p>
           </Link>
         </li>
       </ul>
