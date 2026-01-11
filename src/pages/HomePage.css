@@ -499,3 +499,25 @@ background: #FF4747;
   outline-offset: 1px;
 }
 
+/* === MESSAGES D'ERREUR === */
+.homePageContainer__errorLoading {
+  border: #C20303 2px solid;
+  margin: 0 1em 1em 1em;
+  padding: 0.5em 0.8em;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #000000;
+}
+.darkMode .homePageContainer__errorLoading {
+  border: #FF4747 2px solid;
+  color: #f1f1f1ea;
+}
+.error-icon {
+  vertical-align: middle;
+  font-size: 1.3rem;
+  color: #000000;
+  margin: 0 0.2em 2px 0;
+}
+.darkMode .error-icon {
+  color: #FF4747;
+}

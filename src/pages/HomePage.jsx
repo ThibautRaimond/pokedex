@@ -1,12 +1,13 @@
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
+import { MdReportGmailerrorred } from "react-icons/md";
 import { Helmet } from "react-helmet";
 
 import { useGenerations, generations } from "../hooks/useGenerations";
-
 import { useSpeciesApi } from "../hooks/usePokeApi";
 import { translateType } from "../locales/types";
+
 import ScrollToTopButton from "../components/Inputs/ScrollToTopButton";
 import ScrollToBotButton from "../components/Inputs/ScrollToBotButton";
 import PokeballLoader from "../components/Inputs/PokeballLoader";
@@ -37,22 +38,32 @@ const HomePage = () => {
   });
 
   /* === Vocalisation du potentiomètre */
-const genLabel = (gen) => {
-  switch (gen) {
-    case 1: return "première génération";
-    case 2: return "deuxième génération";
-    case 3: return "troisième génération";
-    case 4: return "quatrième génération";
-    case 5: return "cinquième génération";
-    case 6: return "sixième génération";
-    case 7: return "septième génération";
-    case 8: return "huitième génération";
-    case 9: return "neuvième génération";
-    default: return `${gen}ᵉ génération`;
-  }
-};
+  const genLabel = (gen) => {
+    switch (gen) {
+      case 1:
+        return "première génération";
+      case 2:
+        return "deuxième génération";
+      case 3:
+        return "troisième génération";
+      case 4:
+        return "quatrième génération";
+      case 5:
+        return "cinquième génération";
+      case 6:
+        return "sixième génération";
+      case 7:
+        return "septième génération";
+      case 8:
+        return "huitième génération";
+      case 9:
+        return "neuvième génération";
+      default:
+        return `${gen}ᵉ génération`;
+    }
+  };
 
-/* === Accordéon === */
+  /* === Accordéon === */
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDiv = () => {
@@ -120,22 +131,22 @@ const genLabel = (gen) => {
                 </label>
 
                 <input
-  id="gen-start"
-  type="range"
-  min="1"
-  max="9"
-  value={genStart}
-  onChange={(e) =>
-    setGenStart(Math.min(Number(e.target.value), genEnd))
-  }
-  className="rangeThumb start"
-  aria-labelledby="gen-start-label"
-  aria-valuemin={1}
-  aria-valuemax={9}
-  aria-valuenow={genStart}
-  aria-valuetext={genLabel(genStart)}
-  tabIndex={getTabIndex()}
-/>
+                  id="gen-start"
+                  type="range"
+                  min="1"
+                  max="9"
+                  value={genStart}
+                  onChange={(e) =>
+                    setGenStart(Math.min(Number(e.target.value), genEnd))
+                  }
+                  className="rangeThumb start"
+                  aria-labelledby="gen-start-label"
+                  aria-valuemin={1}
+                  aria-valuemax={9}
+                  aria-valuenow={genStart}
+                  aria-valuetext={genLabel(genStart)}
+                  tabIndex={getTabIndex()}
+                />
 
                 {/* Slider fin */}
                 <label id="gen-end-label" htmlFor="gen-end" className="sr-only">
@@ -143,23 +154,22 @@ const genLabel = (gen) => {
                 </label>
 
                 <input
-  id="gen-end"
-  type="range"
-  min="1"
-  max="9"
-  value={genEnd}
-  onChange={(e) =>
-    setGenEnd(Math.max(Number(e.target.value), genStart))
-  }
-  className="rangeThumb end"
-  aria-labelledby="gen-end-label"
-  aria-valuemin={1}
-  aria-valuemax={9}
-  aria-valuenow={genEnd}
-  aria-valuetext={genLabel(genEnd)}
-  tabIndex={getTabIndex()}
-/>
-
+                  id="gen-end"
+                  type="range"
+                  min="1"
+                  max="9"
+                  value={genEnd}
+                  onChange={(e) =>
+                    setGenEnd(Math.max(Number(e.target.value), genStart))
+                  }
+                  className="rangeThumb end"
+                  aria-labelledby="gen-end-label"
+                  aria-valuemin={1}
+                  aria-valuemax={9}
+                  aria-valuenow={genEnd}
+                  aria-valuetext={genLabel(genEnd)}
+                  tabIndex={getTabIndex()}
+                />
 
                 <div className="rangeTrack" aria-hidden="true">
                   <div
@@ -178,26 +188,25 @@ const genLabel = (gen) => {
 
           <li>
             <a
-                href="#searchPokemon"
-                className="skip-link-types"
-                tabIndex={getTabIndex()}
-                onClick={(e) => {
-                  e.preventDefault();
-                  const searchInput = document.getElementById("searchPokemon");
-                  if (searchInput) {
-                    searchInput.focus();
-                  }
-                }}
-                onKeyDown={(e) => {
-                  if (e.key === "Escape") {
-                    e.currentTarget.blur();
-                  }
-                }}
-              >
-                Passer les filtres par types
-              </a>
+              href="#searchPokemon"
+              className="skip-link-types"
+              tabIndex={getTabIndex()}
+              onClick={(e) => {
+                e.preventDefault();
+                const searchInput = document.getElementById("searchPokemon");
+                if (searchInput) {
+                  searchInput.focus();
+                }
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Escape") {
+                  e.currentTarget.blur();
+                }
+              }}
+            >
+              Passer les filtres par types
+            </a>
             <fieldset className="typesFieldset">
-              
               <legend className="TypesSelectContainer__Legend">
                 Filtrer par types
               </legend>
@@ -266,7 +275,17 @@ const genLabel = (gen) => {
 
         {/* Loader ou erreur */}
         {isLoading && <PokeballLoader />}
-        {isError && <p>Erreur</p>}
+        {isError && (
+          <div className="homePageContainer__errorLoading" role="alert">
+            <p>
+              <MdReportGmailerrorred
+                aria-hidden="true"
+                className="error-icon"
+              />
+              Erreur dans le filtrage des Pokemons
+            </p>
+          </div>
+        )}
 
         {/* Liste des pokemons filtrés */}
         {data && (
