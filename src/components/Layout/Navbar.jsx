@@ -34,6 +34,14 @@ const Navbar = () => {
           icons={["🌙", "☀️"]}
         />
       </nav>
+      {/* Ancre de saut vers le contenu principal */}
+      <div
+        id="content-anchor"
+        tabIndex="-1"
+        role="region"
+        aria-label="Début du contenu principal"
+        className="sr-only"
+      />
     </header>
   );
 };

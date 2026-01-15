@@ -24,9 +24,9 @@ function SkipLink() {
   return (
     <nav className="skip-links" aria-label="liens d'accès rapide">
       <a
-        href="#main-content"
+        href="#main-anchor"
         className="skip-link"
-        onClick={(e) => handleSkipClick(e, "main-content")}
+        onClick={(e) => handleSkipClick(e, "main-anchor")}
       >
         Aller au contenu principal
       </a>
