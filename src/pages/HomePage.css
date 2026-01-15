@@ -3,6 +3,7 @@ body {
 }
 
 .homePageContainer {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,12 +19,9 @@ body {
 }
 
 .filterPokemonContainer__searchPokemonByName {
-  
 }
 .inputSearchPokemon {
-
 }
-
 
 /* --- FILTER BUTTON --- */
 
@@ -131,7 +129,6 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
   align-items: center;
   padding-left: 1em;
   font-family: "Roboto", sans-serif;
-
 }
 
 .typeSelectContainer__types {
@@ -169,18 +166,17 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
   padding: 12px 12px 12px 12px;
   font-size: 1rem;
   border-radius: 6px;
-  border: 2px solid #C20303;
-  border-left: 6px solid #C20303;
+  border: 2px solid #c20303;
+  border-left: 6px solid #c20303;
   outline: none;
   background-color: #ffffff;
   color: #222222;
 }
 .darkMode .floatingInput input {
-  border: 2px solid #FF4747;
-  border-left: 6px solid #FF4747;
+  border: 2px solid #ff4747;
+  border-left: 6px solid #ff4747;
   background-color: #222222;
 }
-
 
 /* Label flottant */
 .floatingInput label {
@@ -294,15 +290,12 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
   align-items: center;
 }
 
-
-
 /* --- */
 .pokemonContainer__imgContainer {
 }
 
 .imgContainer__PokemonImg {
 }
-
 
 /* --- */
 
@@ -313,7 +306,7 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
   max-width: 650px;
   margin-bottom: 1.5em;
 }
-.generationRange_legend{
+.generationRange_legend {
   margin-bottom: 0.5em;
   font-weight: bold;
   display: block;
@@ -346,11 +339,9 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
   outline: none;
 }
 .rangeThumb.start {
-  
 }
 
 .rangeThumb.end {
-  
 }
 
 /* ===== circles ===== */
@@ -367,16 +358,16 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
   cursor: pointer;
 }
 .rangeThumb:focus-visible::-webkit-slider-thumb {
-    outline: auto;
-    outline-color: red;
-    box-shadow: 0 0 0 3px rgb(0, 0, 0);
+  outline: auto;
+  outline-color: red;
+  box-shadow: 0 0 0 3px rgb(0, 0, 0);
 }
 .darkMode .rangeThumb:focus-visible::-webkit-slider-thumb {
-    box-shadow: 0 0 0 3px rgb(255, 255, 255);
+  box-shadow: 0 0 0 3px rgb(255, 255, 255);
 }
 
 /* firefox : */
-.rangeThumb::-moz-range-thumb  {
+.rangeThumb::-moz-range-thumb {
   pointer-events: all;
   appearance: none;
   width: 20px;
@@ -412,7 +403,7 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
   background: #c01818;
 }
 .darkMode .rangeSelected {
-background: #FF4747;
+  background: #ff4747;
 }
 /* =============================== LABELS ================================ */
 
@@ -499,25 +490,71 @@ background: #FF4747;
   outline-offset: 1px;
 }
 
-/* === MESSAGES D'ERREUR === */
-.homePageContainer__errorLoading {
-  border: #C20303 2px solid;
-  margin: 0 1em 1em 1em;
-  padding: 0.5em 0.8em;
-  font-size: 1.2rem;
-  text-align: center;
+/* === Message status des filtres */
+.LoadingMessage {
+  position: absolute;
+  top: 0px;
+  right: 20px;
+  margin: 0;
+  padding: 0.8em 1.2em;
+  font-size: 1.1rem;
+  text-align: left;
   color: #000000;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  max-width: 350px;
+  animation: slideInRight 0.3s ease-out;
 }
-.darkMode .homePageContainer__errorLoading {
-  border: #FF4747 2px solid;
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.darkMode .LoadingMessage {
   color: #f1f1f1ea;
+  background-color: #333333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
-.error-icon {
+
+.message-icon {
   vertical-align: middle;
   font-size: 1.3rem;
-  color: #000000;
-  margin: 0 0.2em 2px 0;
+  margin: 0 0.3em 2px 0;
+}
+
+/* === MESSAGES D'ERREUR === */
+.homePageContainer__errorLoading {
+  border-left: 4px solid #c20303;
+}
+.darkMode .homePageContainer__errorLoading {
+  border-left: 4px solid #ff4747;
+}
+.error-icon {
+  color: #c20303;
 }
 .darkMode .error-icon {
-  color: #FF4747;
+  color: #ff4747;
+}
+
+/* === Message Success === */
+.homePageContainer__successLoading {
+  border-left: 4px solid #0a9225;
+}
+.darkMode .homePageContainer__successLoading {
+  border-left: 4px solid #06c02e;
+}
+.success-icon {
+  color: #0a9225;
+}
+.darkMode .success-icon {
+  color: #06c02e;
 }

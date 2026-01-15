@@ -1,10 +1,10 @@
-import { useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 import { MdReportGmailerrorred } from "react-icons/md";
+import { FaRegCheckCircle } from "react-icons/fa";
 import { Helmet } from "react-helmet";
 
-import { useGenerations, generations } from "../hooks/useGenerations";
 import { useSpeciesApi } from "../hooks/usePokeApi";
 import { translateType } from "../locales/types";
 
@@ -20,22 +20,48 @@ const HomePage = () => {
   const contentRef = useRef(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedTypes, setSelectedTypes] = useState([]);
+  const [showMessage, setShowMessage] = useState(false);
 
   const {
-    selectedGeneration,
-    handleChangeGeneration,
-    genFrom,
-    genTo,
+    data,
+    isLoading,
+    isError,
+    isSuccess,
     genStart,
     genEnd,
     setGenStart,
     setGenEnd,
-  } = useGenerations();
+    genFrom,
+    genTo,
+    generationsData,
+    isLoadingGenerations,
+  } = useSpeciesApi();
 
-  const { data, isLoading, isError } = useSpeciesApi({
-    from: genFrom,
-    to: genTo,
-  });
+  // Gestion de la réinjection rapide pour la vocalisation
+  // const { showContent: showErrorContent, messageKey: errorKey } = useAccessibleAlert(isError);
+  // const { showContent: showSuccessContent, messageKey: successKey } = useAccessibleAlert(showMessage);
+
+  // useEffect(() => {
+  //   if (isSuccess && !isLoading && data) {
+  //     // Réinitialiser d'abord pour permettre une nouvelle détection
+  //     setShowMessage(false);
+  //     
+  //     // Afficher le message après un court délai
+  //     const showTimer = setTimeout(() => {
+  //       setShowMessage(true);
+  //     }, 50);
+
+  //     // Cacher le message après 3 secondes
+  //     const hideTimer = setTimeout(() => {
+  //       setShowMessage(false);
+  //     }, 3050);
+
+  //     return () => {
+  //       clearTimeout(showTimer);
+  //       clearTimeout(hideTimer);
+  //     };
+  //   }
+  // }, [data, isSuccess, isLoading]);
 
   /* === Vocalisation du potentiomètre */
   const genLabel = (gen) => {
@@ -275,17 +301,45 @@ const HomePage = () => {
 
         {/* Loader ou erreur */}
         {isLoading && <PokeballLoader />}
-        {isError && (
-          <div className="homePageContainer__errorLoading" role="alert">
-            <p>
-              <MdReportGmailerrorred
-                aria-hidden="true"
-                className="error-icon"
-              />
-              Erreur dans le filtrage des Pokemons
-            </p>
+
+        {/* {isError && (
+          <div
+            className="homePageContainer__errorLoading LoadingMessage"
+            role="alert"
+            aria-live="assertive"
+            aria-atomic="true"
+          >
+            {showErrorContent && (
+              <p key={errorKey}>
+                <MdReportGmailerrorred
+                  aria-hidden="true"
+                  className="error-icon message-icon"
+                />
+                Erreur dans le filtrage des Pokemons
+              </p>
+            )}
           </div>
-        )}
+        )} */}
+
+        {/* message succès */}
+        {/* {showMessage && (
+          <div
+            className="LoadingMessage homePageContainer__successLoading"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            {showSuccessContent && (
+              <p key={successKey}>
+                <FaRegCheckCircle
+                  aria-hidden="true"
+                  className="success-icon message-icon"
+                />
+                Filtres appliqués avec succès
+              </p>
+            )}
+          </div>
+        )} */}
 
         {/* Liste des pokemons filtrés */}
         {data && (
