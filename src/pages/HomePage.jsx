@@ -1,8 +1,6 @@
-import { useEffect, useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
-import { MdReportGmailerrorred } from "react-icons/md";
-import { FaRegCheckCircle } from "react-icons/fa";
 import { Helmet } from "react-helmet";
 
 import { useSpeciesApi } from "../hooks/usePokeApi";
@@ -20,21 +18,14 @@ const HomePage = () => {
   const contentRef = useRef(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedTypes, setSelectedTypes] = useState([]);
-  const [showMessage, setShowMessage] = useState(false);
 
   const {
     data,
     isLoading,
-    isError,
-    isSuccess,
     genStart,
     genEnd,
     setGenStart,
     setGenEnd,
-    genFrom,
-    genTo,
-    generationsData,
-    isLoadingGenerations,
   } = useSpeciesApi();
 
   // Gestion de la réinjection rapide pour la vocalisation

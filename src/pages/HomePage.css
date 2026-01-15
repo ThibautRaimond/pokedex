@@ -141,6 +141,7 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
 .homePageContainer__filterPokemonContainer {
   transition: 0.6s;
   min-width: 310px;
+  width: min(90vw, 700px);
   margin-bottom: 1em;
 }
 

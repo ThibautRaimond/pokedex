@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { Helmet } from "react-helmet";
-import { translateType, getTypeClassName } from "../locales/types";
+import { translateType } from "../locales/types";
 import "./PokedexPage.css";
 import "../styles/pokemonTypes.css";
 import pokedexModel from "../assets/pokedexModel.png";
@@ -19,7 +19,6 @@ const PokedexPage = () => {
   const [pokemonWeight, setPokemonWeight] = useState(null);
   const [pokemonHeight, setPokemonHeight] = useState(null);
   const [pokemonCategory, setPokemonCategory] = useState(null);
-  const [pokemonGenders, setPokemonGenders] = useState([]);
 
   useEffect(() => {
     // on selectionne la data du pokemon concerné grace au id récupéré dans l'url:
@@ -59,17 +58,6 @@ const PokedexPage = () => {
         (g) => g.language.name === "fr"
       ).genus;
       setPokemonCategory(category);
-
-      const genders = speciesResponse.data.gender_rate;
-      if (genders === -1) {
-        setPokemonGenders(["Non genré"]);
-      } else if (genders === 0) {
-        setPokemonGenders(["Mâle"]);
-      } else if (genders === 8) {
-        setPokemonGenders(["Femelle"]);
-      } else {
-        setPokemonGenders(["Mâle", "Femelle"]);
-      }
     };
 
     fetchData();
