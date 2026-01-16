@@ -1,4 +1,4 @@
-.navbar {
+.header {
   height: 85px;
   display: flex;
   justify-content: center;
@@ -12,7 +12,7 @@
     0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
-.darkMode .navbar {
+.darkMode .header {
   background-color: #222;
   color: #fff;
   box-shadow: 0 0 11px rgba(0, 0, 0, 0.2);
@@ -33,20 +33,20 @@
 .menuIcon:hover {
 }
 
-.navbar__title {
+.header__title {
   font-family: "Press Start 2P", sans-serif;
   font-size: 3vw;
   letter-spacing: 7px;
   color: #c20303;
 }
-.darkMode .navbar__title{
+.darkMode .header__title{
     color: #FF4747;
 }
 
 /* ------- */
 
 @media screen and (min-width: 1600px) {
-  .navbar__title {
+  .header__title {
     font-size: 30px;
   }
   .menuIcon {

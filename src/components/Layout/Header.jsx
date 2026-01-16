@@ -3,9 +3,9 @@ import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "../../hooks/useTheme";
 import ThemeToggler from "../Inputs/toggleTheme";
 import LogoPokemon from "../../assets/pokemon.png";
-import "./Navbar.css";
+import "./Header.css";
 
-const Navbar = () => {
+const Header = () => {
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
   const isOnPokedexPage = location.pathname === "/pokedex";
@@ -18,7 +18,7 @@ const Navbar = () => {
 
   return (
     <header>
-      <nav className="navbar" aria-label="menu principal">
+      <nav className="header" aria-label="menu principal">
         <Link to="/pokedex" onClick={handleHomeClick}>
           <img
             className="Accueil"
@@ -27,7 +27,7 @@ const Navbar = () => {
             style={{ width: "75px" }}
           />
         </Link>
-        <h1 className="navbar__title">POKEDEX</h1>
+        <h1 className="header__title">POKEDEX</h1>
         <ThemeToggler
           onChange={toggleTheme}
           state={theme}
@@ -46,4 +46,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Header;

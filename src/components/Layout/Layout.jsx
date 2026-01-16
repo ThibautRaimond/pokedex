@@ -1,4 +1,4 @@
-import Navbar from "./Navbar";
+import Header from "./Header";
 import Footer from "./Footer";
 import SkipLink from "./SkipLink";
 import "./SkipLink.css";
@@ -7,7 +7,7 @@ function Layout({ children }) {
   return (
     <>
       <SkipLink />
-      <Navbar />
+      <Header />
       <main id="main-content" tabIndex="-1">
         <div
           id="main-anchor"
