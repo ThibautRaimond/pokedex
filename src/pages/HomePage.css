@@ -46,7 +46,6 @@ button.filterPokemonContainerWithButton__toggleDiv {
     box-shadow 0.3s ease;
 }
 
-/* rétablie le focus sur le composant : */
 button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
   outline: 2px solid #222222;
   outline-offset: 4px;
@@ -351,8 +350,8 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
 .rangeThumb::-webkit-slider-thumb {
   pointer-events: all;
   appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 23px;
+  height: 23px;
   border-radius: 50%;
   background: #ffffff;
   border: 2px solid #222;
@@ -394,6 +393,7 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
   background: #ffffff;
   border: 2px solid #222;
   border-radius: 20px;
+  margin: 0 11.5px;
 }
 
 /* =============================== SELECTED RANGE ================================ */
