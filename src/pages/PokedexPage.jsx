@@ -12,13 +12,28 @@ const PokedexPage = () => {
   const { id } = useParams();
   const currentId = Number(id);
   const MIN = 1;
-  const MAX = 1010;
+  const [maxPokemon, setMaxPokemon] = useState(null);
   // toutes les infos des pokemons qu'on va pouvoir render:
   const [pokemon, setPokemon] = useState(null);
   const [pokemonTypes, setPokemonTypes] = useState([]);
   const [pokemonWeight, setPokemonWeight] = useState(null);
   const [pokemonHeight, setPokemonHeight] = useState(null);
   const [pokemonCategory, setPokemonCategory] = useState(null);
+
+  useEffect(() => {
+    // Récupérer le nombre total de Pokémon
+    const fetchMaxPokemon = async () => {
+      try {
+        const response = await axios.get(
+          "https://pokeapi.co/api/v2/pokemon-species/?limit=1"
+        );
+        setMaxPokemon(response.data.count);
+      } catch (error) {
+        console.error("Erreur lors de la récupération du nombre max de Pokémon:", error);
+      }
+    };
+    fetchMaxPokemon();
+  }, []);
 
   useEffect(() => {
     // on selectionne la data du pokemon concerné grace au id récupéré dans l'url:
@@ -102,7 +117,7 @@ const PokedexPage = () => {
               Pokemon N°{currentId}
             </p>
 
-            {currentId < MAX ? (
+            {currentId < maxPokemon ? (
               <Link
                 to={`/pokedex/pokemon/${currentId + 1}`}
                 className="arrow"
