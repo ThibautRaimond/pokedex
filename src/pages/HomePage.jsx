@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 import { Helmet } from "react-helmet";
@@ -28,31 +28,39 @@ const HomePage = () => {
     setGenEnd,
   } = useSpeciesApi();
 
-  // Gestion de la réinjection rapide pour la vocalisation
-  // const { showContent: showErrorContent, messageKey: errorKey } = useAccessibleAlert(isError);
-  // const { showContent: showSuccessContent, messageKey: successKey } = useAccessibleAlert(showMessage);
+  /* === Messages d'accessibilité pour le chargement === */
+  const [statusMessage, setStatusMessage] = useState("");
 
-  // useEffect(() => {
-  //   if (isSuccess && !isLoading && data) {
-  //     // Réinitialiser d'abord pour permettre une nouvelle détection
-  //     setShowMessage(false);
-  //     
-  //     // Afficher le message après un court délai
-  //     const showTimer = setTimeout(() => {
-  //       setShowMessage(true);
-  //     }, 50);
+  const LOADING_MESSAGE = "pokemon en chargement";
+  const LOADED_MESSAGE = "chargement terminé";
 
-  //     // Cacher le message après 3 secondes
-  //     const hideTimer = setTimeout(() => {
-  //       setShowMessage(false);
-  //     }, 3050);
+  useEffect(() => {
+    let delayTimeoutId;
+    let reinsertTimeoutId;
 
-  //     return () => {
-  //       clearTimeout(showTimer);
-  //       clearTimeout(hideTimer);
-  //     };
-  //   }
-  // }, [data, isSuccess, isLoading]);
+    if (isLoading) {
+      // Après 1 seconde, annoncer le chargement avec ré-insertion
+      delayTimeoutId = setTimeout(() => {
+        // Vider d'abord le message
+        setStatusMessage("");
+        // Puis réinjecter après un court délai pour forcer la détection
+        reinsertTimeoutId = setTimeout(() => {
+          setStatusMessage(LOADING_MESSAGE);
+        }, 100);
+      }, 1000);
+    } else if (data) {
+      // Quand le chargement est terminé, ré-insertion rapide
+      setStatusMessage("");
+      reinsertTimeoutId = setTimeout(() => {
+        setStatusMessage(LOADED_MESSAGE);
+      }, 100);
+    }
+
+    return () => {
+      if (delayTimeoutId) clearTimeout(delayTimeoutId);
+      if (reinsertTimeoutId) clearTimeout(reinsertTimeoutId);
+    };
+  }, [isLoading, data]);
 
   /* === Vocalisation du potentiomètre */
   const genLabel = (gen) => {
@@ -292,6 +300,16 @@ const HomePage = () => {
 
         {/* Loader ou erreur */}
         {isLoading && <PokeballLoader />}
+
+        {/* Message status pour l'accessibilité */}
+        <div
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+          className="sr-only"
+        >
+          {statusMessage}
+        </div>
 
         {/* {isError && (
           <div
