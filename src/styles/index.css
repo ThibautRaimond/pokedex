@@ -59,3 +59,9 @@ Layout {
   opacity: 0.3;
   pointer-events: none;
 }
+
+/* Curseur personnalisé Mew */
+.mew-cursor,
+.mew-cursor * {
+  cursor: url('../assets/gam178.cur'), auto !important;
+}
