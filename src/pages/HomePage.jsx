@@ -171,6 +171,7 @@ const HomePage = () => {
                   aria-valuenow={genStart}
                   aria-valuetext={genLabel(genStart)}
                   tabIndex={getTabIndex()}
+                  disabled={genStart === 1 && genEnd === 1}
                 />
 
                 {/* Slider fin */}
