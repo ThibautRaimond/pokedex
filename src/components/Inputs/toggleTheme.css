@@ -1,64 +1,109 @@
+/* Theme Switch */
 .toggleContainer {
-  display: inline-block;
+  font-size: 17px;
   position: relative;
-  width: 60px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: inline-block;
+  width: 4em;
+  height: 2.2em;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .darkModeInput {
   display: none;
 }
 
+/* The slider - visuel inversé: bleu par défaut */
 .toggleLabel {
-  display: block;
-  position: relative;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 15px;
-  background-color: #222;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-}
-.toggleLabel:focus{
-    outline: auto;
-    outline-color: rgb(0, 0, 0);
-    box-shadow: 0 0 0 4px rgb(0, 0, 0);
-}
-
-.toggleThumb {
-  content: "";
-  display: block;
   position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #00a6ff;
+  transition: 0.4s;
+  border-radius: 30px;
+  border: 2px solid #2a2a2a;
+  overflow: hidden;
+}
+.darkMode .toggleLabel {
+  border-color: #fff;
 }
 
+.toggleLabel:focus {
+  outline-color: rgb(0, 0, 0);
+  outline-offset: 2px;
+}
+
+/* Thumb - soleil par défaut à droite */
+.toggleThumb {
+  position: absolute;
+  content: "";
+  height: 1.2em;
+  width: 1.2em;
+  border-radius: 20px;
+  right: 0.5em;
+  bottom: 0.5em;
+  transition: 0.4s;
+  transition-timing-function: cubic-bezier(0.81, -0.04, 0.38, 1.5);
+  box-shadow: inset 15px -4px 0px 15px #ffcf48;
+}
+
+/* Mode dark: fond sombre */
 .inputChecked + .toggleLabel {
-  background-color: #007bff;
+  background-color: #2a2a2a;
 }
 
+/* Mode dark: thumb devient lune et va à gauche */
 .inputChecked + .toggleLabel .toggleThumb {
-  transform: translateX(30px);
+  transform: translateX(calc(-1.8em + 4px));
+  box-shadow: inset 8px -4px 0px 0px #fff;
+  bottom: calc(0.5em - 2px);
 }
 
+/* Étoiles (visibles en mode dark avec la lune) */
 .leftIcon {
-  display: flex;
-  justify-content: center;
-  margin: 2px 13px 0 0;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  transition: all 0.4s;
+  opacity: 0;
 }
 
+.star_1 {
+  left: 2.5em;
+  top: 0.5em;
+}
+
+.star_2 {
+  left: 2.2em;
+  top: 1.2em;
+}
+
+.star_3 {
+  left: 3em;
+  top: 0.9em;
+}
+
+/* Nuage (visible en mode clair avec le soleil) */
 .rightIcon {
-  display: flex;
-  justify-content: center;
-  margin: 3px 0 0 13px;
+  width: 3.5em;
+  position: absolute;
+  bottom: -1.4em;
+  left: -1.1em;
+  opacity: 1;
+  transition: all 0.4s;
+}
+
+/* Mode dark: étoiles visibles */
+.inputChecked + .toggleLabel .leftIcon {
+  opacity: 1;
+}
+
+/* Mode dark: nuage caché */
+.inputChecked + .toggleLabel .rightIcon {
+  opacity: 0;
 }

@@ -32,19 +32,23 @@ const ToggleTheme = ({ onChange, state, icons }) => {
         onKeyDown={handleKeyDown}
       >
         <span className="toggleThumb"></span>
+        {/* Étoiles visibles en mode dark (avec la lune) */}
         {state === "dark" && (
-          <span className="leftIcon" aria-hidden="true">
-            <span role="img" className="leftIcon" alt="">
-              {icons[0] || ""}
-            </span>
-          </span>
+          <>
+            <div className="leftIcon star_1" aria-hidden="true"></div>
+            <div className="leftIcon star_2" aria-hidden="true"></div>
+            <div className="leftIcon star_3" aria-hidden="true"></div>
+          </>
         )}
+        {/* Nuage visible en mode clair (avec le soleil) */}
         {state === "light" && (
-          <span className="rightIcon" aria-hidden="true">
-            <span role="img" className="rightIcon" alt="">
-              {icons[1] || ""}
-            </span>
-          </span>
+          <svg viewBox="0 0 16 16" className="rightIcon cloud" aria-hidden="true">
+            <path
+              transform="matrix(.77976 0 0 .78395-299.99-418.63)"
+              fill="#fff"
+              d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"
+            ></path>
+          </svg>
         )}
       </div>
 
