@@ -8,7 +8,7 @@ const ToggleTheme = ({ onChange, state, icons }) => {
     }
   };
 
-  // texte pour aria-label du bouton : ce que le clic fera
+  // texte du bouton
   const actionLabel =
     state === "dark" ? "Activer le thème clair" : "Activer le thème sombre";
   // texte à vocaliser après changement
@@ -27,7 +27,7 @@ const ToggleTheme = ({ onChange, state, icons }) => {
         className="toggleLabel"
         tabIndex="0"
         role="button"
-        aria-label={actionLabel} // indique ce que le clic fera
+        aria-label={actionLabel}
         onClick={onChange}
         onKeyDown={handleKeyDown}
       >
@@ -42,7 +42,11 @@ const ToggleTheme = ({ onChange, state, icons }) => {
         )}
         {/* Nuage visible en mode clair (avec le soleil) */}
         {state === "light" && (
-          <svg viewBox="0 0 16 16" className="rightIcon cloud" aria-hidden="true">
+          <svg
+            viewBox="0 0 16 16"
+            className="rightIcon cloud"
+            aria-hidden="true"
+          >
             <path
               transform="matrix(.77976 0 0 .78395-299.99-418.63)"
               fill="#fff"
@@ -53,15 +57,7 @@ const ToggleTheme = ({ onChange, state, icons }) => {
       </div>
 
       {/* texte invisible pour vocaliser le changement d'état */}
-      <div
-        aria-live="polite"
-        style={{
-          position: "absolute",
-          width: 0,
-          height: 0,
-          overflow: "hidden",
-        }}
-      >
+      <div aria-live="polite" className="sr-only">
         {liveText}
       </div>
     </div>
