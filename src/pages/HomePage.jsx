@@ -11,6 +11,7 @@ import ScrollToBotButton from "../components/Inputs/ScrollToBotButton";
 import PokeballLoader from "../components/Inputs/PokeballLoader";
 import CircleLoader from "../components/Inputs/CircleLoader";
 import "../components/Layout/SkipLink.css";
+import "../components/Inputs/ToggleMotion.css";
 import "./HomePage.css";
 
 const HomePage = () => {
@@ -19,14 +20,8 @@ const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedTypes, setSelectedTypes] = useState([]);
 
-  const {
-    data,
-    isLoading,
-    genStart,
-    genEnd,
-    setGenStart,
-    setGenEnd,
-  } = useSpeciesApi();
+  const { data, isLoading, genStart, genEnd, setGenStart, setGenEnd } =
+    useSpeciesApi();
 
   /* === Messages d'accessibilité pour le chargement === */
   const [statusMessage, setStatusMessage] = useState("");
@@ -95,6 +90,20 @@ const HomePage = () => {
     setIsOpen(!isOpen);
   };
 
+  /* === Gestion des contenus en mouvement === */
+  const [reduceMotion, setReduceMotion] = useState(() => {
+    const saved = localStorage.getItem('reduceMotion');
+    return saved === 'true';
+  });
+
+  const toggleReduceMotion = () => {
+    setReduceMotion(!reduceMotion);
+  };
+
+  useEffect(() => {
+    localStorage.setItem('reduceMotion', reduceMotion);
+  }, [reduceMotion]);
+
   const [imageLoading, setImageLoading] = useState(true);
 
   const handleImageLoaded = () => {
@@ -104,12 +113,28 @@ const HomePage = () => {
   // Fonction pour déterminer tabIndex selon isOpen
   const getTabIndex = () => (isOpen ? 0 : -1);
 
+  
   return (
     <div className="homePage">
       <Helmet>
         <title>Accueil - Pokedex</title>
       </Helmet>
+
+      {/* Gestion des contenus en mouvement */}
       <div ref={contentRef} className="homePageContainer">
+        <button 
+          onClick={toggleReduceMotion}
+          className={`reduce-motion-container ${reduceMotion ? 'active' : ''}`}
+          aria-label={reduceMotion ? "Réactiver les contenus en mouvement" : "Retirer les contenus en mouvement"}
+          aria-pressed={reduceMotion}
+          title={reduceMotion ? "Animations désactivées" : "Animations activées"}
+        >
+          <span className="toggle-motion-button" aria-hidden="true"></span>
+          <span className="toggle-motion-label">
+            {reduceMotion ? "Activer les animations" : "Désactiver les animations"}
+          </span>
+        </button>
+
         {/* Bouton menu des filtres */}
         <button
           className="filterPokemonContainerWithButton__toggleDiv"
@@ -269,7 +294,7 @@ const HomePage = () => {
                           setSelectedTypes([...selectedTypes, type]);
                         } else {
                           setSelectedTypes(
-                            selectedTypes.filter((t) => t !== type)
+                            selectedTypes.filter((t) => t !== type),
                           );
                         }
                       }}
@@ -300,7 +325,15 @@ const HomePage = () => {
         </ul>
 
         {/* Loader ou erreur */}
-        {isLoading && <PokeballLoader />}
+        {isLoading && (
+          reduceMotion ? (
+            <div className="LoadingMessage" role="status" aria-live="polite">
+              <p>Chargement</p>
+            </div>
+          ) : (
+            <PokeballLoader />
+          )
+        )}
 
         {/* Message status pour l'accessibilité */}
         <div
@@ -368,11 +401,11 @@ const HomePage = () => {
                       searchQuery
                         .toLowerCase()
                         .normalize("NFD")
-                        .replace(/[\u0300-\u036f]/g, "")
+                        .replace(/[\u0300-\u036f]/g, ""),
                     ) &&
                   (selectedTypes.length > 0
                     ? types.some((t) => selectedTypes.includes(t))
-                    : true)
+                    : true),
               )
               .map(({ id, name, types, sprite }, index) => (
                 <li
@@ -388,7 +421,7 @@ const HomePage = () => {
                       <p>N°{id}</p>
                     </div>
 
-                    {imageLoading && <CircleLoader />}
+                    {imageLoading && !reduceMotion && <CircleLoader />}
                     <div className="pokemonContainer__imgContainer">
                       <img
                         src={sprite}
