@@ -125,15 +125,15 @@ const HomePage = () => {
         <button 
           onClick={toggleReduceMotion}
           className={`reduce-motion-container ${reduceMotion ? 'active' : ''}`}
-          aria-label={reduceMotion ? "Réactiver les contenus en mouvement" : "Retirer les contenus en mouvement"}
-          aria-pressed={reduceMotion}
-          title={reduceMotion ? "Animations désactivées" : "Animations activées"}
         >
           <span className="toggle-motion-button" aria-hidden="true"></span>
           <span className="toggle-motion-label">
             {reduceMotion ? "Activer les animations" : "Désactiver les animations"}
           </span>
         </button>
+        <div aria-live="polite" className="sr-only">
+          {reduceMotion ? "Animations désactivées" : "Animations activées"}
+        </div>
 
         {/* Bouton menu des filtres */}
         <button
