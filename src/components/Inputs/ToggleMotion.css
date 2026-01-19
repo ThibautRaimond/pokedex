@@ -76,3 +76,16 @@
   color: #333;
   user-select: none;
 }
+
+/* Dark Mode */
+.darkMode .reduce-motion-container {
+  background-color: #222222;
+}
+
+.darkMode .toggle-motion-label {
+  color: #f1f1f1ea;
+}
+
+.darkMode .reduce-motion-container:focus-visible {
+  outline: 2px solid #ffffff;
+}
