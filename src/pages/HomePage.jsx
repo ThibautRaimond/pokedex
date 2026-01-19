@@ -125,9 +125,10 @@ const HomePage = () => {
         <button 
           onClick={toggleReduceMotion}
           className={`reduce-motion-container ${reduceMotion ? 'active' : ''}`}
+          aria-label={reduceMotion ? "Activer les animations" : "Désactiver les animations"}
         >
           <span className="toggle-motion-button" aria-hidden="true"></span>
-          <span className="toggle-motion-label">
+          <span className="toggle-motion-label" aria-hidden="true">
             {reduceMotion ? "Activer les animations" : "Désactiver les animations"}
           </span>
         </button>
