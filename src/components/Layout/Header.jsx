@@ -18,7 +18,7 @@ const Header = () => {
 
   return (
     <header>
-      <nav className="header" aria-label="menu principal">
+      <div className="header">
         <Link to="/pokedex" onClick={handleHomeClick}>
           <img
             className="Accueil"
@@ -33,7 +33,7 @@ const Header = () => {
           state={theme}
           icons={["🌙", "☀️"]}
         />
-      </nav>
+      </div>
       {/* Ancre de saut vers le contenu principal */}
       <div
         id="content-anchor"
