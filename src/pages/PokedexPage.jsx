@@ -83,6 +83,7 @@ const PokedexPage = () => {
         <Helmet>
           <title>{pokemon.name} - Pokedex</title>
         </Helmet>
+        <div role="heading" aria-level="1" className="sr-only skip-target" tabIndex="-1">{pokemon.name}</div>
         <img src={pokedexModel} alt="" />
         <div className="pokedexPageContainer__imgContainer">
           <img
@@ -99,13 +100,13 @@ const PokedexPage = () => {
 					/> */}
         </div>
         <div className="pokedexPageContainer__nameAndIdContainer">
-          <h2 className="nameAndIdContainer__pokemonName">{pokemon.name}</h2>
+          <h1 aria-hidden="true" className="nameAndIdContainer__pokemonName">{pokemon.name}</h1>
           <div className="arrowAndIdContainer">
             {currentId > MIN ? (
               <Link
                 to={`/pokedex/pokemon/${currentId - 1}`}
                 className="arrow"
-                aria-label="Pokemon précédent"
+                aria-label={`Pokemon numéro ${currentId - 1}`}
               >
                 ◀
               </Link>
@@ -123,7 +124,7 @@ const PokedexPage = () => {
               <Link
                 to={`/pokedex/pokemon/${currentId + 1}`}
                 className="arrow"
-                aria-label="Pokemon suivant"
+                aria-label={`Pokemon numéro ${currentId + 1}`}
               >
                 ▶
               </Link>

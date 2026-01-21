@@ -8,7 +8,7 @@ function Layout({ children }) {
     <>
       <SkipLink />
       <Header />
-      <main id="main-content">
+          <main>
         {children}
       </main>
       <Footer />

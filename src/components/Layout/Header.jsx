@@ -27,7 +27,7 @@ const Header = () => {
             style={{ width: "75px" }}
           />
         </Link>
-        <h1 className="header__title">POKEDEX</h1>
+        <p className="header__title">POKEDEX</p>
         <ThemeToggler
           onChange={toggleTheme}
           state={theme}

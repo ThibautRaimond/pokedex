@@ -7,27 +7,26 @@ function SkipLink() {
     if (targetType === "main-content") {
       const mainElement = document.querySelector('main');
       if (mainElement) {
-        // Chercher le premier élément focusable dans le main
-        const focusableElements = mainElement.querySelectorAll(
-          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-        );
-        
-        if (focusableElements.length > 0) {
-          focusableElements[0].focus();
-          focusableElements[0].scrollIntoView({ behavior: "smooth" });
+        // Chercher d'abord un heading avec la classe skip-target
+        const skipTarget = mainElement.querySelector('.skip-target');
+        if (skipTarget) {
+          skipTarget.focus({ preventScroll: true });
         } else {
-          // Si aucun élément focusable, donner le focus au main lui-même
-          mainElement.setAttribute('tabindex', '-1');
-          mainElement.focus();
-          mainElement.scrollIntoView({ behavior: "smooth" });
+          // Sinon, chercher le premier élément focusable
+          const focusableElements = mainElement.querySelectorAll(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+          );
+          
+          if (focusableElements.length > 0) {
+            focusableElements[0].focus({ preventScroll: true });
+          }
         }
       }
     } else {
       // Pour les autres cibles (comme footer)
       const element = document.getElementById(targetType);
       if (element) {
-        element.focus();
-        element.scrollIntoView({ behavior: "smooth" });
+        element.focus({ preventScroll: true });
       }
     }
   };

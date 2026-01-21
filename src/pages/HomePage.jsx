@@ -122,6 +122,7 @@ const HomePage = () => {
 
       {/* Gestion des contenus en mouvement */}
       <div ref={contentRef} className="homePageContainer">
+        <div role="heading" aria-level="1" className="sr-only skip-target" tabIndex="-1">Liste des Pokémon</div>
         <button 
           onClick={toggleReduceMotion}
           className={`reduce-motion-container ${reduceMotion ? 'active' : ''}`}
@@ -327,13 +328,13 @@ const HomePage = () => {
 
         {/* Loader ou erreur */}
         {isLoading && (
-          <div className="LoadingMessage" role="status" aria-live="polite">
-            {reduceMotion ? (
+          reduceMotion ? (
+            <div className="LoadingMessage" role="status" aria-live="polite">
               <p>Chargement</p>
-            ) : (
-              <PokeballLoader />
-            )}
-          </div>
+            </div>
+          ) : (
+            <PokeballLoader />
+          )
         )}
 
         {/* Message status pour l'accessibilité */}
