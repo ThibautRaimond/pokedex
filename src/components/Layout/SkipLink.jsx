@@ -26,7 +26,8 @@ function SkipLink() {
       // Pour les autres cibles (comme footer)
       const element = document.getElementById(targetType);
       if (element) {
-        element.focus({ preventScroll: true });
+        element.focus();
+        element.scrollIntoView({ behavior: "smooth" });
       }
     }
   };

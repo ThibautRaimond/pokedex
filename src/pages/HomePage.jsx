@@ -401,8 +401,8 @@ const HomePage = () => {
           </nav>
         )}
 
-        <ScrollToTopButton alt="retourner en haut de la page" />
-        <ScrollToBotButton alt="accéder au bas de la page" />
+        <ScrollToTopButton/>
+        <ScrollToBotButton/>
       </div>
     </div>
   );

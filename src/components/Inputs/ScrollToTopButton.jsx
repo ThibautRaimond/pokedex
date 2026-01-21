@@ -14,10 +14,20 @@ const ScrollToTopButton = () => {
   };
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    const mainElement = document.querySelector('main');
+    if (mainElement) {
+      // Scroller vers le début du main
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+      
+      // Donner le focus au h1.skip-target
+      const skipTarget = mainElement.querySelector('.skip-target');
+      if (skipTarget) {
+        skipTarget.focus({ preventScroll: true });
+      }
+    }
   };
 
   useEffect(() => {
@@ -28,12 +38,14 @@ const ScrollToTopButton = () => {
   }, []);
 
   return (
-    <div
+    <a
+      href="#main-content"
+      aria-label="Retourner en haut de la page"
       className={`scrollButton scrollToTopButton ${isVisible ? "visible" : ""}`}
       onClick={scrollToTop}
     >
-      <BsFillArrowUpCircleFill size={30} alt="Remonter en haut de la page" />
-    </div>
+      <BsFillArrowUpCircleFill size={30} aria-hidden="true" />
+    </a>
   );
 };
 
