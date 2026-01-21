@@ -347,95 +347,58 @@ const HomePage = () => {
           {statusMessage}
         </div>
 
-        {/* {isError && (
-          <div
-            className="homePageContainer__errorLoading LoadingMessage"
-            role="alert"
-            aria-live="assertive"
-            aria-atomic="true"
-          >
-            {showErrorContent && (
-              <p key={errorKey}>
-                <MdReportGmailerrorred
-                  aria-hidden="true"
-                  className="error-icon message-icon"
-                />
-                Erreur dans le filtrage des Pokemons
-              </p>
-            )}
-          </div>
-        )} */}
-
-        {/* message succès */}
-        {/* {showMessage && (
-          <div
-            className="LoadingMessage homePageContainer__successLoading"
-            role="status"
-            aria-live="polite"
-            aria-atomic="true"
-          >
-            {showSuccessContent && (
-              <p key={successKey}>
-                <FaRegCheckCircle
-                  aria-hidden="true"
-                  className="success-icon message-icon"
-                />
-                Filtres appliqués avec succès
-              </p>
-            )}
-          </div>
-        )} */}
-
         {/* Liste des pokemons filtrés */}
         {data && (
-          <ul
-            className="homePageContainer__pokemonsContainer"
-            id="list-container"
-          >
-            {data
-              .filter(
-                ({ name, types }) =>
-                  name
-                    .toLowerCase()
-                    .normalize("NFD")
-                    .replace(/[\u0300-\u036f]/g, "")
-                    .includes(
-                      searchQuery
-                        .toLowerCase()
-                        .normalize("NFD")
-                        .replace(/[\u0300-\u036f]/g, ""),
-                    ) &&
-                  (selectedTypes.length > 0
-                    ? types.some((t) => selectedTypes.includes(t))
-                    : true),
-              )
-              .map(({ id, name, types, sprite }, index) => (
-                <li
-                  className={`${types[0]} pokemonsContainer__pokemonContainer`}
-                  key={index}
-                >
-                  <Link
-                    to={`/pokedex/pokemon/${id}`}
-                    aria-label={`Visionner ${name} pokemon numéro ${id}`}
+          <nav aria-label="Visionner sur le pokedex">
+            <ul
+              className="homePageContainer__pokemonsContainer"
+              id="list-container"
+            >
+              {data
+                .filter(
+                  ({ name, types }) =>
+                    name
+                      .toLowerCase()
+                      .normalize("NFD")
+                      .replace(/[\u0300-\u036f]/g, "")
+                      .includes(
+                        searchQuery
+                          .toLowerCase()
+                          .normalize("NFD")
+                          .replace(/[\u0300-\u036f]/g, ""),
+                      ) &&
+                    (selectedTypes.length > 0
+                      ? types.some((t) => selectedTypes.includes(t))
+                      : true),
+                )
+                .map(({ id, name, types, sprite }, index) => (
+                  <li
+                    className={`${types[0]} pokemonsContainer__pokemonContainer`}
+                    key={index}
                   >
-                    <div className="pokemonContainer__NameAndId">
-                      <p>{name}</p>
-                      <p>N°{id}</p>
-                    </div>
+                    <Link
+                      to={`/pokedex/pokemon/${id}`}
+                      aria-label={`${name} pokemon numéro ${id}`}
+                    >
+                      <div className="pokemonContainer__NameAndId">
+                        <p>{name}</p>
+                        <p>N°{id}</p>
+                      </div>
 
-                    {imageLoading && !reduceMotion && <CircleLoader />}
-                    <div className="pokemonContainer__imgContainer">
-                      <img
-                        src={sprite}
-                        alt={name}
-                        onLoad={handleImageLoaded}
-                        className="imgContainer__PokemonImg"
-                      />
-                    </div>
-                  </Link>
-                </li>
-              ))}
-          </ul>
+                      {imageLoading && !reduceMotion && <CircleLoader />}
+                      <div className="pokemonContainer__imgContainer">
+                        <img
+                          src={sprite}
+                          alt={name}
+                          onLoad={handleImageLoaded}
+                          className="imgContainer__PokemonImg"
+                        />
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+            </ul>
+          </nav>
         )}
 
         <ScrollToTopButton alt="retourner en haut de la page" />

@@ -97,6 +97,7 @@ const PokedexPage = () => {
 						src={pokemon.backImage}
 						alt={`${pokemon.name} dos`}
 						aria-hidden="true"
+            
 					/> */}
         </div>
         <div className="pokedexPageContainer__nameAndIdContainer">
