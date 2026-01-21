@@ -40,7 +40,7 @@ const ScrollToTopButton = () => {
   return (
     <a
       href="#main-content"
-      aria-label="Retourner en haut de la page"
+      aria-label="Retourner en haut du contenu principal"
       className={`scrollButton scrollToTopButton ${isVisible ? "visible" : ""}`}
       onClick={scrollToTop}
     >

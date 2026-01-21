@@ -349,7 +349,7 @@ const HomePage = () => {
 
         {/* Liste des pokemons filtrés */}
         {data && (
-          <nav aria-label="Visionner sur le pokedex">
+          <nav aria-label="Affichage sur pokedex">
             <ul
               className="homePageContainer__pokemonsContainer"
               id="list-container"
