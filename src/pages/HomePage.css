@@ -493,37 +493,16 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
 
 /* === Message status des filtres */
 .LoadingMessage {
-  position: absolute;
-  top: 0px;
-  right: 20px;
-  margin: 0;
+  margin: 10px auto;
   padding: 0.8em 1.2em;
   font-size: 1.1rem;
-  text-align: left;
+  text-align: center;
   color: #000000;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
   max-width: 350px;
-  animation: slideInRight 0.3s ease-out;
-}
-
-@keyframes slideInRight {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
 }
 
 .darkMode .LoadingMessage {
   color: #f1f1f1ea;
-  background-color: #333333;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .message-icon {

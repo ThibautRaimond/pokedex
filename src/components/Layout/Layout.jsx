@@ -8,13 +8,7 @@ function Layout({ children }) {
     <>
       <SkipLink />
       <Header />
-      <main id="main-content" tabIndex="-1">
-        <div
-          id="main-anchor"
-          tabIndex="-1"
-          aria-label="Début du contenu principal"
-          className="sr-only"
-        />
+      <main id="main-content">
         {children}
       </main>
       <Footer />

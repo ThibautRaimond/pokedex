@@ -38,9 +38,6 @@ const Header = () => {
       <div
         id="content-anchor"
         tabIndex="-1"
-        role="region"
-        aria-label="Début du contenu principal"
-        className="sr-only"
       />
     </header>
   );

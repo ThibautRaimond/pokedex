@@ -327,13 +327,13 @@ const HomePage = () => {
 
         {/* Loader ou erreur */}
         {isLoading && (
-          reduceMotion ? (
-            <div className="LoadingMessage" role="status" aria-live="polite">
+          <div className="LoadingMessage" role="status" aria-live="polite">
+            {reduceMotion ? (
               <p>Chargement</p>
-            </div>
-          ) : (
-            <PokeballLoader />
-          )
+            ) : (
+              <PokeballLoader />
+            )}
+          </div>
         )}
 
         {/* Message status pour l'accessibilité */}

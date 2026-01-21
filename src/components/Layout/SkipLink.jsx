@@ -1,12 +1,34 @@
 import { useEffect } from "react";
 
 function SkipLink() {
-  const handleSkipClick = (e, targetId) => {
+  const handleSkipClick = (e, targetType) => {
     e.preventDefault();
-    const element = document.getElementById(targetId);
-    if (element) {
-      element.focus();
-      element.scrollIntoView({ behavior: "smooth" });
+    
+    if (targetType === "main-content") {
+      const mainElement = document.querySelector('main');
+      if (mainElement) {
+        // Chercher le premier élément focusable dans le main
+        const focusableElements = mainElement.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        
+        if (focusableElements.length > 0) {
+          focusableElements[0].focus();
+          focusableElements[0].scrollIntoView({ behavior: "smooth" });
+        } else {
+          // Si aucun élément focusable, donner le focus au main lui-même
+          mainElement.setAttribute('tabindex', '-1');
+          mainElement.focus();
+          mainElement.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    } else {
+      // Pour les autres cibles (comme footer)
+      const element = document.getElementById(targetType);
+      if (element) {
+        element.focus();
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
   };
 
@@ -24,9 +46,9 @@ function SkipLink() {
   return (
     <nav className="skip-links" aria-label="liens d'accès rapide">
       <a
-        href="#main-anchor"
+        href="#main-content"
         className="skip-link"
-        onClick={(e) => handleSkipClick(e, "main-anchor")}
+        onClick={(e) => handleSkipClick(e, "main-content")}
       >
         Aller au contenu principal
       </a>

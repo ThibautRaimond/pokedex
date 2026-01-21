@@ -110,7 +110,9 @@ const PokedexPage = () => {
                 ◀
               </Link>
             ) : (
-              <span className="arrow disabled">ᐊ</span>
+              <a role="link" className="arrow disabled" aria-disabled="true" aria-label="Aucun pokemon précédent">
+                ᐊ
+              </a>
             )}
 
             <p className="nameAndIdContainer__pokemonId">
@@ -126,7 +128,9 @@ const PokedexPage = () => {
                 ▶
               </Link>
             ) : (
-              <span className="arrow disabled">ᐅ</span>
+              <a role="link" className="arrow disabled" aria-disabled="true" aria-label="Aucun pokemon suivant">
+                ᐅ
+              </a>
             )}
           </div>
         </div>
