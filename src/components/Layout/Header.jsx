@@ -1,18 +1,26 @@
 import { Link, useLocation } from "react-router-dom";
+import { useRef } from "react";
+import { FaGear } from "react-icons/fa6";
+import { IoAccessibility } from "react-icons/io5";
 
-import { useTheme } from "../../hooks/useTheme";
-import ThemeToggler from "../Inputs/toggleTheme";
+import SettingsA11Y from "./SettingsA11Y";
 import LogoPokemon from "../../assets/pokemon.png";
 import "./Header.css";
 
 const Header = () => {
-  const { theme, toggleTheme } = useTheme();
   const location = useLocation();
   const isOnPokedexPage = location.pathname === "/pokedex";
+  const settingsDialogRef = useRef(null);
 
   const handleHomeClick = () => {
     if (isOnPokedexPage) {
       window.location.reload();
+    }
+  };
+
+  const openSettings = () => {
+    if (settingsDialogRef.current) {
+      settingsDialogRef.current.showModal();
     }
   };
 
@@ -28,17 +36,16 @@ const Header = () => {
           />
         </Link>
         <p className="header__title">POKEDEX</p>
-        <ThemeToggler
-          onChange={toggleTheme}
-          state={theme}
-          icons={["🌙", "☀️"]}
-        />
+        <button 
+          className="settings-button" 
+          aria-label="Ouvrir les paramètres et accessibilité"
+          onClick={openSettings}
+        >
+          <FaGear aria-hidden="true" />
+          <IoAccessibility aria-hidden="true" />
+        </button>
       </div>
-      {/* Ancre de saut vers le contenu principal */}
-      <div
-        id="content-anchor"
-        tabIndex="-1"
-      />
+      <SettingsA11Y ref={settingsDialogRef} />
     </header>
   );
 };

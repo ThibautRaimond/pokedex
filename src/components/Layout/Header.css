@@ -43,6 +43,30 @@
     color: #FF4747;
 }
 
+.settings-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: transparent;
+  border: 2px solid #000;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.darkMode .settings-button {
+  border-color: #fff;
+  color: #fff;
+}
+
+.settings-button:hover,
+.settings-button:focus {
+  transform: scale(1.05);
+  opacity: 0.8;
+}
+
 /* ------- */
 
 @media screen and (min-width: 1600px) {

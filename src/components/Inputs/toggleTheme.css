@@ -1,22 +1,61 @@
 /* Theme Switch */
 .toggleContainer {
   font-size: 17px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toggleWrapper {
   position: relative;
-  display: inline-block;
   width: 4em;
   height: 2.2em;
   border-radius: 30px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.toggleText {
+  font-size: 0.95rem;
+  color: #000;
+  word-break: break-word;
+}
+
+.darkMode .toggleText {
+  color: #fff;
 }
 
 .darkModeInput {
   display: none;
 }
 
+.toggleButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: transparent;
+  border: 1px solid #000;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font: inherit;
+  transition: all 0.2s;
+  flex-wrap: wrap;
+}
+
+.darkMode .toggleButton {
+  border-color: #fff;
+}
+
+.toggleButton:focus {
+  outline-color: rgb(0, 0, 0);
+  outline-offset: 3px;
+}
+
 /* The slider - visuel inversé: bleu par défaut */
 .toggleLabel {
   position: absolute;
-  cursor: pointer;
   top: 0;
   left: 0;
   right: 0;
@@ -26,14 +65,14 @@
   border-radius: 30px;
   border: 1.5px solid #2a2a2a;
   overflow: hidden;
+  pointer-events: none;
 }
 .darkMode .toggleLabel {
   border: 1px solid #fff;
 }
 
 .toggleLabel:focus {
-  outline-color: rgb(0, 0, 0);
-  outline-offset: 3px;
+  outline: none;
 }
 
 /* Thumb - soleil par défaut à droite */

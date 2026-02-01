@@ -2,90 +2,123 @@
 .reduce-motion-container {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  margin-bottom: 1rem;
-  padding: 0.5rem 0.75rem;
-  background: #ffffff;
-  border: none;
+  justify-content: center;
+  gap: 12px;
+  background: transparent;
+  border: 1px solid #000;
   border-radius: 8px;
+  padding: 6px 14px;
   cursor: pointer;
-  transition: all 0.2s ease;
   font: inherit;
+  transition: all 0.2s;
+  flex-wrap: wrap;
   width: fit-content;
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.3),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-.reduce-motion-container:hover {
-  box-shadow: 
-    0 6px 8px -1px rgba(0, 0, 0, 0.35),
-    0 3px 5px -1px rgba(0, 0, 0, 0.08);
+.darkMode .reduce-motion-container {
+  border-color: #fff;
 }
 
-.reduce-motion-container:active {
-  transform: scale(0.98);
-}
-
-.reduce-motion-container:focus-visible {
-  outline: 2px solid #667eea;
-  outline-offset: 2px;
+.reduce-motion-container:focus {
+  outline-color: rgb(0, 0, 0);
+  outline-offset: 3px;
 }
 
 .toggle-motion-button {
-  display: block;
-  width: 1.3em;
-  height: 1.3em;
-  background-color: hsl(3, 90%, 40%);
+  position: relative;
+  width: 2em;
+  height: 2em;
+  background-color: rgb(99, 99, 99);
   border-radius: 50%;
-  box-shadow:
-    0 0 0 0.08em hsl(3, 90%, 25%) inset,
-    0 0 0 0.15em hsl(3, 90%, 65%) inset,
-    -0.12em 0.2em 0 hsl(3, 90%, 50%) inset,
-    0 0.06em 0 hsla(0, 0%, 0%, 0.2);
-  filter: brightness(1);
-  transition:
-    background-color 0.15s linear,
-    box-shadow 0.15s linear,
-    filter 0.15s linear,
-    transform 0.15s linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgb(126, 126, 126);
+  box-shadow: 0px 0px 3px rgb(2, 2, 2) inset;
+  transition: all 0.3s ease;
   flex-shrink: 0;
-  pointer-events: none;
 }
 
-.reduce-motion-container:active .toggle-motion-button {
-  transform: scale(0.9);
+.toggle-motion-button svg {
+  width: 1em;
+  height: 1em;
 }
 
+.toggle-motion-button svg path {
+  fill: rgb(48, 48, 48);
+  transition: all 0.3s ease;
+}
+
+/* État actif = animations DÉSACTIVÉES = VERT */
 .reduce-motion-container.active .toggle-motion-button {
-  background-color: hsl(123, 90%, 30%);
-  box-shadow:
-    0 0 0 0.08em hsl(123, 90%, 15%) inset,
-    0 0 0 0.15em hsl(123, 90%, 55%) inset,
-    -0.12em 0.2em 0 hsl(123, 90%, 40%) inset,
-    0 0.06em 0 hsla(0, 0%, 0%, 0.2);
+  box-shadow: 0px 0px 1px rgb(50, 180, 80) inset,
+    0px 0px 2px rgb(50, 180, 80) inset, 
+    0px 0px 10px rgb(50, 180, 80) inset,
+    0px 0px 15px rgb(50, 180, 80), 
+    0px 0px 30px rgb(50, 180, 80),
+    0px 0px 3px rgb(100, 255, 150);
+  border: 2px solid rgb(200, 255, 220);
+  background-color: rgb(50, 130, 70);
 }
 
-.reduce-motion-container:hover .toggle-motion-button {
-  filter: brightness(1.2);
+/* Mode light : bordure verte effet néon */
+:not(.darkMode) .reduce-motion-container.active .toggle-motion-button {
+  border: 3px solid rgb(40, 150, 70);
+  box-shadow: 0px 0px 2px rgb(40, 150, 70) inset,
+    0px 0px 4px rgb(40, 150, 70) inset, 
+    0px 0px 8px rgb(40, 150, 70),
+    0px 0px 12px rgb(50, 180, 90), 
+    0px 0px 20px rgba(50, 180, 90, 0.5),
+    0 0 2px rgb(40, 150, 70),
+    inset 0 0 3px rgba(100, 255, 150, 0.3);
+}
+
+.reduce-motion-container.active .toggle-motion-button svg {
+  filter: drop-shadow(0px 0px 5px rgb(100, 255, 150));
+}
+
+.reduce-motion-container.active .toggle-motion-button svg path {
+  fill: rgb(255, 255, 255);
+}
+
+/* État inactif = animations ACTIVÉES = ROUGE */
+.reduce-motion-container:not(.active) .toggle-motion-button {
+  box-shadow: 0px 0px 1px rgb(200, 50, 50) inset,
+    0px 0px 2px rgb(200, 50, 50) inset, 
+    0px 0px 10px rgb(200, 50, 50) inset,
+    0px 0px 15px rgb(200, 50, 50), 
+    0px 0px 30px rgb(200, 50, 50),
+    0px 0px 3px rgb(255, 80, 80);
+  border: 2px solid rgb(255, 200, 200);
+  background-color: rgb(150, 50, 50);
+}
+
+/* Mode light : bordure rouge effet néon */
+:not(.darkMode) .reduce-motion-container:not(.active) .toggle-motion-button {
+  border: 3px solid rgb(180, 30, 30);
+  box-shadow: 0px 0px 2px rgb(180, 30, 30) inset,
+    0px 0px 4px rgb(180, 30, 30) inset, 
+    0px 0px 8px rgb(180, 30, 30),
+    0px 0px 12px rgb(200, 50, 50), 
+    0px 0px 20px rgba(200, 50, 50, 0.5),
+    0 0 2px rgb(180, 30, 30),
+    inset 0 0 3px rgba(255, 100, 100, 0.3);
+}
+
+.reduce-motion-container:not(.active) .toggle-motion-button svg {
+  filter: drop-shadow(0px 0px 5px rgb(255, 80, 80));
+}
+
+.reduce-motion-container:not(.active) .toggle-motion-button svg path {
+  fill: rgb(255, 255, 255);
 }
 
 .toggle-motion-label {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #333;
-  user-select: none;
-}
-
-/* Dark Mode */
-.darkMode .reduce-motion-container {
-  background-color: #222222;
+  font-size: 0.95rem;
+  color: #000;
+  word-break: break-word;
 }
 
 .darkMode .toggle-motion-label {
-  color: #f1f1f1ea;
-}
-
-.darkMode .reduce-motion-container:focus-visible {
-  outline: 2px solid #ffffff;
+  color: #fff;
 }

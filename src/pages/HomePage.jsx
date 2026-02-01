@@ -123,19 +123,6 @@ const HomePage = () => {
       {/* Gestion des contenus en mouvement */}
       <div ref={contentRef} className="homePageContainer">
         <div role="heading" aria-level="1" className="sr-only skip-target" tabIndex="-1">Liste des Pokémon</div>
-        <button 
-          onClick={toggleReduceMotion}
-          className={`reduce-motion-container ${reduceMotion ? 'active' : ''}`}
-          aria-label={reduceMotion ? "Activer les animations" : "Désactiver les animations"}
-        >
-          <span className="toggle-motion-button" aria-hidden="true"></span>
-          <span className="toggle-motion-label" aria-hidden="true">
-            {reduceMotion ? "Activer les animations" : "Désactiver les animations"}
-          </span>
-        </button>
-        <div aria-live="polite" className="sr-only">
-          {reduceMotion ? "Animations désactivées" : "Animations activées"}
-        </div>
 
         {/* Bouton menu des filtres */}
         <button
