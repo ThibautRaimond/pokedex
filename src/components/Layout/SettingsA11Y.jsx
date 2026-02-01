@@ -1,4 +1,5 @@
 import { useState, useEffect, forwardRef } from "react";
+import { RxCross2 } from "react-icons/rx";
 import ThemeToggler from "../Inputs/toggleTheme";
 import { useTheme } from "../../hooks/useTheme";
 import "../Inputs/ToggleMotion.css";
@@ -43,7 +44,7 @@ const SettingsA11Y = forwardRef((props, ref) => {
           className="close-button"
           aria-label="Fermer les paramètres"
         >
-          ×
+          <RxCross2 />
         </button>
 
         <div className="settings-options">

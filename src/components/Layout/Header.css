@@ -63,8 +63,12 @@
 
 .settings-button:hover,
 .settings-button:focus {
-  transform: scale(1.05);
-  opacity: 0.8;
+  outline-offset: 4px;
+  outline-color: #000;
+}
+
+.darkMode .settings-button:focus {
+  outline-color: #fff;
 }
 
 /* ------- */
