@@ -30,9 +30,13 @@
 
 .settings-content h2 {
   margin: 0 0 24px 0;
-  font-size: 1.5rem;
+  font-size: clamp(1.3rem, 4vw, 1.5rem);
   text-align: center;
   font-weight: 500;
+  padding-right: 48px;
+  padding-left: 48px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .close-button {
