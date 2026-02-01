@@ -21,6 +21,10 @@
   border: 1px solid #1a1a1af8;
 }
 
+.scrollButton:focus {
+  outline-offset: 2px;
+}
+
 .darkMode .scrollButton {
   color: #222222ee;
   background-color: #f7f4f4ea;

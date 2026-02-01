@@ -38,7 +38,7 @@ const Header = () => {
         <p className="header__title">POKEDEX</p>
         <button 
           className="settings-button" 
-          aria-label="Ouvrir les paramètres et accessibilité"
+          aria-label="Ouvrir paramètres et accessibilité"
           onClick={openSettings}
         >
           <FaGear aria-hidden="true" />

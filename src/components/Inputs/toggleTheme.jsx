@@ -13,7 +13,7 @@ const ToggleTheme = ({ onChange, state, icons }) => {
     state === "dark" ? "Désactiver le thème sombre" : "Activer le thème sombre";
   // texte à vocaliser après changement
   const liveText =
-    state === "dark" ? "Thème sombre activé" : "Thème clair activé";
+    state === "dark" ? "Thème sombre activé" : "Thème sombre désactivé";
 
   return (
     <div className="toggleContainer">

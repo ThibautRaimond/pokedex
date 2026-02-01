@@ -89,6 +89,7 @@ const SettingsA11Y = forwardRef((props, ref) => {
             <div aria-live="polite" className="sr-only">
               {reduceMotion ? "Animations désactivées" : "Animations activées"}
             </div>
+            
           </div>
 
           {/* Toggle du thème */}

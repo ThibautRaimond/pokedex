@@ -5,13 +5,13 @@
   max-width: 500px;
   width: 90%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  color: #000;
+  background-color: #f1f1f1ea;
+  color: #222;
 }
 
 .darkMode .settings-dialog {
   background-color: #222;
-  color: #fff;
+  color: #f1f1f1ea;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
@@ -44,7 +44,7 @@
   top: 16px;
   right: 16px;
   background: none;
-  border: 1.5px solid #000;
+  border: 1.5px solid #222;
   border-radius: 50%;
   font-size: 1.5rem;
   font-weight: 200;
@@ -65,18 +65,11 @@
 }
 
 .darkMode .close-button {
-  border-color: #fff;
+  border-color: #f1f1f1ea;
 }
 
-.close-button:hover,
 .close-button:focus {
-  background-color: rgba(0, 0, 0, 0.1);
   outline-offset: 3px;
-}
-
-.darkMode .close-button:hover,
-.darkMode .close-button:focus {
-  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .settings-options {
@@ -91,7 +84,7 @@
   gap: 8px;
 }
 
-.setting-item >500el,
+.setting-item > 500el,
 .setting-item > p {
   font-weight: bold;
   font-size: 1.1rem;
