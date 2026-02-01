@@ -96,6 +96,23 @@ const HomePage = () => {
     return saved === 'true';
   });
 
+  // Écouter les changements de reduceMotion depuis les paramètres
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const saved = localStorage.getItem('reduceMotion');
+      setReduceMotion(saved === 'true');
+    };
+
+    // Écouter les changements via un événement personnalisé
+    window.addEventListener('storage', handleStorageChange);
+    window.addEventListener('reduceMotionChange', handleStorageChange);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener('reduceMotionChange', handleStorageChange);
+    };
+  }, []);
+
   const toggleReduceMotion = () => {
     setReduceMotion(!reduceMotion);
   };
@@ -372,7 +389,15 @@ const HomePage = () => {
                         <p>N°{id}</p>
                       </div>
 
-                      {imageLoading && !reduceMotion && <CircleLoader />}
+                      {imageLoading && (
+                        reduceMotion ? (
+                          <div className="LoadingMessage" role="status">
+                            <p>Chargement</p>
+                          </div>
+                        ) : (
+                          <CircleLoader />
+                        )
+                      )}
                       <div className="pokemonContainer__imgContainer">
                         <img
                           src={sprite}

@@ -18,8 +18,27 @@ const SettingsA11Y = forwardRef((props, ref) => {
     setReduceMotion(!reduceMotion);
   };
 
+  // Applique l'état initial au montage du composant
+  useEffect(() => {
+    if (reduceMotion) {
+      document.documentElement.classList.add('reduce-motion');
+    } else {
+      document.documentElement.classList.remove('reduce-motion');
+    }
+  }, []);
+
   useEffect(() => {
     localStorage.setItem('reduceMotion', reduceMotion);
+    
+    // Applique ou retire la classe reduce-motion sur le document
+    if (reduceMotion) {
+      document.documentElement.classList.add('reduce-motion');
+    } else {
+      document.documentElement.classList.remove('reduce-motion');
+    }
+    
+    // Déclenche un événement personnalisé pour notifier les autres composants
+    window.dispatchEvent(new Event('reduceMotionChange'));
   }, [reduceMotion]);
 
   const closeDialog = () => {
