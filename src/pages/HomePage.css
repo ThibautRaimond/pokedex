@@ -176,6 +176,7 @@ button.filterPokemonContainerWithButton__toggleDiv:focus-visible {
   border: 2px solid #ff4747;
   border-left: 6px solid #ff4747;
   background-color: #222222;
+  color: #ffffff;
 }
 
 /* Label flottant */
