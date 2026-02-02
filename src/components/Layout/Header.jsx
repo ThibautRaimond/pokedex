@@ -3,9 +3,9 @@ import { useRef } from "react";
 import { FaGear } from "react-icons/fa6";
 import { IoAccessibility } from "react-icons/io5";
 
-import SettingsA11Y from "./SettingsA11Y";
+import SettingsA11Y from "./settingsA11Y";
 import LogoPokemon from "../../assets/pokemon.png";
-import "./Header.css";
+import "./header.css";
 
 const Header = () => {
   const location = useLocation();

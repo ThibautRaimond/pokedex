@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BsFillArrowDownCircleFill } from "react-icons/bs";
-import "./ScrollButtons.css";
+import "./scrollButtons.css";
 
 const ScrollToBotButton = () => {
   const [isVisible, setIsVisible] = useState(false);

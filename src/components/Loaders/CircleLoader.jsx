@@ -1,4 +1,4 @@
-import "./CircleLoader.css";
+import "./circleLoader.css";
 
 const CircleLoader = () => <div className="CircleLoader"></div>;
 

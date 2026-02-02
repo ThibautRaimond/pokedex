@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "./hooks/useTheme";
 
-import App from "./App";
+import App from "./app";
 import "./styles/resetCss.css";
 import "./styles/index.css";
 import cursorMew from "./assets/gam178.cur";

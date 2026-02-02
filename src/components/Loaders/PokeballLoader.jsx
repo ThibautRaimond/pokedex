@@ -1,4 +1,4 @@
-import "./PokeballLoader.css";
+import "./pokeballLoader.css";
 
 const PokeballLoader = () => <div className="ball"></div>;
 

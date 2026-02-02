@@ -1,9 +1,9 @@
 import { useState, useEffect, forwardRef } from "react";
 import { RxCross2 } from "react-icons/rx";
-import ThemeToggler from "../Inputs/ToggleTheme";
-import ToggleMotion from "../Inputs/ToggleMotion";
+import ThemeToggler from "../Inputs/toggleTheme";
+import ToggleMotion from "../Inputs/toggleMotion";
 import { useTheme } from "../../hooks/useTheme";
-import "./SettingsA11Y.css";
+import "./settingsA11Y.css";
 
 const SettingsA11Y = forwardRef((props, ref) => {
   const { theme, toggleTheme } = useTheme();

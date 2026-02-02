@@ -1,4 +1,4 @@
-import "./ToggleTheme.css";
+import "./toggleTheme.css";
 
 const ToggleTheme = ({ onChange, state, icons }) => {
   const handleKeyDown = (e) => {

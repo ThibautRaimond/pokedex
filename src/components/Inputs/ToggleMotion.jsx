@@ -1,4 +1,4 @@
-import "./ToggleMotion.css";
+import "./toggleMotion.css";
 
 const ToggleMotion = ({ onChange, state }) => {
   const handleKeyDown = (e) => {

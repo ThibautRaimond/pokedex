@@ -6,11 +6,11 @@ import { Helmet } from "react-helmet";
 import { useSpeciesApi } from "../hooks/usePokeApi";
 import { translateType } from "../locales/types";
 
-import ScrollToTopButton from "../components/Inputs/ScrollToTopButton";
-import ScrollToBotButton from "../components/Inputs/ScrollToBotButton";
-import PokeballLoader from "../components/Loaders/PokeballLoader";
-import CircleLoader from "../components/Loaders/CircleLoader";
-import "./HomePage.css";
+import ScrollToTopButton from "../components/Inputs/scrollToTopButton";
+import ScrollToBotButton from "../components/Inputs/scrollToBotButton";
+import PokeballLoader from "../components/Loaders/pokeballLoader";
+import CircleLoader from "../components/Loaders/circleLoader";
+import "./homePage.css";
 
 const HomePage = () => {
   /* === Gestion API pokemon === */

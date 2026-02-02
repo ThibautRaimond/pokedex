@@ -1,7 +1,7 @@
-import Header from "./Header";
-import Footer from "./Footer";
-import SkipLink from "./SkipLink";
-import "./SkipLink.css";
+import Header from "./header";
+import Footer from "./footer";
+import SkipLink from "./skipLink";
+import "./skipLink.css";
 
 function Layout({ children }) {
   return (
