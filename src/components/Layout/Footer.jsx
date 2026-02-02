@@ -9,15 +9,15 @@ const Footer = () => {
     <footer id="footer" tabIndex="-1">
       <nav aria-label="Liens professionnels">
         <ul className="footerContainer">
-          <div className="footerContainer__socialsMediasContainer">
+          <div className="footerContainerSocialsMedias">
             <li>
               <Link to={`https://github.com/ThibautRaimond`} target="_blank">
-                <span className="sr-only">
+                <span className="srOnly">
                   Github de Thibaut Raimond onglet externe
                 </span>
                 <AiFillGithub
                   size={45}
-                  className="socialsMediasContainer__SocialMedia socialsMediasContainer__Github"
+                  className="socialsMediasSocialMedia socialsMediasGithub"
                   aria-hidden="true"
                 />
               </Link>
@@ -27,12 +27,12 @@ const Footer = () => {
                 to={`https://www.linkedin.com/in/thibaut-raimond-0a46791ab/`}
                 target="_blank"
               >
-                <span className="sr-only">
+                <span className="srOnly">
                   Github de Thibaut Raimond onglet externe
                 </span>
                 <AiFillLinkedin
                   size={45}
-                  className="socialsMediasContainer__SocialMedia socialsMediasContainer__Linkedin"
+                  className="socialsMediasSocialMedia socialsMediasLinkedin"
                   aria-hidden="true"
                 />
               </Link>
@@ -43,9 +43,9 @@ const Footer = () => {
               to={`https://thibautraimond.github.io/portfolio/`}
               target="_blank"
             >
-              <p className="footerContainer__Portfolio">
+              <p className="footerContainerPortfolio">
                 Visiter mon portfolio{" "}
-                <span className="sr-only">Onglet externe</span>
+                <span className="srOnly">Onglet externe</span>
               </p>
             </Link>
           </li>

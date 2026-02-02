@@ -1,4 +1,4 @@
-.settings-dialog {
+.settingsDialog {
   border: none;
   border-radius: 8px;
   padding: 0;
@@ -9,26 +9,26 @@
   color: #222;
 }
 
-.darkMode .settings-dialog {
+.darkMode .settingsDialog {
   background-color: #222;
   color: #f1f1f1ea;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
-.settings-dialog::backdrop {
+.settingsDialog::backdrop {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.darkMode .settings-dialog::backdrop {
+.darkMode .settingsDialog::backdrop {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-.settings-content {
+.settingsContent {
   padding: 24px;
   position: relative;
 }
 
-.settings-content h2 {
+.settingsContent h2 {
   margin: 0 0 24px 0;
   font-size: clamp(1.3rem, 4vw, 1.5rem);
   text-align: center;
@@ -39,7 +39,7 @@
   overflow-wrap: break-word;
 }
 
-.close-button {
+.closeButton {
   position: absolute;
   top: 16px;
   right: 16px;
@@ -58,34 +58,34 @@
   transition: background-color 0.2s;
 }
 
-.close-button svg {
+.closeButton svg {
   width: 1em;
   height: 1em;
   stroke-width: 1;
 }
 
-.darkMode .close-button {
+.darkMode .closeButton {
   border-color: #f1f1f1ea;
 }
 
-.close-button:focus {
+.closeButton:focus {
   outline-offset: 3px;
 }
 
-.settings-options {
+.settingsOptions {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-.setting-item {
+.settingItem {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.setting-item > 500el,
-.setting-item > p {
+.settingItem > label,
+.settingItem > p {
   font-weight: bold;
   font-size: 1.1rem;
   margin: 0;

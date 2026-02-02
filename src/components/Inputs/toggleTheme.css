@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  width: fit-content;
 }
 
 .toggleWrapper {
@@ -112,17 +113,17 @@
   opacity: 0;
 }
 
-.star_1 {
+.star1 {
   left: 2.5em;
   top: 0.5em;
 }
 
-.star_2 {
+.star2 {
   left: 2.2em;
   top: 1.2em;
 }
 
-.star_3 {
+.star3 {
   left: 3em;
   top: 0.9em;
 }
@@ -149,14 +150,14 @@
 
 
 /* From Uiverse.io by njesenberger */ 
-.toggle-container {
+.toggleContainer {
   --knob-size: 1.75em;
   display: flex;
   justify-content: center;
   position: relative;
 }
 
-.toggle-input {
+.toggleInput {
   position: absolute;
   z-index: 2;
   bottom: 132.5%;
@@ -172,11 +173,11 @@
   cursor: pointer;
 }
 
-.toggle-input:checked {
+.toggleInput:checked {
   transform: rotate(25deg);
 }
 
-.toggle-handle-wrapper {
+.toggleHandleWrapper {
   position: absolute;
   z-index: 1;
   bottom: -135%;
@@ -186,7 +187,7 @@
   overflow: hidden;
 }
 
-.toggle-handle {
+.toggleHandle {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -195,11 +196,11 @@
   transition: transform .24s cubic-bezier(.65, 1.35, .5, 1);
 }
 
-.toggle-input:checked + .toggle-handle-wrapper > .toggle-handle {
+.toggleInput:checked + .toggleHandleWrapper > .toggleHandle {
   transform: rotate(25deg);
 }
 
-.toggle-handle-knob {
+.toggleHandleKnob {
   position: relative;
   z-index: 1;
   border-radius: 50%;
@@ -209,12 +210,12 @@
   transition: transform .24s cubic-bezier(.65, 1.35, .5, 1);
 }
 
-.toggle-input:checked + .toggle-handle-wrapper .toggle-handle-knob {
+.toggleInput:checked + .toggleHandleWrapper .toggleHandleKnob {
   transform: rotate(-90deg);
 }
 
 /* toggle handle knob hover inner shadow */
-.toggle-handle-knob::after {
+.toggleHandleKnob::after {
   content: '';
   position: absolute;
   top: 0;
@@ -228,19 +229,19 @@
 }
 
 @media (hover: hover) {
-  .toggle-input:hover + .toggle-handle-wrapper .toggle-handle-knob::after,
-  .toggle-input:focus-visible + .toggle-handle-wrapper .toggle-handle-knob::after {
+  .toggleInput:hover + .toggleHandleWrapper .toggleHandleKnob::after,
+  .toggleInput:focus-visible + .toggleHandleWrapper .toggleHandleKnob::after {
     opacity: 1;
   }
 }
 
-.toggle-handle-bar-wrapper {
+.toggleHandleBarWrapper {
   position: relative;
   width: .5em;
   height: 3em;
 }
 
-.toggle-handle-bar {
+.toggleHandleBar {
   position: absolute;
   top: calc(var(--knob-size) / 2 * -1);
   left: 0;
@@ -252,11 +253,11 @@
   box-shadow: inset 0 1em .25em rgb(0 0 0 / .4);
 }
 
-.toggle-input:checked + .toggle-handle-wrapper .toggle-handle-bar {
+.toggleInput:checked + .toggleHandleWrapper .toggleHandleBar {
   background-position-x: -.06125em;
 }
 
-.toggle-base {
+.toggleBase {
   position: relative;
   border-radius: 3.125em;
   padding: .25em;
@@ -267,7 +268,7 @@
   box-shadow: 0 -.25em .5em #fff, 0 .25em .5em #d7d7d7;
 }
 
-.toggle-base-inside {
+.toggleBaseInside {
   position: relative;
   border-radius: inherit;
   width: 100%;
@@ -277,7 +278,7 @@
 }
 
 /* toggle base inside active */
-.toggle-base-inside::after {
+.toggleBaseInside::after {
   content: '';
   position: absolute;
   border-radius: inherit;
@@ -289,6 +290,6 @@
   transition: opacity .24s cubic-bezier(.65, 1.35, .5, 1);
 }
 
-.toggle-input:checked ~ .toggle-base .toggle-base-inside::after {
+.toggleInput:checked ~ .toggleBase .toggleBaseInside::after {
   opacity: 1;
 }

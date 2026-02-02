@@ -7,8 +7,8 @@ function SkipLink() {
     if (targetType === "main-content") {
       const mainElement = document.querySelector('main');
       if (mainElement) {
-        // Chercher d'abord un heading avec la classe skip-target
-        const skipTarget = mainElement.querySelector('.skip-target');
+        // Chercher d'abord un heading avec la classe skipTarget
+        const skipTarget = mainElement.querySelector('.skipTarget');
         if (skipTarget) {
           skipTarget.focus({ preventScroll: true });
         } else {
@@ -34,7 +34,7 @@ function SkipLink() {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === "Escape" && document.activeElement?.classList?.contains("skip-link")) {
+      if (e.key === "Escape" && document.activeElement?.classList?.contains("skipLink")) {
         document.activeElement.blur();
       }
     };
@@ -44,17 +44,17 @@ function SkipLink() {
   }, []);
 
   return (
-    <nav className="skip-links" aria-label="liens d'accès rapide">
+    <nav className="skipLinks" aria-label="liens d'accès rapide">
       <a
         href="#main-content"
-        className="skip-link"
+        className="skipLink"
         onClick={(e) => handleSkipClick(e, "main-content")}
       >
         Aller au contenu principal
       </a>
       <a
         href="#footer"
-        className="skip-link"
+        className="skipLink"
         onClick={(e) => handleSkipClick(e, "footer")}
       >
         Aller au pied de page

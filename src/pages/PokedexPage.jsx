@@ -83,25 +83,25 @@ const PokedexPage = () => {
         <Helmet>
           <title>{pokemon.name} - Pokedex</title>
         </Helmet>
-        <div role="heading" aria-level="1" className="sr-only skip-target" tabIndex="-1">{pokemon.name}</div>
+        <div role="heading" aria-level="1" className="srOnly skipTarget" tabIndex="-1">{pokemon.name}</div>
         <img src={pokedexModel} alt="" />
-        <div className="pokedexPageContainer__imgContainer">
+        <div className="pokedexPageContainerImgContainer">
           <img
-            className="imgContainer__img"
+            className="imgContainerImg"
             src={pokemon.image}
             alt={pokemon.name}
             aria-hidden="true"
           />
           {/* <img
-						className="imgContainer__img"
+						className="imgContainerImg"
 						src={pokemon.backImage}
 						alt={`${pokemon.name} dos`}
 						aria-hidden="true"
             
 					/> */}
         </div>
-        <div className="pokedexPageContainer__nameAndIdContainer">
-          <h1 aria-hidden="true" className="nameAndIdContainer__pokemonName">{pokemon.name}</h1>
+        <div className="pokedexPageContainerNameAndIdContainer">
+          <h1 aria-hidden="true" className="nameAndIdContainerPokemonName">{pokemon.name}</h1>
           <div className="arrowAndIdContainer">
             {currentId > MIN ? (
               <Link
@@ -117,7 +117,7 @@ const PokedexPage = () => {
               </a>
             )}
 
-            <p className="nameAndIdContainer__pokemonId">
+            <p className="nameAndIdContainerPokemonId">
               Pokemon N°{currentId}
             </p>
 
@@ -138,49 +138,49 @@ const PokedexPage = () => {
         </div>
 
         <ul className="pokedexPageContainer">
-          <li className="pokedexPageContainer__typesContainer">
-            <p className="typesContainer__typesTitle">
+          <li className="pokedexPageContainerTypesContainer">
+            <p className="typesContainerTypesTitle">
               Type<span aria-hidden="true">(s)</span> :
             </p>
             {pokemonTypes.map((type) => (
-              <span className="typesContainer__pokedexType" key={type}>
+              <span className="typesContainerPokedexType" key={type}>
                 {translateType(type)}
               </span>
             ))}
           </li>
 
-          <li className="pokedexPageContainer__weightAndHeightContainer">
-            <div className="pokedexPageContainer__weightContainer">
-              <p className="weightContainer__weightTitle">Poids : </p>
-              <p className="weightContainer__weight">
+          <li className="pokedexPageContainerWeightAndHeightContainer">
+            <div className="pokedexPageContainerWeightContainer">
+              <p className="weightContainerWeightTitle">Poids : </p>
+              <p className="weightContainerWeight">
                 {pokemonWeight / 10} kg{" "}
               </p>
             </div>
-            <div className="pokedexPageContainer__heightContainer">
-              <p className="heightContainer__heightTitle">Taille : </p>
-              <p className="heightContainer__height">{pokemonHeight / 10} m</p>
+            <div className="pokedexPageContainerHeightContainer">
+              <p className="heightContainerHeightTitle">Taille : </p>
+              <p className="heightContainerHeight">{pokemonHeight / 10} m</p>
             </div>
           </li>
 
-          <li className="pokedexPageContainer____categoryContainer">
-            <p className="categoryContainer__categoryTitle">Catégorie :</p>
-            <p className="categoryContainer__category">{pokemonCategory}</p>
+          <li className="pokedexPageContainerCategoryContainer">
+            <p className="categoryContainerCategoryTitle">Égorie :</p>
+            <p className="categoryContainerCategory">{pokemonCategory}</p>
           </li>
 
-          {/* <li className="pokedexPageContainer____genderContainer">
-					<p className="genderContainer__genderTitle">Genre(s):</p>
-					<p className="genderContainer__gender">
+          {/* <li className="pokedexPageContainerGenderContainer">
+					<p className="genderContainerGenderTitle">Genre(s):</p>
+					<p className="genderContainerGender">
 						{pokemonGenders.length === 2
 							? pokemonGenders.join(" & ")
 							: pokemonGenders}
 					</p>
 				</li> */}
 
-          <li className="pokedexPageContainer____descriptionContainer">
-            <p className="descriptionContainer__descriptionTitle">
+          <li className="pokedexPageContainerDescriptionContainer">
+            <p className="descriptionContainerDescriptionTitle">
               Description :
             </p>
-            <p className="descriptionContainer__descriptionText">
+            <p className="descriptionContainerDescriptionText">
               {pokemon.description}
             </p>
           </li>

@@ -35,9 +35,9 @@ const Header = () => {
             style={{ width: "75px" }}
           />
         </Link>
-        <p className="header__title">POKEDEX</p>
+        <p className="headerTitle">POKEDEX</p>
         <button 
-          className="settings-button" 
+          className="settingsButton" 
           aria-label="Ouvrir paramètres et accessibilité"
           onClick={openSettings}
         >

@@ -1,6 +1,6 @@
 import { useState, useEffect, forwardRef } from "react";
 import { RxCross2 } from "react-icons/rx";
-import ThemeToggler from "../Inputs/toggleTheme";
+import ThemeToggler from "../Inputs/ToggleTheme";
 import ToggleMotion from "../Inputs/ToggleMotion";
 import { useTheme } from "../../hooks/useTheme";
 import "./SettingsA11Y.css";
@@ -21,20 +21,20 @@ const SettingsA11Y = forwardRef((props, ref) => {
   // Applique l'état initial au montage du composant
   useEffect(() => {
     if (reduceMotion) {
-      document.documentElement.classList.add('reduce-motion');
+      document.documentElement.classList.add('reduceMotion');
     } else {
-      document.documentElement.classList.remove('reduce-motion');
+      document.documentElement.classList.remove('reduceMotion');
     }
   }, []);
 
   useEffect(() => {
     localStorage.setItem('reduceMotion', reduceMotion);
     
-    // Applique ou retire la classe reduce-motion sur le document
+    // Applique ou retire la classe reduceMotion sur le document
     if (reduceMotion) {
-      document.documentElement.classList.add('reduce-motion');
+      document.documentElement.classList.add('reduceMotion');
     } else {
-      document.documentElement.classList.remove('reduce-motion');
+      document.documentElement.classList.remove('reduceMotion');
     }
     
     // Déclenche un événement personnalisé pour notifier les autres composants
@@ -52,23 +52,23 @@ const SettingsA11Y = forwardRef((props, ref) => {
       ref={ref}
       aria-modal="true" 
       aria-label="Paramètre et accessibilité"
-      className="settings-dialog"
+      className="settingsDialog"
     >
-      <div className="settings-content">
+      <div className="settingsContent">
         <h2>Paramètre et accessibilité</h2>
         
         {/* Bouton de fermeture */}
         <button 
           onClick={closeDialog}
-          className="close-button"
+          className="closeButton"
           aria-label="Fermer les paramètres"
         >
           <RxCross2 />
         </button>
 
-        <div className="settings-options">
+        <div className="settingsOptions">
           {/* Toggle des animations */}
-          <div className="setting-item">
+          <div className="settingItem">
             <p>Animations</p>
             <ToggleMotion
               onChange={toggleReduceMotion}
@@ -77,7 +77,7 @@ const SettingsA11Y = forwardRef((props, ref) => {
           </div>
 
           {/* Toggle du thème */}
-          <div className="setting-item">
+          <div className="settingItem">
             <p>Thème</p>
             <ThemeToggler
               onChange={toggleTheme}

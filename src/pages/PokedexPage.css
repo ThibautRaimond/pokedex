@@ -25,17 +25,17 @@
   float: right;
 }
 /* --- */
-.pokedexPageContainer__imgContainer {
+.pokedexPageContainerImgContainer {
   position: absolute;
   top: 17.5em;
   margin-right: 2.1em;
 }
-.imgContainer__img {
+.imgContainerImg {
   width: 10em;
 }
 
 /* --- */
-.pokedexPageContainer__nameAndIdContainer {
+.pokedexPageContainerNameAndIdContainer {
   position: absolute;
   top: 28.5em;
   margin-right: 2.2em;
@@ -45,11 +45,11 @@
   background-color: #e3e3e3;
 }
 
-.nameAndIdContainer__pokemonName {
+.nameAndIdContainerPokemonName {
   margin: 0em 0.5em;
 }
 
-.nameAndIdContainer__pokemonId {
+.nameAndIdContainerPokemonId {
   margin: 0em 0.5em;
 }
 .arrowAndIdContainer {
@@ -62,7 +62,7 @@
 }
 
 /* --- */
-.pokedexPageContainer__typesContainer {
+.pokedexPageContainerTypesContainer {
   display: flex;
   align-items: center;
   position: absolute;
@@ -71,16 +71,16 @@
   color: #f1f1f1ea;
   background-color: #d30a40;
 }
-.typesContainer__typesTitle {
+.typesContainerTypesTitle {
   font-weight: bold;
   margin-right: 3px;
 }
-.typesContainer__pokedexType {
+.typesContainerPokedexType {
   margin-left: 0.25em;
 }
 
 /* --- */
-.pokedexPageContainer__weightAndHeightContainer {
+.pokedexPageContainerWeightAndHeightContainer {
   display: flex;
   position: absolute;
   top: 34.2em;
@@ -88,27 +88,27 @@
   color: #f1f1f1ea;
   background-color: #d30a40;
 }
-.pokedexPageContainer__weightContainer {
+.pokedexPageContainerWeightContainer {
   display: flex;
   margin: 0em 0.5em;
 }
-.weightContainer__weightTitle {
+.weightContainerWeightTitle {
   margin-right: 0.2em;
   font-weight: bold;
 }
-.weightContainer__weight {
+.weightContainerWeight {
 }
-.pokedexPageContainer__heightContainer {
+.pokedexPageContainerHeightContainer {
   display: flex;
   margin: 0em 0.5em;
 }
-.heightContainer__heightTitle {
+.heightContainerHeightTitle {
   margin-right: 0.2em;
   font-weight: bold;
 }
 
 /* --- */
-.pokedexPageContainer____categoryContainer {
+.pokedexPageContainerCategoryContainer {
   display: flex;
   position: absolute;
   top: 36.2em;
@@ -117,28 +117,28 @@
     background-color: #D30A40;
 
 }
-.categoryContainer__categoryTitle {
+.categoryContainerCategoryTitle {
   margin-right: 0.2em;
   font-weight: bold;
 }
-.categoryContainer__category {
+.categoryContainerCategory {
 }
 
 /* --- */
-/* .pokedexPageContainer____genderContainer{
+/* .pokedexPageContainerGenderContainer{
 	display: flex;
 	position: absolute;;
 	color: #f1f1f1ea;
 }
-.genderContainer__genderTitle{
+.genderContainerGenderTitle{
 
 }
-.genderContainer__gender{
+.genderContainerGender{
 
 } */
 
 /* --- */
-.pokedexPageContainer____descriptionContainer {
+.pokedexPageContainerDescriptionContainer {
   position: absolute;
   top: 38.2em;
   margin-right: 2.2em;
@@ -147,8 +147,8 @@
   color: #f1f1f1ea;
     background-color: #D30A40;
 }
-.descriptionContainer__descriptionTitle {
+.descriptionContainerDescriptionTitle {
   font-weight: bold;
 }
-.descriptionContainer__descriptionText {
+.descriptionContainerDescriptionText {
 }

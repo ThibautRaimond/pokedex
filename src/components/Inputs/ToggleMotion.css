@@ -1,5 +1,5 @@
 /* Toggle Motion Button - Switch Style */
-.reduce-motion-container {
+.reduceMotionContainer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,16 +15,16 @@
   width: fit-content;
 }
 
-.darkMode .reduce-motion-container {
+.darkMode .reduceMotionContainer {
   border-color: #d1d1d1;
 }
 
-.reduce-motion-container:focus {
+.reduceMotionContainer:focus {
   outline-offset: 3px;
 }
 
 /* Switch Component Styles */
-.reduce-motion-container .switch {
+.reduceMotionContainer .switch {
   display: block;
   background-color: black;
   width: 37.5px;
@@ -40,14 +40,14 @@
   flex-shrink: 0;
 }
 
-.darkMode .reduce-motion-container .switch {
+.darkMode .reduceMotionContainer .switch {
   box-shadow: 0 0 2.5px 0.5px rgba(0, 0, 0, 0.2), 0 0 0.25px 0.5px black,
     inset 0 0.5px 0.5px -0.5px white, inset 0 0 0.5px 3.75px #727272,
     inset 0 0 0.5px 5.5px black;
 }
 
 /* État par défaut = animations ACTIVÉES = VERT */
-.reduce-motion-container .switch .button {
+.reduceMotionContainer .switch .button {
   display: block;
   transition: all 0.3s cubic-bezier(1, 0, 1, 1);
   transform-origin: center center -5px;
@@ -66,16 +66,16 @@
   box-shadow: 0 -2.5px 5px #1cff42;
 }
 
-.reduce-motion-container .switch .button .shine {
+.reduceMotionContainer .switch .button .shine {
   opacity: 1;
 }
 
-.reduce-motion-container .switch .button .shadow {
+.reduceMotionContainer .switch .button .shadow {
   opacity: 0;
 }
 
 /* État actif = animations DÉSACTIVÉES = ROUGE */
-.reduce-motion-container.active .switch .button {
+.reduceMotionContainer.isActive .switch .button {
   transform: translateZ(5px) rotateX(-25deg);
   box-shadow: 0 -2.5px 5px #ff1c1c;
   background: linear-gradient(
@@ -86,24 +86,24 @@
   );
 }
 
-.reduce-motion-container.active .switch .button .light {
+.reduceMotionContainer.isActive .switch .button .light {
   opacity: 1;
   background-image: radial-gradient(#ff7d83, #ff1b17 40%, transparent 70%);
 }
 
-.reduce-motion-container.active .switch .button .dots {
+.reduceMotionContainer.isActive .switch .button .dots {
   background-image: radial-gradient(transparent 30%, rgba(97, 6, 0, 0.7) 70%);
 }
 
-.reduce-motion-container.active .switch .button .shine {
+.reduceMotionContainer.isActive .switch .button .shine {
   opacity: 0.3;
 }
 
-.reduce-motion-container.active .switch .button .shadow {
+.reduceMotionContainer.isActive .switch .button .shadow {
   opacity: 1;
 }
 
-.reduce-motion-container .switch .light {
+.reduceMotionContainer .switch .light {
   opacity: 1;
   transition: opacity 0.3s, background-image 0.3s;
   position: absolute;
@@ -112,7 +112,7 @@
   background-image: radial-gradient(#7dff83, #1bff17 40%, transparent 70%);
 }
 
-.reduce-motion-container .switch .dots {
+.reduceMotionContainer .switch .dots {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -121,7 +121,7 @@
   transition: all 0.3s cubic-bezier(1, 0, 1, 1);
 }
 
-.reduce-motion-container .switch .characters {
+.reduceMotionContainer .switch .characters {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -137,7 +137,7 @@
   background-repeat: no-repeat;
 }
 
-.reduce-motion-container .switch .shine {
+.reduceMotionContainer .switch .shine {
   transition: all 0.3s cubic-bezier(1, 0, 1, 1);
   opacity: 0.3;
   position: absolute;
@@ -154,7 +154,7 @@
   background-repeat: no-repeat;
 }
 
-.reduce-motion-container .switch .shadow {
+.reduceMotionContainer .switch .shadow {
   transition: all 0.3s cubic-bezier(1, 0, 1, 1);
   opacity: 1;
   position: absolute;
@@ -164,13 +164,13 @@
   background-repeat: no-repeat;
 }
 
-.toggle-motion-label {
+.toggleMotionLabel {
   font-size: 0.95rem;
   color: #000;
   word-break: break-word;
   margin-left: 4px;
 }
 
-.darkMode .toggle-motion-label {
+.darkMode .toggleMotionLabel {
   color: #fff;
 }

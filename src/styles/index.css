@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&display=swap");
+@import "./utilities.css";
 
 @font-face {
   font-family: "Press Start 2P";
@@ -34,7 +35,7 @@ Layout {
   outline: revert;
 }
 
-.sr-only {
+.srOnly {
   border: 0 !important;
   clip: rect(1px, 1px, 1px, 1px) !important;
   -webkit-clip-path: inset(50%) !important;
@@ -61,15 +62,15 @@ Layout {
 }
 
 /* Curseur personnalisé Mew */
-.mew-cursor,
-.mew-cursor * {
+.mewCursor,
+.mewCursor * {
   cursor: url('../assets/gam178.cur'), auto !important;
 }
 
-/* Désactive les animations quand reduce-motion est actif */
-.reduce-motion *,
-.reduce-motion *::before,
-.reduce-motion *::after {
+/* Désactive les animations quand reduceMotion est actif */
+.reduceMotion *,
+.reduceMotion *::before,
+.reduceMotion *::after {
   animation-duration: 0.01ms !important;
   animation-iteration-count: 1 !important;
   transition-duration: 0.01ms !important;

@@ -33,17 +33,17 @@
 .menuIcon:hover {
 }
 
-.header__title {
+.headerTitle {
   font-family: "Press Start 2P", sans-serif;
   font-size: 3vw;
   letter-spacing: 7px;
   color: #c20303;
 }
-.darkMode .header__title{
+.darkMode .headerTitle{
     color: #FF4747;
 }
 
-.settings-button {
+.settingsButton {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -56,25 +56,25 @@
   transition: all 0.3s ease;
 }
 
-.darkMode .settings-button {
+.darkMode .settingsButton {
   border-color: #f1f1f1ea;
   color: #f1f1f1ea;
 }
 
-.settings-button:focus {
+.settingsButton:focus {
   outline-offset: 2px;
   outline-color: #222;
   outline: 2px solid
 }
 
-.darkMode .settings-button:focus {
+.darkMode .settingsButton:focus {
   outline-color: #f1f1f1ea;
 }
 
 /* ------- */
 
 @media screen and (min-width: 1600px) {
-  .header__title {
+  .headerTitle {
     font-size: 30px;
   }
   .menuIcon {

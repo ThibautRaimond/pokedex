@@ -6,7 +6,7 @@ const ScrollToBotButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
-    const listContainer = document.getElementById("list-container");
+    const listContainer = document.getElementById("listContainer");
     if (listContainer) {
       const { bottom } = listContainer.getBoundingClientRect();
       setIsVisible(bottom > window.innerHeight);

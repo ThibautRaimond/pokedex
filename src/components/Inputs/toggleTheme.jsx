@@ -1,4 +1,4 @@
-import "./toggleTheme.css";
+import "./ToggleTheme.css";
 
 const ToggleTheme = ({ onChange, state, icons }) => {
   const handleKeyDown = (e) => {
@@ -19,15 +19,13 @@ const ToggleTheme = ({ onChange, state, icons }) => {
     <div className="toggleContainer">
       <button
         className="toggleButton"
-        tabIndex="0"
-        role="button"
         aria-label={actionLabel}
         onClick={onChange}
         onKeyDown={handleKeyDown}
       >
         <div className="toggleWrapper">
           <div
-            id="toggle-switch"
+            id="toggleSwitch"
             className={`darkModeInput ${state === "dark" ? "inputChecked" : ""}`}
             checked={state === "dark"}
             readOnly
@@ -40,9 +38,9 @@ const ToggleTheme = ({ onChange, state, icons }) => {
             {/* Étoiles visibles en mode dark (avec la lune) */}
             {state === "dark" && (
               <>
-                <div className="leftIcon star_1" aria-hidden="true"></div>
-                <div className="leftIcon star_2" aria-hidden="true"></div>
-                <div className="leftIcon star_3" aria-hidden="true"></div>
+                <div className="leftIcon star1" aria-hidden="true"></div>
+                <div className="leftIcon star2" aria-hidden="true"></div>
+                <div className="leftIcon star3" aria-hidden="true"></div>
               </>
             )}
             {/* Nuage visible en mode clair (avec le soleil) */}
@@ -67,7 +65,7 @@ const ToggleTheme = ({ onChange, state, icons }) => {
       </button>
 
       {/* texte invisible pour vocaliser le changement d'état */}
-      <div aria-live="polite" className="sr-only">
+      <div aria-live="polite" className="srOnly">
         {liveText}
       </div>
     </div>

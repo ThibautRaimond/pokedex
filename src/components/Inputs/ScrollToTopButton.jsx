@@ -22,8 +22,8 @@ const ScrollToTopButton = () => {
         behavior: "smooth",
       });
       
-      // Donner le focus au h1.skip-target
-      const skipTarget = mainElement.querySelector('.skip-target');
+      // Donner le focus au h1.skipTarget
+      const skipTarget = mainElement.querySelector('.skipTarget');
       if (skipTarget) {
         skipTarget.focus({ preventScroll: true });
       }

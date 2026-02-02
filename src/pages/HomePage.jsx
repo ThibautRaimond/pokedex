@@ -10,8 +10,6 @@ import ScrollToTopButton from "../components/Inputs/ScrollToTopButton";
 import ScrollToBotButton from "../components/Inputs/ScrollToBotButton";
 import PokeballLoader from "../components/Inputs/PokeballLoader";
 import CircleLoader from "../components/Inputs/CircleLoader";
-import "../components/Layout/SkipLink.css";
-import "../components/Inputs/ToggleMotion.css";
 import "./HomePage.css";
 
 const HomePage = () => {
@@ -26,8 +24,8 @@ const HomePage = () => {
   /* === Messages d'accessibilité pour le chargement === */
   const [statusMessage, setStatusMessage] = useState("");
 
-  const LOADING_MESSAGE = "pokemon en chargement";
-  const LOADED_MESSAGE = "chargement terminé";
+  const LOADINGMESSAGE = "pokemon en chargement";
+  const LOADEDMESSAGE = "chargement terminé";
 
   useEffect(() => {
     let delayTimeoutId;
@@ -40,14 +38,14 @@ const HomePage = () => {
         setStatusMessage("");
         // Puis réinjecter après un court délai pour forcer la détection
         reinsertTimeoutId = setTimeout(() => {
-          setStatusMessage(LOADING_MESSAGE);
+          setStatusMessage(LOADINGMESSAGE);
         }, 100);
       }, 1000);
     } else if (data) {
       // Quand le chargement est terminé, ré-insertion rapide
       setStatusMessage("");
       reinsertTimeoutId = setTimeout(() => {
-        setStatusMessage(LOADED_MESSAGE);
+        setStatusMessage(LOADEDMESSAGE);
       }, 100);
     }
 
@@ -139,55 +137,55 @@ const HomePage = () => {
 
       {/* Gestion des contenus en mouvement */}
       <div ref={contentRef} className="homePageContainer">
-        <div role="heading" aria-level="1" className="sr-only skip-target" tabIndex="-1">Liste des Pokémon</div>
+        <div role="heading" aria-level="1" className="srOnly skipTarget" tabIndex="-1">Liste des Pokémon</div>
 
         {/* Bouton menu des filtres */}
         <button
-          className="filterPokemonContainerWithButton__toggleDiv"
+          className="filterSectionToggleButton"
           onClick={toggleDiv}
           aria-expanded={isOpen}
-          aria-controls="filter-pokemon-container"
+          aria-controls="filterPokemonContainer"
           type="button"
         >
           {isOpen ? (
-            <RxCross2 className="toggleDiv__toggler" size={25} />
+            <RxCross2 className="filterSectionToggleIcon" size={25} />
           ) : (
-            <RxHamburgerMenu className="toggleDiv__toggler" size={25} />
+            <RxHamburgerMenu className="filterSectionToggleIcon" size={25} />
           )}
-          <span className="toggleDiv__openOrCloseFilter">
-            <p className="openOrCloseFilter__filterTitle">
+          <span className="filterSectionToggleLabel">
+            <p className="filterSectionToggleTitle">
               Filtrer les pokemons
             </p>
           </span>
         </button>
 
         <ul
-          className={`homePageContainer__filterPokemonContainer ${isOpen ? "open" : ""}`}
-          id="filter-pokemon-container"
+          className={`filterSectionContainer ${isOpen ? "isOpen" : ""}`}
+          id="filterPokemonContainer"
           aria-hidden={!isOpen}
           aria-label="3 options de filtres"
         >
-          <li className="rangeThumbcontainer">
-            <fieldset className="generationRange">
+          <li className="generationFilterContainer">
+            <fieldset className="generationFilter">
               <legend
-                id="generation-group-label"
-                className="generationRange_legend"
+                id="generationGroupLabel"
+                className="generationFilterLegend"
               >
                 Filtrer par Générations
               </legend>
 
-              <div className="rangeContainer" role="group">
+              <div className="generationFilterRangeContainer" role="group">
                 {/* Slider début */}
                 <label
-                  id="gen-start-label"
+                  id="genStartLabel"
                   htmlFor="gen-start"
-                  className="sr-only"
+                  className="srOnly"
                 >
                   Choisir la génération de départ
                 </label>
 
                 <input
-                  id="gen-start"
+                  id="genStart"
                   type="range"
                   min="1"
                   max="9"
@@ -195,8 +193,8 @@ const HomePage = () => {
                   onChange={(e) =>
                     setGenStart(Math.min(Number(e.target.value), genEnd))
                   }
-                  className="rangeThumb start"
-                  aria-labelledby="gen-start-label"
+                  className="generationFilterRangeThumb generationFilterRangeThumbStart"
+                  aria-labelledby="genStartLabel"
                   aria-valuemin={1}
                   aria-valuemax={9}
                   aria-valuenow={genStart}
@@ -206,12 +204,12 @@ const HomePage = () => {
                 />
 
                 {/* Slider fin */}
-                <label id="gen-end-label" htmlFor="gen-end" className="sr-only">
+                <label id="genEndLabel" htmlFor="genEnd" className="srOnly">
                   Choisir la génération limite
                 </label>
 
                 <input
-                  id="gen-end"
+                  id="genEnd"
                   type="range"
                   min="1"
                   max="9"
@@ -219,8 +217,8 @@ const HomePage = () => {
                   onChange={(e) =>
                     setGenEnd(Math.max(Number(e.target.value), genStart))
                   }
-                  className="rangeThumb end"
-                  aria-labelledby="gen-end-label"
+                  className="generationFilterRangeThumb generationFilterRangeThumbEnd"
+                  aria-labelledby="genEndLabel"
                   aria-valuemin={1}
                   aria-valuemax={9}
                   aria-valuenow={genEnd}
@@ -228,16 +226,16 @@ const HomePage = () => {
                   tabIndex={getTabIndex()}
                 />
 
-                <div className="rangeTrack" aria-hidden="true">
+                <div className="generationFilterRangeTrack" aria-hidden="true">
                   <div
-                    className="rangeSelected"
+                    className="generationFilterRangeSelected"
                     style={{
                       left: `${((genStart - 1) / 8) * 100}%`,
                       width: `${((genEnd - genStart) / 8) * 100}%`,
                     }}
                   />
-                  <span className="rangeLabel left">Gen {genStart}</span>
-                  <span className="rangeLabel right">Gen {genEnd}</span>
+                  <span className="generationFilterRangeLabel generationFilterRangeLabelLeft">Gen {genStart}</span>
+                  <span className="generationFilterRangeLabel generationFilterRangeLabelRight">Gen {genEnd}</span>
                 </div>
               </div>
             </fieldset>
@@ -246,7 +244,7 @@ const HomePage = () => {
           <li>
             <a
               href="#searchPokemon"
-              className="skip-link-types"
+              className="skipLinkTypes"
               tabIndex={getTabIndex()}
               onClick={(e) => {
                 e.preventDefault();
@@ -263,11 +261,11 @@ const HomePage = () => {
             >
               Passer les filtres par types
             </a>
-            <fieldset className="typesFieldset">
-              <legend className="TypesSelectContainer__Legend">
+            <fieldset className="typeFilter">
+              <legend className="typeFilterLegend">
                 Filtrer par types
               </legend>
-              <div className="filterPokemonContainer__typeSelectContainer">
+              <div className="typeFilterContainer">
                 {[
                   "normal",
                   "fighting",
@@ -288,7 +286,7 @@ const HomePage = () => {
                   "dark",
                   "fairy",
                 ].map((type) => (
-                  <label key={type} className="typeSelectContainer__types">
+                  <label key={type} className="typeFilterLabel">
                     <input
                       className="input"
                       type="checkbox"
@@ -315,7 +313,7 @@ const HomePage = () => {
 
           <li>
             {/* Barre de recherche */}
-            <div className="floatingInput">
+            <div className="searchBar">
               <input
                 className="input inputSearchPokemon"
                 type="text"
@@ -333,7 +331,7 @@ const HomePage = () => {
         {/* Loader ou erreur */}
         {isLoading && (
           reduceMotion ? (
-            <div className="LoadingMessage" role="status" aria-live="polite">
+            <div className="statusMessage" role="status" aria-live="polite">
               <p>Chargement</p>
             </div>
           ) : (
@@ -346,7 +344,7 @@ const HomePage = () => {
           role="status"
           aria-live="polite"
           aria-atomic="true"
-          className="sr-only"
+          className="srOnly"
         >
           {statusMessage}
         </div>
@@ -355,9 +353,8 @@ const HomePage = () => {
         {data && (
           <nav aria-label="Affichage sur pokedex">
             <ul
-              className="homePageContainer__pokemonsContainer"
-              id="list-container"
-            >
+              className="pokemonGrid"
+              id="listContainer">
               {data
                 .filter(
                   ({ name, types }) =>
@@ -377,33 +374,33 @@ const HomePage = () => {
                 )
                 .map(({ id, name, types, sprite }, index) => (
                   <li
-                    className={`${types[0]} pokemonsContainer__pokemonContainer`}
+                    className={`${types[0]} pokemonCard`}
                     key={index}
                   >
                     <Link
                       to={`/pokedex/pokemon/${id}`}
                       aria-label={`${name} pokemon numéro ${id}`}
                     >
-                      <div className="pokemonContainer__NameAndId">
+                      <div className="pokemonCardHeader">
                         <p>{name}</p>
                         <p>N°{id}</p>
                       </div>
 
                       {imageLoading && (
                         reduceMotion ? (
-                          <div className="LoadingMessage" role="status">
+                          <div className="statusMessage" role="status">
                             <p>Chargement</p>
                           </div>
                         ) : (
                           <CircleLoader />
                         )
                       )}
-                      <div className="pokemonContainer__imgContainer">
+                      <div className="pokemonCardImageContainer">
                         <img
                           src={sprite}
                           alt={name}
                           onLoad={handleImageLoaded}
-                          className="imgContainer__PokemonImg"
+                          className="pokemonCardImage"
                         />
                       </div>
                     </Link>
