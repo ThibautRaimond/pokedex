@@ -16,7 +16,7 @@
 }
 
 .darkMode .reduce-motion-container {
-  border-color: #fff;
+  border-color: #d1d1d1;
 }
 
 .reduce-motion-container:focus {
@@ -38,6 +38,12 @@
   transform: rotate(270deg);
   cursor: pointer;
   flex-shrink: 0;
+}
+
+.darkMode .reduce-motion-container .switch {
+  box-shadow: 0 0 2.5px 0.5px rgba(0, 0, 0, 0.2), 0 0 0.25px 0.5px black,
+    inset 0 0.5px 0.5px -0.5px white, inset 0 0 0.5px 3.75px #727272,
+    inset 0 0 0.5px 5.5px black;
 }
 
 /* État par défaut = animations ACTIVÉES = VERT */
