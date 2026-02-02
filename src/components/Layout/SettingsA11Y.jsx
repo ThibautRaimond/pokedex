@@ -1,8 +1,8 @@
 import { useState, useEffect, forwardRef } from "react";
 import { RxCross2 } from "react-icons/rx";
 import ThemeToggler from "../Inputs/toggleTheme";
+import ToggleMotion from "../Inputs/ToggleMotion";
 import { useTheme } from "../../hooks/useTheme";
-import "../Inputs/ToggleMotion.css";
 import "./SettingsA11Y.css";
 
 const SettingsA11Y = forwardRef((props, ref) => {
@@ -70,28 +70,10 @@ const SettingsA11Y = forwardRef((props, ref) => {
           {/* Toggle des animations */}
           <div className="setting-item">
             <p>Animations</p>
-            <button 
-              onClick={toggleReduceMotion}
-              className={`reduce-motion-container ${reduceMotion ? 'active' : ''}`}
-              aria-label={reduceMotion ? "Activer les animations" : "Désactiver les animations"}
-            >
-              <div className="switch" aria-hidden="true">
-                <div className="button">
-                  <div className="light"></div>
-                  <div className="dots"></div>
-                  <div className="shadow"></div>
-                  <div className="characters"></div>
-                  <div className="shine"></div>
-                </div>
-              </div>
-              <span className="toggle-motion-label" aria-hidden="true">
-                {reduceMotion ? "Activer les animations" : "Désactiver les animations"}
-              </span>
-            </button>
-            <div aria-live="polite" className="sr-only">
-              {reduceMotion ? "Animations désactivées" : "Animations activées"}
-            </div>
-            
+            <ToggleMotion
+              onChange={toggleReduceMotion}
+              state={reduceMotion}
+            />
           </div>
 
           {/* Toggle du thème */}

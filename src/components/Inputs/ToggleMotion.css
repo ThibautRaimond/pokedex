@@ -7,7 +7,7 @@
   background: transparent;
   border: 1px solid #000;
   border-radius: 8px;
-  padding: 6px 14px;
+  padding: 4px 14px;
   cursor: pointer;
   font: inherit;
   transition: all 0.2s;
@@ -162,6 +162,7 @@
   font-size: 0.95rem;
   color: #000;
   word-break: break-word;
+  margin-left: 4px;
 }
 
 .darkMode .toggle-motion-label {
