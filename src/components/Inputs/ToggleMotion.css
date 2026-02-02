@@ -1,4 +1,4 @@
-/* Toggle Motion Button - Round On/Off Style */
+/* Toggle Motion Button - Switch Style */
 .reduce-motion-container {
   display: flex;
   align-items: center;
@@ -23,97 +23,139 @@
   outline-offset: 3px;
 }
 
-.toggle-motion-button {
-  position: relative;
-  width: 2em;
-  height: 2em;
-  background-color: rgb(99, 99, 99);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid rgb(126, 126, 126);
-  box-shadow: 0px 0px 3px rgb(2, 2, 2) inset;
-  transition: all 0.3s ease;
+/* Switch Component Styles */
+.reduce-motion-container .switch {
+  display: block;
+  background-color: black;
+  width: 37.5px;
+  height: 48.75px;
+  box-shadow: 0 0 2.5px 0.5px rgba(0, 0, 0, 0.2), 0 0 0.25px 0.5px black,
+    inset 0 0.5px 0.5px -0.5px white, inset 0 0 0.5px 3.75px #47434c,
+    inset 0 0 0.5px 5.5px black;
+  border-radius: 1.25px;
+  padding: 5px;
+  perspective: 175px;
+  transform: rotate(270deg);
+  cursor: pointer;
   flex-shrink: 0;
 }
 
-.toggle-motion-button svg {
-  width: 1em;
-  height: 1em;
+/* État par défaut = animations ACTIVÉES = VERT */
+.reduce-motion-container .switch .button {
+  display: block;
+  transition: all 0.3s cubic-bezier(1, 0, 1, 1);
+  transform-origin: center center -5px;
+  transform: translateZ(5px) rotateX(25deg);
+  transform-style: preserve-3d;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+  background: linear-gradient(
+    #02961d 0%,
+    #005e02 30%,
+    #006300 70%,
+    #009100 100%
+  );
+  background-repeat: no-repeat;
+  box-shadow: 0 -2.5px 5px #1cff42;
 }
 
-.toggle-motion-button svg path {
-  fill: rgb(48, 48, 48);
-  transition: all 0.3s ease;
+.reduce-motion-container .switch .button .shine {
+  opacity: 1;
 }
 
-/* État actif = animations DÉSACTIVÉES = VERT */
-.reduce-motion-container.active .toggle-motion-button {
-  box-shadow:
-    0px 0px 1px rgb(50, 180, 80) inset,
-    0px 0px 2px rgb(50, 180, 80) inset,
-    0px 0px 10px rgb(50, 180, 80) inset,
-    0px 0px 15px rgb(50, 180, 80),
-    0px 0px 30px rgb(50, 180, 80),
-    0px 0px 3px rgb(100, 255, 150);
-  border: 2px solid rgb(200, 255, 220);
-  background-color: rgb(50, 130, 70);
+.reduce-motion-container .switch .button .shadow {
+  opacity: 0;
 }
 
-/* Mode light : bordure verte effet néon */
-:not(.darkMode) .reduce-motion-container.active .toggle-motion-button {
-  border: 3px solid rgb(40, 150, 70);
-  box-shadow:
-    0px 0px 2px rgb(40, 150, 70) inset,
-    0px 0px 4px rgb(40, 150, 70) inset,
-    0px 0px 8px rgb(40, 150, 70),
-    0px 0px 12px rgb(50, 180, 90),
-    0px 0px 20px rgba(50, 180, 90, 0.5),
-    0 0 2px rgb(40, 150, 70),
-    inset 0 0 3px rgba(100, 255, 150, 0.3);
+/* État actif = animations DÉSACTIVÉES = ROUGE */
+.reduce-motion-container.active .switch .button {
+  transform: translateZ(5px) rotateX(-25deg);
+  box-shadow: 0 -2.5px 5px #ff1c1c;
+  background: linear-gradient(
+    #961d02 0%,
+    #5e0200 30%,
+    #630000 70%,
+    #910000 100%
+  );
 }
 
-.reduce-motion-container.active .toggle-motion-button svg {
-  filter: drop-shadow(0px 0px 5px rgb(100, 255, 150));
+.reduce-motion-container.active .switch .button .light {
+  opacity: 1;
+  background-image: radial-gradient(#ff7d83, #ff1b17 40%, transparent 70%);
 }
 
-.reduce-motion-container.active .toggle-motion-button svg path {
-  fill: rgb(255, 255, 255);
+.reduce-motion-container.active .switch .button .dots {
+  background-image: radial-gradient(transparent 30%, rgba(97, 6, 0, 0.7) 70%);
 }
 
-/* État inactif = animations ACTIVÉES = ROUGE */
-.reduce-motion-container:not(.active) .toggle-motion-button {
-  box-shadow:
-    0px 0px 1px rgb(200, 50, 50) inset,
-    0px 0px 2px rgb(200, 50, 50) inset,
-    0px 0px 10px rgb(200, 50, 50) inset,
-    0px 0px 15px rgb(200, 50, 50),
-    0px 0px 30px rgb(200, 50, 50),
-    0px 0px 3px rgb(255, 80, 80);
-  border: 2px solid rgb(255, 200, 200);
-  background-color: rgb(150, 50, 50);
+.reduce-motion-container.active .switch .button .shine {
+  opacity: 0.3;
 }
 
-/* Mode light : bordure rouge effet néon */
-:not(.darkMode) .reduce-motion-container:not(.active) .toggle-motion-button {
-  border: 3px solid rgb(180, 30, 30);
-  box-shadow:
-    0px 0px 2px rgb(180, 30, 30) inset,
-    0px 0px 4px rgb(180, 30, 30) inset,
-    0px 0px 8px rgb(180, 30, 30),
-    0px 0px 12px rgb(200, 50, 50),
-    0px 0px 20px rgba(200, 50, 50, 0.5),
-    0 0 2px rgb(180, 30, 30),
-    inset 0 0 3px rgba(255, 100, 100, 0.3);
+.reduce-motion-container.active .switch .button .shadow {
+  opacity: 1;
 }
 
-.reduce-motion-container:not(.active) .toggle-motion-button svg {
-  filter: drop-shadow(0px 0px 5px rgb(255, 80, 80));
+.reduce-motion-container .switch .light {
+  opacity: 1;
+  transition: opacity 0.3s, background-image 0.3s;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#7dff83, #1bff17 40%, transparent 70%);
 }
 
-.reduce-motion-container:not(.active) .toggle-motion-button svg path {
-  fill: rgb(255, 255, 255);
+.reduce-motion-container .switch .dots {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(transparent 30%, rgba(6, 97, 0, 0.7) 70%);
+  background-size: 2.5px 2.5px;
+  transition: all 0.3s cubic-bezier(1, 0, 1, 1);
+}
+
+.reduce-motion-container .switch .characters {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(white, white) 50% 20%/5% 20%,
+    radial-gradient(
+        circle,
+        transparent 50%,
+        white 52%,
+        white 70%,
+        transparent 72%
+      )
+      50% 80%/33% 25%;
+  background-repeat: no-repeat;
+}
+
+.reduce-motion-container .switch .shine {
+  transition: all 0.3s cubic-bezier(1, 0, 1, 1);
+  opacity: 0.3;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(white, transparent 3%) 50% 50%/97% 97%,
+    linear-gradient(
+        rgba(255, 255, 255, 0.5),
+        transparent 50%,
+        transparent 80%,
+        rgba(255, 255, 255, 0.5)
+      )
+      50% 50%/97% 97%;
+  background-repeat: no-repeat;
+}
+
+.reduce-motion-container .switch .shadow {
+  transition: all 0.3s cubic-bezier(1, 0, 1, 1);
+  opacity: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(transparent 70%, rgba(0, 0, 0, 0.8));
+  background-repeat: no-repeat;
 }
 
 .toggle-motion-label {
