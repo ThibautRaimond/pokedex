@@ -8,8 +8,8 @@ import { translateType } from "../locales/types";
 
 import ScrollToTopButton from "../components/Inputs/ScrollToTopButton";
 import ScrollToBotButton from "../components/Inputs/ScrollToBotButton";
-import PokeballLoader from "../components/Inputs/PokeballLoader";
-import CircleLoader from "../components/Inputs/CircleLoader";
+import PokeballLoader from "../components/Loaders/PokeballLoader";
+import CircleLoader from "../components/Loaders/CircleLoader";
 import "./HomePage.css";
 
 const HomePage = () => {
