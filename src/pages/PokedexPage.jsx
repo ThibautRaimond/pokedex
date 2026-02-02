@@ -107,7 +107,7 @@ const PokedexPage = () => {
               <Link
                 to={`/pokedex/pokemon/${currentId - 1}`}
                 className="arrow"
-                aria-label={`Pokemon numéro ${currentId - 1}`}
+                aria-label={`Pokemon précédent numéro ${currentId - 1}`}
               >
                 ◀
               </Link>
@@ -125,7 +125,7 @@ const PokedexPage = () => {
               <Link
                 to={`/pokedex/pokemon/${currentId + 1}`}
                 className="arrow"
-                aria-label={`Pokemon numéro ${currentId + 1}`}
+                aria-label={`Pokemon suivant numéro ${currentId + 1}`}
               >
                 ▶
               </Link>
