@@ -83,7 +83,6 @@ const PokedexPage = () => {
         <Helmet>
           <title>{pokemon.name} - Pokedex</title>
         </Helmet>
-        <div role="heading" aria-level="1" className="srOnly skipTarget" tabIndex="-1">{pokemon.name}</div>
         <img src={pokedexModel} alt="" />
         <div className="pokedexPageContainerImgContainer">
           <img
@@ -101,7 +100,7 @@ const PokedexPage = () => {
 					/> */}
         </div>
         <div className="pokedexPageContainerNameAndIdContainer">
-          <h1 aria-hidden="true" className="nameAndIdContainerPokemonName">{pokemon.name}</h1>
+          <h1 className="nameAndIdContainerPokemonName skipTarget" tabIndex="-1">{pokemon.name}</h1>
           <div className="arrowAndIdContainer">
             {currentId > MIN ? (
               <Link
