@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { Helmet } from "react-helmet";
 import { translateType } from "../locales/types";
-import "./pokedexPage.css";
+import "./PokedexPage.css";
 import "../styles/pokemonTypes.css";
 import pokedexModel from "../assets/pokedexModel.png";
 

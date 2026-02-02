@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
-import HomePage from "../pages/homePage";
-import PokedexPage from "../pages/pokedexPage";
+import HomePage from "../pages/HomePage";
+import PokedexPage from "../pages/PokedexPage";
 
 const Routeur = () => {
   const location = useLocation();

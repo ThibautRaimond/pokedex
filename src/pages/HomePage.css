@@ -365,21 +365,10 @@ body {
   float: left;
 }
 
-.pokemonCard:hover {
-  border: 1.5px solid #808080;
-}
 
 .darkMode .pokemonCard {
   color: #f1f1f1ea;
   background-color: #222;
-  border: 1.5px solid #464646;
-}
-
-.darkMode .pokemonCard:hover {
-  border: 1.5px solid #f1f1f1ea;
-}
-
-.pokemonCard:hover .pokemonCardHeader {
   border: 1.5px solid #464646;
 }
 
