@@ -315,7 +315,7 @@ const HomePage = () => {
             {/* Barre de recherche */}
             <div className="searchBar">
               <input
-                className="input inputSearchPokemon"
+                className="searchBarInput"
                 type="text"
                 id="searchPokemon"
                 value={searchQuery}
@@ -323,7 +323,7 @@ const HomePage = () => {
                 aria-label="Filtrer par nom"
                 tabIndex={getTabIndex()}
               />
-              <label htmlFor="searchPokemon">Filtrer par nom</label>
+              <label className="searchBarLabel" htmlFor="searchPokemon">Filtrer par nom</label>
             </div>
           </li>
         </ul>
