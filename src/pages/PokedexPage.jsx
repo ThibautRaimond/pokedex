@@ -184,6 +184,18 @@ const PokedexPage = () => {
             </p>
           </li>
         </ul>
+        <Link
+          to="/pokedex"
+          className="backToHomeLink"
+          tabIndex="0"
+          onKeyDown={(e) => {
+            if (e.key === "Escape") {
+              e.currentTarget.blur();
+            }
+          }}
+        >
+          Revenir à l'accueil pour voir les pokemons
+        </Link>
       </div>
     );
   }

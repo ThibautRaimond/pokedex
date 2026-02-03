@@ -152,3 +152,39 @@
 }
 .descriptionContainerDescriptionText {
 }
+
+/* Lien de retour à l'accueil */
+.backToHomeLink {
+  position: fixed;
+  bottom: 6em;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem 1.5rem;
+  background-color: #ffffff;
+  color: #222;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  white-space: nowrap;
+  width: fit-content;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 50;
+}
+
+.backToHomeLink:focus {
+  opacity: 1;
+  pointer-events: auto;
+  outline: 2px solid #222;
+  outline-offset: 2px;
+}
+
+.darkMode .backToHomeLink {
+  background-color: #222222;
+  color: #fff;
+}
+
+.darkMode .backToHomeLink:focus {
+  outline-color: #fff;
+}
