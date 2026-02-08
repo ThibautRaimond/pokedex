@@ -1,6 +1,6 @@
 import Header from "./Header";
 import Footer from "./Footer";
-import SkipLink from "./skipLink";
+import SkipLink from "./SkipLink";
 import "./skipLink.css";
 
 function Layout({ children }) {

@@ -14,22 +14,14 @@ const Routeur = () => {
       document.body.classList.remove("pokedexBody");
     }
 
-    // Forcer la réinitialisation du focus comme une vraie navigation
-    // Retirer le focus de tout élément actif
-    if (document.activeElement && document.activeElement !== document.body) {
-      document.activeElement.blur();
-    }
-    
-    // Remettre le tabindex sur -1 pour que le body ne soit pas tabulable
-    // mais puisse recevoir le focus programmatiquement
-    document.body.setAttribute('tabindex', '-1');
-    document.body.focus();
-    
-    // Petit délai pour s'assurer que le DOM est à jour
+    // Forcer le focus sur l'annonce du titre de page pour les lecteurs d'écran
+    // Petit délai pour s'assurer que le DOM et le titre sont à jour
     setTimeout(() => {
-      document.body.blur();
-      document.body.removeAttribute('tabindex');
-    }, 0);
+      const pageTitleElement = document.getElementById('page-title-announce');
+      if (pageTitleElement) {
+        pageTitleElement.focus();
+      }
+    }, 100);
     
     return () => {
       document.body.classList.remove("pokedexBody");

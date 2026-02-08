@@ -1,6 +1,30 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function SkipLink() {
+  const [pageTitle, setPageTitle] = useState("");
+
+  useEffect(() => {
+    // Récupérer le titre de la page au montage et à chaque changement
+    const updateTitle = () => {
+      setPageTitle(document.title);
+    };
+    
+    updateTitle();
+    
+    // Observer les changements du titre
+    const titleElement = document.querySelector('title');
+    if (titleElement) {
+      const observer = new MutationObserver(updateTitle);
+      observer.observe(titleElement, { 
+        childList: true, 
+        characterData: true, 
+        subtree: true 
+      });
+      
+      return () => observer.disconnect();
+    }
+  }, []);
+
   const handleSkipClick = (e, targetType) => {
     e.preventDefault();
     
@@ -44,7 +68,9 @@ function SkipLink() {
   }, []);
 
   return (
-    <nav className="skipLinks" aria-label="liens d'accès rapide">
+    <>
+      <div id="page-title-announce" className="srOnly" tabIndex="-1">Page {pageTitle}</div>
+      <nav className="skipLinks" aria-label="Accès rapide">
       <a
         href="#main-content"
         className="skipLink"
@@ -60,6 +86,7 @@ function SkipLink() {
         Aller au pied de page
       </a>
     </nav>
+    </>
   );
 }
 

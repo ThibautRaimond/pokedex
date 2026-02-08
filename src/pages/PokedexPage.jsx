@@ -25,11 +25,14 @@ const PokedexPage = () => {
     const fetchMaxPokemon = async () => {
       try {
         const response = await axios.get(
-          "https://pokeapi.co/api/v2/pokemon-species/?limit=1"
+          "https://pokeapi.co/api/v2/pokemon-species/?limit=1",
         );
         setMaxPokemon(response.data.count);
       } catch (error) {
-        console.error("Erreur lors de la récupération du nombre max de Pokémon:", error);
+        console.error(
+          "Erreur lors de la récupération du nombre max de Pokémon:",
+          error,
+        );
       }
     };
     fetchMaxPokemon();
@@ -39,17 +42,17 @@ const PokedexPage = () => {
     // on selectionne la data du pokemon concerné grace au id récupéré dans l'url:
     const fetchData = async () => {
       const response = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon/${id}`
+        `https://pokeapi.co/api/v2/pokemon/${id}`,
       );
       const speciesUrl = response.data.species.url;
       const speciesResponse = await axios.get(speciesUrl);
 
       const name = speciesResponse.data.names.find(
-        (n) => n.language.name === "fr"
+        (n) => n.language.name === "fr",
       ).name;
 
       const descriptionEntry = speciesResponse.data.flavor_text_entries.find(
-        (t) => t.language.name === "fr"
+        (t) => t.language.name === "fr",
       );
       const description = descriptionEntry
         ? descriptionEntry.flavor_text
@@ -70,7 +73,7 @@ const PokedexPage = () => {
       setPokemonHeight(height);
 
       const category = speciesResponse.data.genera.find(
-        (g) => g.language.name === "fr"
+        (g) => g.language.name === "fr",
       ).genus;
       setPokemonCategory(category);
     };
@@ -100,7 +103,12 @@ const PokedexPage = () => {
 					/> */}
         </div>
         <div className="pokedexPageContainerNameAndIdContainer">
-          <h1 className="nameAndIdContainerPokemonName skipTarget" tabIndex="-1">{pokemon.name}</h1>
+          <h1
+            className="nameAndIdContainerPokemonName skipTarget"
+            tabIndex="-1"
+          >
+            {pokemon.name}
+          </h1>
           <div className="arrowAndIdContainer">
             {currentId > MIN ? (
               <Link
@@ -111,14 +119,17 @@ const PokedexPage = () => {
                 ◀
               </Link>
             ) : (
-              <a role="link" className="arrow disabled" aria-disabled="true" aria-label="Aucun pokemon précédent">
+              <a
+                role="link"
+                className="arrow disabled"
+                aria-disabled="true"
+                aria-label="Aucun pokemon précédent"
+              >
                 ᐊ
               </a>
             )}
 
-            <p className="nameAndIdContainerPokemonId">
-              Pokemon N°{currentId}
-            </p>
+            <p className="nameAndIdContainerPokemonId">Pokemon N°{currentId}</p>
 
             {currentId < maxPokemon ? (
               <Link
@@ -129,7 +140,12 @@ const PokedexPage = () => {
                 ▶
               </Link>
             ) : (
-              <a role="link" className="arrow disabled" aria-disabled="true" aria-label="Aucun pokemon suivant">
+              <a
+                role="link"
+                className="arrow disabled"
+                aria-disabled="true"
+                aria-label="Aucun pokemon suivant"
+              >
                 ᐅ
               </a>
             )}
@@ -151,9 +167,7 @@ const PokedexPage = () => {
           <li className="pokedexPageContainerWeightAndHeightContainer">
             <div className="pokedexPageContainerWeightContainer">
               <p className="weightContainerWeightTitle">Poids : </p>
-              <p className="weightContainerWeight">
-                {pokemonWeight / 10} kg{" "}
-              </p>
+              <p className="weightContainerWeight">{pokemonWeight / 10} kg </p>
             </div>
             <div className="pokedexPageContainerHeightContainer">
               <p className="heightContainerHeightTitle">Taille : </p>
