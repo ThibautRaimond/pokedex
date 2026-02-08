@@ -98,7 +98,7 @@ const PokedexPage = () => {
 						className="imgContainerImg"
 						src={pokemon.backImage}
 						alt={`${pokemon.name} dos`}
-						aria-hidden="true"
+						aria-hidden="true"""
             
 					/> */}
         </div>
@@ -114,7 +114,7 @@ const PokedexPage = () => {
               <Link
                 to={`/pokedex/pokemon/${currentId - 1}`}
                 className="arrow"
-                aria-label={`Pokemon précédent numéro ${currentId - 1}`}
+                aria-label={`Pokemon précédent`}
               >
                 ◀
               </Link>
@@ -135,7 +135,7 @@ const PokedexPage = () => {
               <Link
                 to={`/pokedex/pokemon/${currentId + 1}`}
                 className="arrow"
-                aria-label={`Pokemon suivant numéro ${currentId + 1}`}
+                aria-label={`Pokemon suivant`}
               >
                 ▶
               </Link>
