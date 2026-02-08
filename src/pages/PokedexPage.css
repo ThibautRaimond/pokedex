@@ -49,6 +49,10 @@
   margin: 0em 0.5em;
 }
 
+.nameAndIdContainerPokemonName:focus {
+  outline: none;
+}
+
 .nameAndIdContainerPokemonId {
   margin: 0em 0.5em;
 }
