@@ -17,12 +17,12 @@ const Routeur = () => {
     // Forcer le focus sur l'annonce du titre de page pour les lecteurs d'écran
     // Petit délai pour s'assurer que le DOM et le titre sont à jour
     setTimeout(() => {
-      const pageTitleElement = document.getElementById('page-title-announce');
+      const pageTitleElement = document.getElementById("page-title-announce");
       if (pageTitleElement) {
         pageTitleElement.focus();
       }
     }, 100);
-    
+
     return () => {
       document.body.classList.remove("pokedexBody");
     };

@@ -1,7 +1,7 @@
 import { useState, useEffect, forwardRef } from "react";
 import { RxCross2 } from "react-icons/rx";
-import ThemeToggler from "../Inputs/toggleTheme";
-import ToggleMotion from "../Inputs/ToggleMotion";
+import ThemeToggler from "../toggles/toggleTheme";
+import ToggleMotion from "../toggles/ToggleMotion";
 import { useTheme } from "../../hooks/useTheme";
 import "./settingsA11Y.css";
 

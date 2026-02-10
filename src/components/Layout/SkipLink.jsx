@@ -8,9 +8,9 @@ function SkipLink() {
     const updateTitle = () => {
       setPageTitle(document.title);
     };
-    
+
     updateTitle();
-    
+
     // Observer les changements du titre
     const titleElement = document.querySelector('title');
     if (titleElement) {

@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { Helmet } from "react-helmet";
 import { translateType } from "../locales/types";
+import { getPokemonDetails } from "../api/getPokemonDetails";
+import { navigateWithTitle } from "../utils/ChangeTitleBefore";
+import getPokemonTitle from "../utils/getPokemonTitle";
 import "./PokedexPage.css";
 import "../styles/pokemonTypes.css";
 import pokedexModel from "../assets/pokedexModel.png";
@@ -10,15 +13,30 @@ import pokedexModel from "../assets/pokedexModel.png";
 const PokedexPage = () => {
   // useParams récupère l'id présent dans l'URL
   const { id } = useParams();
+  const location = useLocation();
+  const navigate = useNavigate();
   const currentId = Number(id);
   const MIN = 1;
+  const prefetched = location.state?.prefetch;
+  const initialPrefetch =
+    prefetched && prefetched.id === currentId ? prefetched : null;
   const [maxPokemon, setMaxPokemon] = useState(null);
   // toutes les infos des pokemons qu'on va pouvoir render:
-  const [pokemon, setPokemon] = useState(null);
-  const [pokemonTypes, setPokemonTypes] = useState([]);
-  const [pokemonWeight, setPokemonWeight] = useState(null);
-  const [pokemonHeight, setPokemonHeight] = useState(null);
-  const [pokemonCategory, setPokemonCategory] = useState(null);
+  const [pokemon, setPokemon] = useState(
+    initialPrefetch ? initialPrefetch.pokemon : null,
+  );
+  const [pokemonTypes, setPokemonTypes] = useState(
+    initialPrefetch ? initialPrefetch.types : [],
+  );
+  const [pokemonWeight, setPokemonWeight] = useState(
+    initialPrefetch ? initialPrefetch.weight : null,
+  );
+  const [pokemonHeight, setPokemonHeight] = useState(
+    initialPrefetch ? initialPrefetch.height : null,
+  );
+  const [pokemonCategory, setPokemonCategory] = useState(
+    initialPrefetch ? initialPrefetch.category : null,
+  );
 
   useEffect(() => {
     // Récupérer le nombre total de Pokémon
@@ -39,6 +57,21 @@ const PokedexPage = () => {
   }, []);
 
   useEffect(() => {
+    if (prefetched && prefetched.id === currentId) {
+      setPokemon(prefetched.pokemon);
+      setPokemonTypes(prefetched.types);
+      setPokemonWeight(prefetched.weight);
+      setPokemonHeight(prefetched.height);
+      setPokemonCategory(prefetched.category);
+      return;
+    }
+
+    setPokemon(null);
+    setPokemonTypes([]);
+    setPokemonWeight(null);
+    setPokemonHeight(null);
+    setPokemonCategory(null);
+
     // on selectionne la data du pokemon concerné grace au id récupéré dans l'url:
     const fetchData = async () => {
       const response = await axios.get(
@@ -79,12 +112,41 @@ const PokedexPage = () => {
     };
 
     fetchData();
-  }, [id]);
+  }, [id, prefetched, currentId]);
+
+  const handleNavigate = async (event, targetId) => {
+    event.preventDefault();
+
+    try {
+      const prefetch = await getPokemonDetails(targetId);
+      navigateWithTitle({
+        navigate,
+        to: `/pokedex/pokemon/${targetId}`,
+        title: getPokemonTitle(targetId, prefetch),
+        state: { prefetch },
+      });
+    } catch (error) {
+      navigateWithTitle({
+        navigate,
+        to: `/pokedex/pokemon/${targetId}`,
+        title: getPokemonTitle(targetId),
+      });
+    }
+  };
+
+  const handleBackToHome = (event) => {
+    event.preventDefault();
+    navigateWithTitle({
+      navigate,
+      to: "/pokedex",
+      title: "Accueil - Pokedex",
+    });
+  };
   if (pokemon) {
     return (
       <div className="pokedexPageContainer">
         <Helmet>
-          <title>{pokemon.name} - Pokedex</title>
+          <title aria-live="polite">{pokemon.name} - Pokedex</title>
         </Helmet>
         <img src={pokedexModel} alt="" />
         <div className="pokedexPageContainerImgContainer">
@@ -115,6 +177,7 @@ const PokedexPage = () => {
                 to={`/pokedex/pokemon/${currentId - 1}`}
                 className="arrow"
                 aria-label={`Pokemon précédent`}
+                onClick={(event) => handleNavigate(event, currentId - 1)}
               >
                 ◀
               </Link>
@@ -136,6 +199,7 @@ const PokedexPage = () => {
                 to={`/pokedex/pokemon/${currentId + 1}`}
                 className="arrow"
                 aria-label={`Pokemon suivant`}
+                onClick={(event) => handleNavigate(event, currentId + 1)}
               >
                 ▶
               </Link>
@@ -202,6 +266,7 @@ const PokedexPage = () => {
           to="/pokedex"
           className="backToHomeLink"
           tabIndex="0"
+          onClick={handleBackToHome}
           onKeyDown={(e) => {
             if (e.key === "Escape") {
               e.currentTarget.blur();

@@ -1,11 +1,12 @@
 import { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
+import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
+import getPokemonTitle from "../utils/getPokemonTitle";
+import { navigateWithTitle } from "../utils/ChangeTitleBefore";
+import { getPokemonDetails } from "../api/getPokemonDetails";
 import { useSpeciesApi } from "../hooks/usePokeApi";
-import { translateType } from "../locales/types";
-
+import { PokemonsFilter } from "../components/Inputs/filters/allFiltersExport";
 import ScrollToTopButton from "../components/Inputs/ScrollToTopButton";
 import ScrollToBotButton from "../components/Inputs/ScrollToBotButton";
 import PokeballLoader from "../components/Loaders/PokeballLoader";
@@ -13,17 +14,18 @@ import CircleLoader from "../components/Loaders/CircleLoader";
 import "./homePage.css";
 
 const HomePage = () => {
-  /* === Gestion API pokemon === */
+  /* === Refs et navigation === */
   const contentRef = useRef(null);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedTypes, setSelectedTypes] = useState([]);
+  const navigate = useNavigate();
 
+  /* === Donnees et filtres === */
+  const [searchByName, setSearchByName] = useState("");
+  const [selectedTypes, setSelectedTypes] = useState([]);
   const { data, isLoading, genStart, genEnd, setGenStart, setGenEnd } =
     useSpeciesApi();
 
-  /* === Messages d'accessibilité pour le chargement === */
+  /* === Messages d'accessibilite pour le chargement === */
   const [statusMessage, setStatusMessage] = useState("");
-
   const LOADINGMESSAGE = "pokemon en chargement";
   const LOADEDMESSAGE = "chargement terminé";
 
@@ -32,17 +34,17 @@ const HomePage = () => {
     let reinsertTimeoutId;
 
     if (isLoading) {
-      // Après 1 seconde, annoncer le chargement avec ré-insertion
+      // Apres 1 seconde, annoncer le chargement avec re-insertion
       delayTimeoutId = setTimeout(() => {
         // Vider d'abord le message
         setStatusMessage("");
-        // Puis réinjecter après un court délai pour forcer la détection
+        // Puis reinjecter apres un court delai pour forcer la detection
         reinsertTimeoutId = setTimeout(() => {
           setStatusMessage(LOADINGMESSAGE);
         }, 100);
       }, 1000);
     } else if (data) {
-      // Quand le chargement est terminé, ré-insertion rapide
+      // Quand le chargement est termine, re-insertion rapide
       setStatusMessage("");
       reinsertTimeoutId = setTimeout(() => {
         setStatusMessage(LOADEDMESSAGE);
@@ -55,53 +57,20 @@ const HomePage = () => {
     };
   }, [isLoading, data]);
 
-  /* === Vocalisation du potentiomètre */
-  const genLabel = (gen) => {
-    switch (gen) {
-      case 1:
-        return "première génération";
-      case 2:
-        return "deuxième génération";
-      case 3:
-        return "troisième génération";
-      case 4:
-        return "quatrième génération";
-      case 5:
-        return "cinquième génération";
-      case 6:
-        return "sixième génération";
-      case 7:
-        return "septième génération";
-      case 8:
-        return "huitième génération";
-      case 9:
-        return "neuvième génération";
-      default:
-        return `${gen}ᵉ génération`;
-    }
-  };
-
-  /* === Accordéon === */
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleDiv = () => {
-    setIsOpen(!isOpen);
-  };
-
-  /* === Gestion des contenus en mouvement === */
+  /* === Preference de mouvement (reduce motion) === */
   const [reduceMotion, setReduceMotion] = useState(() => {
     const saved = localStorage.getItem('reduceMotion');
     return saved === 'true';
   });
 
-  // Écouter les changements de reduceMotion depuis les paramètres
+  // Ecouter les changements de reduceMotion depuis les parametres
   useEffect(() => {
     const handleStorageChange = () => {
       const saved = localStorage.getItem('reduceMotion');
       setReduceMotion(saved === 'true');
     };
 
-    // Écouter les changements via un événement personnalisé
+    // Synchronise reduceMotion si un autre onglet ou un composant met a jour le localStorage
     window.addEventListener('storage', handleStorageChange);
     window.addEventListener('reduceMotionChange', handleStorageChange);
 
@@ -115,218 +84,61 @@ const HomePage = () => {
     setReduceMotion(!reduceMotion);
   };
 
+  // Enregistre le choix de l'utilisateur concernant les animations
   useEffect(() => {
     localStorage.setItem('reduceMotion', reduceMotion);
   }, [reduceMotion]);
 
+  /* === Loader d'image === */
   const [imageLoading, setImageLoading] = useState(true);
 
   const handleImageLoaded = () => {
     setImageLoading(false);
   };
 
-  // Fonction pour déterminer tabIndex selon isOpen
-  const getTabIndex = () => (isOpen ? 0 : -1);
+  /* === Navigation Pokemon avec titre precharge === */
+  // Prefetch + titre + navigation, avec fallback en cas d'erreur
+  const handlePokemonNavigation = async (event, pokemonId) => {
+    event.preventDefault();
+
+    try {
+      const prefetch = await getPokemonDetails(pokemonId);
+      navigateWithTitle({
+        navigate,
+        to: `/pokedex/pokemon/${pokemonId}`,
+        title: getPokemonTitle(pokemonId, prefetch),
+        state: { prefetch },
+      });
+    } catch (error) {
+      navigateWithTitle({
+        navigate,
+        to: `/pokedex/pokemon/${pokemonId}`,
+        title: getPokemonTitle(pokemonId),
+      });
+    }
+  };
 
   
   return (
     <div className="homePage">
       <Helmet>
-        <title>Accueil - Pokedex</title>
+        <title aria-live="polite">Accueil - Pokedex</title>
       </Helmet>
 
       {/* Gestion des contenus en mouvement */}
       <div ref={contentRef} className="homePageContainer">
         <div role="heading" aria-level="1" className="srOnly skipTarget" tabIndex="-1">Liste des Pokémon</div>
 
-        {/* Bouton menu des filtres */}
-        <button
-          className="filterSectionToggleButton"
-          onClick={toggleDiv}
-          aria-expanded={isOpen}
-          aria-controls="filterPokemonContainer"
-          type="button"
-        >
-          {isOpen ? (
-            <RxCross2 className="filterSectionToggleIcon" size={25} />
-          ) : (
-            <RxHamburgerMenu className="filterSectionToggleIcon" size={25} />
-          )}
-          <span className="filterSectionToggleLabel">
-            <p className="filterSectionToggleTitle">
-              Filtrer les pokemons
-            </p>
-          </span>
-        </button>
-
-        <ul
-          className={`filterSectionContainer ${isOpen ? "isOpen" : ""}`}
-          id="filterPokemonContainer"
-          aria-hidden={!isOpen}
-          aria-label="3 options de filtres"
-        >
-          <li className="generationFilterContainer">
-            <fieldset className="generationFilter">
-              <legend
-                id="generationGroupLabel"
-                className="generationFilterLegend"
-              >
-                Filtrer par Générations
-              </legend>
-
-              <div className="generationFilterRangeContainer" role="group">
-                {/* Slider début */}
-                <label
-                  id="genStartLabel"
-                  htmlFor="gen-start"
-                  className="srOnly"
-                >
-                  Choisir la génération de départ
-                </label>
-
-                <input
-                  id="genStart"
-                  type="range"
-                  min="1"
-                  max="9"
-                  value={genStart}
-                  onChange={(e) =>
-                    setGenStart(Math.min(Number(e.target.value), genEnd))
-                  }
-                  className="generationFilterRangeThumb generationFilterRangeThumbStart"
-                  aria-labelledby="genStartLabel"
-                  aria-valuemin={1}
-                  aria-valuemax={9}
-                  aria-valuenow={genStart}
-                  aria-valuetext={genLabel(genStart)}
-                  tabIndex={getTabIndex()}
-                  disabled={genStart === 1 && genEnd === 1}
-                />
-
-                {/* Slider fin */}
-                <label id="genEndLabel" htmlFor="genEnd" className="srOnly">
-                  Choisir la génération limite
-                </label>
-
-                <input
-                  id="genEnd"
-                  type="range"
-                  min="1"
-                  max="9"
-                  value={genEnd}
-                  onChange={(e) =>
-                    setGenEnd(Math.max(Number(e.target.value), genStart))
-                  }
-                  className="generationFilterRangeThumb generationFilterRangeThumbEnd"
-                  aria-labelledby="genEndLabel"
-                  aria-valuemin={1}
-                  aria-valuemax={9}
-                  aria-valuenow={genEnd}
-                  aria-valuetext={genLabel(genEnd)}
-                  tabIndex={getTabIndex()}
-                />
-
-                <div className="generationFilterRangeTrack" aria-hidden="true">
-                  <div
-                    className="generationFilterRangeSelected"
-                    style={{
-                      left: `${((genStart - 1) / 8) * 100}%`,
-                      width: `${((genEnd - genStart) / 8) * 100}%`,
-                    }}
-                  />
-                  <span className="generationFilterRangeLabel generationFilterRangeLabelLeft">Gen {genStart}</span>
-                  <span className="generationFilterRangeLabel generationFilterRangeLabelRight">Gen {genEnd}</span>
-                </div>
-              </div>
-            </fieldset>
-          </li>
-
-          <li>
-            <a
-              href="#searchPokemon"
-              className="skipLinkTypes"
-              tabIndex={getTabIndex()}
-              onClick={(e) => {
-                e.preventDefault();
-                const searchInput = document.getElementById("searchPokemon");
-                if (searchInput) {
-                  searchInput.focus();
-                }
-              }}
-              onKeyDown={(e) => {
-                if (e.key === "Escape") {
-                  e.currentTarget.blur();
-                }
-              }}
-            >
-              Passer les filtres par types
-            </a>
-            <fieldset className="typeFilter">
-              <legend className="typeFilterLegend">
-                Filtrer par types
-              </legend>
-              <div className="typeFilterContainer">
-                {[
-                  "normal",
-                  "fighting",
-                  "flying",
-                  "poison",
-                  "ground",
-                  "rock",
-                  "bug",
-                  "ghost",
-                  "steel",
-                  "fire",
-                  "water",
-                  "grass",
-                  "electric",
-                  "psychic",
-                  "ice",
-                  "dragon",
-                  "dark",
-                  "fairy",
-                ].map((type) => (
-                  <label key={type} className="typeFilterLabel">
-                    <input
-                      className="input"
-                      type="checkbox"
-                      name="typeSelect"
-                      value={type}
-                      checked={selectedTypes.includes(type)}
-                      onChange={(event) => {
-                        if (event.target.checked) {
-                          setSelectedTypes([...selectedTypes, type]);
-                        } else {
-                          setSelectedTypes(
-                            selectedTypes.filter((t) => t !== type),
-                          );
-                        }
-                      }}
-                      tabIndex={getTabIndex()}
-                    />
-                    {translateType(type)}
-                  </label>
-                ))}
-              </div>
-            </fieldset>
-          </li>
-
-          <li>
-            {/* Barre de recherche */}
-            <div className="searchBar">
-              <input
-                className="searchBarInput"
-                type="text"
-                id="searchPokemon"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                aria-label="Filtrer par nom"
-                tabIndex={getTabIndex()}
-              />
-              <label className="searchBarLabel" htmlFor="searchPokemon">Filtrer par nom</label>
-            </div>
-          </li>
-        </ul>
+        <PokemonsFilter
+          genStart={genStart}
+          genEnd={genEnd}
+          setGenStart={setGenStart}
+          setGenEnd={setGenEnd}
+          selectedTypes={selectedTypes}
+          setSelectedTypes={setSelectedTypes}
+          searchByName={searchByName}
+          setSearchByName={setSearchByName}
+        />
 
         {/* Loader ou erreur */}
         {isLoading && (
@@ -363,7 +175,7 @@ const HomePage = () => {
                       .normalize("NFD")
                       .replace(/[\u0300-\u036f]/g, "")
                       .includes(
-                        searchQuery
+                        searchByName
                           .toLowerCase()
                           .normalize("NFD")
                           .replace(/[\u0300-\u036f]/g, ""),
@@ -380,6 +192,7 @@ const HomePage = () => {
                     <Link
                       to={`/pokedex/pokemon/${id}`}
                       aria-label={`${name} pokemon numéro ${id}`}
+                      onClick={(event) => handlePokemonNavigation(event, id)}
                     >
                       <div className="pokemonCardHeader">
                         <p>{name}</p>
