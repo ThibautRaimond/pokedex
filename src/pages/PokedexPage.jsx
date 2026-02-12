@@ -151,7 +151,7 @@ const PokedexPage = () => {
         <Helmet>
           <title aria-live="polite">{pokemon.name} - Pokedex</title>
         </Helmet>
-        <img src={pokedexModel} alt="" />
+        <img src={pokedexModel} alt="" className="pokedexImg" />
         <div className="pokedexPageContainerImgContainer">
           <img
             className="imgContainerImg"

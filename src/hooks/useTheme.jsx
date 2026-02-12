@@ -2,11 +2,25 @@ import { useState, useEffect, useContext, createContext } from "react";
 
 const ThemeContext = createContext();
 
+const getInitialTheme = () => {
+  if (typeof window === "undefined") {
+    return "light";
+  }
+
+  const savedTheme = window.localStorage.getItem("theme");
+  if (savedTheme === "light" || savedTheme === "dark") {
+    return savedTheme;
+  }
+
+  const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)").matches;
+  return prefersDark ? "dark" : "light";
+};
+
 const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(getInitialTheme);
 
   const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
   return (
@@ -30,6 +44,8 @@ const useTheme = () => {
     } else if (theme === "dark") {
       document.body.classList.add("darkMode");
     }
+
+    window.localStorage.setItem("theme", theme);
   }, [theme]);
 
   return { theme, toggleTheme };

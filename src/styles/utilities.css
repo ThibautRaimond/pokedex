@@ -6,19 +6,6 @@
    ACCESSIBILITY UTILITIES
    ================================= */
 
-/* Screen reader only - hides content visually but keeps it accessible */
-.srOnly {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
 /* Skip links for keyboard navigation */
 .skipLink {
   position: absolute;

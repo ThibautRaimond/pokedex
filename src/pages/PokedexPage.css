@@ -24,6 +24,9 @@
   height: auto;
   float: right;
 }
+.pokedexImg {
+ 
+}
 /* --- */
 .pokedexPageContainerImgContainer {
   position: absolute;
@@ -33,7 +36,6 @@
 .imgContainerImg {
   width: 10em;
 }
-
 /* --- */
 .pokedexPageContainerNameAndIdContainer {
   position: absolute;
@@ -89,7 +91,7 @@
   position: absolute;
   top: 34.2em;
   color: #f1f1f1ea;
-  background-color: #d30a40;
+  background-color: #D30A40;
   white-space: nowrap;
 }
 .pokedexPageContainerWeightContainer {
