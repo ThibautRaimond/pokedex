@@ -1,4 +1,6 @@
 export const getPokemonDetails = async (pokemonId) => {
+  const normalizeFlavorText = (text) =>
+    text.replace(/[\n\f]+/g, " ").replace(/\s+/g, " ").trim();
   // Charger les donnees principales du Pokemon
   const pokemonApiResponse = await fetch(
     `https://pokeapi.co/api/v2/pokemon/${pokemonId}`,
@@ -27,7 +29,7 @@ export const getPokemonDetails = async (pokemonId) => {
 
   const name = frenchName ? frenchName.name : pokemonData.name;
   const description = frenchDescription
-    ? frenchDescription.flavor_text
+    ? normalizeFlavorText(frenchDescription.flavor_text)
     : "Description indisponible.";
   const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`;
   const backImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${pokemonId}.png`;

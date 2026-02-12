@@ -71,16 +71,16 @@
   align-items: center;
   position: absolute;
   top: 32.2em;
-  margin-right: 2.2em;
   color: #f1f1f1ea;
   background-color: #d30a40;
+  white-space: nowrap;
 }
 .typesContainerTypesTitle {
   font-weight: bold;
   margin-right: 3px;
 }
 .typesContainerPokedexType {
-  margin-left: 0.25em;
+ 
 }
 
 /* --- */
@@ -88,9 +88,9 @@
   display: flex;
   position: absolute;
   top: 34.2em;
-  margin-right: 2.2em;
   color: #f1f1f1ea;
   background-color: #d30a40;
+  white-space: nowrap;
 }
 .pokedexPageContainerWeightContainer {
   display: flex;
@@ -119,6 +119,7 @@
   margin-right: 2.2em;
   color: #f1f1f1ea;
     background-color: #D30A40;
+  white-space: nowrap;
 
 }
 .categoryContainerCategoryTitle {

@@ -10,6 +10,9 @@ import "./PokedexPage.css";
 import "../styles/pokemonTypes.css";
 import pokedexModel from "../assets/pokedexModel.png";
 
+const normalizeFlavorText = (text) =>
+  text.replace(/[\n\f]+/g, " ").replace(/\s+/g, " ").trim();
+
 const PokedexPage = () => {
   // useParams récupère l'id présent dans l'URL
   const { id } = useParams();
@@ -88,7 +91,7 @@ const PokedexPage = () => {
         (t) => t.language.name === "fr",
       );
       const description = descriptionEntry
-        ? descriptionEntry.flavor_text
+        ? normalizeFlavorText(descriptionEntry.flavor_text)
         : "Description indisponible.";
 
       const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
@@ -221,8 +224,12 @@ const PokedexPage = () => {
             <p className="typesContainerTypesTitle">
               Type<span aria-hidden="true">(s)</span> :
             </p>
-            {pokemonTypes.map((type) => (
-              <span className="typesContainerPokedexType" key={type}>
+            {pokemonTypes.map((type, index) => (
+              <span
+                className="typesContainerPokedexType"
+                key={`${type}-${index}`}
+              >
+                {index > 0 ? "\u00A0et\u00A0" : ""}
                 {translateType(type)}
               </span>
             ))}
@@ -240,7 +247,7 @@ const PokedexPage = () => {
           </li>
 
           <li className="pokedexPageContainerCategoryContainer">
-            <p className="categoryContainerCategoryTitle">Égorie :</p>
+            <p className="categoryContainerCategoryTitle">Catégorie :</p>
             <p className="categoryContainerCategory">{pokemonCategory}</p>
           </li>
 
