@@ -20,11 +20,17 @@ body {
 #root {
   min-height: 100%;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 Layout {
   min-height: 100%;
   position: relative;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 .darkMode {

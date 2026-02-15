@@ -2,12 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 4em;
   overflow: hidden;
+  padding-bottom: 1em;
 }
 @media screen and (min-height: 850px) {
   .pokedexPageContainer {
-    padding-bottom: 0em;
   }
 }
 @media screen and (max-width: 340px) {
