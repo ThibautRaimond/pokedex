@@ -400,6 +400,12 @@ body {
 
 /* Pokemon image container */
 .pokemonCardImageContainer {
+  width: 100%;
+  min-height: 96px; /* or the typical image height, adjust as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
 .pokemonCardImage {

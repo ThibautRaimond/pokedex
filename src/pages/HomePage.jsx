@@ -199,15 +199,12 @@ const HomePage = () => {
                         <p>N°{id}</p>
                       </div>
 
-                      {imageLoading && (
-                        reduceMotion ? (
-                          <div className="statusMessage" role="status">
-                            <p>Chargement</p>
-                          </div>
+                      {imageLoading &&
+                        (reduceMotion ? (
+                          <div className="statusMessage" role="status"></div>
                         ) : (
                           <CircleLoader />
-                        )
-                      )}
+                        ))}
                       <div className="pokemonCardImageContainer">
                         <img
                           src={sprite}
