@@ -199,18 +199,19 @@ const HomePage = () => {
                         <p>N°{id}</p>
                       </div>
 
-                      {imageLoading &&
-                        (reduceMotion ? (
-                          <div className="statusMessage" role="status"></div>
-                        ) : (
-                          <CircleLoader />
-                        ))}
                       <div className="pokemonCardImageContainer">
+                        {imageLoading &&
+                          (reduceMotion ? (
+                            <div className="statusMessage" role="status"></div>
+                          ) : (
+                            <CircleLoader />
+                          ))}
                         <img
                           src={sprite}
                           alt={name}
                           onLoad={handleImageLoaded}
                           className="pokemonCardImage"
+                          style={{ display: imageLoading ? 'none' : 'block' }}
                         />
                       </div>
                     </Link>
