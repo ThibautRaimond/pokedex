@@ -3,7 +3,7 @@
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background: white;
+  background: #f1f1f1ea;
   position: relative;
   box-shadow: -20px 0 rgba(0, 0, 0, 0.1) inset;
   animation: roll 1s ease-in-out infinite;
@@ -36,7 +36,7 @@
   height: 54px;
   border: solid 6px #3f3f3f;
   border-radius: 50%;
-  background: white;
+  background: #f1f1f1ea;
   z-index: 1;
   box-shadow: 0 0 15px -2px #c62828 inset;
   animation: button 3s ease infinite;

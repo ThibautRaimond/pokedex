@@ -1,3 +1,5 @@
+import "./generationFilter.css";
+
 const GenerationFilter = ({
   genStart,
   genEnd,

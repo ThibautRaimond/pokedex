@@ -22,7 +22,7 @@ body {
   justify-content: center;
   align-items: center;
   padding-bottom: 6.5em;
-  background-color: #fff;
+  background-color: #f1f1f1ea;
   color: #222;
 }
 
@@ -45,7 +45,7 @@ body {
   padding: 10px 16px;
   margin: 0 auto 10px auto;
   max-width: 650px;
-  background-color: #ffffff;
+  background-color: #f1f1f1ea;
   border-radius: 8px;
   box-shadow:
     0 4px 6px -1px rgba(0, 0, 0, 0.3),
@@ -67,7 +67,7 @@ body {
 }
 
 .darkMode .filterSectionToggleButton:focus-visible {
-  outline: 2px solid #ffffff;
+  outline: 2px solid #f1f1f1ea;
 }
 
 .filterSectionToggleIcon {
@@ -124,224 +124,6 @@ body {
 }
 
 /* =================================
-   GENERATION FILTER
-   ================================= */
-
-.generationFilter {
-  width: 100%;
-  max-width: 650px;
-  margin-bottom: 1.5em;
-}
-
-.generationFilterLegend {
-  margin-bottom: 0.5em;
-  font-weight: bold;
-  display: block;
-  width: 100%;
-  padding: 0;
-  text-align: center;
-}
-
-/* Range slider container */
-.generationFilterRangeContainer {
-  position: relative;
-  margin-bottom: 1em;
-  min-width: 250px;
-}
-
-/* Range input */
-.generationFilterRangeThumb {
-  position: absolute;
-  width: 100%;
-  height: 14px;
-  pointer-events: none;
-  appearance: none;
-  background: none;
-  z-index: 3;
-}
-
-.generationFilterRangeThumb:focus {
-  outline: none;
-}
-
-/* Chrome slider thumb */
-.generationFilterRangeThumb::-webkit-slider-thumb {
-  pointer-events: all;
-  appearance: none;
-  width: 23px;
-  height: 23px;
-  border-radius: 50%;
-  background: #ffffff;
-  border: 2px solid #222;
-  cursor: pointer;
-}
-
-.generationFilterRangeThumb:focus-visible::-webkit-slider-thumb {
-  outline: auto;
-  outline-color: red;
-  box-shadow: 0 0 0 3px rgb(0, 0, 0);
-}
-
-.darkMode .generationFilterRangeThumb:focus-visible::-webkit-slider-thumb {
-  box-shadow: 0 0 0 3px rgb(255, 255, 255);
-}
-
-/* Firefox slider thumb */
-.generationFilterRangeThumb::-moz-range-thumb {
-  pointer-events: all;
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #ffffff;
-  border: 2px solid #222;
-  cursor: pointer;
-}
-
-.generationFilterRangeThumb:focus::-moz-range-thumb {
-  outline: 2px solid #222222;
-  outline-offset: 1px;
-}
-
-.darkMode .generationFilterRangeThumb:focus::-moz-range-thumb {
-  outline: 2px solid #ffffff;
-}
-
-/* Range track */
-.generationFilterRangeTrack {
-  position: relative;
-  height: 14px;
-  background: #ffffff;
-  border: 2px solid #222;
-  border-radius: 20px;
-  margin: 0 11.5px;
-}
-
-/* Selected range */
-.generationFilterRangeSelected {
-  position: absolute;
-  height: 100%;
-  background: #c01818;
-}
-
-.darkMode .generationFilterRangeSelected {
-  background: #ff4747;
-}
-
-/* Range labels */
-.generationFilterRangeLabel {
-  position: absolute;
-  top: 1.1em;
-  font-size: 1.1rem;
-  pointer-events: none;
-}
-
-.generationFilterRangeLabelLeft {
-  left: 0;
-}
-
-.generationFilterRangeLabelRight {
-  right: 0;
-}
-
-/* =================================
-   TYPE FILTER
-   ================================= */
-
-.typeFilter {
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-
-.typeFilterLegend {
-  font-weight: bold;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  display: block;
-  width: 100%;
-  margin-bottom: 5px;
-}
-
-.typeFilterContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding-left: 1em;
-  font-family: "Roboto", sans-serif;
-}
-
-.typeFilterLabel {
-  width: 6em;
-  margin: 0 0.5em;
-}
-
-/* =================================
-   SEARCH BAR
-   ================================= */
-
-.searchBar {
-  position: relative;
-  width: 220px;
-  margin-top: 1.5em;
-  font-family: "Roboto Mono", "Courier New", monospace;
-}
-
-.searchBarInput {
-  width: 100%;
-  padding: 12px 12px 12px 12px;
-  font-size: 1rem;
-  border-radius: 6px;
-  border: 2px solid #c20303;
-  border-left: 6px solid #c20303;
-  outline: none;
-  background-color: #ffffff;
-  color: #222222;
-}
-
-.darkMode .searchBarInput {
-  border: 2px solid #ff4747;
-  border-left: 6px solid #ff4747;
-  background-color: #222222;
-  color: #ffffff;
-}
-
-.searchBarLabel {
-  position: absolute;
-  left: 12px;
-  top: 12px;
-  color: #555;
-  font-size: 1.5rem;
-  font-weight: bold;
-  pointer-events: none;
-  transition: 0.2s ease all;
-  background-color: white;
-  padding: 0 4px;
-}
-
-.searchBarInput:focus + .searchBarLabel,
-.searchBarInput:not(:placeholder-shown) + .searchBarLabel,
-.searchBarInput:valid + .searchBarLabel {
-  top: -8px;
-  font-size: 0.9rem;
-  color: #222;
-}
-
-.darkMode .searchBarLabel {
-  color: #aaa;
-  background-color: #1e1e1e;
-}
-
-.darkMode .searchBarInput:focus + .searchBarLabel,
-.darkMode .searchBarInput:not(:placeholder-shown) + .searchBarLabel,
-.darkMode .searchBarInput:valid + .searchBarLabel {
-  color: #ffffff;
-  background-color: #222;
-}
-
-/* =================================
    POKEMON GRID
    ================================= */
 
@@ -374,7 +156,7 @@ body {
 /* Pokemon card header */
 .pokemonCardHeader {
   width: 110px;
-  background-color: #fff;
+  background-color: #f1f1f1ea;
   color: #222;
   border-radius: 20px 20px 0px 0px;
   border: 1px solid #ccc;
@@ -401,7 +183,7 @@ body {
 /* Pokemon image container */
 .pokemonCardImageContainer {
   width: 100%;
-  min-height: 96px; /* or the typical image height, adjust as needed */
+  min-height: 96px;
   display: flex;
   align-items: center;
   justify-content: center;

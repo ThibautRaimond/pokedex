@@ -14,7 +14,7 @@
   z-index: 999;
   padding: 1rem;
   background-color: #222222;
-  color: #fff;
+  color: #f1f1f1ea;
   text-decoration: none;
   border-radius: 0.25rem;
 }
@@ -28,7 +28,7 @@
 }
 
 [data-theme="dark"] .skipLink:focus {
-  outline: 2px solid #ffffff;
+  outline: 2px solid #f1f1f1ea;
   outline-offset: 1px;
 }
 
@@ -39,7 +39,7 @@
   max-width: 600px;
   padding: 1em 1rem;
   background-color: #222222;
-  color: #fff;
+  color: #f1f1f1ea;
   text-decoration: none;
   border-radius: 0.25rem;
   display: block;
@@ -63,11 +63,11 @@
   outline: 1px solid #222222;
   outline-offset: 1px;
   transform: translate(-50%, -60%);
-  border: 1px solid #ffffff;
+  border: 1px solid #f1f1f1ea;
 }
 
 [data-theme="dark"] .skipLinkTypes:focus {
-  outline: 2px solid #ffffff;
+  outline: 2px solid #f1f1f1ea;
   outline-offset: 1px;
 }
 
@@ -86,7 +86,7 @@
 }
 
 [data-theme="dark"] .focusVisible:focus-visible {
-  outline: 2px solid #ffffff;
+  outline: 2px solid #f1f1f1ea;
 }
 
 /* =================================

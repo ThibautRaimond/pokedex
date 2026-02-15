@@ -1,4 +1,5 @@
 import { translateType } from "../../../locales/types";
+import "./typeFilter.css";
 
 const TypeFilter = ({ selectedTypes, setSelectedTypes, tabIndex }) => (
   <fieldset className="typeFilter">

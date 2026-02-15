@@ -1,0 +1,33 @@
+/* =================================
+   TYPE FILTER
+   ================================= */
+
+.typeFilter {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.typeFilterLegend {
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.typeFilterContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1em;
+  font-family: "Roboto", sans-serif;
+}
+
+.typeFilterLabel {
+  width: 6em;
+  margin: 0 0.5em;
+}

@@ -30,7 +30,7 @@
   width: 37.5px;
   height: 48.75px;
   box-shadow: 0 0 2.5px 0.5px rgba(0, 0, 0, 0.2), 0 0 0.25px 0.5px black,
-    inset 0 0.5px 0.5px -0.5px white, inset 0 0 0.5px 3.75px #47434c,
+    inset 0 0.5px 0.5px -0.5px #f1f1f1ea, inset 0 0 0.5px 3.75px #47434c,
     inset 0 0 0.5px 5.5px black;
   border-radius: 1.25px;
   padding: 5px;
@@ -42,7 +42,7 @@
 
 .darkMode .reduceMotionContainer .switch {
   box-shadow: 0 0 2.5px 0.5px rgba(0, 0, 0, 0.2), 0 0 0.25px 0.5px black,
-    inset 0 0.5px 0.5px -0.5px white, inset 0 0 0.5px 3.75px #727272,
+    inset 0 0.5px 0.5px -0.5px #f1f1f1ea, inset 0 0 0.5px 3.75px #727272,
     inset 0 0 0.5px 5.5px black;
 }
 
@@ -125,12 +125,12 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(white, white) 50% 20%/5% 20%,
+  background: linear-gradient(#f1f1f1ea, #f1f1f1ea) 50% 20%/5% 20%,
     radial-gradient(
         circle,
         transparent 50%,
-        white 52%,
-        white 70%,
+        #f1f1f1ea 52%,
+        #f1f1f1ea 70%,
         transparent 72%
       )
       50% 80%/33% 25%;
@@ -143,7 +143,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(white, transparent 3%) 50% 50%/97% 97%,
+  background: linear-gradient(#f1f1f1ea, transparent 3%) 50% 50%/97% 97%,
     linear-gradient(
         rgba(255, 255, 255, 0.5),
         transparent 50%,
