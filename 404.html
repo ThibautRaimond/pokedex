@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>404</title>
+  </head>
+  <body>
+    <script>
+      (function () {
+        var segmentCount = 1;
+        var l = window.location;
+        var path = l.pathname
+          .split("/")
+          .slice(1 + segmentCount)
+          .join("/");
+        var redirectPath = l.pathname
+          .split("/")
+          .slice(0, 1 + segmentCount)
+          .join("/");
+        var newSearch = "/" + path;
+        if (l.search) {
+          newSearch += "&" + l.search.slice(1).replace(/&/g, "~and~");
+        }
+        var newUrl = redirectPath + "/?" + newSearch + l.hash;
+        l.replace(newUrl);
+      })();
+    </script>
+  </body>
+</html>
