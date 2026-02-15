@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 
 import HomePage from "../pages/HomePage";
 import PokedexPage from "../pages/PokedexPage";
@@ -30,6 +30,7 @@ const Routeur = () => {
 
   return (
     <Routes location={location.pathname}>
+      <Route path="/" element={<Navigate to="/pokedex" replace />} />
       <Route path="/pokedex" element={<HomePage />} />
       <Route path="/pokedex/pokemon/:id" element={<PokedexPage />} />
     </Routes>
