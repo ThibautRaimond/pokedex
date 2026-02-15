@@ -18,6 +18,9 @@ const ToggleMotion = ({ onChange, state }) => {
 
   return (
     <>
+      <div aria-live="polite" className="srOnly">
+        {liveText}
+      </div>
       <button
         onClick={onChange}
         onKeyDown={handleKeyDown}
@@ -37,9 +40,6 @@ const ToggleMotion = ({ onChange, state }) => {
           {actionLabel}
         </span>
       </button>
-      <div aria-live="polite" className="srOnly">
-        {liveText}
-      </div>
     </>
   );
 };
