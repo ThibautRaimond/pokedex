@@ -27,7 +27,7 @@ const Header = () => {
   return (
     <header>
       <div className="header">
-        <Link to="/pokedex" onClick={handleHomeClick}>
+        <Link to="/" onClick={handleHomeClick}>
           <img
             className="Accueil"
             src={LogoPokemon}
