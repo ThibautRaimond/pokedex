@@ -3,6 +3,7 @@ import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 
 import HomePage from "../pages/HomePage";
 import PokedexPage from "../pages/PokedexPage";
+import NotFoundPage from "../pages/NotFoundPage";
 
 const Routeur = () => {
   const location = useLocation();
@@ -32,6 +33,7 @@ const Routeur = () => {
     <Routes location={location.pathname}>
       <Route path="/" element={<HomePage />} />
       <Route path="/pokemon/:id" element={<PokedexPage />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 };
