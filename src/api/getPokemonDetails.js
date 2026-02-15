@@ -7,7 +7,7 @@ export const getPokemonDetails = async (pokemonId) => {
   );
 
   if (!pokemonApiResponse.ok) {
-    throw new Error("Pokemon fetch failed");
+    throw new Error("Échec de la récupération des données du Pokémon");
   }
 
   const pokemonData = await pokemonApiResponse.json();
@@ -16,7 +16,7 @@ export const getPokemonDetails = async (pokemonId) => {
   const speciesApiResponse = await fetch(pokemonData.species.url);
 
   if (!speciesApiResponse.ok) {
-    throw new Error("Pokemon species fetch failed");
+    throw new Error("Échec de la récupération des données d'espèce du Pokémon");
   }
 
   const speciesData = await speciesApiResponse.json();

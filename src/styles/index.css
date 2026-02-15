@@ -64,7 +64,7 @@ Layout {
 /* Curseur personnalisé Mew */
 .mewCursor,
 .mewCursor * {
-  cursor: url('../assets/gam178.cur'), auto !important;
+  cursor: url('../assets/mewCursor.cur'), auto !important;
 }
 
 /* Désactive les animations quand reduceMotion est actif */
