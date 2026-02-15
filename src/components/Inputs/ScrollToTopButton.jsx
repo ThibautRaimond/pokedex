@@ -13,7 +13,8 @@ const ScrollToTopButton = () => {
     }
   };
 
-  const scrollToTop = () => {
+  const scrollToTop = (event) => {
+    event.preventDefault();
     const mainElement = document.querySelector('main');
     if (mainElement) {
       // Scroller vers le début du main
@@ -39,7 +40,7 @@ const ScrollToTopButton = () => {
 
   return (
     <a
-      href="#main-content"
+      href="#h1"
       aria-label="Retourner en haut du contenu principal"
       className={`scrollButton scrollToTopButton ${isVisible ? "visible" : ""}`}
       onClick={scrollToTop}
