@@ -5,7 +5,7 @@ import { IoAccessibility } from "react-icons/io5";
 
 import SettingsA11Y from "./SettingsA11Y";
 import LogoPokemon from "../../assets/pokemon.png";
-import "./header.css";
+import "./Header.css";
 
 const Header = () => {
   const location = useLocation();

@@ -3,7 +3,7 @@ import { RxCross2 } from "react-icons/rx";
 import ThemeToggler from "../toggles/toggleTheme";
 import ToggleMotion from "../toggles/ToggleMotion";
 import { useTheme } from "../../hooks/useTheme";
-import "./settingsA11Y.css";
+import "./SettingsA11Y.css";
 
 const SettingsA11Y = forwardRef((props, ref) => {
   const { theme, toggleTheme } = useTheme();

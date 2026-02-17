@@ -11,7 +11,7 @@ import ScrollToTopButton from "../components/Inputs/ScrollToTopButton";
 import ScrollToBotButton from "../components/Inputs/ScrollToBotButton";
 import PokeballLoader from "../components/Loaders/PokeballLoader";
 import CircleLoader from "../components/Loaders/CircleLoader";
-import "./homePage.css";
+import "./HomePage.css";
 
 const HomePage = () => {
   /* === Refs et navigation === */
@@ -105,14 +105,14 @@ const HomePage = () => {
       const prefetch = await getPokemonDetails(pokemonId);
       navigateWithTitle({
         navigate,
-        to: `/pokemon/${pokemonId}`,
+        to: `/pokedex/pokemon/${pokemonId}`,
         title: getPokemonTitle(pokemonId, prefetch),
         state: { prefetch },
       });
     } catch (error) {
       navigateWithTitle({
         navigate,
-        to: `/pokemon/${pokemonId}`,
+        to: `/pokedex/pokemon/${pokemonId}`,
         title: getPokemonTitle(pokemonId),
       });
     }
@@ -190,7 +190,7 @@ const HomePage = () => {
                     key={index}
                   >
                     <Link
-                      to={`/pokemon/${id}`}
+                      to={`/pokedex/pokemon/${id}`}
                       aria-label={`${name} pokemon numéro ${id}`}
                       onClick={(event) => handlePokemonNavigation(event, id)}
                     >
