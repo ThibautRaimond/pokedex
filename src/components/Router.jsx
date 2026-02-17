@@ -9,7 +9,7 @@ const Routeur = () => {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname.startsWith("/pokemon/")) {
+    if (location.pathname.startsWith("/pokedex/pokemon/")) {
       document.body.classList.add("pokedexBody");
     } else {
       document.body.classList.remove("pokedexBody");
@@ -31,7 +31,6 @@ const Routeur = () => {
 
   return (
     <Routes location={location.pathname}>
-      <Route path="/pokedex" element={<Navigate to="/" replace />} />
       <Route path="/" element={<HomePage />} />
       <Route path="/pokemon/:id" element={<PokedexPage />} />
       <Route path="*" element={<NotFoundPage />} />
