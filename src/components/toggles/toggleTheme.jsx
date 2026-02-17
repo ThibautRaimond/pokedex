@@ -23,7 +23,6 @@ const ToggleTheme = ({ onChange, state, icons }) => {
       </div>
       <button
         className="toggleButton"
-        aria-label={actionLabel}
         onClick={onChange}
         onKeyDown={handleKeyDown}
       >

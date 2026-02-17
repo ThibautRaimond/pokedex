@@ -31,6 +31,7 @@ const Routeur = () => {
 
   return (
     <Routes location={location.pathname}>
+      <Route path="/pokedex" element={<Navigate to="/" replace />} />
       <Route path="/" element={<HomePage />} />
       <Route path="/pokemon/:id" element={<PokedexPage />} />
       <Route path="*" element={<NotFoundPage />} />

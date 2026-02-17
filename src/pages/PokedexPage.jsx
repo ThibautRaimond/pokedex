@@ -141,7 +141,7 @@ const PokedexPage = () => {
     event.preventDefault();
     navigateWithTitle({
       navigate,
-      to: "/pokedex",
+      to: "/",
       title: "Accueil - Pokedex",
     });
   };

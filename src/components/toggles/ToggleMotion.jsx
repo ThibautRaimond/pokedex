@@ -25,7 +25,6 @@ const ToggleMotion = ({ onChange, state }) => {
         onClick={onChange}
         onKeyDown={handleKeyDown}
         className={`reduceMotionContainer ${state ? 'isActive' : ''}`}
-        aria-label={actionLabel}
       >
         <div className="switch" aria-hidden="true">
           <div className="button">
@@ -36,7 +35,7 @@ const ToggleMotion = ({ onChange, state }) => {
             <div className="shine"></div>
           </div>
         </div>
-        <span className="toggleMotionLabel" aria-hidden="true">
+        <span className="toggleMotionLabel">
           {actionLabel}
         </span>
       </button>

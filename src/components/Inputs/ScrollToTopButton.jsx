@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BsFillArrowUpCircleFill } from "react-icons/bs";
-import "./scrollButtons.css";
+import "./ScrollButtons.css";
 
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);

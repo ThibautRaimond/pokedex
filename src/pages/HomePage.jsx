@@ -11,7 +11,7 @@ import ScrollToTopButton from "../components/Inputs/ScrollToTopButton";
 import ScrollToBotButton from "../components/Inputs/ScrollToBotButton";
 import PokeballLoader from "../components/Loaders/PokeballLoader";
 import CircleLoader from "../components/Loaders/CircleLoader";
-import "./homePage.css";
+import "./HomePage.css";
 
 const HomePage = () => {
   /* === Refs et navigation === */
