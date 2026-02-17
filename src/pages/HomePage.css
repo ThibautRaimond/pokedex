@@ -44,7 +44,7 @@ body {
   position: relative;
   padding: 10px 16px;
   margin: 0 auto 10px auto;
-  max-width: 650px;
+  width: fit-content;
   background-color: #f1f1f1ea;
   border-radius: 8px;
   box-shadow:
@@ -109,7 +109,7 @@ body {
   transition: 0.6s;
   min-width: 310px;
   width: min(90vw, 700px);
-  margin-bottom: 1em;
+  margin: 0 auto 1em auto;
 }
 
 .filterSectionContainer.isOpen {
