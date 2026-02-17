@@ -9,7 +9,7 @@ const Routeur = () => {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname.startsWith("/pokedex/pokemon/")) {
+    if (location.pathname.startsWith("/pokemon/")) {
       document.body.classList.add("pokedexBody");
     } else {
       document.body.classList.remove("pokedexBody");

@@ -124,14 +124,14 @@ const PokedexPage = () => {
       const prefetch = await getPokemonDetails(targetId);
       navigateWithTitle({
         navigate,
-        to: `/pokedex/pokemon/${targetId}`,
+        to: `/pokemon/${targetId}`,
         title: getPokemonTitle(targetId, prefetch),
         state: { prefetch },
       });
     } catch (error) {
       navigateWithTitle({
         navigate,
-        to: `/pokedex/pokemon/${targetId}`,
+        to: `/pokemon/${targetId}`,
         title: getPokemonTitle(targetId),
       });
     }
@@ -177,7 +177,7 @@ const PokedexPage = () => {
           <div className="arrowAndIdContainer">
             {currentId > MIN ? (
               <Link
-                to={`/pokedex/pokemon/${currentId - 1}`}
+                to={`/pokemon/${currentId - 1}`}
                 className="arrow"
                 aria-label={`Pokemon précédent`}
                 onClick={(event) => handleNavigate(event, currentId - 1)}
@@ -199,7 +199,7 @@ const PokedexPage = () => {
 
             {currentId < maxPokemon ? (
               <Link
-                to={`/pokedex/pokemon/${currentId + 1}`}
+                to={`/pokemon/${currentId + 1}`}
                 className="arrow"
                 aria-label={`Pokemon suivant`}
                 onClick={(event) => handleNavigate(event, currentId + 1)}
