@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
+import { RxOpenInNewWindow } from "react-icons/rx";
 
 import "./Footer.css";
 
@@ -11,7 +12,7 @@ const Footer = () => {
         <ul className="footerContainer">
           <div className="footerContainerSocialsMedias">
             <li>
-              <Link to={`https://github.com/ThibautRaimond`} target="_blank">
+              <Link to={`https://github.com/ThibautRaimond`} target="_blank" className="socialMediaLink">
                 <span className="srOnly">
                   Github de Thibaut Raimond onglet externe
                 </span>
@@ -20,12 +21,14 @@ const Footer = () => {
                   className="socialsMediasSocialMedia socialsMediasGithub"
                   aria-hidden="true"
                 />
+                <RxOpenInNewWindow className="externalLinkIcon" aria-hidden="true" />
               </Link>
             </li>
             <li>
               <Link
                 to={`https://www.linkedin.com/in/thibaut-raimond-0a46791ab/`}
                 target="_blank"
+                className="socialMediaLink"
               >
                 <span className="srOnly">
                   Github de Thibaut Raimond onglet externe
@@ -35,6 +38,7 @@ const Footer = () => {
                   className="socialsMediasSocialMedia socialsMediasLinkedin"
                   aria-hidden="true"
                 />
+                <RxOpenInNewWindow className="externalLinkIcon" aria-hidden="true" />
               </Link>
             </li>
           </div>
@@ -45,6 +49,7 @@ const Footer = () => {
             >
               <p className="footerContainerPortfolio">
                 Visiter mon portfolio{" "}
+                <RxOpenInNewWindow aria-hidden="true" />
                 <span className="srOnly">Onglet externe</span>
               </p>
             </Link>

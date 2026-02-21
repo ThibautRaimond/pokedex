@@ -64,6 +64,16 @@
   position: relative;
   top: -2px;
   color: #d30a40;
+  cursor: pointer;
+}
+
+.arrow::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: -16px;
+  right: -16px;
+  bottom: -16px;
 }
 
 /* --- */
