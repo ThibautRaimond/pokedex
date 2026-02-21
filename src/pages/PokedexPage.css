@@ -65,6 +65,7 @@
   top: -2px;
   color: #d30a40;
   cursor: pointer;
+  outline-offset: -12px;
 }
 
 .arrow::before {
