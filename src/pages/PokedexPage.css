@@ -63,7 +63,7 @@
 .arrow {
   position: relative;
   top: -2px;
-  color: #d30a40;
+  color: #c70a3c;
   cursor: pointer;
   outline-offset: -12px;
 }
@@ -83,10 +83,11 @@
   align-items: center;
   position: absolute;
   top: 32.2em;
-  color: #f1f1f1ea;
+  color: #fff;
   background-color: #d30a40;
   white-space: nowrap;
 }
+
 .typesContainerTypesTitle {
   font-weight: bold;
   margin-right: 3px;
@@ -100,7 +101,7 @@
   display: flex;
   position: absolute;
   top: 34.2em;
-  color: #f1f1f1ea;
+  color: #fff;
   background-color: #D30A40;
   white-space: nowrap;
 }
@@ -129,7 +130,7 @@
   position: absolute;
   top: 36.2em;
   margin-right: 2.2em;
-  color: #f1f1f1ea;
+  color: #fff;
   background-color: #D30A40;
   white-space: nowrap;
 
@@ -145,7 +146,7 @@
 /* .pokedexPageContainerGenderContainer{
 	display: flex;
 	position: absolute;;
-	color: #f1f1f1ea;
+	color: #fff;
 }
 .genderContainerGenderTitle{
 
@@ -161,7 +162,7 @@
   margin-right: 2.2em;
   width: 300px;
   text-align: center;
-  color: #f1f1f1ea;
+  color: #fff;
     background-color: #D30A40;
 }
 .descriptionContainerDescriptionTitle {

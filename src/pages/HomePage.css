@@ -140,7 +140,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 110px;
+  width: 120px;
   margin: 2px;
   border: 1.5px solid #ccc;
   border-radius: 20px;
@@ -155,12 +155,13 @@ body {
 
 /* Pokemon card header */
 .pokemonCardHeader {
-  width: 110px;
-  background-color: #f1f1f1ea;
+  width: 120px;
+  background-color: #f1f1f1;
   color: #222;
   border-radius: 20px 20px 0px 0px;
   border: 1px solid #ccc;
   border-bottom: 0;
+  padding-top: 1px;
 }
 
 .darkMode .pokemonCardHeader {
@@ -172,8 +173,8 @@ body {
 
 /* Pokemon image loader */
 .pokemonCardImageLoader {
-  height: 96px;
-  width: 96px;
+  height: 115px;
+  width: 115px;
   left: 6px;
   display: flex;
   justify-content: center;
@@ -183,7 +184,7 @@ body {
 /* Pokemon image container */
 .pokemonCardImageContainer {
   width: 100%;
-  min-height: 96px;
+  min-height: 115px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -191,6 +192,8 @@ body {
 }
 
 .pokemonCardImage {
+  width: 115px;
+  height: 115px;
 }
 
 /* =================================
