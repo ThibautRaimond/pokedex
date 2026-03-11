@@ -177,7 +177,7 @@
   left: 50%;
   transform: translateX(-50%);
   padding: 1rem 1.5rem;
-  background-color: #f1f1f1ea;
+  background-color: #f1f1f1;
   color: #222;
   text-decoration: none;
   border-radius: 0.5rem;
@@ -199,9 +199,9 @@
 
 .darkMode .backToHomeLink {
   background-color: #222222;
-  color: #f1f1f1ea;
+  color: #f1f1f1;
 }
 
 .darkMode .backToHomeLink:focus {
-  outline-color: #f1f1f1ea;
+  outline-color: #f1f1f1;
 }

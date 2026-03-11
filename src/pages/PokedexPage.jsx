@@ -6,6 +6,7 @@ import { translateType } from "../locales/types";
 import { getPokemonDetails } from "../api/getPokemonDetails";
 import { navigateWithTitle } from "../utils/ChangeTitleBefore";
 import getPokemonTitle from "../utils/getPokemonTitle";
+import NotFoundPage from "./NotFoundPage";
 import "./PokedexPage.css";
 import "../styles/pokemonTypes.css";
 import pokedexModel from "../assets/pokedexModel.png";
@@ -19,6 +20,7 @@ const PokedexPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const currentId = Number(id);
+  const isValidId = Number.isInteger(currentId) && currentId > 0;
   const MIN = 1;
   const prefetched = location.state?.prefetch;
   const initialPrefetch =
@@ -40,6 +42,7 @@ const PokedexPage = () => {
   const [pokemonCategory, setPokemonCategory] = useState(
     initialPrefetch ? initialPrefetch.category : null,
   );
+  const [isNotFound, setIsNotFound] = useState(false);
 
   useEffect(() => {
     // Récupérer le nombre total de Pokémon
@@ -60,12 +63,18 @@ const PokedexPage = () => {
   }, []);
 
   useEffect(() => {
+    if (!isValidId) {
+      setIsNotFound(true);
+      return;
+    }
+
     if (prefetched && prefetched.id === currentId) {
       setPokemon(prefetched.pokemon);
       setPokemonTypes(prefetched.types);
       setPokemonWeight(prefetched.weight);
       setPokemonHeight(prefetched.height);
       setPokemonCategory(prefetched.category);
+      setIsNotFound(false);
       return;
     }
 
@@ -77,45 +86,56 @@ const PokedexPage = () => {
 
     // on selectionne la data du pokemon concerné grace au id récupéré dans l'url:
     const fetchData = async () => {
-      const response = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon/${id}`,
-      );
-      const speciesUrl = response.data.species.url;
-      const speciesResponse = await axios.get(speciesUrl);
+      try {
+        const response = await axios.get(
+          `https://pokeapi.co/api/v2/pokemon/${id}`,
+        );
+        const speciesUrl = response.data.species.url;
+        const speciesResponse = await axios.get(speciesUrl);
 
-      const name = speciesResponse.data.names.find(
-        (n) => n.language.name === "fr",
-      ).name;
+        const name = speciesResponse.data.names.find(
+          (n) => n.language.name === "fr",
+        ).name;
 
-      const descriptionEntry = speciesResponse.data.flavor_text_entries.find(
-        (t) => t.language.name === "fr",
-      );
-      const description = descriptionEntry
-        ? normalizeFlavorText(descriptionEntry.flavor_text)
-        : "Description indisponible.";
+        const descriptionEntry = speciesResponse.data.flavor_text_entries.find(
+          (t) => t.language.name === "fr",
+        );
+        const description = descriptionEntry
+          ? normalizeFlavorText(descriptionEntry.flavor_text)
+          : "Description indisponible.";
 
-      const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
-      const backImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${id}.png`;
+        const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+        const backImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${id}.png`;
 
-      setPokemon({ name, description, image, backImage });
+        setPokemon({ name, description, image, backImage });
 
-      const types = response.data.types.map((t) => t.type.name);
-      setPokemonTypes(types);
+        const types = response.data.types.map((t) => t.type.name);
+        setPokemonTypes(types);
 
-      const weight = response.data.weight;
-      setPokemonWeight(weight);
+        const weight = response.data.weight;
+        setPokemonWeight(weight);
 
-      const height = response.data.height;
-      setPokemonHeight(height);
+        const height = response.data.height;
+        setPokemonHeight(height);
 
-      const category = speciesResponse.data.genera.find(
-        (g) => g.language.name === "fr",
-      ).genus;
-      setPokemonCategory(category);
+        const category = speciesResponse.data.genera.find(
+          (g) => g.language.name === "fr",
+        ).genus;
+        setPokemonCategory(category);
+        setIsNotFound(false);
+      } catch (error) {
+        setIsNotFound(true);
+      }
     };
 
     fetchData();
-  }, [id, prefetched, currentId]);
+  }, [id, prefetched, currentId, isValidId]);
+
+  useEffect(() => {
+    if (maxPokemon && isValidId && currentId > maxPokemon) {
+      setIsNotFound(true);
+    }
+  }, [maxPokemon, currentId, isValidId]);
 
   const handleNavigate = async (event, targetId) => {
     event.preventDefault();
@@ -145,6 +165,10 @@ const PokedexPage = () => {
       title: "Accueil - Pokedex",
     });
   };
+  if (isNotFound) {
+    return <NotFoundPage />;
+  }
+
   if (pokemon) {
     return (
       <div className="pokedexPageContainer">
