@@ -6,7 +6,7 @@
   background: #f1f1f1ea;
   position: relative;
   box-shadow: -20px 0 rgba(0, 0, 0, 0.1) inset;
-  animation: roll 1s ease-in-out infinite;
+  animation: roll 1.5s ease-in-out infinite;
   background: linear-gradient(
     to bottom,
     #e83e35 0%,
