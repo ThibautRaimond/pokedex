@@ -18,13 +18,13 @@ const HomePage = () => {
   const contentRef = useRef(null);
   const navigate = useNavigate();
 
-  /* === Donnees et filtres === */
+  /* === Données et filtres === */
   const [searchByName, setSearchByName] = useState("");
   const [selectedTypes, setSelectedTypes] = useState([]);
   const { data, isLoading, genStart, genEnd, setGenStart, setGenEnd } =
     useSpeciesApi();
 
-  /* === Messages d'accessibilite pour le chargement === */
+  /* === Messages d'accessibilité pour le chargement === */
   const [statusMessage, setStatusMessage] = useState("");
   const LOADINGMESSAGE = "pokemon en chargement";
   const LOADEDMESSAGE = "chargement terminé";
@@ -34,11 +34,11 @@ const HomePage = () => {
     let reinsertTimeoutId;
 
     if (isLoading) {
-      // Apres 1 seconde, annoncer le chargement avec re-insertion
+      // Après 1 seconde, annoncer le chargement avec re-insertion
       delayTimeoutId = setTimeout(() => {
         // Vider d'abord le message
         setStatusMessage("");
-        // Puis reinjecter apres un court delai pour forcer la detection
+        // Puis reinjecter apres un court délai pour forcer la detection
         reinsertTimeoutId = setTimeout(() => {
           setStatusMessage(LOADINGMESSAGE);
         }, 100);
@@ -63,7 +63,7 @@ const HomePage = () => {
     return saved === 'true';
   });
 
-  // Ecouter les changements de reduceMotion depuis les parametres
+  // Ecouter les changements de reduceMotion depuis les paramètres
   useEffect(() => {
     const handleStorageChange = () => {
       const saved = localStorage.getItem('reduceMotion');
@@ -96,7 +96,7 @@ const HomePage = () => {
     setImageLoading(false);
   };
 
-  /* === Navigation Pokemon avec titre precharge === */
+  /* === Navigation Pokemon avec titre précharge === */
   // Prefetch + titre + navigation, avec fallback en cas d'erreur
   const handlePokemonNavigation = async (event, pokemonId) => {
     event.preventDefault();
@@ -105,14 +105,14 @@ const HomePage = () => {
       const prefetch = await getPokemonDetails(pokemonId);
       navigateWithTitle({
         navigate,
-        to: `/pokedex/pokemon/${pokemonId}`,
+        to: `/pokemon/${pokemonId}`,
         title: getPokemonTitle(pokemonId, prefetch),
         state: { prefetch },
       });
     } catch (error) {
       navigateWithTitle({
         navigate,
-        to: `/pokedex/pokemon/${pokemonId}`,
+        to: `/pokemon/${pokemonId}`,
         title: getPokemonTitle(pokemonId),
       });
     }
@@ -190,7 +190,7 @@ const HomePage = () => {
                     key={index}
                   >
                     <Link
-                      to={`/pokedex/pokemon/${id}`}
+                      to={`/pokemon/${id}`}
                       aria-label={`${name} pokemon numéro ${id}`}
                       onClick={(event) => handlePokemonNavigation(event, id)}
                     >
