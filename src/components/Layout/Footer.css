@@ -73,6 +73,7 @@
   color: inherit;
   transition: 0.5s;
   color: #424242f8;
+  text-decoration: underline;
 }
 .darkMode .footerContainerPortfolio {
   color: #f1f1f1ea;
@@ -80,7 +81,6 @@
 
 .footerContainerPortfolio:hover {
   color: #050fd7;
-  text-decoration: underline;
 }
 
 .darkMode .footerContainerPortfolio:hover {
