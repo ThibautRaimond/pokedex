@@ -31,7 +31,7 @@ const Footer = () => {
                 className="socialMediaLink"
               >
                 <span className="srOnly">
-                  Github de Thibaut Raimond onglet externe
+                  Linkedin de Thibaut Raimond onglet externe
                 </span>
                 <AiFillLinkedin
                   size={45}
