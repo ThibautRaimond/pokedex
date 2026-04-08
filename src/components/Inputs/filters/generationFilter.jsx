@@ -82,6 +82,7 @@ const GenerationFilter = ({
           aria-valuenow={genEnd}
           aria-valuetext={genLabel(genEnd)}
           tabIndex={tabIndex}
+          disabled={genStart === 9 && genEnd === 9}
         />
 
         <div className="generationFilterRangeTrack" aria-hidden="true">
@@ -92,12 +93,13 @@ const GenerationFilter = ({
               width: `${((genEnd - genStart) / 8) * 100}%`,
             }}
           />
-          <span className="generationFilterRangeLabel generationFilterRangeLabelLeft">
-            Gen {genStart}
-          </span>
-          <span className="generationFilterRangeLabel generationFilterRangeLabelRight">
-            Gen {genEnd}
-          </span>
+        </div>
+        <div className="generationFilterRangeSteps" aria-hidden="true">
+          {[...Array(9)].map((_, i) => (
+            <span key={i} className="generationFilterRangeStep">
+              {i + 1}
+            </span>
+          ))}
         </div>
       </div>
     </fieldset>

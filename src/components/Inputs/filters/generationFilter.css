@@ -1,10 +1,31 @@
+/* Repères visuels sous la barre (thermomètre) */
+.generationFilterRangeSteps {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 11.5px;
+  margin-top: 0.3em;
+  user-select: none;
+}
+
+.generationFilterRangeStep {
+  font-size: 1.05rem;
+  color: #222;
+  opacity: 0.85;
+  width: 1.8em;
+  text-align: center;
+  pointer-events: none;
+}
+
+.darkMode .generationFilterRangeStep {
+  color: #f1f1f1ea;
+}
 /* =================================
    GENERATION FILTER
    ================================= */
 
 .generationFilter {
   width: 100%;
-  max-width: 650px;
+  max-width: 750px; /* +15% from 650px */
   margin-bottom: 1.5em;
 }
 
@@ -21,7 +42,7 @@
 .generationFilterRangeContainer {
   position: relative;
   margin-bottom: 1em;
-  min-width: 250px;
+  min-width: 290px; /* +15% from 250px */
 }
 
 /* Range input */
