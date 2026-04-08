@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./generationFilter.css";
 
 const GenerationFilter = ({
@@ -7,6 +8,11 @@ const GenerationFilter = ({
   setGenEnd,
   tabIndex,
 }) => {
+  const [lastUsedHandle, setLastUsedHandle] = useState("end");
+  const selectedLeftPct = ((genStart - 1) / 8) * 100;
+  const selectedWidthPct = ((genEnd - genStart) / 8) * 100;
+  const isOverlappedMiddleGen = genStart === genEnd && genStart !== 1 && genStart !== 9;
+
   const genLabel = (gen) => {
     switch (gen) {
       case 1:
@@ -49,10 +55,16 @@ const GenerationFilter = ({
           min="1"
           max="9"
           value={genStart}
-          onChange={(event) =>
-            setGenStart(Math.min(Number(event.target.value), genEnd))
-          }
-          className="generationFilterRangeThumb generationFilterRangeThumbStart"
+          onChange={(event) => {
+            setLastUsedHandle("start");
+            setGenStart(Math.min(Number(event.target.value), genEnd));
+          }}
+          onFocus={() => setLastUsedHandle("start")}
+          className={`generationFilterRangeThumb generationFilterRangeThumbStart ${
+            isOverlappedMiddleGen && lastUsedHandle === "start"
+              ? "generationFilterRangeThumbPinnedBlue"
+              : ""
+          }`}
           aria-labelledby="genStartLabel"
           aria-valuemin={1}
           aria-valuemax={9}
@@ -72,10 +84,16 @@ const GenerationFilter = ({
           min="1"
           max="9"
           value={genEnd}
-          onChange={(event) =>
-            setGenEnd(Math.max(Number(event.target.value), genStart))
-          }
-          className="generationFilterRangeThumb generationFilterRangeThumbEnd"
+          onChange={(event) => {
+            setLastUsedHandle("end");
+            setGenEnd(Math.max(Number(event.target.value), genStart));
+          }}
+          onFocus={() => setLastUsedHandle("end")}
+          className={`generationFilterRangeThumb generationFilterRangeThumbEnd ${
+            isOverlappedMiddleGen && lastUsedHandle === "end"
+              ? "generationFilterRangeThumbPinnedBlue"
+              : ""
+          }`}
           aria-labelledby="genEndLabel"
           aria-valuemin={1}
           aria-valuemax={9}
@@ -89,8 +107,8 @@ const GenerationFilter = ({
           <div
             className="generationFilterRangeSelected"
             style={{
-              left: `${((genStart - 1) / 8) * 100}%`,
-              width: `${((genEnd - genStart) / 8) * 100}%`,
+              left: `${selectedLeftPct}%`,
+              width: `${selectedWidthPct}%`,
             }}
           />
         </div>

@@ -1,8 +1,8 @@
-/* Repères visuels sous la barre (thermomètre) */
+﻿/* Repères visuels sous la barre (thermomètre) */
 .generationFilterRangeSteps {
   display: flex;
   justify-content: space-between;
-  margin: 0 11.5px;
+  margin: 0 6px;
   margin-top: 0.3em;
   user-select: none;
 }
@@ -11,7 +11,7 @@
   font-size: 1.05rem;
   color: #222;
   opacity: 0.85;
-  width: 1.8em;
+  width: 0.65em;
   text-align: center;
   pointer-events: none;
 }
@@ -24,7 +24,7 @@
    ================================= */
 
 .generationFilter {
-  width: 100%;
+  box-shadow: none;
   max-width: 750px; /* +15% from 650px */
   margin-bottom: 1.5em;
 }
@@ -60,8 +60,15 @@
   outline: none;
 }
 
-/* Chrome slider thumb */
+/* Keep the focused handle on top when both handles overlap. */
+.generationFilterRangeThumb:focus,
+.generationFilterRangeThumb:focus-visible {
+  z-index: 5;
+}
+
+/* Chrome slider thumb - générique (cercle) */
 .generationFilterRangeThumb::-webkit-slider-thumb {
+  box-shadow: none;
   pointer-events: all;
   appearance: none;
   width: 23px;
@@ -72,17 +79,91 @@
   cursor: pointer;
 }
 
+/* Chrome slider thumb - début (triangle blanc pointe droite) */
+.generationFilterRangeThumbStart::-webkit-slider-thumb {
+  pointer-events: all;
+  appearance: none;
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 18px solid #222;
+  border-right: none;
+  background: none;
+  border-radius: 0;
+  margin-top: -2px;
+  margin-left: 0px; /* Removed margin-left for perfect alignment */
+  box-shadow: none;
+}
+
+.generationFilterRangeThumbEnd::-webkit-slider-thumb {
+  pointer-events: all;
+  appearance: none;
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-right: 18px solid #222;
+  border-left: none;
+  background: none;
+  border-radius: 0;
+  margin-top: -2px;
+  margin-right: 0px; /* Removed margin-right for perfect alignment */
+  box-shadow: none;
+}
+
+.darkMode .generationFilterRangeThumbStart::-webkit-slider-thumb {
+  border-left-color: #fff;
+}
+
+.darkMode .generationFilterRangeThumbEnd::-webkit-slider-thumb {
+  border-right-color: #fff;
+}
+
 .generationFilterRangeThumb:focus-visible::-webkit-slider-thumb {
-  outline: auto;
-  outline-color: red;
-  box-shadow: 0 0 0 3px rgb(0, 0, 0);
+  outline: none;
+  box-shadow: 0 0 0 3px #2775fb;
 }
 
 .darkMode .generationFilterRangeThumb:focus-visible::-webkit-slider-thumb {
-  box-shadow: 0 0 0 3px rgb(255, 255, 255);
+  box-shadow: 0 0 0 3px #8ec5ff;
 }
 
-/* Firefox slider thumb */
+.generationFilterRangeThumbStart:focus-visible::-webkit-slider-thumb {
+  border-left-color: #2775fb;
+}
+
+.generationFilterRangeThumbEnd:focus-visible::-webkit-slider-thumb {
+  border-right-color: #2775fb;
+}
+
+.darkMode .generationFilterRangeThumbStart:focus-visible::-webkit-slider-thumb {
+  border-left-color: #8ec5ff;
+}
+
+.darkMode .generationFilterRangeThumbEnd:focus-visible::-webkit-slider-thumb {
+  border-right-color: #8ec5ff;
+}
+
+.generationFilterRangeThumbStart.generationFilterRangeThumbPinnedBlue::-webkit-slider-thumb {
+  border-left-color: #2775fb;
+}
+
+.generationFilterRangeThumbEnd.generationFilterRangeThumbPinnedBlue::-webkit-slider-thumb {
+  border-right-color: #2775fb;
+}
+
+.darkMode
+  .generationFilterRangeThumbStart.generationFilterRangeThumbPinnedBlue::-webkit-slider-thumb {
+  border-left-color: #8ec5ff;
+}
+
+.darkMode
+  .generationFilterRangeThumbEnd.generationFilterRangeThumbPinnedBlue::-webkit-slider-thumb {
+  border-right-color: #8ec5ff;
+}
+
+/* Firefox slider thumb - générique (cercle) */
 .generationFilterRangeThumb::-moz-range-thumb {
   pointer-events: all;
   appearance: none;
@@ -94,13 +175,88 @@
   cursor: pointer;
 }
 
+/* Firefox slider thumb - début (triangle blanc pointe droite) */
+.generationFilterRangeThumbStart::-moz-range-thumb {
+  pointer-events: all;
+  appearance: none;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 15px solid #222;
+  border-right: none;
+  background: none;
+  border-radius: 0;
+  margin-top: -2px;
+  margin-left: 0px; /* Removed margin-left for perfect alignment */
+  box-shadow: 0 0 2px #222;
+}
+
+.generationFilterRangeThumbEnd::-moz-range-thumb {
+  pointer-events: all;
+  appearance: none;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 15px solid #222;
+  border-left: none;
+  background: none;
+  border-radius: 0;
+  margin-top: -2px;
+  margin-right: 0px; /* Removed margin-right for perfect alignment */
+  box-shadow: none;
+}
+
+.darkMode .generationFilterRangeThumbStart::-moz-range-thumb {
+  border-left-color: #fff;
+}
+
+.darkMode .generationFilterRangeThumbEnd::-moz-range-thumb {
+  border-right-color: #fff;
+}
+
 .generationFilterRangeThumb:focus::-moz-range-thumb {
-  outline: 2px solid #222222;
+  outline: 2px solid #2775fb;
   outline-offset: 1px;
 }
 
 .darkMode .generationFilterRangeThumb:focus::-moz-range-thumb {
-  outline: 2px solid #ffffff;
+  outline: 2px solid #8ea8ff;
+}
+
+.generationFilterRangeThumbStart:focus::-moz-range-thumb {
+  border-left-color: #2775fb;
+}
+
+.generationFilterRangeThumbEnd:focus::-moz-range-thumb {
+  border-right-color: #2775fb;
+}
+
+.darkMode .generationFilterRangeThumbStart:focus::-moz-range-thumb {
+  border-left-color: #8ec5ff;
+}
+
+.darkMode .generationFilterRangeThumbEnd:focus::-moz-range-thumb {
+  border-right-color: #8ec5ff;
+}
+
+.generationFilterRangeThumbStart.generationFilterRangeThumbPinnedBlue::-moz-range-thumb {
+  border-left-color: #2775fb;
+}
+
+.generationFilterRangeThumbEnd.generationFilterRangeThumbPinnedBlue::-moz-range-thumb {
+  border-right-color: #2775fb;
+}
+
+.darkMode
+  .generationFilterRangeThumbStart.generationFilterRangeThumbPinnedBlue::-moz-range-thumb {
+  border-left-color: #8ec5ff;
+}
+
+.darkMode
+  .generationFilterRangeThumbEnd.generationFilterRangeThumbPinnedBlue::-moz-range-thumb {
+  border-right-color: #8ec5ff;
 }
 
 /* Range track */
@@ -110,14 +266,18 @@
   background: #ffffff;
   border: 2px solid #222;
   border-radius: 20px;
-  margin: 0 11.5px;
+  margin: 0 4px;
+  overflow: hidden;
 }
 
 /* Selected range */
 .generationFilterRangeSelected {
   position: absolute;
-  height: 100%;
+  top: 50%;
+  height: 10px;
   background: #c01818;
+  transform: translateY(-50%);
+  border-radius: 999px;
 }
 
 .darkMode .generationFilterRangeSelected {
