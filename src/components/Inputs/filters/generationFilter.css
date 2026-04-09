@@ -14,6 +14,8 @@
   width: 0.65em;
   text-align: center;
   pointer-events: none;
+  position: relative;
+  top: 2px;
 }
 
 .darkMode .generationFilterRangeStep {
@@ -48,7 +50,8 @@
 /* Range input */
 .generationFilterRangeThumb {
   position: absolute;
-  width: 100%;
+  left: 4px;
+  width: calc(100% - 8px);
   height: 14px;
   pointer-events: none;
   appearance: none;
@@ -66,6 +69,11 @@
   z-index: 5;
 }
 
+/* Ensure disabled handle never blocks the active handle when both overlap at 1 or 9. */
+.generationFilterRangeThumb:disabled {
+  z-index: 2;
+}
+
 /* Chrome slider thumb - générique (cercle) */
 .generationFilterRangeThumb::-webkit-slider-thumb {
   box-shadow: none;
@@ -77,6 +85,11 @@
   background: #ffffff;
   border: 2px solid #222;
   cursor: pointer;
+}
+
+.generationFilterRangeThumb:disabled::-webkit-slider-thumb {
+  pointer-events: none;
+  cursor: default;
 }
 
 /* Chrome slider thumb - début (triangle blanc pointe droite) */
@@ -129,37 +142,33 @@
   box-shadow: 0 0 0 3px #8ec5ff;
 }
 
-.generationFilterRangeThumbStart:focus-visible::-webkit-slider-thumb {
+.generationFilterRangeThumbStart:is(
+    :focus-visible,
+    .generationFilterRangeThumbPinnedBlue
+  )::-webkit-slider-thumb {
   border-left-color: #2775fb;
 }
 
-.generationFilterRangeThumbEnd:focus-visible::-webkit-slider-thumb {
-  border-right-color: #2775fb;
-}
-
-.darkMode .generationFilterRangeThumbStart:focus-visible::-webkit-slider-thumb {
-  border-left-color: #8ec5ff;
-}
-
-.darkMode .generationFilterRangeThumbEnd:focus-visible::-webkit-slider-thumb {
-  border-right-color: #8ec5ff;
-}
-
-.generationFilterRangeThumbStart.generationFilterRangeThumbPinnedBlue::-webkit-slider-thumb {
-  border-left-color: #2775fb;
-}
-
-.generationFilterRangeThumbEnd.generationFilterRangeThumbPinnedBlue::-webkit-slider-thumb {
+.generationFilterRangeThumbEnd:is(
+    :focus-visible,
+    .generationFilterRangeThumbPinnedBlue
+  )::-webkit-slider-thumb {
   border-right-color: #2775fb;
 }
 
 .darkMode
-  .generationFilterRangeThumbStart.generationFilterRangeThumbPinnedBlue::-webkit-slider-thumb {
+  .generationFilterRangeThumbStart:is(
+    :focus-visible,
+    .generationFilterRangeThumbPinnedBlue
+  )::-webkit-slider-thumb {
   border-left-color: #8ec5ff;
 }
 
 .darkMode
-  .generationFilterRangeThumbEnd.generationFilterRangeThumbPinnedBlue::-webkit-slider-thumb {
+  .generationFilterRangeThumbEnd:is(
+    :focus-visible,
+    .generationFilterRangeThumbPinnedBlue
+  )::-webkit-slider-thumb {
   border-right-color: #8ec5ff;
 }
 
@@ -173,6 +182,11 @@
   background: #ffffff;
   border: 2px solid #222;
   cursor: pointer;
+}
+
+.generationFilterRangeThumb:disabled::-moz-range-thumb {
+  pointer-events: none;
+  cursor: default;
 }
 
 /* Firefox slider thumb - début (triangle blanc pointe droite) */
@@ -204,18 +218,8 @@
   background: none;
   border-radius: 0;
   margin-top: -2px;
-  margin-right: 0px; /* Removed margin-right for perfect alignment */
   box-shadow: none;
 }
-
-.darkMode .generationFilterRangeThumbStart::-moz-range-thumb {
-  border-left-color: #fff;
-}
-
-.darkMode .generationFilterRangeThumbEnd::-moz-range-thumb {
-  border-right-color: #fff;
-}
-
 .generationFilterRangeThumb:focus::-moz-range-thumb {
   outline: 2px solid #2775fb;
   outline-offset: 1px;
@@ -225,37 +229,30 @@
   outline: 2px solid #8ea8ff;
 }
 
-.generationFilterRangeThumbStart:focus::-moz-range-thumb {
+.generationFilterRangeThumbStart:is(
+    :focus,
+    .generationFilterRangeThumbPinnedBlue
+  )::-moz-range-thumb {
   border-left-color: #2775fb;
 }
 
-.generationFilterRangeThumbEnd:focus::-moz-range-thumb {
-  border-right-color: #2775fb;
-}
-
-.darkMode .generationFilterRangeThumbStart:focus::-moz-range-thumb {
-  border-left-color: #8ec5ff;
-}
-
-.darkMode .generationFilterRangeThumbEnd:focus::-moz-range-thumb {
-  border-right-color: #8ec5ff;
-}
-
-.generationFilterRangeThumbStart.generationFilterRangeThumbPinnedBlue::-moz-range-thumb {
-  border-left-color: #2775fb;
-}
-
-.generationFilterRangeThumbEnd.generationFilterRangeThumbPinnedBlue::-moz-range-thumb {
+.generationFilterRangeThumbEnd:is(:focus, .generationFilterRangeThumbPinnedBlue)::-moz-range-thumb {
   border-right-color: #2775fb;
 }
 
 .darkMode
-  .generationFilterRangeThumbStart.generationFilterRangeThumbPinnedBlue::-moz-range-thumb {
+  .generationFilterRangeThumbStart:is(
+    :focus,
+    .generationFilterRangeThumbPinnedBlue
+  )::-moz-range-thumb {
   border-left-color: #8ec5ff;
 }
 
 .darkMode
-  .generationFilterRangeThumbEnd.generationFilterRangeThumbPinnedBlue::-moz-range-thumb {
+  .generationFilterRangeThumbEnd:is(
+    :focus,
+    .generationFilterRangeThumbPinnedBlue
+  )::-moz-range-thumb {
   border-right-color: #8ec5ff;
 }
 
