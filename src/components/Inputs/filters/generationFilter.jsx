@@ -1,4 +1,11 @@
-import { useState } from "react";
+// Composant de filtre par génération avec double curseur (genStart, genEnd)
+// Permet la sélection fine via drag ou click :
+// - 1er clic sur un triangle = sélectionne le handle (triangle)
+// - 2e clic sur la barre ou un chiffre = déplace le handle sélectionné
+// - Drag natif toujours possible
+// - Sélection annulée si clic hors composant ou re-clic sur le même triangle
+
+import { useState, useRef, useEffect, useCallback } from "react";
 import "./generationFilter.css";
 
 const GenerationFilter = ({
@@ -9,9 +16,74 @@ const GenerationFilter = ({
   tabIndex,
 }) => {
   const [lastUsedHandle, setLastUsedHandle] = useState("end");
+  const [selectedHandle, setSelectedHandle] = useState(null);
+  const pointerDownX = useRef(null);
+  const containerRef = useRef(null);
   const selectedLeftPct = ((genStart - 1) / 8) * 100;
   const selectedWidthPct = ((genEnd - genStart) / 8) * 100;
   const isOverlappedMiddleGen = genStart === genEnd && genStart !== 1 && genStart !== 9;
+
+  // Deselect when clicking outside the component
+  useEffect(() => {
+    if (!selectedHandle) return;
+    const handleOutsidePointer = (e) => {
+      if (containerRef.current && !containerRef.current.contains(e.target)) {
+        setSelectedHandle(null);
+      }
+    };
+    document.addEventListener("pointerdown", handleOutsidePointer);
+    return () => document.removeEventListener("pointerdown", handleOutsidePointer);
+  }, [selectedHandle]);
+
+  // Applique la nouvelle valeur de génération au handle sélectionné
+  const applyGen = useCallback(
+    (gen) => {
+      if (selectedHandle === "start") {
+        setGenStart(Math.min(gen, genEnd));
+        setLastUsedHandle("start");
+      } else if (selectedHandle === "end") {
+        setGenEnd(Math.max(gen, genStart));
+        setLastUsedHandle("end");
+      }
+      setSelectedHandle(null);
+    },
+    [selectedHandle, genStart, genEnd, setGenStart, setGenEnd]
+  );
+
+  // Gestion du click court sur un triangle (sélection/désélection)
+  const handleThumbPointerDown = (e) => {
+    pointerDownX.current = e.clientX;
+  };
+
+  const handleStartPointerUp = (e) => {
+    if (pointerDownX.current !== null && Math.abs(e.clientX - pointerDownX.current) < 4) {
+      setSelectedHandle((prev) => (prev === "start" ? null : "start"));
+    }
+    pointerDownX.current = null;
+  };
+
+  const handleEndPointerUp = (e) => {
+    if (pointerDownX.current !== null && Math.abs(e.clientX - pointerDownX.current) < 4) {
+      setSelectedHandle((prev) => (prev === "end" ? null : "end"));
+    }
+    pointerDownX.current = null;
+  };
+
+  // Click sur la barre : déplace le handle sélectionné à la génération la plus proche
+  const handleTrackClick = (e) => {
+    if (!selectedHandle) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const ratio = Math.max(0, Math.min(1, x / rect.width));
+    const gen = Math.round(ratio * 8) + 1;
+    applyGen(gen);
+  };
+
+  // Click sur un chiffre : déplace le handle sélectionné à la génération cliquée
+  const handleStepClick = (gen) => {
+    if (!selectedHandle) return;
+    applyGen(gen);
+  };
 
   const genLabel = (gen) => {
     switch (gen) {
@@ -44,7 +116,12 @@ const GenerationFilter = ({
         Filtrer par Générations
       </legend>
 
-      <div className="generationFilterRangeContainer" role="group">
+      <div
+        className={`generationFilterRangeContainer${selectedHandle ? " generationFilterRangeContainerSelecting" : ""}`}
+        role="group"
+        ref={containerRef}
+      >
+        {/* Curseur de début (triangle gauche) */}
         <label id="genStartLabel" htmlFor="gen-start" className="srOnly">
           Choisir la génération de départ
         </label>
@@ -60,11 +137,15 @@ const GenerationFilter = ({
             setGenStart(Math.min(Number(event.target.value), genEnd));
           }}
           onFocus={() => setLastUsedHandle("start")}
+          onPointerDown={handleThumbPointerDown}
+          onPointerUp={handleStartPointerUp}
           className={`generationFilterRangeThumb generationFilterRangeThumbStart ${
+            genStart === 1 ? "generationFilterRangeThumbStartAtMin" : ""
+          } ${
             isOverlappedMiddleGen && lastUsedHandle === "start"
               ? "generationFilterRangeThumbPinnedBlue"
               : ""
-          }`}
+          } ${selectedHandle === "start" ? "generationFilterRangeThumbActive" : ""}`}
           aria-labelledby="genStartLabel"
           aria-valuemin={1}
           aria-valuemax={9}
@@ -74,6 +155,7 @@ const GenerationFilter = ({
           disabled={genStart === 1 && genEnd === 1}
         />
 
+        {/* Curseur de fin (triangle droit) */}
         <label id="genEndLabel" htmlFor="genEnd" className="srOnly">
           Choisir la génération limite
         </label>
@@ -89,11 +171,13 @@ const GenerationFilter = ({
             setGenEnd(Math.max(Number(event.target.value), genStart));
           }}
           onFocus={() => setLastUsedHandle("end")}
+          onPointerDown={handleThumbPointerDown}
+          onPointerUp={handleEndPointerUp}
           className={`generationFilterRangeThumb generationFilterRangeThumbEnd ${
             isOverlappedMiddleGen && lastUsedHandle === "end"
               ? "generationFilterRangeThumbPinnedBlue"
               : ""
-          }`}
+          } ${selectedHandle === "end" ? "generationFilterRangeThumbActive" : ""}`}
           aria-labelledby="genEndLabel"
           aria-valuemin={1}
           aria-valuemax={9}
@@ -103,7 +187,12 @@ const GenerationFilter = ({
           disabled={genStart === 9 && genEnd === 9}
         />
 
-        <div className="generationFilterRangeTrack" aria-hidden="true">
+        {/* Barre de sélection cliquable */}
+        <div
+          className="generationFilterRangeTrack"
+          aria-hidden="true"
+          onClick={handleTrackClick}
+        >
           <div
             className="generationFilterRangeSelected"
             style={{
@@ -112,9 +201,14 @@ const GenerationFilter = ({
             }}
           />
         </div>
+        {/* Chiffres de génération cliquables en mode sélection */}
         <div className="generationFilterRangeSteps" aria-hidden="true">
           {[...Array(9)].map((_, i) => (
-            <span key={i} className="generationFilterRangeStep">
+            <span
+              key={i}
+              className={`generationFilterRangeStep${selectedHandle ? " generationFilterRangeStepClickable" : ""}`}
+              onClick={() => handleStepClick(i + 1)}
+            >
               {i + 1}
             </span>
           ))}

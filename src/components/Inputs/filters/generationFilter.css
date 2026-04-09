@@ -27,8 +27,7 @@
 
 .generationFilter {
   box-shadow: none;
-  max-width: 750px; /* +15% from 650px */
-  margin-bottom: 0.25em;
+  max-width: 750px;
 }
 
 .generationFilterLegend {
@@ -44,7 +43,7 @@
 .generationFilterRangeContainer {
   position: relative;
   margin-bottom: 1em;
-  min-width: 290px; /* +15% from 250px */
+  min-width: 290px;
 }
 
 /* Range input */
@@ -98,15 +97,19 @@
   appearance: none;
   width: 0;
   height: 0;
-  border-top: 12px solid transparent;
-  border-bottom: 12px solid transparent;
-  border-left: 18px solid #222;
+  border-top: 12.6px solid transparent;
+  border-bottom: 12.6px solid transparent;
+  border-left: 18.9px solid #444950;
   border-right: none;
   background: none;
   border-radius: 0;
   margin-top: -2px;
-  margin-left: 0px; /* Removed margin-left for perfect alignment */
+  margin-left: -1px;
   box-shadow: none;
+}
+
+.generationFilterRangeThumbStartAtMin::-webkit-slider-thumb {
+  margin-left: -2px;
 }
 
 .generationFilterRangeThumbEnd::-webkit-slider-thumb {
@@ -114,23 +117,28 @@
   appearance: none;
   width: 0;
   height: 0;
-  border-top: 12px solid transparent;
-  border-bottom: 12px solid transparent;
-  border-right: 18px solid #222;
+  border-top: 12.6px solid transparent;
+  border-bottom: 12.6px solid transparent;
+  border-right: 18.9px solid #444950;
   border-left: none;
   background: none;
   border-radius: 0;
   margin-top: -2px;
-  margin-right: 0px; /* Removed margin-right for perfect alignment */
+  margin-right: 0px;
   box-shadow: none;
 }
 
 .darkMode .generationFilterRangeThumbStart::-webkit-slider-thumb {
-  border-left-color: #fff;
+  border-left-color: #d7dbe0;
+  margin-left: 0;
+}
+
+.darkMode .generationFilterRangeThumbStartAtMin::-webkit-slider-thumb {
+  margin-left: -1px;
 }
 
 .darkMode .generationFilterRangeThumbEnd::-webkit-slider-thumb {
-  border-right-color: #fff;
+  border-right-color: #bcc3cc;
 }
 
 .generationFilterRangeThumb:focus-visible::-webkit-slider-thumb {
@@ -195,15 +203,19 @@
   appearance: none;
   width: 0;
   height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 15px solid #222;
+  border-top: 10.5px solid transparent;
+  border-bottom: 10.5px solid transparent;
+  border-left: 15.75px solid #3f444b;
   border-right: none;
   background: none;
   border-radius: 0;
   margin-top: -2px;
-  margin-left: 0px; /* Removed margin-left for perfect alignment */
-  box-shadow: 0 0 2px #222;
+  margin-left: -1px;
+  box-shadow: none;
+}
+
+.generationFilterRangeThumbStartAtMin::-moz-range-thumb {
+  margin-left: -2px;
 }
 
 .generationFilterRangeThumbEnd::-moz-range-thumb {
@@ -211,14 +223,28 @@
   appearance: none;
   width: 0;
   height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-right: 15px solid #222;
+  border-top: 10.5px solid transparent;
+  border-bottom: 10.5px solid transparent;
+  border-right: 15.75px solid #2a2e34;
   border-left: none;
   background: none;
   border-radius: 0;
   margin-top: -2px;
   box-shadow: none;
+}
+
+.darkMode .generationFilterRangeThumbStart::-moz-range-thumb {
+  border-left-color: #d7dbe0;
+  margin-left: 0;
+  box-shadow: none;
+}
+
+.darkMode .generationFilterRangeThumbStartAtMin::-moz-range-thumb {
+  margin-left: -1px;
+}
+
+.darkMode .generationFilterRangeThumbEnd::-moz-range-thumb {
+  border-right-color: #bcc3cc;
 }
 .generationFilterRangeThumb:focus::-moz-range-thumb {
   outline: 2px solid #2775fb;
@@ -274,7 +300,6 @@
   height: 10px;
   background: #c01818;
   transform: translateY(-50%);
-  border-radius: 999px;
 }
 
 .darkMode .generationFilterRangeSelected {
@@ -295,4 +320,32 @@
 
 .generationFilterRangeLabelRight {
   right: 0;
+}
+
+/* =================================
+   CLICK-TO-SELECT MODE
+   ================================= */
+
+/* Triangle sélectionné au click : */
+.generationFilterRangeThumbActive::-webkit-slider-thumb,
+.generationFilterRangeThumbActive::-moz-range-thumb {
+  outline: 2px solid #222;
+  outline-offset: 1.5px;
+}
+.darkMode .generationFilterRangeThumbActive::-webkit-slider-thumb,
+.darkMode .generationFilterRangeThumbActive::-moz-range-thumb {
+  outline: 2px solid #fff;
+  outline-offset: 1.5px;
+}
+
+/* Chiffres cliquables quand un handle est sélectionné */
+.generationFilterRangeStepClickable {
+  pointer-events: all;
+  cursor: pointer;
+  opacity: 1;
+}
+
+/* Track cliquable quand un handle est sélectionné */
+.generationFilterRangeContainerSelecting .generationFilterRangeTrack {
+  cursor: pointer;
 }
