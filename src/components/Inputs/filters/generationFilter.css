@@ -28,7 +28,7 @@
 .generationFilter {
   box-shadow: none;
   max-width: 750px; /* +15% from 650px */
-  margin-bottom: 1.5em;
+  margin-bottom: 0.25em;
 }
 
 .generationFilterLegend {
