@@ -1,4 +1,51 @@
-﻿/* Repères visuels sous la barre (thermomètre) */
+﻿/* TRIANGLE GAUCHE CHROME (début) restauré sans margin-right */
+.generationFilterRangeThumbStart::-webkit-slider-thumb {
+  pointer-events: all;
+  appearance: none;
+  width: 0;
+  height: 0;
+  border-top: 10.7px solid transparent;
+  border-bottom: 10.7px solid transparent;
+  border-left: 16.1px solid #444950;
+  border-right: none;
+  background: none;
+  border-radius: 0;
+  margin-top: -3px;
+  box-shadow: none;
+  transform: translateX(-10px);
+}
+
+/* Cadre focus/click triangle Firefox : noir (clair) et blanc (dark) */
+.generationFilterRangeThumbStart:focus::-moz-range-thumb,
+.generationFilterRangeThumbEnd:focus::-moz-range-thumb {
+  outline: 2px solid #222;
+  outline-offset: 1px;
+}
+.darkMode .generationFilterRangeThumbStart:focus::-moz-range-thumb,
+.darkMode .generationFilterRangeThumbEnd:focus::-moz-range-thumb {
+  outline: 2px solid #fff;
+}
+/* Visuel focus sur les triangles : bordure colorée autour du triangle, sans changer la couleur du triangle */
+.generationFilterRangeThumbStart:focus-visible::-webkit-slider-thumb,
+.generationFilterRangeThumbEnd:focus-visible::-webkit-slider-thumb {
+  outline: none;
+  box-shadow: 0 0 0 3px #2775fb;
+}
+.darkMode .generationFilterRangeThumbStart:focus-visible::-webkit-slider-thumb,
+.darkMode .generationFilterRangeThumbEnd:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 3px #8ec5ff;
+}
+
+.generationFilterRangeThumbStart:focus::-moz-range-thumb,
+.generationFilterRangeThumbEnd:focus::-moz-range-thumb {
+  outline: 2px solid #2775fb;
+  outline-offset: 1px;
+}
+.darkMode .generationFilterRangeThumbStart:focus::-moz-range-thumb,
+.darkMode .generationFilterRangeThumbEnd:focus::-moz-range-thumb {
+  outline: 2px solid #8ec5ff;
+}
+/* Repères visuels sous la barre (thermomètre) */
 .generationFilterRangeSteps {
   display: flex;
   justify-content: space-between;
@@ -73,111 +120,46 @@
   z-index: 2;
 }
 
-/* Chrome slider thumb - générique (cercle) */
-.generationFilterRangeThumb::-webkit-slider-thumb {
-  box-shadow: none;
-  pointer-events: all;
-  appearance: none;
-  width: 23px;
-  height: 23px;
-  border-radius: 50%;
-  background: #ffffff;
-  border: 2px solid #222;
-  cursor: pointer;
-}
-
-.generationFilterRangeThumb:disabled::-webkit-slider-thumb {
-  pointer-events: none;
-  cursor: default;
-}
-
-/* Chrome slider thumb - début (triangle blanc pointe droite) */
+/* Triangle gauche (genStart) - Chrome */
 .generationFilterRangeThumbStart::-webkit-slider-thumb {
   pointer-events: all;
   appearance: none;
   width: 0;
   height: 0;
-  border-top: 12.6px solid transparent;
-  border-bottom: 12.6px solid transparent;
-  border-left: 18.9px solid #444950;
+  border-top: 10.7px solid transparent;
+  border-bottom: 10.7px solid transparent;
+  border-left: 16.1px solid #444950;
   border-right: none;
   background: none;
   border-radius: 0;
-  margin-top: -2px;
-  margin-left: -1px;
+  margin-top: -3px;
+  transform: translateX(-6px);
   box-shadow: none;
 }
 
-.generationFilterRangeThumbStartAtMin::-webkit-slider-thumb {
-  margin-left: -2px;
-}
 
 .generationFilterRangeThumbEnd::-webkit-slider-thumb {
   pointer-events: all;
   appearance: none;
   width: 0;
   height: 0;
-  border-top: 12.6px solid transparent;
-  border-bottom: 12.6px solid transparent;
-  border-right: 18.9px solid #444950;
+  border-top: 10.7px solid transparent;
+  border-bottom: 10.7px solid transparent;
+  border-right: 16.1px solid #444950;
   border-left: none;
   background: none;
   border-radius: 0;
-  margin-top: -2px;
-  margin-right: 0px;
+  margin-top: -3px;
+  margin-left: 6px;
   box-shadow: none;
 }
 
+/* Triangles darkmode */
 .darkMode .generationFilterRangeThumbStart::-webkit-slider-thumb {
-  border-left-color: #d7dbe0;
-  margin-left: 0;
+  border-left-color: #ffffff;
 }
-
-.darkMode .generationFilterRangeThumbStartAtMin::-webkit-slider-thumb {
-  margin-left: -1px;
-}
-
 .darkMode .generationFilterRangeThumbEnd::-webkit-slider-thumb {
-  border-right-color: #bcc3cc;
-}
-
-.generationFilterRangeThumb:focus-visible::-webkit-slider-thumb {
-  outline: none;
-  box-shadow: 0 0 0 3px #2775fb;
-}
-
-.darkMode .generationFilterRangeThumb:focus-visible::-webkit-slider-thumb {
-  box-shadow: 0 0 0 3px #8ec5ff;
-}
-
-.generationFilterRangeThumbStart:is(
-    :focus-visible,
-    .generationFilterRangeThumbPinnedBlue
-  )::-webkit-slider-thumb {
-  border-left-color: #2775fb;
-}
-
-.generationFilterRangeThumbEnd:is(
-    :focus-visible,
-    .generationFilterRangeThumbPinnedBlue
-  )::-webkit-slider-thumb {
-  border-right-color: #2775fb;
-}
-
-.darkMode
-  .generationFilterRangeThumbStart:is(
-    :focus-visible,
-    .generationFilterRangeThumbPinnedBlue
-  )::-webkit-slider-thumb {
-  border-left-color: #8ec5ff;
-}
-
-.darkMode
-  .generationFilterRangeThumbEnd:is(
-    :focus-visible,
-    .generationFilterRangeThumbPinnedBlue
-  )::-webkit-slider-thumb {
-  border-right-color: #8ec5ff;
+  border-right-color:#ffffff;
 }
 
 /* Firefox slider thumb - générique (cercle) */
@@ -197,90 +179,53 @@
   cursor: default;
 }
 
-/* Firefox slider thumb - début (triangle blanc pointe droite) */
+/* TRIANGLE GAUCHE FIREFOX (genStart) - copie Chrome */
 .generationFilterRangeThumbStart::-moz-range-thumb {
   pointer-events: all;
   appearance: none;
   width: 0;
   height: 0;
-  border-top: 10.5px solid transparent;
-  border-bottom: 10.5px solid transparent;
-  border-left: 15.75px solid #3f444b;
+  border-top: 10.7px solid transparent;
+  border-bottom: 10.7px solid transparent;
+  border-left: 16.1px solid #444950;
   border-right: none;
   background: none;
   border-radius: 0;
-  margin-top: -2px;
-  margin-left: -1px;
+  margin-top: -3px;
   box-shadow: none;
+  transform: translateX(-10px);
 }
 
-.generationFilterRangeThumbStartAtMin::-moz-range-thumb {
-  margin-left: -2px;
-}
-
+/* TRIANGLE DROIT FIREFOX (genEnd) - copie Chrome */
 .generationFilterRangeThumbEnd::-moz-range-thumb {
   pointer-events: all;
   appearance: none;
   width: 0;
   height: 0;
-  border-top: 10.5px solid transparent;
-  border-bottom: 10.5px solid transparent;
-  border-right: 15.75px solid #2a2e34;
+  border-top: 10.7px solid transparent;
+  border-bottom: 10.7px solid transparent;
+  border-right: 16.1px solid #444950;
   border-left: none;
   background: none;
   border-radius: 0;
-  margin-top: -2px;
+  margin-top: -3px;
+  margin-left: 6px;
   box-shadow: none;
 }
 
-.darkMode .generationFilterRangeThumbStart::-moz-range-thumb {
-  border-left-color: #d7dbe0;
+/* Supprime la marge pour la génération 9 (fin) */
+.generationFilterRangeThumbEnd.atMax::-moz-range-thumb {
   margin-left: 0;
-  box-shadow: none;
 }
 
-.darkMode .generationFilterRangeThumbStartAtMin::-moz-range-thumb {
-  margin-left: -1px;
+/* Triangles darkmode Firefox */
+.darkMode .generationFilterRangeThumbStart::-moz-range-thumb {
+  border-left-color: #ffffff;
 }
-
 .darkMode .generationFilterRangeThumbEnd::-moz-range-thumb {
-  border-right-color: #bcc3cc;
-}
-.generationFilterRangeThumb:focus::-moz-range-thumb {
-  outline: 2px solid #2775fb;
-  outline-offset: 1px;
+  border-right-color: #ffffff;
 }
 
-.darkMode .generationFilterRangeThumb:focus::-moz-range-thumb {
-  outline: 2px solid #8ea8ff;
-}
-
-.generationFilterRangeThumbStart:is(
-    :focus,
-    .generationFilterRangeThumbPinnedBlue
-  )::-moz-range-thumb {
-  border-left-color: #2775fb;
-}
-
-.generationFilterRangeThumbEnd:is(:focus, .generationFilterRangeThumbPinnedBlue)::-moz-range-thumb {
-  border-right-color: #2775fb;
-}
-
-.darkMode
-  .generationFilterRangeThumbStart:is(
-    :focus,
-    .generationFilterRangeThumbPinnedBlue
-  )::-moz-range-thumb {
-  border-left-color: #8ec5ff;
-}
-
-.darkMode
-  .generationFilterRangeThumbEnd:is(
-    :focus,
-    .generationFilterRangeThumbPinnedBlue
-  )::-moz-range-thumb {
-  border-right-color: #8ec5ff;
-}
 
 /* Range track */
 .generationFilterRangeTrack {
@@ -293,17 +238,25 @@
   overflow: hidden;
 }
 
+.darkMode .generationFilterRangeTrack {
+  background: #232729;
+  border: 1px solid #e2e2e2;
+  border-radius: 20px;
+  margin: 0 4px;
+  overflow: hidden;
+}
+
 /* Selected range */
 .generationFilterRangeSelected {
   position: absolute;
   top: 50%;
   height: 10px;
-  background: #c01818;
+  background: #ff4747;
   transform: translateY(-50%);
 }
 
 .darkMode .generationFilterRangeSelected {
-  background: #ff4747;
+  background: #c01818;
 }
 
 /* Range labels */
@@ -325,10 +278,6 @@
 /* =================================
    CLICK-TO-SELECT MODE
    ================================= */
-
-/* Triangle sélectionné au click : */
-
-
 
 /* Triangle sélectionné au click : box-shadow 2.5px autour du triangle, couleur adaptée au thème */
 .generationFilterRangeThumbActive::-webkit-slider-thumb {
