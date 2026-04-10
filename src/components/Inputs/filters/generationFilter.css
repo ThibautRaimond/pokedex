@@ -327,15 +327,21 @@
    ================================= */
 
 /* Triangle sélectionné au click : */
-.generationFilterRangeThumbActive::-webkit-slider-thumb,
-.generationFilterRangeThumbActive::-moz-range-thumb {
-  outline: 2px solid #222;
-  outline-offset: 1.5px;
+
+
+
+/* Triangle sélectionné au click : box-shadow 2.5px autour du triangle, couleur adaptée au thème */
+.generationFilterRangeThumbActive::-webkit-slider-thumb {
+  box-shadow: 0 0 0 2.5px #222 !important;
 }
-.darkMode .generationFilterRangeThumbActive::-webkit-slider-thumb,
+.darkMode .generationFilterRangeThumbActive::-webkit-slider-thumb {
+  box-shadow: 0 0 0 2.5px #fff !important;
+}
+.generationFilterRangeThumbActive::-moz-range-thumb {
+  box-shadow: 0 0 0 2.5px #222 !important;
+}
 .darkMode .generationFilterRangeThumbActive::-moz-range-thumb {
-  outline: 2px solid #fff;
-  outline-offset: 1.5px;
+  box-shadow: 0 0 0 2.5px #fff !important;
 }
 
 /* Chiffres cliquables quand un handle est sélectionné */
