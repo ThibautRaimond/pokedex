@@ -50,9 +50,21 @@ const GenerationFilter = ({
     [selectedHandle, genStart, genEnd, setGenStart, setGenEnd]
   );
 
+
   // Gestion du click court sur un triangle (sélection/désélection)
+  // Ajout : sur mobile (touch), pointerDownX vaut null, donc on sélectionne toujours
   const handleThumbPointerDown = (e) => {
-    pointerDownX.current = e.clientX;
+    if (e.type === "touchstart") {
+      // Sélection immédiate sur tap tactile
+      if (e.target.id === "genStart") {
+        setSelectedHandle((prev) => (prev === "start" ? null : "start"));
+      } else if (e.target.id === "genEnd") {
+        setSelectedHandle((prev) => (prev === "end" ? null : "end"));
+      }
+      pointerDownX.current = null;
+    } else {
+      pointerDownX.current = e.clientX;
+    }
   };
 
   const handleStartPointerUp = (e) => {
@@ -138,6 +150,7 @@ const GenerationFilter = ({
           }}
           onFocus={() => setLastUsedHandle("start")}
           onPointerDown={handleThumbPointerDown}
+          onTouchStart={handleThumbPointerDown}
           onPointerUp={handleStartPointerUp}
           className={`generationFilterRangeThumb generationFilterRangeThumbStart ${
             genStart === 1 ? "generationFilterRangeThumbStartAtMin" : ""
@@ -172,6 +185,7 @@ const GenerationFilter = ({
           }}
           onFocus={() => setLastUsedHandle("end")}
           onPointerDown={handleThumbPointerDown}
+          onTouchStart={handleThumbPointerDown}
           onPointerUp={handleEndPointerUp}
           className={`generationFilterRangeThumb generationFilterRangeThumbEnd ${
             isOverlappedMiddleGen && lastUsedHandle === "end"
