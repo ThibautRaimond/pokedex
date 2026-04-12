@@ -22,12 +22,25 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   padding-left: 1em;
+  margin: 0;
+  list-style: none;
   font-family: "Roboto", sans-serif;
+}
+
+.typeFilterItem {
+  margin: 0 0.5em;
+  display: flex;
+  align-items: center;
 }
 
 .typeFilterLabel {
   width: 6em;
-  margin: 0 0.5em;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.35rem;
 }
+
