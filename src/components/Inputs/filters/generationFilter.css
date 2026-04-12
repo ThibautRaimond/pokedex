@@ -18,12 +18,12 @@
 /* Cadre focus/click triangle Firefox : noir (clair) et blanc (dark) */
 .generationFilterRangeThumbStart:focus::-moz-range-thumb,
 .generationFilterRangeThumbEnd:focus::-moz-range-thumb {
-  outline: 2px solid #222;
+  outline: 1px solid #222;
   outline-offset: 1px;
 }
 .darkMode .generationFilterRangeThumbStart:focus::-moz-range-thumb,
 .darkMode .generationFilterRangeThumbEnd:focus::-moz-range-thumb {
-  outline: 2px solid #fff;
+  outline: 1px solid #fff;
 }
 /* Visuel focus sur les triangles : bordure colorée autour du triangle, sans changer la couleur du triangle */
 .generationFilterRangeThumbStart:focus-visible::-webkit-slider-thumb,

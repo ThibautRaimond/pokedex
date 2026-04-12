@@ -91,9 +91,19 @@ const GenerationFilter = ({
     applyGen(gen);
   };
 
+  const isStepEnabled = (gen) => {
+    if (selectedHandle === "start") {
+      return gen <= genEnd;
+    }
+    if (selectedHandle === "end") {
+      return gen >= genStart;
+    }
+    return false;
+  };
+
   // Click sur un chiffre : déplace le handle sélectionné à la génération cliquée
   const handleStepClick = (gen) => {
-    if (!selectedHandle) return;
+    if (!selectedHandle || !isStepEnabled(gen)) return;
     applyGen(gen);
   };
 
@@ -217,15 +227,19 @@ const GenerationFilter = ({
         </div>
         {/* Chiffres de génération cliquables en mode sélection */}
         <div className="generationFilterRangeSteps" aria-hidden="true">
-          {[...Array(9)].map((_, i) => (
-            <span
-              key={i}
-              className={`generationFilterRangeStep${selectedHandle ? " generationFilterRangeStepClickable" : ""}`}
-              onClick={() => handleStepClick(i + 1)}
-            >
-              {i + 1}
-            </span>
-          ))}
+          {[...Array(9)].map((_, i) => {
+            const gen = i + 1;
+            const stepEnabled = isStepEnabled(gen);
+            return (
+              <span
+                key={i}
+                className={`generationFilterRangeStep${stepEnabled ? " generationFilterRangeStepClickable" : ""}`}
+                onClick={() => handleStepClick(gen)}
+              >
+                {gen}
+              </span>
+            );
+          })}
         </div>
       </div>
     </fieldset>
