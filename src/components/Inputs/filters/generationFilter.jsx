@@ -93,10 +93,10 @@ const GenerationFilter = ({
 
   const isStepEnabled = (gen) => {
     if (selectedHandle === "start") {
-      return gen <= genEnd;
+      return gen <= genEnd && gen !== genStart;
     }
     if (selectedHandle === "end") {
-      return gen >= genStart;
+      return gen >= genStart && gen !== genEnd;
     }
     return false;
   };
