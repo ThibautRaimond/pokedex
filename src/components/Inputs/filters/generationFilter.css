@@ -55,14 +55,19 @@
 }
 
 .generationFilterRangeStep {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1.05rem;
   color: #222;
   opacity: 0.85;
-  width: 0.65em;
+  width: 1.6em;
+  height: 1.6em;
   text-align: center;
   pointer-events: none;
   position: relative;
   top: 2px;
+  box-sizing: border-box;
 }
 
 .darkMode .generationFilterRangeStep {
@@ -298,6 +303,12 @@
   pointer-events: all;
   cursor: pointer;
   opacity: 1;
+  border: 1px solid #222;
+  border-radius: 100%;
+}
+
+.darkMode .generationFilterRangeStepClickable {
+  border-color: #fff;
 }
 
 /* Track cliquable quand un handle est sélectionné */
