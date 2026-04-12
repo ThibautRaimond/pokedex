@@ -20,9 +20,9 @@
 
 .skipLinkTypes {
   position: absolute;
-  width: 35%;
+  width: auto;
   max-width: 600px;
-  padding: 1em 1rem;
+  padding: 0.25em 0.50rem;
   background-color: #222222;
   color: #fff;
   text-decoration: none;
@@ -46,14 +46,14 @@
   clip-path: inset(0);
   clip: auto;
   outline: 1px solid #222222;
-  outline-offset: 1px;
+  outline-offset: 3px;
   transform: translate(-50%, -35%);
   border: 1px solid #ffffff;
 }
 
 .darkMode .skipLinkTypes:focus {
   outline: 2px solid #ffffff;
-  outline-offset: 1px;
+  outline-offset: 3px;
 }
 
 .darkMode .skipLink:focus{
