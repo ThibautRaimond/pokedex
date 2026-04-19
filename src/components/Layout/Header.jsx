@@ -39,6 +39,7 @@ const Header = () => {
         <button 
           className="settingsButton" 
           aria-label="Ouvrir paramètres et accessibilité"
+          aria-haspopup="dialog"
           onClick={openSettings}
         >
           <FaGear aria-hidden="true" />

@@ -1,11 +1,14 @@
 import Router from "./components/Router";
 import Layout from "./components/Layout/Layout";
+import { BreadcrumbProvider } from "./components/Layout/BreadcrumbContext";
 
 const App = () => {
   return (
-    <Layout>
-      <Router />
-    </Layout>
+    <BreadcrumbProvider>
+      <Layout>
+        <Router />
+      </Layout>
+    </BreadcrumbProvider>
   );
 };
 

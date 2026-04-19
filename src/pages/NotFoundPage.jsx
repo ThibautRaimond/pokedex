@@ -35,7 +35,7 @@ const NotFoundPage = () => {
   return (
     <>
       <Helmet>
-        <title>Erreur 404 - Pokédex</title>
+        <title>Erreur 404 - Pokédex A11Y</title>
         <meta
           name="description"
           content="Oups ! Cette page n'existe pas. Retournez au Pokédex."
@@ -63,13 +63,13 @@ const NotFoundPage = () => {
           <p className="notFoundMessage">
             Il semble que vous soyez perdu dans les hautes herbes...
             <br />
-            La page que vous cherchez n'existe pas ou a été déplacée.
+            La page que vous cherchez n'existe pas ou&nbsp;a&nbsp;été&nbsp;déplacée.
             <br />
-            Retournez au{" "}
+            Revenir sur la page d'
             <Link to="/" className="notFoundLink">
-              Pokédex
+              Accueil
             </Link>{" "}
-            pour continuer votre aventure !
+            pour continuer&nbsp;votre&nbsp;aventure&nbsp;!
           </p>
         </div>
       </div>

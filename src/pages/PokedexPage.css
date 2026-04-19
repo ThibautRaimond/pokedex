@@ -5,6 +5,7 @@
   overflow: hidden;
   padding-bottom: 1em;
 }
+
 @media screen and (min-height: 850px) {
   .pokedexPageContainer {
   }
@@ -24,12 +25,12 @@
   float: right;
 }
 .pokedexImg {
- 
+  margin-top: 0.5em;
 }
 /* --- */
 .pokedexPageContainerImgContainer {
   position: absolute;
-  top: 17.5em;
+  top: 18.9em;
   margin-right: 2.1em;
 }
 .imgContainerImg {
@@ -38,7 +39,7 @@
 /* --- */
 .pokedexPageContainerNameAndIdContainer {
   position: absolute;
-  top: 28.5em;
+  top: 29.7em;
   margin-right: 2.2em;
   display: flex;
   align-items: center;
@@ -62,27 +63,30 @@
 }
 .arrow {
   position: relative;
-  top: -2px;
+  top: -3px;
   color: #c70a3c;
   cursor: pointer;
   outline-offset: -12px;
+  font-size: 1.25rem;
+  line-height: 1;
+  padding: 0.15rem 0.35rem;
 }
 
 .arrow::before {
-  content: '';
+  content: "";
   position: absolute;
-  top: -16px;
-  left: -16px;
-  right: -16px;
-  bottom: -16px;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
 }
 
 /* --- */
 .pokedexPageContainerTypesContainer {
   display: flex;
-  align-items: center;
   position: absolute;
-  top: 32.2em;
+  top: 33.4em;
+  margin-right: 2.2em;
   color: #fff;
   background-color: #d30a40;
   white-space: nowrap;
@@ -93,16 +97,15 @@
   margin-right: 3px;
 }
 .typesContainerPokedexType {
- 
 }
 
 /* --- */
 .pokedexPageContainerWeightAndHeightContainer {
   display: flex;
   position: absolute;
-  top: 34.2em;
+  top: 35.4em;
   color: #fff;
-  background-color: #D30A40;
+  background-color: #d30a40;
   white-space: nowrap;
 }
 .pokedexPageContainerWeightContainer {
@@ -128,12 +131,11 @@
 .pokedexPageContainerCategoryContainer {
   display: flex;
   position: absolute;
-  top: 36.2em;
+  top: 37.4em;
   margin-right: 2.2em;
   color: #fff;
-  background-color: #D30A40;
+  background-color: #d30a40;
   white-space: nowrap;
-
 }
 .categoryContainerCategoryTitle {
   margin-right: 0.2em;
@@ -158,12 +160,12 @@
 /* --- */
 .pokedexPageContainerDescriptionContainer {
   position: absolute;
-  top: 38.2em;
+  top: 39.4em;
   margin-right: 2.2em;
   width: 300px;
   text-align: center;
   color: #fff;
-    background-color: #D30A40;
+  background-color: #d30a40;
 }
 .descriptionContainerDescriptionTitle {
   font-weight: bold;
@@ -174,7 +176,7 @@
 /* Lien de retour à l'accueil */
 .backToHomeLink {
   position: fixed;
-  bottom: 6em;
+  bottom: 6.5em;
   left: 50%;
   transform: translateX(-50%);
   padding: 1rem 1.5rem;

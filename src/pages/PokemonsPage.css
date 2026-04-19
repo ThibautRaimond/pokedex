@@ -1,0 +1,264 @@
+/* =================================================================
+   HOME PAGE STYLES - camelCase
+   ================================================================= */
+
+/* =================================
+   BASE STYLES
+   ================================= */
+
+body {
+  cursor: url("../assets/pokedex.png"), auto;
+}
+
+/* Block: PokemonsPage */
+.PokemonsPage {
+  /* Wrapper principal */
+}
+
+.PokemonsPageContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f1f1ea;
+  color: #222;
+  padding-top: 6px;
+  padding-bottom: 1em;
+}
+
+.darkMode .PokemonsPageContainer {
+  background-color: #222;
+  color: #f1f1f1ea;
+}
+
+/* =================================
+   FILTER SECTION
+   ================================= */
+
+/* Filter toggle button */
+.filterSectionToggleButton {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 10px 16px;
+  margin: 0.5em auto 0.5em;
+  width: fit-content;
+  background-color: #f1f1f1ea;
+  border-radius: 8px;
+  border: 1.5px solid rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.filterSectionToggleButton:focus-visible {
+  outline: 2px solid #222222;
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+.darkMode .filterSectionToggleButton {
+  background-color: #222222;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.darkMode .filterSectionToggleButton:focus-visible {
+  outline: 2px solid #f1f1f1ea;
+}
+
+.filterSectionToggleIcon {
+  color: #222;
+  transition: color 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.2));
+}
+
+.darkMode .filterSectionToggleIcon {
+  color: #f1f1f1ea;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.35));
+}
+
+.filterSectionToggleLabel {
+  margin-left: 0.5em;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #222;
+}
+
+.darkMode .filterSectionToggleLabel {
+  color: #f1f1f1ea;
+}
+
+.filterSectionToggleTitle {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Filter container */
+.filterSectionContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 0;
+  overflow: hidden;
+  border: 1.5px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  transition: 0.6s;
+  min-width: 310px;
+  width: min(90vw, 700px);
+  margin: 0 auto 1em auto;
+  background-color: #f1f1f1ea;
+  color: #222222;
+}
+
+.darkMode .filterSectionContainer {
+  background-color: #222222;
+  color: #f1f1f1ea;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.filterSectionContainer.isOpen {
+  width: min(90vw, 700px);
+  height: auto;
+  transition: 0.6s;
+  padding: 1em 0em;
+}
+
+.filterSectionContainer > li {
+  position: relative;
+}
+
+/* =================================
+   POKEMON GRID
+   ================================= */
+
+.pokemonGrid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1em;
+}
+
+.pokemonCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 120px;
+  margin: 2px;
+  border: 1.5px solid #ccc;
+  border-radius: 20px;
+  float: left;
+}
+
+.darkMode .pokemonCard {
+  color: #f1f1f1ea;
+  background-color: #222;
+  border: 1.5px solid #464646;
+}
+
+/* Pokemon card header */
+.pokemonCardHeader {
+  width: 120px;
+  background-color: #f1f1f1;
+  color: #222;
+  border-radius: 20px 20px 0px 0px;
+  border: 1px solid #ccc;
+  border-bottom: 0;
+  padding-top: 1px;
+}
+
+.darkMode .pokemonCardHeader {
+  background-color: #222;
+  color: #f1f1f1ea;
+  border: 1px solid #464646;
+  border-bottom: 0;
+}
+
+/* Pokemon image loader */
+.pokemonCardImageLoader {
+  height: 115px;
+  width: 115px;
+  left: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Pokemon image container */
+.pokemonCardImageContainer {
+  width: 100%;
+  min-height: 115px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.pokemonCardImage {
+  width: 115px;
+  height: 115px;
+}
+
+/* =================================
+   STATUS MESSAGES
+   ================================= */
+
+.statusMessage {
+  margin: 10px auto;
+  padding: 0.8em 1.2em;
+  font-size: 1.1rem;
+  text-align: center;
+  color: #000000;
+  max-width: 350px;
+}
+
+.darkMode .statusMessage {
+  color: #f1f1f1ea;
+}
+
+.statusMessageIcon {
+  vertical-align: middle;
+  font-size: 1.3rem;
+  margin: 0 0.3em 2px 0;
+}
+
+/* Error messages */
+.statusMessageError {
+  border-left: 4px solid #c20303;
+}
+
+.darkMode .statusMessageError {
+  border-left: 4px solid #ff4747;
+}
+
+.statusMessageIconError {
+  color: #c20303;
+}
+
+.darkMode .statusMessageIconError {
+  color: #ff4747;
+}
+
+/* Success messages */
+.statusMessageSuccess {
+  border-left: 4px solid #0a9225;
+}
+
+.darkMode .statusMessageSuccess {
+  border-left: 4px solid #06c02e;
+}
+
+.statusMessageIconSuccess {
+  color: #0a9225;
+}
+
+.darkMode .statusMessageIconSuccess {
+  color: #06c02e;
+}

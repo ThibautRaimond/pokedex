@@ -1,228 +1,154 @@
-import { useState, useRef, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import a11ypok from "../assets/a11ypok.jpg";
+import profthib from "../assets/profthib.jpg";
+import deficientsmoteur from "../assets/deficientsmoteur.webp";
+import deficientsvisuel from "../assets/deficientsvisuel.webp";
+import deficientsmentaux from "../assets/deficientsmentaux.webp";
 
-import getPokemonTitle from "../utils/getPokemonTitle";
-import { navigateWithTitle } from "../utils/ChangeTitleBefore";
-import { getPokemonDetails } from "../api/getPokemonDetails";
-import { useSpeciesApi } from "../hooks/usePokeApi";
-import { PokemonsFilter } from "../components/Inputs/filters/allFiltersExport";
-import ScrollToTopButton from "../components/Inputs/ScrollToTopButton";
-import ScrollToBotButton from "../components/Inputs/ScrollToBotButton";
-import PokeballLoader from "../components/Loaders/PokeballLoader";
-import CircleLoader from "../components/Loaders/CircleLoader";
 import "./HomePage.css";
 
+const features = [
+  {
+    iconSrc: deficientsmoteur,
+    title: "Navigation au clavier",
+    desc: (
+      <>
+        Toutes les fonctionnalités sont accessibles à la navigation au clavier
+        avec une prise de focus visible.
+        <br />
+        Des liens d'accès rapide et d'évitement sont disponibles pour assurer
+        une navigation fluide et efficace, même sans souris.
+        <br />
+        Le site est également conçu pour fonctionner avec un outil de curseur
+        sans geste complexe.
+      </>
+    ),
+  },
+  {
+    iconSrc: deficientsvisuel,
+    title: "Outils d'assistance",
+    desc: (
+      <>
+        La structure des pages et les composants utilisés sont conçus pour rendre
+        le site accessible aux lecteurs d'écran et aux plages brailles.
+        <br />
+        Les intitulés de chaque éléments sont choisie de manière à palier l'absence de contexte visuel.
+        <br />
+        Les problématiques liées à l'utilisation d'un environnement <span lang="en">"Single Page Application"</span> sont également prises en compte.
+      </>
+    ),
+  },
+  {
+    iconSrc: deficientsvisuel,
+    title: "Contraste et thème",
+    desc: "Mode clair et mode sombre disponibles avec des ratios de contraste conformes aux normes  pour assurer une bonne lisibilité. De plus ce mode est automatiquement activé si vous avez choisi un thème sombre dans les préférences de votre système, évitant ainsi les problématiques liées à la photophobie.",
+  },
+  {
+    iconSrc: deficientsmentaux,
+    title: "Mode sans animations",
+    desc: 'Toutes les animations sont désactivées par défaut si vous avez activé "Réduire les animations" dans les préférences de votre système ou que vous utilisez le bouton adéquat.',
+  },
+];
+
 const HomePage = () => {
-  /* === Refs et navigation === */
-  const contentRef = useRef(null);
-  const navigate = useNavigate();
-
-  /* === Données et filtres === */
-  const [searchByName, setSearchByName] = useState("");
-  const [selectedTypes, setSelectedTypes] = useState([]);
-  const { data, isLoading, genStart, genEnd, setGenStart, setGenEnd } =
-    useSpeciesApi();
-
-  /* === Messages d'accessibilité pour le chargement === */
-  const [statusMessage, setStatusMessage] = useState("");
-  const LOADINGMESSAGE = "pokemon en chargement";
-  const LOADEDMESSAGE = "chargement terminé";
-
-  useEffect(() => {
-    let delayTimeoutId;
-    let reinsertTimeoutId;
-
-    if (isLoading) {
-      // Après 1 seconde, annoncer le chargement avec re-insertion
-      delayTimeoutId = setTimeout(() => {
-        // Vider d'abord le message
-        setStatusMessage("");
-        // Puis reinjecter apres un court délai pour forcer la detection
-        reinsertTimeoutId = setTimeout(() => {
-          setStatusMessage(LOADINGMESSAGE);
-        }, 100);
-      }, 1000);
-    } else if (data) {
-      // Quand le chargement est termine, re-insertion rapide
-      setStatusMessage("");
-      reinsertTimeoutId = setTimeout(() => {
-        setStatusMessage(LOADEDMESSAGE);
-      }, 100);
-    }
-
-    return () => {
-      if (delayTimeoutId) clearTimeout(delayTimeoutId);
-      if (reinsertTimeoutId) clearTimeout(reinsertTimeoutId);
-    };
-  }, [isLoading, data]);
-
-  /* === Preference de mouvement (reduce motion) === */
-  const [reduceMotion, setReduceMotion] = useState(() => {
-    const saved = localStorage.getItem('reduceMotion');
-    return saved === 'true';
-  });
-
-  // Ecouter les changements de reduceMotion depuis les paramètres
-  useEffect(() => {
-    const handleStorageChange = () => {
-      const saved = localStorage.getItem('reduceMotion');
-      setReduceMotion(saved === 'true');
-    };
-
-    // Synchronise reduceMotion si un autre onglet ou un composant met a jour le localStorage
-    window.addEventListener('storage', handleStorageChange);
-    window.addEventListener('reduceMotionChange', handleStorageChange);
-
-    return () => {
-      window.removeEventListener('storage', handleStorageChange);
-      window.removeEventListener('reduceMotionChange', handleStorageChange);
-    };
-  }, []);
-
-  const toggleReduceMotion = () => {
-    setReduceMotion(!reduceMotion);
-  };
-
-  // Enregistre le choix de l'utilisateur concernant les animations
-  useEffect(() => {
-    localStorage.setItem('reduceMotion', reduceMotion);
-  }, [reduceMotion]);
-
-  /* === Loader d'image === */
-  const [imageLoading, setImageLoading] = useState(true);
-
-  const handleImageLoaded = () => {
-    setImageLoading(false);
-  };
-
-  /* === Navigation Pokemon avec titre précharge === */
-  // Prefetch + titre + navigation, avec fallback en cas d'erreur
-  const handlePokemonNavigation = async (event, pokemonId) => {
-    event.preventDefault();
-
-    try {
-      const prefetch = await getPokemonDetails(pokemonId);
-      navigateWithTitle({
-        navigate,
-        to: `/pokemon/${pokemonId}`,
-        title: getPokemonTitle(pokemonId, prefetch),
-        state: { prefetch },
-      });
-    } catch (error) {
-      navigateWithTitle({
-        navigate,
-        to: `/pokemon/${pokemonId}`,
-        title: getPokemonTitle(pokemonId),
-      });
-    }
-  };
-
-  
   return (
-    <div className="homePage">
+    <div className="homePageContainer">
       <Helmet>
-        <title aria-live="polite">Accueil - Pokedex</title>
+        <title>Accueil - Pokédex A11Y</title>
+        <meta
+          name="description"
+          content="Bienvenue sur le Pokédex accessible et inclusif. Découvrez des fiches Pokémon conçues pour être lisibles, navigables au clavier, et adaptées aux personnes en situation de handicap."
+        />
       </Helmet>
 
-      {/* Gestion des contenus en mouvement */}
-      <div ref={contentRef} className="homePageContainer">
-        <div role="heading" aria-level="1" className="srOnly skipTarget" tabIndex="-1">Liste des Pokémon</div>
+      {/* Titre principal */}
+      <h1
+        id="page-title-announce"
+        tabIndex="-1"
+        className="homeTitle skipTarget"
+      >
+        <span className="srOnly">Accueil</span>
+      </h1>
 
-        <PokemonsFilter
-          genStart={genStart}
-          genEnd={genEnd}
-          setGenStart={setGenStart}
-          setGenEnd={setGenEnd}
-          selectedTypes={selectedTypes}
-          setSelectedTypes={setSelectedTypes}
-          searchByName={searchByName}
-          setSearchByName={setSearchByName}
-        />
-
-        {/* Loader ou erreur */}
-        {isLoading && (
-          reduceMotion ? (
-            <div className="statusMessage" role="status" aria-live="polite">
-              <p>Chargement</p>
-            </div>
-          ) : (
-            <PokeballLoader />
-          )
-        )}
-
-        {/* Message status pour l'accessibilité */}
-        <div
-          role="status"
-          aria-live="polite"
-          aria-atomic="true"
-          className="srOnly"
-        >
-          {statusMessage}
+      {/* Professeur Thib */}
+      <div className="profSection">
+        <img src={profthib} alt="" className="profImg" />
+        <div className="profDialogBox">
+          <p className="profName">
+            <span className="srOnly">Message de &emsp;</span>Professeur Thib
+          </p>
+          <blockquote>
+            <p className="profText">
+              Bonjour, jeune dresseur ! Je suis le Professeur Thib.
+            </p>
+            <p className="profText">
+              J’ai consacré mes recherches à créer un Pokédex accessible à tous,
+              afin que chaque passionné puisse découvrir les Pokémon sans
+              obstacle.
+            </p>
+            <p className="profText">
+              Cette mission t’est confiée… ouvre-le et commence ton voyage !
+            </p>
+          </blockquote>
+          <Link to="/pokemonspage" className="startButton">
+            <span aria-hidden="true">▶</span> Ouvrir le Pokédex
+          </Link>
         </div>
+      </div>
 
-        {/* Liste des pokemons filtrés */}
-        {data && (
-          <nav aria-label="Affichage sur pokedex">
-            <ul
-              className="pokemonGrid"
-              id="listContainer">
-              {data
-                .filter(
-                  ({ name, types }) =>
-                    name
-                      .toLowerCase()
-                      .normalize("NFD")
-                      .replace(/[\u0300-\u036f]/g, "")
-                      .includes(
-                        searchByName
-                          .toLowerCase()
-                          .normalize("NFD")
-                          .replace(/[\u0300-\u036f]/g, ""),
-                      ) &&
-                    (selectedTypes.length > 0
-                      ? types.some((t) => selectedTypes.includes(t))
-                      : true),
-                )
-                .map(({ id, name, types, sprite }, index) => (
-                  <li
-                    className={`${types[0]} pokemonCard`}
-                    key={index}
-                  >
-                    <Link
-                      to={`/pokemon/${id}`}
-                      aria-label={`${name} pokemon numéro ${id}`}
-                      onClick={(event) => handlePokemonNavigation(event, id)}
-                    >
-                      <div className="pokemonCardHeader">
-                        <p>{name}</p>
-                        <p>N°{id}</p>
-                      </div>
+      {/* Features */}
+      <div className="homeFeaturesSection">
+        <h2 id="features-title" className="homeSectionTitle">
+          Fonctionnalités d'accessibilité
+        </h2>
+        {/* Sous-titre */}
+        <p className="homeSubtitle">
+          Un Pokédex pensé pour <strong>tout le monde</strong> conçu avec les
+          normes RGAA et les bonnes pratiques pour être utilisable par les
+          personnes en situation de handicap.
+        </p>
+        <ul className="homeFeaturesList">
+          {features.map((f) => (
+            <li key={f.title} className="homeFeatureCard">
+              <span className="homeFeatureIcon" aria-hidden="true">
+                {f.iconSrc ? <img src={f.iconSrc} /> : <span>{f.icon}</span>}
+              </span>
+              <h3 className="homeFeatureTitle">{f.title}</h3>
+              <p className="homeFeatureDesc">{f.desc}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
 
-                      <div className="pokemonCardImageContainer">
-                        {imageLoading &&
-                          (reduceMotion ? (
-                            <div className="statusMessage" role="status"></div>
-                          ) : (
-                            <CircleLoader />
-                          ))}
-                        <img
-                          src={sprite}
-                          alt={name}
-                          onLoad={handleImageLoaded}
-                          className="pokemonCardImage"
-                          style={{ display: imageLoading ? 'none' : 'block' }}
-                        />
-                      </div>
-                    </Link>
-                  </li>
-                ))}
-            </ul>
-          </nav>
-        )}
-
-        <ScrollToTopButton/>
-        <ScrollToBotButton/>
+      {/* À propos */}
+      <div className="homeAboutSection" aria-labelledby="about-title">
+        <div className="homeAboutContent">
+          <h2 id="about-title" className="homeSectionTitle homeAboutTitle">
+            À propos du projet
+          </h2>
+          <p className="homeAboutText">
+            Ce projet est né de la conviction que les loisirs numériques doivent
+            être accessibles à tous. En s’appuyant sur les données de{" "}
+            <a
+              href="https://pokeapi.co"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="homeLink"
+            >
+              PokéAPI
+            </a>
+            , ce Pokédex propose des informations sur chaque Pokémon dans une
+            interface inclusive, après avoir testé sa compatabilité liées aux
+            différentes situations de handicap.
+          </p>
+          <p className="homeAboutText">
+            Je vous souhaite une excellente exploration de ce Pokédex, et
+            surtout, n’hésitez pas à me faire part de vos retours pour continuer
+            à améliorer son accessibilité !
+          </p>
+        </div>
+        <img src={a11ypok} className="homeImage" />
       </div>
     </div>
   );

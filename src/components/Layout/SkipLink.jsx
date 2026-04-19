@@ -31,8 +31,8 @@ function SkipLink() {
     if (targetType === "main-content") {
       const mainElement = document.querySelector('main');
       if (mainElement) {
-        // Chercher d'abord un heading avec la classe skipTarget
-        const skipTarget = mainElement.querySelector('.skipTarget');
+        // Chercher d'abord un heading avec la classe skipTarget, puis un id page-title-announce
+        const skipTarget = mainElement.querySelector('.skipTarget') || mainElement.querySelector('#page-title-announce');
         if (skipTarget) {
           skipTarget.focus({ preventScroll: true });
         } else {
@@ -69,7 +69,7 @@ function SkipLink() {
 
   return (
     <>
-      <div id="page-title-announce" className="srOnly" tabIndex="-1">Page {pageTitle}</div>
+      <div id="page-title-announce-hidden" className="srOnly" tabIndex="-1">Page {pageTitle}</div>
       <nav className="skipLinks" aria-label="Accès rapide">
       <a
         href="#main-content"

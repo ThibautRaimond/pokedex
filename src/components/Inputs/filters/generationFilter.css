@@ -25,10 +25,10 @@
 .darkMode .generationFilterRangeThumbEnd:focus::-moz-range-thumb {
   outline: 1px solid #fff;
 }
-/* Visuel focus sur les triangles : bordure colorée autour du triangle, sans changer la couleur du triangle */
+/* Visuel focus sur les triangles : bordure colorée autour du triangle */
 .generationFilterRangeThumbStart:focus-visible::-webkit-slider-thumb,
 .generationFilterRangeThumbEnd:focus-visible::-webkit-slider-thumb {
-  outline: none;
+  outline: none;    
   box-shadow: 0 0 0 3px #2775fb;
 }
 .darkMode .generationFilterRangeThumbStart:focus-visible::-webkit-slider-thumb,

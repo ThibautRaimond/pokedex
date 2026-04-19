@@ -7,6 +7,7 @@ import { getPokemonDetails } from "../api/getPokemonDetails";
 import { navigateWithTitle } from "../utils/ChangeTitleBefore";
 import getPokemonTitle from "../utils/getPokemonTitle";
 import NotFoundPage from "./NotFoundPage";
+import { useBreadcrumb } from "../components/Layout/BreadcrumbContext";
 import "./PokedexPage.css";
 import "../styles/pokemonTypes.css";
 import pokedexModel from "../assets/pokedexModel.png";
@@ -165,6 +166,19 @@ const PokedexPage = () => {
       title: "Accueil - Pokedex",
     });
   };
+  const { setItems } = useBreadcrumb();
+
+  useEffect(() => {
+    if (pokemon) {
+      setItems([
+        { to: "/", label: "Accueil" },
+        { to: "/pokemonspage", label: "Liste des pokémons" },
+        { label: pokemon.name, current: true },
+      ]);
+    }
+    return () => setItems([]);
+  }, [pokemon, setItems]);
+
   if (isNotFound) {
     return <NotFoundPage />;
   }
@@ -173,7 +187,7 @@ const PokedexPage = () => {
     return (
       <div className="pokedexPageContainer">
         <Helmet>
-          <title aria-live="polite">{pokemon.name} - Pokedex</title>
+          <title>{pokemon.name} - Pokedex A11Y</title>
         </Helmet>
         <img src={pokedexModel} alt="" className="pokedexImg" />
         <div className="pokedexPageContainerImgContainer">
@@ -294,7 +308,7 @@ const PokedexPage = () => {
           </li>
         </ul>
         <Link
-          to="/"
+          to="/pokemonspage"
           className="backToHomeLink"
           tabIndex="0"
           onClick={handleBackToHome}
@@ -304,7 +318,7 @@ const PokedexPage = () => {
             }
           }}
         >
-          Revenir à l'accueil pour voir les pokemons
+          Revenir à la liste des Pokémon
         </Link>
       </div>
     );

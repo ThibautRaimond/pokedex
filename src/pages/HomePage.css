@@ -1,29 +1,19 @@
 /* =================================================================
-   HOME PAGE STYLES - camelCase
+   HOME PAGE STYLES
    ================================================================= */
-
-/* =================================
-   BASE STYLES
-   ================================= */
 
 body {
   cursor: url("../assets/pokedex.png"), auto;
 }
 
-/* Block: homePage */
-.homePage {
-  /* Wrapper principal */
-}
-
+/* ---- Container ---- */
 .homePageContainer {
-  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   background-color: #f1f1f1ea;
   color: #222;
-  padding-bottom: 1em;
+  padding-top: 1.5em;
 }
 
 .darkMode .homePageContainer {
@@ -31,224 +21,400 @@ body {
   color: #f1f1f1ea;
 }
 
-/* =================================
-   FILTER SECTION
-   ================================= */
-
-/* Filter toggle button */
-.filterSectionToggleButton {
-  all: unset;
+/* ---- Hero ---- */
+.homeHero {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  position: relative;
-  padding: 10px 16px;
-  margin: 0 auto 10px auto;
-  width: fit-content;
-  background-color: #f1f1f1ea;
-  border-radius: 8px;
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.3),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  cursor: pointer;
-  transition:
-    background-color 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.filterSectionToggleButton:focus-visible {
-  outline: 2px solid #222222;
-  outline-offset: 4px;
-  border-radius: 8px;
-}
-
-.darkMode .filterSectionToggleButton {
-  background-color: #222222;
-}
-
-.darkMode .filterSectionToggleButton:focus-visible {
-  outline: 2px solid #f1f1f1ea;
-}
-
-.filterSectionToggleIcon {
-  color: #222;
-  transition: color 0.3s ease;
-}
-
-.darkMode .filterSectionToggleIcon {
-  color: #f1f1f1ea;
-}
-
-.filterSectionToggleLabel {
-  margin-left: 0.5em;
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #222;
-}
-
-.darkMode .filterSectionToggleLabel {
-  color: #f1f1f1ea;
-}
-
-.filterSectionToggleTitle {
-  margin: 0;
-  font-size: 1rem;
-}
-
-/* Filter container */
-.filterSectionContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 0;
-  overflow: hidden;
-  box-shadow:
-    0 -1px 6px -1px rgba(0, 0, 0, 0.568),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  transition: 0.6s;
-  min-width: 310px;
-  width: min(90vw, 700px);
-  margin: 0 auto 1em auto;
-}
-
-.filterSectionContainer.isOpen {
-  width: min(90vw, 700px);
-  height: auto;
-  transition: 0.6s;
-  padding: 1em 0em;
-}
-
-.filterSectionContainer > li {
-  position: relative;
-}
-
-/* =================================
-   POKEMON GRID
-   ================================= */
-
-.pokemonGrid {
-  display: flex;
-  justify-content: center;
+  gap: 3rem;
   flex-wrap: wrap;
+  width: 100%;
+  max-width: 1000px;
 }
 
-.pokemonCard {
-  position: relative;
+.homeHeroText {
+  flex: 1 1 300px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  gap: 1.25rem;
+}
+
+.homeTitle {
+  font-family: "Press Start 2P", cursive;
+  font-size: clamp(1rem, 4vw, 2.4rem);
+  line-height: 1.4;
+  margin: 0;
   text-align: center;
-  width: 120px;
-  margin: 2px;
-  border: 1.5px solid #ccc;
-  border-radius: 20px;
-  float: left;
-}
-
-.darkMode .pokemonCard {
-  color: #f1f1f1ea;
-  background-color: #222;
-  border: 1.5px solid #464646;
-}
-
-/* Pokemon card header */
-.pokemonCardHeader {
-  width: 120px;
-  background-color: #f1f1f1;
-  color: #222;
-  border-radius: 20px 20px 0px 0px;
-  border: 1px solid #ccc;
-  border-bottom: 0;
-  padding-top: 1px;
-}
-
-.darkMode .pokemonCardHeader {
-  background-color: #222;
-  color: #f1f1f1ea;
-  border: 1px solid #464646;
-  border-bottom: 0;
-}
-
-/* Pokemon image loader */
-.pokemonCardImageLoader {
-  height: 115px;
-  width: 115px;
-  left: 6px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Pokemon image container */
-.pokemonCardImageContainer {
   width: 100%;
-  min-height: 115px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
 }
 
-.pokemonCardImage {
-  width: 115px;
-  height: 115px;
-}
-
-/* =================================
-   STATUS MESSAGES
-   ================================= */
-
-.statusMessage {
-  margin: 10px auto;
-  padding: 0.8em 1.2em;
-  font-size: 1.1rem;
+.homeSubtitle {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0 auto 1em;
+  max-width: 720px;
+  width: min(100%, 720px);
   text-align: center;
-  color: #000000;
-  max-width: 350px;
 }
 
-.darkMode .statusMessage {
-  color: #f1f1f1ea;
-}
-
-.statusMessageIcon {
-  vertical-align: middle;
-  font-size: 1.3rem;
-  margin: 0 0.3em 2px 0;
-}
-
-/* Error messages */
-.statusMessageError {
-  border-left: 4px solid #c20303;
-}
-
-.darkMode .statusMessageError {
-  border-left: 4px solid #ff4747;
-}
-
-.statusMessageIconError {
+.homeAccent {
   color: #c20303;
 }
 
-.darkMode .statusMessageIconError {
+.darkMode .homeAccent {
   color: #ff4747;
 }
 
-/* Success messages */
-.statusMessageSuccess {
-  border-left: 4px solid #0a9225;
+.homeHeroImgWrapper {
+  flex: 0 1 320px;
 }
 
-.darkMode .statusMessageSuccess {
-  border-left: 4px solid #06c02e;
+@media (min-width: 1024px) {
+  .homeHeroImgWrapper {
+    flex: 0 1 420px;
+  }
+
+  .homeImage {
+    max-width: 520px;
+  }
 }
 
-.statusMessageIconSuccess {
-  color: #0a9225;
+/* ---- Professeur Thib ---- */
+.profSection {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 860px;
+  flex-wrap: wrap;
+  margin-bottom: 6em;
+  overflow: visible;
 }
 
-.darkMode .statusMessageIconSuccess {
-  color: #06c02e;
+.profImg {
+  width: 120px;
+  height: auto;
+  flex-shrink: 0;
+  transform: translateY(40%);
+  image-rendering: pixelated;
+  filter: drop-shadow(2px 4px 0px rgba(0, 0, 0, 0.2));
+}
+
+@media (max-width: 600px) {
+  .profSection {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 2em;
+  }
+  .profImg {
+    transform: none;
+  }
+}
+
+.profDialogBox {
+  flex: 1 1 300px;
+  background: #fff;
+  border: 3px solid #222;
+  border-radius: 4px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  position: relative;
+  box-shadow: 4px 4px 0 #222;
+}
+
+.profDialogBox::before {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: -22px;
+  width: 0;
+  height: 0;
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+  border-right: 22px solid #222;
+}
+
+.profDialogBox::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: -19px;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 17px solid #fff;
+}
+
+.profName {
+  font-family: "Press Start 2P", cursive;
+  font-size: 0.65rem;
+  color: #b70000;
+  margin: 0 0 0.4rem;
+  letter-spacing: 0.05em;
+}
+
+.darkMode .profName {
+  color: #fa6f6f;
+}
+
+.profText {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.darkMode .profDialogBox {
+  background: #2e2e2e;
+  border-color: #f1f1f1ea;
+  box-shadow: 4px 4px 0 #f1f1f1ea;
+  color: #f1f1f1ea;
+}
+
+.darkMode .profDialogBox::before {
+  border-right-color: #f1f1f1ea;
+}
+
+.darkMode .profDialogBox::after {
+  border-right-color: #2e2e2e;
+}
+
+@media (max-width: 600px) {
+  .profDialogBox {
+    margin-top: 16px;
+  }
+  .profDialogBox::before {
+    bottom: auto;
+    top: -22px;
+    left: 49px;
+    border: 0;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    border-bottom: 22px solid #222;
+  }
+  .profDialogBox::after {
+    bottom: auto;
+    top: -17px;
+    left: 52px;
+    border: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 17px solid #fff;
+  }
+  .darkMode .profDialogBox::before {
+    border-right-color: transparent;
+    border-bottom-color: #f1f1f1ea;
+  }
+  .darkMode .profDialogBox::after {
+    border-right-color: transparent;
+    border-bottom-color: #2e2e2e;
+  }
+}
+
+/* ---- CTA Button ---- */
+.startButton {
+  align-self: flex-start;
+  padding: 0.75rem 1.75rem;
+  background-color: #b70000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: "Oxanium", cursive;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease;
+}
+.startButtonArrow {
+  margin-left: 0.5rem;
+  margin-top: 0.1rem;
+}
+
+.darkMode .startButton {
+  background-color: #fa6f6f;
+  color: #222;
+}
+
+.startButton:focus-visible {
+  outline: 3px solid #222;
+  outline-offset: 4px;
+}
+
+.darkMode .startButton:focus-visible {
+  outline-color: #f1f1f1ea;
+}
+
+/* ---- Section titles ---- */
+.homeSectionTitle {
+  font-family: "Oxanium", cursive;
+  font-size: clamp(1.2rem, 3vw, 1.7rem);
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 1rem;
+}
+
+/* ---- Features ---- */
+.homeFeaturesSection {
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 4em;
+}
+
+@media screen and (max-width: 600px) {
+  .homeFeaturesSection {
+    margin-top: 3em;
+  }
+}
+
+.homeFeaturesList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.5rem;
+}
+
+.homeFeatureCard {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem 1.25rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.darkMode .homeFeatureCard {
+  background: #2e2e2e;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.homeFeatureIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.darkMode .homeFeatureIcon {
+  background-color: #333;
+}
+
+.homeFeatureIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.homeFeatureTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.homeFeatureDesc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.85;
+}
+
+/* ---- About ---- */
+.homeAboutSection {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  padding: 2.5rem 2rem;
+  margin-bottom: 2em;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+}
+
+.homeAboutContent {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.homeAboutTitle {
+  text-align: left;
+  margin: 0 0 0.5rem;
+}
+
+.homeImage {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.homeAboutSection .homeImage {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 340px;
+  min-width: 0;
+  height: auto;
+  align-self: center;
+  object-fit: contain;
+}
+
+@media (max-width: 640px) {
+  .homeAboutSection {
+    flex-direction: column;
+  }
+  .homeAboutTitle {
+    text-align: center;
+  }
+  .homeAboutSection .homeImage {
+    max-width: 100%;
+    width: 100%;
+    align-self: center;
+  }
+}
+
+.darkMode .homeAboutSection {
+  background: #2e2e2e;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
+}
+
+.homeAboutText {
+  font-size: 1rem;
+  line-height: 1.75;
+  margin: 0;
+}
+
+.homeLink {
+  color: #b90e0e;
+  font-weight: 600;
+  text-underline-offset: 3px;
+  text-decoration: underline;
+}
+
+.darkMode .homeLink {
+  color: #ff6b4a;
+}
+
+.homeAboutBtn {
+  align-self: center;
 }
