@@ -94,7 +94,7 @@ body {
 }
 
 .profImg {
-  width: 120px;
+  width: 180px; /* 150% de 120px */
   height: auto;
   flex-shrink: 0;
   transform: translateY(40%);
