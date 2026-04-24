@@ -127,8 +127,7 @@ body {
   box-shadow: 4px 4px 0 #222;
 }
 
-.profDialogBox::before {
-  content: "";
+.profDialogArrowOuter {
   position: absolute;
   bottom: -1px;
   left: -22px;
@@ -139,8 +138,7 @@ body {
   border-right: 22px solid #222;
 }
 
-.profDialogBox::after {
-  content: "";
+.profDialogArrowInner {
   position: absolute;
   bottom: 2px;
   left: -19px;
@@ -154,13 +152,13 @@ body {
 .profName {
   font-family: "Press Start 2P", cursive;
   font-size: 0.65rem;
-  color: #b70000;
+  color: #b40505;
   margin: 0 0 0.4rem;
   letter-spacing: 0.05em;
 }
 
 .darkMode .profName {
-  color: #fa6f6f;
+  color: #FAA3A2;
 }
 
 .profText {
@@ -176,11 +174,11 @@ body {
   color: #f1f1f1ea;
 }
 
-.darkMode .profDialogBox::before {
+.darkMode .profDialogArrowOuter {
   border-right-color: #f1f1f1ea;
 }
 
-.darkMode .profDialogBox::after {
+.darkMode .profDialogArrowInner {
   border-right-color: #2e2e2e;
 }
 
@@ -188,7 +186,7 @@ body {
   .profDialogBox {
     margin-top: 16px;
   }
-  .profDialogBox::before {
+  .profDialogArrowOuter {
     bottom: auto;
     top: -22px;
     left: 49px;
@@ -197,7 +195,7 @@ body {
     border-right: 11px solid transparent;
     border-bottom: 22px solid #222;
   }
-  .profDialogBox::after {
+  .profDialogArrowInner {
     bottom: auto;
     top: -17px;
     left: 52px;
@@ -206,11 +204,11 @@ body {
     border-right: 8px solid transparent;
     border-bottom: 17px solid #fff;
   }
-  .darkMode .profDialogBox::before {
+  .darkMode .profDialogArrowOuter {
     border-right-color: transparent;
     border-bottom-color: #f1f1f1ea;
   }
-  .darkMode .profDialogBox::after {
+  .darkMode .profDialogArrowInner {
     border-right-color: transparent;
     border-bottom-color: #2e2e2e;
   }
@@ -220,7 +218,7 @@ body {
 .startButton {
   align-self: flex-start;
   padding: 0.75rem 1.75rem;
-  background-color: #b70000;
+  background-color: #b40505;
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -238,7 +236,7 @@ body {
 }
 
 .darkMode .startButton {
-  background-color: #fa6f6f;
+  background-color: #FAA3A2;
   color: #222;
 }
 
@@ -264,32 +262,13 @@ body {
 .homeFeaturesSection {
   width: 100%;
   max-width: 1000px;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
-  padding: 2.5rem 2rem;
-  text-align: left;
-  margin-bottom: 2em;
+  margin-bottom: 4em;
 }
 
-.homeFeaturesSection .homeSectionTitle {
-  text-align: left;
-}
-
-.homeFeaturesSection .homeSubtitle {
-  text-align: left;
-  margin: 0 0 1.5rem;
-  max-width: none;
-  width: 100%;
-}
-
-.darkMode .homeFeaturesSection {
-  background: #2a2a2a;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
-}
-
-.homeSubtitle {
-  margin-bottom: 1.5rem;
+@media screen and (max-width: 600px) {
+  .homeFeaturesSection {
+    margin-top: 3em;
+  }
 }
 
 .homeFeaturesList {
@@ -297,51 +276,38 @@ body {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(2, minmax(260px, 1fr));
-  gap: 1.25rem;
-}
-
-@media screen and (max-width: 900px) {
-  .homeFeaturesList {
-    grid-template-columns: 1fr;
-  }
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.5rem;
 }
 
 .homeFeatureCard {
-  background: #f7f8fa;
+  background: #fff;
   border-radius: 12px;
-  padding: 1.25rem 1rem;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 1.5rem 1.25rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
 }
 
 .darkMode .homeFeatureCard {
-  background: #1e1e1e;
-  border-color: rgba(255, 255, 255, 0.06);
-}
-
-.homeFeatureHeader {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+  background: #2e2e2e;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
 }
 
 .homeFeatureIcon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: 0.6rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
   overflow: hidden;
   background-color: #fff;
 }
 
 .darkMode .homeFeatureIcon {
-  background-color: #3a3a3a;
+  background-color: #333;
 }
 
 .homeFeatureIcon img {
@@ -355,15 +321,16 @@ body {
   font-size: 1rem;
   font-weight: 700;
   margin: 0;
-  line-height: 1.3;
 }
 
 .homeFeatureDesc {
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   line-height: 1.6;
   margin: 0;
-  opacity: 0.85;
-  padding-left: 0.25rem;
+}
+
+.darkMode .homeFeatureDesc {
+  color: #bababa;
 }
 
 /* ---- About ---- */
@@ -416,7 +383,6 @@ body {
 @media (max-width: 640px) {
   .homeAboutSection {
     flex-direction: column;
-    gap: 1.5rem;
   }
   .homeAboutTitle {
     text-align: center;
@@ -440,14 +406,14 @@ body {
 }
 
 .homeLink {
-  color: #b90e0e;
+  color: #b40505;
   font-weight: 600;
   text-underline-offset: 3px;
   text-decoration: underline;
 }
 
 .darkMode .homeLink {
-  color: #ff6b4a;
+  color: #FAA3A2;
 }
 
 .homeAboutBtn {

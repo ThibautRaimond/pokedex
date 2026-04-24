@@ -89,3 +89,65 @@
   font-size: 1.1rem;
   margin: 0;
 }
+
+/* ---- Toggle police dyslexique ---- */
+.dyslexicToggleButton {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+  font-family: inherit;
+}
+
+.dyslexicToggleTrack {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+  background-color: #ccc;
+  border-radius: 999px;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease;
+}
+
+.dyslexicToggleButton.isActive .dyslexicToggleTrack {
+  background-color: #b70000;
+}
+
+.darkMode .dyslexicToggleButton.isActive .dyslexicToggleTrack {
+  background-color: #FA6F6F;
+}
+
+.dyslexicToggleThumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.dyslexicToggleButton.isActive .dyslexicToggleThumb {
+  transform: translateX(22px);
+}
+
+.dyslexicToggleLabel {
+  font-size: 0.95rem;
+  font-family: "OpenDyslexic", Arial, sans-serif;
+}
+
+.dyslexicToggleButton:focus-visible {
+  outline: 3px solid #222;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.darkMode .dyslexicToggleButton:focus-visible {
+  outline-color: #f1f1f1ea;
+}

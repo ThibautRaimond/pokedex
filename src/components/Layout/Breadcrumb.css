@@ -29,7 +29,7 @@
 }
 
 .breadcrumb a {
-  color: #c70a3c;
+  color: #a60101;
   text-decoration: underline;
   display: inline-flex;
   position: relative;
@@ -61,7 +61,7 @@
 }
 
 .darkMode .breadcrumb a {
-  color: #ff6b4a;
+  color: #F3918C;
 }
 
 .darkMode .breadcrumb a:focus-visible {

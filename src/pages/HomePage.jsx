@@ -82,6 +82,8 @@ const HomePage = () => {
       <div className="profSection">
         <img src={profthib} alt="" className="profImg" />
         <div className="profDialogBox">
+          <span className="profDialogArrowOuter" aria-hidden="true"></span>
+          <span className="profDialogArrowInner" aria-hidden="true"></span>
           <p className="profName">
             <span className="srOnly">Message de &emsp;</span>Professeur Thib
           </p>
@@ -95,7 +97,7 @@ const HomePage = () => {
               sans obstacle.
             </p>
             <p className="profText">
-              Cette mission t’est confiée… ouvre-le et commence ton voyage !
+              Cette mission t’est confiée… ouvre-le et commence ton voyage !
             </p>
           </blockquote>
           <Link to="/pokemonspage" className="startButton">

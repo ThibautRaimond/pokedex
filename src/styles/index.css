@@ -17,6 +17,11 @@ body {
   font-family: "Oxanium", cursive;
 }
 
+.dyslexicFont,
+.dyslexicFont * {
+  font-family: "OpenDyslexic", Arial, sans-serif !important;
+}
+
 #root {
   min-height: 100%;
   position: relative;
