@@ -8,6 +8,31 @@ import "./SettingsA11Y.css";
 const SettingsA11Y = forwardRef((props, ref) => {
   const { theme, toggleTheme } = useTheme();
 
+  /* === Gestion de la police dyslexique === */
+  const [dyslexicFont, setDyslexicFont] = useState(() => {
+    return localStorage.getItem("dyslexicFont") === "true";
+  });
+
+  const toggleDyslexicFont = () => {
+    setDyslexicFont((prev) => !prev);
+  };
+
+  useEffect(() => {
+    localStorage.setItem("dyslexicFont", dyslexicFont);
+    if (dyslexicFont) {
+      document.documentElement.classList.add("dyslexicFont");
+    } else {
+      document.documentElement.classList.remove("dyslexicFont");
+    }
+  }, [dyslexicFont]);
+
+  // Applique l'état initial de la police dyslexique au montage
+  useEffect(() => {
+    if (localStorage.getItem("dyslexicFont") === "true") {
+      document.documentElement.classList.add("dyslexicFont");
+    }
+  }, []);
+
   /* === Gestion des contenus en mouvement === */
   const [reduceMotion, setReduceMotion] = useState(() => {
     const saved = localStorage.getItem("reduceMotion");
@@ -53,10 +78,10 @@ const SettingsA11Y = forwardRef((props, ref) => {
     if (!dialog) return;
 
     const handleKeyDown = (e) => {
-      if (e.key !== 'Tab') return;
+      if (e.key !== "Tab") return;
 
       const focusableElements = dialog.querySelectorAll(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
       );
       const firstElement = focusableElements[0];
       const lastElement = focusableElements[focusableElements.length - 1];
@@ -76,8 +101,8 @@ const SettingsA11Y = forwardRef((props, ref) => {
       }
     };
 
-    dialog.addEventListener('keydown', handleKeyDown);
-    return () => dialog.removeEventListener('keydown', handleKeyDown);
+    dialog.addEventListener("keydown", handleKeyDown);
+    return () => dialog.removeEventListener("keydown", handleKeyDown);
   }, [ref]);
 
   return (
@@ -99,13 +124,6 @@ const SettingsA11Y = forwardRef((props, ref) => {
 
         <h2>Paramètre et accessibilité</h2>
 
-        <div className="settingsOptions">
-          {/* Toggle des animations */}
-          <div className="settingItem">
-            <p aria-hidden="true">Animations</p>
-            <ToggleMotion onChange={toggleReduceMotion} state={reduceMotion} />
-          </div>
-
           {/* Toggle du thème */}
           <div className="settingItem">
             <p aria-hidden="true">Thème</p>
@@ -115,6 +133,39 @@ const SettingsA11Y = forwardRef((props, ref) => {
               icons={["🌙", "☀️"]}
             />
           </div>
+
+        <div className="settingsOptions">
+          {/* Toggle des animations */}
+          <div className="settingItem">
+            <p aria-hidden="true">Animations</p>
+            <ToggleMotion onChange={toggleReduceMotion} state={reduceMotion} />
+          </div>  
+
+          {/* Toggle police dyslexique */}
+         {/*  <div className="settingItem">
+            <p aria-hidden="true">Police dyslexique</p>
+            <button
+              onClick={toggleDyslexicFont}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  toggleDyslexicFont();
+                }
+              }}
+              className={`dyslexicActionButton ${dyslexicFont ? "isActive" : ""}`}
+              aria-pressed={dyslexicFont}
+              aria-label={dyslexicFont ? "Désactiver la police OpenDyslexic" : "Activer la police OpenDyslexic"}
+            >
+              <span className="dyslexicActionLabel">
+                {dyslexicFont ? "Désactiver OpenDyslexic" : "Activer OpenDyslexic"}
+              </span>
+            </button>
+            <span aria-live="polite" className="srOnly">
+              {dyslexicFont ? "Police OpenDyslexic activée" : "Police OpenDyslexic désactivée"}
+            </span>
+          </div> */}
+
+          {/* fin de container */}
         </div>
       </div>
     </dialog>
