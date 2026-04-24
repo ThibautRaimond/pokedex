@@ -53,7 +53,7 @@ const features = [
   },
   {
     iconSrc: deficientsmentaux,
-    title: "Handicap mental",
+    title: "Trouble de l'attention",
     desc: 'Toutes les animations sont désactivées par défaut si vous avez activé "Réduire les animations" dans les préférences de votre système ou que vous utilisez le bouton adéquat.',
   },
 ];

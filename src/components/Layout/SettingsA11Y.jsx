@@ -124,13 +124,6 @@ const SettingsA11Y = forwardRef((props, ref) => {
 
         <h2>Paramètre et accessibilité</h2>
 
-        <div className="settingsOptions">
-          {/* Toggle des animations */}
-          <div className="settingItem">
-            <p aria-hidden="true">Animations</p>
-            <ToggleMotion onChange={toggleReduceMotion} state={reduceMotion} />
-          </div>
-
           {/* Toggle du thème */}
           <div className="settingItem">
             <p aria-hidden="true">Thème</p>
@@ -141,8 +134,15 @@ const SettingsA11Y = forwardRef((props, ref) => {
             />
           </div>
 
+        <div className="settingsOptions">
+          {/* Toggle des animations */}
+          <div className="settingItem">
+            <p aria-hidden="true">Animations</p>
+            <ToggleMotion onChange={toggleReduceMotion} state={reduceMotion} />
+          </div>  
+
           {/* Toggle police dyslexique */}
-          {/*           <div className="settingItem">
+         {/*  <div className="settingItem">
             <p aria-hidden="true">Police dyslexique</p>
             <button
               onClick={toggleDyslexicFont}
@@ -152,20 +152,17 @@ const SettingsA11Y = forwardRef((props, ref) => {
                   toggleDyslexicFont();
                 }
               }}
-              className={`dyslexicToggleButton ${dyslexicFont ? "isActive" : ""}`}
+              className={`dyslexicActionButton ${dyslexicFont ? "isActive" : ""}`}
               aria-pressed={dyslexicFont}
               aria-label={dyslexicFont ? "Désactiver la police OpenDyslexic" : "Activer la police OpenDyslexic"}
             >
-              <span className="dyslexicToggleTrack" aria-hidden="true">
-                <span className="dyslexicToggleThumb" />
-              </span>
-              <span className="dyslexicToggleLabel">
-                {dyslexicFont ? "OpenDyslexic activée" : "OpenDyslexic désactivée"}
-              </span>
-              <span aria-live="polite" className="srOnly">
-                {dyslexicFont ? "Police OpenDyslexic activée" : "Police OpenDyslexic désactivée"}
+              <span className="dyslexicActionLabel">
+                {dyslexicFont ? "Désactiver OpenDyslexic" : "Activer OpenDyslexic"}
               </span>
             </button>
+            <span aria-live="polite" className="srOnly">
+              {dyslexicFont ? "Police OpenDyslexic activée" : "Police OpenDyslexic désactivée"}
+            </span>
           </div> */}
 
           {/* fin de container */}

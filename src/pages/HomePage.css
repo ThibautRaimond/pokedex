@@ -261,7 +261,7 @@ body {
 /* ---- Features ---- */
 .homeFeaturesSection {
   width: 100%;
-  max-width: 1000px;
+  max-width: 1200px;
   margin-bottom: 4em;
 }
 
@@ -276,8 +276,14 @@ body {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.5rem;
+}
+
+@media screen and (min-width: 900px) {
+  .homeFeaturesList {
+    grid-template-columns: repeat(2, minmax(340px, 1fr));
+  }
 }
 
 .homeFeatureCard {
@@ -288,6 +294,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+  width: 100%;
 }
 
 .darkMode .homeFeatureCard {

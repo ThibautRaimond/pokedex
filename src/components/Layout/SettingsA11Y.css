@@ -74,80 +74,67 @@
 .settingsOptions {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 0;
 }
 
 .settingItem {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin-top: 1em;
 }
 
 .settingItem > label,
 .settingItem > p {
   font-weight: bold;
   font-size: 1.1rem;
-  margin: 0;
 }
 
 /* ---- Toggle police dyslexique ---- */
-.dyslexicToggleButton {
-  display: flex;
+.dyslexicActionButton {
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.75rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  color: inherit;
-  font-family: inherit;
-}
-
-.dyslexicToggleTrack {
-  position: relative;
-  display: inline-block;
-  width: 48px;
-  height: 26px;
-  background-color: #ccc;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
   border-radius: 999px;
-  flex-shrink: 0;
-  transition: background-color 0.2s ease;
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  color: #222;
+  font-family: inherit;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-.dyslexicToggleButton.isActive .dyslexicToggleTrack {
+.dyslexicActionButton.isActive {
   background-color: #b70000;
+  border-color: #a00000;
+  color: #fff;
 }
 
-.darkMode .dyslexicToggleButton.isActive .dyslexicToggleTrack {
+.darkMode .dyslexicActionButton {
+  background-color: #2e2e2e;
+  border-color: #555;
+  color: #f1f1f1;
+}
+
+.darkMode .dyslexicActionButton.isActive {
   background-color: #FA6F6F;
+  border-color: #d97d7d;
+  color: #222;
 }
 
-.dyslexicToggleThumb {
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 20px;
-  height: 20px;
-  background-color: #fff;
-  border-radius: 50%;
-  transition: transform 0.2s ease;
-}
-
-.dyslexicToggleButton.isActive .dyslexicToggleThumb {
-  transform: translateX(22px);
-}
-
-.dyslexicToggleLabel {
+.dyslexicActionLabel {
   font-size: 0.95rem;
   font-family: "OpenDyslexic", Arial, sans-serif;
 }
 
-.dyslexicToggleButton:focus-visible {
+.dyslexicActionButton:focus-visible {
   outline: 3px solid #222;
   outline-offset: 4px;
   border-radius: 4px;
 }
 
-.darkMode .dyslexicToggleButton:focus-visible {
+.darkMode .dyslexicActionButton:focus-visible {
   outline-color: #f1f1f1ea;
 }
