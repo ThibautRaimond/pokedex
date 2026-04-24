@@ -154,13 +154,13 @@ body {
 .profName {
   font-family: "Press Start 2P", cursive;
   font-size: 0.65rem;
-  color: #b70000;
+  color: #b40505;
   margin: 0 0 0.4rem;
   letter-spacing: 0.05em;
 }
 
 .darkMode .profName {
-  color: #fa6f6f;
+  color: #FAA3A2;
 }
 
 .profText {
@@ -220,7 +220,7 @@ body {
 .startButton {
   align-self: flex-start;
   padding: 0.75rem 1.75rem;
-  background-color: #b70000;
+  background-color: #b40505;
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -238,7 +238,7 @@ body {
 }
 
 .darkMode .startButton {
-  background-color: #fa6f6f;
+  background-color: #FAA3A2;
   color: #222;
 }
 
