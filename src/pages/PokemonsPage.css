@@ -48,7 +48,7 @@ body {
   width: fit-content;
   background-color: #f1f1f1ea;
   border-radius: 8px;
-  border: 1.5px solid rgba(0, 0, 0, 0.15);
+  border: 1.5px solid #444950;
   cursor: pointer;
   transition:
     background-color 0.3s ease,
@@ -63,7 +63,7 @@ body {
 
 .darkMode .filterSectionToggleButton {
   background-color: #222222;
-  border-color: rgba(255, 255, 255, 0.15);
+  border-color: #ababab;
 }
 
 .darkMode .filterSectionToggleButton:focus-visible {
@@ -73,12 +73,10 @@ body {
 .filterSectionToggleIcon {
   color: #222;
   transition: color 0.3s ease, filter 0.3s ease;
-  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.2));
 }
 
 .darkMode .filterSectionToggleIcon {
   color: #f1f1f1ea;
-  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.35));
 }
 
 .filterSectionToggleLabel {
@@ -118,7 +116,7 @@ body {
 .darkMode .filterSectionContainer {
   background-color: #222222;
   color: #f1f1f1ea;
-  border-color: rgba(255, 255, 255, 0.15);
+  border-color: #f8f8f875;
 }
 
 .filterSectionContainer.isOpen {
@@ -126,6 +124,11 @@ body {
   height: auto;
   transition: 0.6s;
   padding: 1em 0em;
+  border-color: #444950;
+}
+
+.darkMode .filterSectionContainer.isOpen {
+  border-color: #f8f8f875;
 }
 
 .filterSectionContainer > li {
@@ -227,38 +230,4 @@ body {
   vertical-align: middle;
   font-size: 1.3rem;
   margin: 0 0.3em 2px 0;
-}
-
-/* Error messages */
-.statusMessageError {
-  border-left: 4px solid #c20303;
-}
-
-.darkMode .statusMessageError {
-  border-left: 4px solid #ff4747;
-}
-
-.statusMessageIconError {
-  color: #c20303;
-}
-
-.darkMode .statusMessageIconError {
-  color: #ff4747;
-}
-
-/* Success messages */
-.statusMessageSuccess {
-  border-left: 4px solid #0a9225;
-}
-
-.darkMode .statusMessageSuccess {
-  border-left: 4px solid #06c02e;
-}
-
-.statusMessageIconSuccess {
-  color: #0a9225;
-}
-
-.darkMode .statusMessageIconSuccess {
-  color: #06c02e;
 }

@@ -46,7 +46,7 @@ const features = [
     iconSrc: deficientsvisuel,
     title: (
       <>
-        Handicap visuel <br /> Design
+        Handicap visuel Design
       </>
     ),
     desc: "Mode clair et mode sombre disponibles avec des ratios de contraste conformes aux normes  pour assurer une bonne lisibilité. De plus ce mode est automatiquement activé si vous avez choisi un thème sombre dans les préférences de votre système, évitant ainsi les problématiques liées à la photophobie.",
@@ -124,7 +124,7 @@ const HomePage = () => {
               PokéAPI
             </a>
             , ce Pokédex propose des informations sur chaque Pokémon dans une
-            interface inclusive, après avoir testé sa compatabilité liées aux
+            interface inclusive, après avoir testé sa compatibilité liées aux
             différentes situations de handicap.
           </p>
           <p className="homeAboutText">
@@ -133,7 +133,7 @@ const HomePage = () => {
             à améliorer son accessibilité !
           </p>
         </div>
-        <img src={a11ypok} className="homeImage" />
+        <img src={a11ypok} alt=""className="homeImage" />
       </div>
       {/* Features */}
       <div className="homeFeaturesSection">

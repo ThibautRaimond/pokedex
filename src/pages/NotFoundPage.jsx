@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import { useEffect, useState } from "react";
 
 import pikachu404 from "../assets/404.png";
+import sachaImage from "../assets/sacha.png";
 import "./NotFoundPage.css";
 
 const NotFoundPage = () => {
@@ -48,30 +49,34 @@ const NotFoundPage = () => {
             id="notfound-title"
             className="notFoundTitle skipTarget"
             tabIndex="-1"
-            aria-live="polite"
           >
             Erreur 404
           </h1>
 
-          <div
-            className={`notFoundImageContainer ${!reduceMotion ? "animated" : ""}`}
-          >
-            <img src={pikachu404} alt="" className="notFoundImage" />
-          </div>
           <h2 className="notFoundSubtitle">Page introuvable !</h2>
+
+          <div className="notFoundSachaImageWrapper">
+            <img src={sachaImage} alt="Sacha" className="notFoundSachaImage" />
+          </div>
 
           <p className="notFoundMessage">
             Il semble que vous soyez perdu dans les hautes herbes...
             <br />
             La page que vous cherchez n'existe pas ou&nbsp;a&nbsp;été&nbsp;déplacée.
             <br />
-            Revenir sur la page d'
+            Revenez sur la page d'
             <Link to="/" className="notFoundLink">
               Accueil
             </Link>{" "}
             pour continuer&nbsp;votre&nbsp;aventure&nbsp;!
           </p>
+                    <div
+            className={`notFoundImageContainer ${!reduceMotion ? "animated" : ""}`}
+          >
+            <img src={pikachu404} alt="" className="notFoundImage" />
+          </div>
         </div>
+        
       </div>
     </>
   );

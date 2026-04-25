@@ -14,16 +14,16 @@
   padding: 12px 40px 12px 12px;
   font-size: 1rem;
   border-radius: 6px;
-  border: 2px solid #c20303;
-  border-left: 6px solid #c20303;
+  border: 2px solid #b40505;
+  border-left: 6px solid #b40505;
   outline-offset: 3px;
   background-color: #f1f1f1ea;
   color: #222222;
 }
 
 .darkMode .searchBarInput {
-  border: 2px solid #ff5c5c;
-  border-left: 6px solid #ff5c5c;
+  border: 2px solid #FAA3A2;
+  border-left: 6px solid #FAA3A2;
   background-color: #222222;
   color: #f1f1f1;
 }

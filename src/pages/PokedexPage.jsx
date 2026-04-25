@@ -187,7 +187,7 @@ const PokedexPage = () => {
     return (
       <div className="pokedexPageContainer">
         <Helmet>
-          <title>{pokemon.name} - Pokedex A11Y</title>
+          <title>{pokemon.name} - Pokédex A11Y</title>
         </Helmet>
         <img src={pokedexModel} alt="" className="pokedexImg" />
         <div className="pokedexPageContainerImgContainer">
@@ -257,7 +257,7 @@ const PokedexPage = () => {
           </div>
         </div>
 
-        <ul className="pokemonDetailsContainer">
+        <ul className="pokedexPageContainer">
           <li className="pokedexPageContainerTypesContainer">
             <p className="typesContainerTypesTitle">
               Type<span aria-hidden="true">(s)</span> :

@@ -31,24 +31,13 @@
 .notFoundTitle {
   font-size: clamp(3rem, 12vw, 6rem);
   font-weight: bold;
-  color: #c20303;
-  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1);
-  letter-spacing: 0.05em;
+  color: #b40505;
   outline: none;
-  margin-bottom: 0.1em;
+  margin: 0;
 }
 
 .darkMode .notFoundTitle {
-  color: #ff4747;
-  text-shadow: 3px 3px 0px rgba(255, 255, 255, 0.1);
-}
-
-/* Image container */
-.notFoundImageContainer {
-  position: relative;
-  width: 100%;
-  max-width: 300px;
-  margin-bottom: 0.5em;
+  color: #faa3a2;
 }
 
 .notFoundImageContainer.animated {
@@ -68,18 +57,13 @@
 .notFoundImage {
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
-}
-
-.darkMode .notFoundImage {
-  filter: drop-shadow(0 10px 20px rgba(255, 255, 255, 0.1));
 }
 
 /* Subtitle */
 .notFoundSubtitle {
   font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: bold;
-  margin: 0;
+  margin: -1.5rem 0 0;
   color: #222;
 }
 
@@ -87,11 +71,23 @@
   color: #f1f1f1ea;
 }
 
+.notFoundSachaImageWrapper {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 1em;
+}
+
+.notFoundSachaImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* Message */
 .notFoundMessage {
   font-size: clamp(1rem, 3vw, 1.2rem);
   line-height: 1.6;
-  color: #555;
+  color: #151515;
   text-wrap: balance;
   hyphens: none;
   overflow-wrap: break-word;
@@ -108,10 +104,16 @@
 }
 
 .notFoundLink:hover {
-  color: #c20303;
+  color: #b40505;
 }
 
 .darkMode .notFoundLink:hover {
-  color: #ff6b6b;
+  color: #faa3a2;
 }
 
+/* Image Pikachu container */
+.notFoundImageContainer {
+  position: relative;
+  width: 200px;
+  margin-top: 1.5em;
+}

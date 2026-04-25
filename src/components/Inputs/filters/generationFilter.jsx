@@ -144,12 +144,8 @@ const GenerationFilter = ({
         ref={containerRef}
       >
         {/* Curseur de début (triangle gauche) */}
-        <label id="genStartLabel" htmlFor="gen-start" className="srOnly">
-          Choisir la génération de départ
-        </label>
-
         <input
-          id="genStart"
+          aria-label="Génération de départ"
           type="range"
           min="1"
           max="9"
@@ -179,12 +175,8 @@ const GenerationFilter = ({
         />
 
         {/* Curseur de fin (triangle droit) */}
-        <label id="genEndLabel" htmlFor="genEnd" className="srOnly">
-          Choisir la génération limite
-        </label>
-
         <input
-          id="genEnd"
+          aria-label="Génération limite"
           type="range"
           min="1"
           max="9"

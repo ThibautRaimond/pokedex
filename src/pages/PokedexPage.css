@@ -6,34 +6,16 @@
   padding-bottom: 1em;
 }
 
+@media screen and (min-height: 850px) {
+  .pokedexPageContainer {
+  }
+}
 @media screen and (max-width: 340px) {
   .pokedexPageContainer {
     padding-left: 15px;
   }
 }
 
-@media screen and (max-width: 340px) {
-  .pokemonDetailsContainer {
-    padding-left: 15px;
-  }
-}
-
-.pokemonDetailsContainer {
-  position: absolute;
-  top: 33.7em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5em;
-  padding: 0.75em 1em;
-  background-color: #E3E3E3;
-  border-radius: 0.75em;
-  border: 1.3px solid black;
-  width: 300px;
-  list-style: none;
-  margin: 0;
-  transform: translateX(-1.2em);
-}
 .pokedex {
   width: 100%;
   max-width: 425px;
@@ -82,7 +64,7 @@
 .arrow {
   position: relative;
   top: -3px;
-  color: #D30A40;
+  color: #c70a3c;
   cursor: pointer;
   outline-offset: -12px;
   font-size: 1.25rem;
@@ -102,14 +84,17 @@
 /* --- */
 .pokedexPageContainerTypesContainer {
   display: flex;
-  color: #222;
+  position: absolute;
+  top: 33.4em;
+  margin-right: 2.2em;
+  color: #fff;
+  background-color: #d30a40;
   white-space: nowrap;
 }
 
 .typesContainerTypesTitle {
   font-weight: bold;
   margin-right: 3px;
-  color: #222;
 }
 .typesContainerPokedexType {
 }
@@ -117,7 +102,10 @@
 /* --- */
 .pokedexPageContainerWeightAndHeightContainer {
   display: flex;
-  color: #222;
+  position: absolute;
+  top: 35.4em;
+  color: #fff;
+  background-color: #d30a40;
   white-space: nowrap;
 }
 .pokedexPageContainerWeightContainer {
@@ -127,7 +115,6 @@
 .weightContainerWeightTitle {
   margin-right: 0.2em;
   font-weight: bold;
-  color: #222;
 }
 .weightContainerWeight {
 }
@@ -143,13 +130,16 @@
 /* --- */
 .pokedexPageContainerCategoryContainer {
   display: flex;
-  color: #222;
+  position: absolute;
+  top: 37.4em;
+  margin-right: 2.2em;
+  color: #fff;
+  background-color: #d30a40;
   white-space: nowrap;
 }
 .categoryContainerCategoryTitle {
   margin-right: 0.2em;
   font-weight: bold;
-  color: #222;
 }
 .categoryContainerCategory {
 }
@@ -169,13 +159,16 @@
 
 /* --- */
 .pokedexPageContainerDescriptionContainer {
-  width: 100%;
+  position: absolute;
+  top: 39.4em;
+  margin-right: 2.2em;
+  width: 300px;
   text-align: center;
-  color: #222;
+  color: #fff;
+  background-color: #d30a40;
 }
 .descriptionContainerDescriptionTitle {
   font-weight: bold;
-  color: #222;
 }
 .descriptionContainerDescriptionText {
 }
@@ -185,7 +178,7 @@
   position: fixed;
   bottom: 6.5em;
   left: 50%;
-  transform: translateX(calc(-50% - 1.2em));
+  transform: translateX(-50%);
   padding: 1rem 1.5rem;
   background-color: #f1f1f1;
   color: #222;
@@ -196,7 +189,7 @@
   width: fit-content;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s;
   z-index: 50;
 }
 

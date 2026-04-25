@@ -25,25 +25,29 @@
 .darkMode .generationFilterRangeThumbEnd:focus::-moz-range-thumb {
   outline: 1px solid #fff;
 }
-/* Visuel focus sur les triangles : bordure colorée autour du triangle */
+/* Visuel focus sur les triangles : bordure plus visible autour du triangle */
 .generationFilterRangeThumbStart:focus-visible::-webkit-slider-thumb,
 .generationFilterRangeThumbEnd:focus-visible::-webkit-slider-thumb {
-  outline: none;    
-  box-shadow: 0 0 0 3px #2775fb;
+  outline: 2px solid #2775fb;
+  outline-offset: 4px;
+  box-shadow: none;
 }
 .darkMode .generationFilterRangeThumbStart:focus-visible::-webkit-slider-thumb,
 .darkMode .generationFilterRangeThumbEnd:focus-visible::-webkit-slider-thumb {
-  box-shadow: 0 0 0 3px #8ec5ff;
+  outline: 2px solid #8ec5ff;
+  outline-offset: 4px;
+  box-shadow: none;
 }
 
 .generationFilterRangeThumbStart:focus::-moz-range-thumb,
 .generationFilterRangeThumbEnd:focus::-moz-range-thumb {
   outline: 2px solid #2775fb;
-  outline-offset: 1px;
+  outline-offset: 2px;
 }
 .darkMode .generationFilterRangeThumbStart:focus::-moz-range-thumb,
 .darkMode .generationFilterRangeThumbEnd:focus::-moz-range-thumb {
   outline: 2px solid #8ec5ff;
+  outline-offset: 2px;
 }
 /* Repères visuels sous la barre (thermomètre) */
 .generationFilterRangeSteps {

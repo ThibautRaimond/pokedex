@@ -132,7 +132,7 @@ const PokemonsPage = () => {
   return (
     <div className="PokemonsPage">
       <Helmet>
-        <title>Liste des pokemons - Pokedex A11Y</title>
+        <title>Liste des Pokémon - Pokédex A11Y</title>
       </Helmet>
       {/* Gestion des contenus en mouvement */}
       <div ref={contentRef} className="PokemonsPageContainer">
