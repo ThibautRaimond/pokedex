@@ -12,8 +12,8 @@ function Layout({ children }) {
     <>
       <SkipLink />
       <Header />
+      {items.length > 0 && <Breadcrumb items={items} />}
       <main id="main-content">
-        {items.length > 0 && <Breadcrumb items={items} />}
         {children}
       </main>
       <Footer />
