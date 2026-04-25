@@ -36,7 +36,7 @@ const PokemonsFilter = ({
             <RxHamburgerMenu className="filterSectionToggleIcon" size={25} />
           )}
           <span className="filterSectionToggleLabel">
-            <p className="filterSectionToggleTitle">Filtrer les pokemons</p>
+            <p className="filterSectionToggleTitle">Filtrer les Pokémon</p>
           </span>
         </summary>
 
