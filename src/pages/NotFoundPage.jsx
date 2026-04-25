@@ -56,7 +56,7 @@ const NotFoundPage = () => {
           <h2 className="notFoundSubtitle">Page introuvable !</h2>
 
           <div className="notFoundSachaImageWrapper">
-            <img src={sachaImage} alt="Sacha" className="notFoundSachaImage" />
+            <img src={sachaImage} alt="" className="notFoundSachaImage" />
           </div>
 
           <p className="notFoundMessage">

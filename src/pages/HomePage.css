@@ -94,11 +94,10 @@ body {
 }
 
 .profImg {
-  width: 180px; /* 150% de 120px */
+  width: 180px;
   height: auto;
   flex-shrink: 0;
   transform: translateY(40%);
-  image-rendering: pixelated;
 }
 
 @media (max-width: 600px) {
