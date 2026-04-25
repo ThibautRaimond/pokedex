@@ -40,9 +40,7 @@
   color: #faa3a2;
 }
 
-.notFoundImageContainer.animated {
-  animation: float 3s ease-in-out infinite;
-}
+
 
 @keyframes float {
   0%,
@@ -54,16 +52,12 @@
   }
 }
 
-.notFoundImage {
-  width: 100%;
-  height: auto;
-}
 
 /* Subtitle */
 .notFoundSubtitle {
   font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: bold;
-  margin: -1.5rem 0 0;
+  margin: clamp(-0.4rem, -1vw, -1.5rem) 0 0;
   color: #222;
 }
 
@@ -116,4 +110,13 @@
   position: relative;
   width: 200px;
   margin-top: 1.5em;
+  margin-left: 5.5em;
+}
+
+.notFoundImage {
+  width: 100%;
+  height: auto;
+}
+.notFoundImageContainer.animated {
+  animation: float 3s ease-in-out infinite;
 }
