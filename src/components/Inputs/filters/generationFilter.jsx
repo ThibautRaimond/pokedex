@@ -21,7 +21,8 @@ const GenerationFilter = ({
   const containerRef = useRef(null);
   const selectedLeftPct = ((genStart - 1) / 8) * 100;
   const selectedWidthPct = ((genEnd - genStart) / 8) * 100;
-  const isOverlappedMiddleGen = genStart === genEnd && genStart !== 1 && genStart !== 9;
+  const isOverlappedMiddleGen =
+    genStart === genEnd && genStart !== 1 && genStart !== 9;
 
   // Deselect when clicking outside the component
   useEffect(() => {
@@ -32,7 +33,8 @@ const GenerationFilter = ({
       }
     };
     document.addEventListener("pointerdown", handleOutsidePointer);
-    return () => document.removeEventListener("pointerdown", handleOutsidePointer);
+    return () =>
+      document.removeEventListener("pointerdown", handleOutsidePointer);
   }, [selectedHandle]);
 
   // Applique la nouvelle valeur de génération au handle sélectionné
@@ -47,9 +49,8 @@ const GenerationFilter = ({
       }
       setSelectedHandle(null);
     },
-    [selectedHandle, genStart, genEnd, setGenStart, setGenEnd]
+    [selectedHandle, genStart, genEnd, setGenStart, setGenEnd],
   );
-
 
   // Gestion du click court sur un triangle (sélection/désélection)
   // Ajout : sur mobile (touch), pointerDownX vaut null, donc on sélectionne toujours
@@ -68,14 +69,20 @@ const GenerationFilter = ({
   };
 
   const handleStartPointerUp = (e) => {
-    if (pointerDownX.current !== null && Math.abs(e.clientX - pointerDownX.current) < 4) {
+    if (
+      pointerDownX.current !== null &&
+      Math.abs(e.clientX - pointerDownX.current) < 4
+    ) {
       setSelectedHandle((prev) => (prev === "start" ? null : "start"));
     }
     pointerDownX.current = null;
   };
 
   const handleEndPointerUp = (e) => {
-    if (pointerDownX.current !== null && Math.abs(e.clientX - pointerDownX.current) < 4) {
+    if (
+      pointerDownX.current !== null &&
+      Math.abs(e.clientX - pointerDownX.current) < 4
+    ) {
       setSelectedHandle((prev) => (prev === "end" ? null : "end"));
     }
     pointerDownX.current = null;
@@ -145,6 +152,7 @@ const GenerationFilter = ({
       >
         {/* Curseur de début (triangle gauche) */}
         <input
+          id="genStart"
           aria-label="Génération de départ"
           type="range"
           min="1"
@@ -177,6 +185,7 @@ const GenerationFilter = ({
         {/* Curseur de fin (triangle droit) */}
         <input
           aria-label="Génération limite"
+          id="genEnd"
           type="range"
           min="1"
           max="9"
