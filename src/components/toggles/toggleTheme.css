@@ -72,10 +72,6 @@
   border: 1px solid #fff;
 }
 
-.toggleLabel:focus {
-  outline: none;
-}
-
 /* Thumb - soleil par défaut à droite */
 .toggleThumb {
   position: absolute;

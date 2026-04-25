@@ -32,7 +32,6 @@
   font-size: clamp(3rem, 12vw, 6rem);
   font-weight: bold;
   color: #b40505;
-  outline: none;
   margin: 0;
 }
 

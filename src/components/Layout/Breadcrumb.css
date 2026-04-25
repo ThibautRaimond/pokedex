@@ -39,8 +39,8 @@
 }
 
 .breadcrumb a:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 2px #222222;
+  outline: 2px solid #222222;
+  outline-offset: 1px;
 }
 
 .breadcrumb li[aria-current="page"] {
@@ -51,7 +51,6 @@
   color: #bbbaba;
 }
 
-
 .darkMode .breadcrumb {
   color: #f1f1f1ea;
 }
@@ -61,12 +60,11 @@
 }
 
 .darkMode .breadcrumb a {
-  color: #F3918C;
+  color: #f3918c;
 }
 
 .darkMode .breadcrumb a:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 2px #f1f1f1ea;
+  outline: 2px solid #f1f1f1ea;
 }
 
 @media screen and (max-width: 600px) {
