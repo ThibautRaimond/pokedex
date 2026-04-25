@@ -257,7 +257,7 @@ const PokedexPage = () => {
           </div>
         </div>
 
-        <ul className="pokedexPageContainer">
+        <ul className="pokemonDetailsContainer">
           <li className="pokedexPageContainerTypesContainer">
             <p className="typesContainerTypesTitle">
               Type<span aria-hidden="true">(s)</span> :

@@ -80,20 +80,35 @@
   bottom: -20px;
 }
 
+.pokemonDetailsContainer {
+  position: absolute;
+  top: 35.4em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+  background-color: #e3e3e3;
+  border-radius: 0.75em;
+  border: 1.5px solid #000000;
+  width: 300px;
+  list-style: none;
+  margin: 0;
+  transform: translateX(-1.2em);
+  padding: 0.1em 0.2em;
+  font-size: 0.95em;
+}
+
 /* --- */
 .pokedexPageContainerTypesContainer {
   display: flex;
-  position: absolute;
-  top: 33.4em;
-  margin-right: 2.2em;
-  color: #fff;
-  background-color: #d30a40;
+  color: #222;
   white-space: nowrap;
 }
 
 .typesContainerTypesTitle {
   font-weight: bold;
   margin-right: 3px;
+  color: #222;
 }
 .typesContainerPokedexType {
 }
@@ -101,10 +116,7 @@
 /* --- */
 .pokedexPageContainerWeightAndHeightContainer {
   display: flex;
-  position: absolute;
-  top: 35.4em;
-  color: #fff;
-  background-color: #d30a40;
+  color: #222;
   white-space: nowrap;
 }
 .pokedexPageContainerWeightContainer {
@@ -114,6 +126,7 @@
 .weightContainerWeightTitle {
   margin-right: 0.2em;
   font-weight: bold;
+  color: #222;
 }
 .weightContainerWeight {
 }
@@ -124,24 +137,24 @@
 .heightContainerHeightTitle {
   margin-right: 0.2em;
   font-weight: bold;
+  color: #222;
 }
 
 /* --- */
 .pokedexPageContainerCategoryContainer {
   display: flex;
-  position: absolute;
-  top: 37.4em;
-  margin-right: 2.2em;
-  color: #fff;
-  background-color: #d30a40;
+  color: #222;
   white-space: nowrap;
 }
 .categoryContainerCategoryTitle {
   margin-right: 0.2em;
   font-weight: bold;
+  color: #222;
 }
 .categoryContainerCategory {
 }
+
+
 
 /* --- */
 /* .pokedexPageContainerGenderContainer{
@@ -158,16 +171,13 @@
 
 /* --- */
 .pokedexPageContainerDescriptionContainer {
-  position: absolute;
-  top: 39.4em;
-  margin-right: 2.2em;
-  width: 300px;
+  width: 100%;
   text-align: center;
-  color: #fff;
-  background-color: #d30a40;
+  color: #222;
 }
 .descriptionContainerDescriptionTitle {
   font-weight: bold;
+  color: #222;
 }
 .descriptionContainerDescriptionText {
 }
@@ -204,6 +214,3 @@
   color: #f1f1f1;
 }
 
-.darkMode .backToHomeLink:focus {
-  outline-color: #f1f1f1;
-}
