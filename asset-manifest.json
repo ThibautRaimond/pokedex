@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/pokedex/static/css/main.8eae2be8.css",
+    "main.css": "/pokedex/static/css/main.0a911e1a.css",
     "main.js": "/pokedex/static/js/main.c62082cc.js",
     "static/media/a11ypok.jpg": "/pokedex/static/media/a11ypok.5cb210c78cc15d87dfc2.jpg",
     "static/media/sacha.png": "/pokedex/static/media/sacha.f6fc010b3f2c59babc1a.png",
@@ -16,11 +16,11 @@
     "static/media/deficientsvisuel.webp": "/pokedex/static/media/deficientsvisuel.ff9d13c2efb0df29f421.webp",
     "static/media/deficientsmentaux.webp": "/pokedex/static/media/deficientsmentaux.ecb1339071054d157fc5.webp",
     "static/media/deficientsmoteur.webp": "/pokedex/static/media/deficientsmoteur.9934311015b7d46fffa2.webp",
-    "main.8eae2be8.css.map": "/pokedex/static/css/main.8eae2be8.css.map",
+    "main.0a911e1a.css.map": "/pokedex/static/css/main.0a911e1a.css.map",
     "main.c62082cc.js.map": "/pokedex/static/js/main.c62082cc.js.map"
   },
   "entrypoints": [
-    "static/css/main.8eae2be8.css",
+    "static/css/main.0a911e1a.css",
     "static/js/main.c62082cc.js"
   ]
 }
