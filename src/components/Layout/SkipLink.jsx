@@ -29,19 +29,24 @@ function SkipLink() {
     if (targetType === "main-content") {
       const mainElement = document.querySelector('main');
       if (mainElement) {
-        // Chercher d'abord un heading avec la classe skipTarget, puis un id page-title-announce
-        const skipTarget = mainElement.querySelector('.skipTarget') || mainElement.querySelector('#page-title-announce');
-        if (skipTarget) {
-          skipTarget.focus({ preventScroll: true });
-        } else {
-          // Sinon, chercher le premier élément focusable
-          const focusableElements = mainElement.querySelectorAll(
-            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-          );
-          
-          if (focusableElements.length > 0) {
-            focusableElements[0].focus({ preventScroll: true });
-          }
+        const skipTarget = mainElement.querySelector('.skipTarget');
+        const focusTarget = skipTarget ?? mainElement.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        )[0];
+
+        if (focusTarget) {
+          // Calcule la position de <main> dans le viewport et l'expose en CSS custom properties
+          // pour que le pseudo-élément ::after de body dessine le cadre au bon endroit
+          const rect = mainElement.getBoundingClientRect();
+          document.documentElement.style.setProperty('--skip-ring-top', `${rect.top}px`);
+          // Hauteur plafonnée au viewport : main peut être plus grand que l'écran
+          document.documentElement.style.setProperty('--skip-ring-height', `${Math.min(rect.height, window.innerHeight - rect.top)}px`);
+          // La classe déclenche l'affichage du cadre via CSS (SkipLink.css)
+          document.body.classList.add('skip-ring-active');
+          focusTarget.focus({ preventScroll: true });
+          focusTarget.addEventListener('blur', () => {
+            document.body.classList.remove('skip-ring-active');
+          }, { once: true });
         }
       }
     } else {

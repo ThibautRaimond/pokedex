@@ -63,3 +63,30 @@
 .skipTarget {
   scroll-margin-top: 2rem;
 }
+
+/* Supprime l'outline natif sur la cible (le cadre est rendu sur body::after) */
+.skipTarget:focus,
+.skipTarget:focus-visible {
+  outline: none;
+}
+
+/*
+  Cadre de focus simulé autour de <main> via un pseudo-élément sur body.
+  position:fixed + variables CSS calculées en JS permettent de couvrir
+  exactement la zone de <main> sans être masqué par les stacking contexts enfants.
+*/
+body.skip-ring-active::after {
+  content: '';
+  position: fixed;
+  top: var(--skip-ring-top);
+  left: 0;
+  right: 0;
+  height: var(--skip-ring-height);
+  border: 2px solid #222;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+body.darkMode.skip-ring-active::after {
+  border-color: #fff;
+}

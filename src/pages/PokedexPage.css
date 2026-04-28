@@ -49,6 +49,7 @@
 
 .nameAndIdContainerPokemonName {
   margin: 0em 0.5em;
+  color: #222;
 }
 
 .nameAndIdContainerPokemonName:focus {
@@ -56,6 +57,7 @@
 
 .nameAndIdContainerPokemonId {
   margin: 0em 0.5em;
+  color: #222
 }
 .arrowAndIdContainer {
   display: flex;
