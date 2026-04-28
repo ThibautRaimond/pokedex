@@ -90,7 +90,3 @@ npm run deploy
 ## 📌 Notes
 
 This project is built to be usable by everyone, including users with visual, motor, and cognitive disabilities.
-
----
-
-Professional and deployment-ready README for the Pokédex A11Y project.

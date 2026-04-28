@@ -12,17 +12,15 @@ function SkipLink() {
     updateTitle();
 
     // Observer les changements du titre
-    const titleElement = document.querySelector('title');
-    if (titleElement) {
-      const observer = new MutationObserver(updateTitle);
-      observer.observe(titleElement, { 
-        childList: true, 
-        characterData: true, 
-        subtree: true 
-      });
-      
-      return () => observer.disconnect();
-    }
+    // react-helmet remplace l'élément <title> entier, donc on observe document.head
+    const observer = new MutationObserver(updateTitle);
+    observer.observe(document.head, {
+      childList: true,
+      subtree: true,
+      characterData: true,
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   const handleSkipClick = (e, targetType) => {
