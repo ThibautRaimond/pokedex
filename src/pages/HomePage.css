@@ -363,7 +363,9 @@ body {
   opacity: 0.85;
   padding-left: 0.25rem;
 }
-
+.darkMode .homeFeatureDesc {
+  color: #e8e8e8;
+}
 /* ---- About ---- */
 .homeAboutSection {
   width: 100%;
