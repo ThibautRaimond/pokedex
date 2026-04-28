@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/pokedex/static/css/main.48cbdfbd.css",
-    "main.js": "/pokedex/static/js/main.45604d49.js",
+    "main.css": "/pokedex/static/css/main.4f1f0598.css",
+    "main.js": "/pokedex/static/js/main.f71b4911.js",
     "static/media/a11ypok.jpg": "/pokedex/static/media/a11ypok.5cb210c78cc15d87dfc2.jpg",
     "static/media/sacha.png": "/pokedex/static/media/sacha.f6fc010b3f2c59babc1a.png",
     "static/media/404.png": "/pokedex/static/media/404.2980c2a2e4fe4968bf19.png",
@@ -16,11 +16,11 @@
     "static/media/deficientsvisuel.webp": "/pokedex/static/media/deficientsvisuel.ff9d13c2efb0df29f421.webp",
     "static/media/deficientsmentaux.webp": "/pokedex/static/media/deficientsmentaux.ecb1339071054d157fc5.webp",
     "static/media/deficientsmoteur.webp": "/pokedex/static/media/deficientsmoteur.9934311015b7d46fffa2.webp",
-    "main.48cbdfbd.css.map": "/pokedex/static/css/main.48cbdfbd.css.map",
-    "main.45604d49.js.map": "/pokedex/static/js/main.45604d49.js.map"
+    "main.4f1f0598.css.map": "/pokedex/static/css/main.4f1f0598.css.map",
+    "main.f71b4911.js.map": "/pokedex/static/js/main.f71b4911.js.map"
   },
   "entrypoints": [
-    "static/css/main.48cbdfbd.css",
-    "static/js/main.45604d49.js"
+    "static/css/main.4f1f0598.css",
+    "static/js/main.f71b4911.js"
   ]
 }
