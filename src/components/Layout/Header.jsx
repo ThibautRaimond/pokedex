@@ -9,11 +9,11 @@ import "./Header.css";
 
 const Header = () => {
   const location = useLocation();
-  const isOnPokedexPage = location.pathname === "/";
+  const isOnHomexPage = location.pathname === "/";
   const settingsDialogRef = useRef(null);
 
   const handleHomeClick = () => {
-    if (isOnPokedexPage) {
+    if (isOnHomexPage) {
       window.location.reload();
     }
   };
@@ -27,14 +27,25 @@ const Header = () => {
   return (
     <header>
       <div className="header">
-        <Link to="/" onClick={handleHomeClick}>
+        {isOnHomexPage ? (
           <img
             className="Accueil"
             src={LogoPokemon}
-            alt="Accueil"
+            alt=""
             style={{ width: "75px" }}
+            aria-hidden="true"
           />
-        </Link>
+        ) : (
+          <Link to="/" onClick={handleHomeClick} aria-label="Retourner à l'accueil">
+            <img
+              className="Accueil"
+              src={LogoPokemon}
+              alt="Retourner à l'accueil"
+              style={{ width: "75px" }}
+              aria-hidden="true"
+            />
+          </Link>
+        )}
         <p className="headerTitle">POKEDEX</p>
         <button 
           className="settingsButton" 
