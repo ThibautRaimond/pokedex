@@ -162,8 +162,8 @@ const PokedexPage = () => {
     event.preventDefault();
     navigateWithTitle({
       navigate,
-      to: "/",
-      title: "Accueil - Pokedex",
+      to: "/pokemonspage",
+      title: "Liste des Pokémon - Pokédex A11Y",
     });
   };
   const { setItems } = useBreadcrumb();
