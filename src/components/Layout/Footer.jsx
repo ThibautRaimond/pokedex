@@ -8,8 +8,8 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <footer id="footer" tabIndex="-1">
-      <nav aria-label="Liens professionnels">
-        <ul className="footerContainer">
+      <div>
+        <ul className="footerContainer" aria-label="Liens professionnels">
           <div className="footerContainerSocialsMedias">
             <li>
               <Link to={`https://github.com/ThibautRaimond`} target="_blank" className="socialMediaLink">
@@ -55,7 +55,7 @@ const Footer = () => {
             </Link>
           </li>
         </ul>
-      </nav>
+      </div>
     </footer>
   );
 };
