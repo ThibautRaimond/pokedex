@@ -49,7 +49,7 @@ const Header = () => {
         <p className="headerTitle">POKEDEX</p>
         <button 
           className="settingsButton" 
-          aria-label="Ouvrir paramètres et accessibilité"
+          aria-label="Paramètres et accessibilité"
           aria-haspopup="dialog"
           onClick={openSettings}
         >
