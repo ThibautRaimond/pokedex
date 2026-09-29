@@ -1,3 +1,13 @@
+.darkMode footer#footer:focus,
+footer#footer:focus {
+  outline: 2px solid #222;
+  outline-offset: 2px;
+}
+
+.darkMode footer#footer:focus {
+  outline-color: #fff;
+}
+
 .footerContainer {
   display: flex;
   flex-direction: column;

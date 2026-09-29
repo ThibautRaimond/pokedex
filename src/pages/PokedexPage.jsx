@@ -207,6 +207,7 @@ const PokedexPage = () => {
         </div>
         <div className="pokedexPageContainerNameAndIdContainer">
           <h1
+            id="page-title"
             className="nameAndIdContainerPokemonName skipTarget"
             tabIndex="-1"
           >

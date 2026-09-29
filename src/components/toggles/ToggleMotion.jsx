@@ -18,7 +18,7 @@ const ToggleMotion = ({ onChange, state }) => {
 
   return (
     <>
-      <div aria-live="polite" className="srOnly">
+      <div role="status" className="srOnly">
         {liveText}
       </div>
       <button

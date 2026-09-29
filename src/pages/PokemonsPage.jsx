@@ -136,14 +136,13 @@ const PokemonsPage = () => {
       </Helmet>
       {/* Gestion des contenus en mouvement */}
       <div ref={contentRef} className="PokemonsPageContainer">
-        <div
-          role="heading"
-          aria-level="1"
+        <h1
+          id="page-title"
           className="srOnly skipTarget"
           tabIndex="-1"
         >
           Liste des Pokémon
-        </div>
+        </h1>
 
         <PokemonsFilter
           genStart={genStart}
@@ -159,7 +158,7 @@ const PokemonsPage = () => {
         {/* Loader ou erreur */}
         {isLoading &&
           (reduceMotion ? (
-            <div className="statusMessage" role="status" aria-live="polite">
+            <div className="statusMessage">
               <p>Chargement</p>
             </div>
           ) : (
@@ -169,8 +168,6 @@ const PokemonsPage = () => {
         {/* Message status pour l'accessibilité */}
         <div
           role="status"
-          aria-live="polite"
-          aria-atomic="true"
           className="srOnly"
         >
           {statusMessage}

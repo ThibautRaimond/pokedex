@@ -27,7 +27,7 @@ const NotFoundPage = () => {
   }, []);
 
   useEffect(() => {
-    const titleElement = document.getElementById("notfound-title");
+    const titleElement = document.getElementById("page-title");
     if (titleElement) {
       titleElement.focus();
     }
@@ -46,7 +46,7 @@ const NotFoundPage = () => {
       <div className="notFoundPage">
         <div className="notFoundContainer">
           <h1
-            id="notfound-title"
+            id="page-title"
             className="notFoundTitle skipTarget"
             tabIndex="-1"
           >

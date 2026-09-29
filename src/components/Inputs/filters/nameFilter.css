@@ -30,33 +30,19 @@
 
 .searchBarLabel {
   position: absolute;
-  left: 12px;
-  top: 12px;
-  color: #555;
-  font-size: 1.5rem;
+  z-index: 1;
+  left: 13px;
+  top: -8px;
+  color: #222;
+  font-size: 0.9rem;
+  line-height: 1;
   font-weight: bold;
   pointer-events: none;
-  transition: 0.2s ease all;
   background-color: #f1f1f1;
   padding: 0 4px;
 }
 
-.searchBarInput:focus + .searchBarLabel,
-.searchBarInput:not(:placeholder-shown) + .searchBarLabel,
-.searchBarInput:valid + .searchBarLabel {
-  top: -8px;
-  font-size: 0.9rem;
-  color: #222;
-}
-
 .darkMode .searchBarLabel {
-  color: #aaa;
-  background-color: #1e1e1e;
-}
-
-.darkMode .searchBarInput:focus + .searchBarLabel,
-.darkMode .searchBarInput:not(:placeholder-shown) + .searchBarLabel,
-.darkMode .searchBarInput:valid + .searchBarLabel {
   color: #f1f1f1;
   background-color: #222;
 }

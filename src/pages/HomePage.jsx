@@ -71,7 +71,7 @@ const HomePage = () => {
 
       {/* Titre principal */}
       <h1
-        id="page-title-announce"
+        id="page-title"
         tabIndex="-1"
         className="homeTitle skipTarget"
       >

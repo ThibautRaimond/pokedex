@@ -8,18 +8,17 @@ const NameFilter = ({ searchByName, setSearchByName, tabIndex }) => {
 
   return (
     <div className="searchBar">
+      <label className="searchBarLabel" htmlFor="searchPokemon">
+        Filtrer par nom
+      </label>
       <input
         className="searchBarInput"
         type="text"
         id="searchPokemon"
         value={searchByName}
         onChange={(event) => setSearchByName(event.target.value)}
-        aria-label="Filtrer par nom"
         tabIndex={tabIndex}
       />
-      <label className="searchBarLabel" htmlFor="searchPokemon">
-        Filtrer par nom
-      </label>
       {searchByName.length > 0 && (
         <button
           type="button"

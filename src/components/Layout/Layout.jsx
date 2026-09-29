@@ -13,7 +13,7 @@ function Layout({ children }) {
       <SkipLink />
       <Header />
       {items.length > 0 && <Breadcrumb items={items} />}
-      <main id="main-content">
+      <main id="main-content" tabIndex="-1">
         {children}
       </main>
       <Footer />

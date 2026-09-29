@@ -17,6 +17,14 @@ body {
   font-family: "Oxanium", cursive;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+html.reduceMotion {
+  scroll-behavior: auto;
+}
+
 #root {
   min-height: 100%;
   position: relative;
@@ -44,6 +52,7 @@ main {
 :focus {
   outline: revert;
 }
+
 
 .srOnly {
   border: 0 !important;
