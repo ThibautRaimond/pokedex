@@ -27,8 +27,6 @@ const PokemonsFilter = ({
       >
         <summary
           className="filterSectionToggleButton"
-          aria-expanded={isOpen}
-          aria-controls="filterPokemonContainer"
         >
           {isOpen ? (
             <RxCross2 className="filterSectionToggleIcon" size={25} />
@@ -42,8 +40,6 @@ const PokemonsFilter = ({
 
         <ul
           className={`filterSectionContainer ${isOpen ? "isOpen" : ""}`}
-          id="filterPokemonContainer"
-          aria-hidden={!isOpen}
           aria-label="3 options de filtres"
         >
         <li className="generationFilterContainer">

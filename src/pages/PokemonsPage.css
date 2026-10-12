@@ -105,7 +105,8 @@ body {
   overflow: hidden;
   border: 1.5px solid rgba(0, 0, 0, 0.15);
   border-radius: 8px;
-  transition: 0.6s;
+  transition: height 400ms ease-in-out, opacity 400ms ease-in-out,
+    padding 400ms ease-in-out, border-color 400ms ease-in-out;
   min-width: 310px;
   width: min(90vw, 700px);
   margin: 0 auto 1em auto;
@@ -122,9 +123,42 @@ body {
 .filterSectionContainer.isOpen {
   width: min(90vw, 700px);
   height: auto;
-  transition: 0.6s;
   padding: 1em 0em;
   border-color: #444950;
+}
+
+@supports (interpolate-size: allow-keywords) and
+  (transition-behavior: allow-discrete) and
+  selector(details::details-content) {
+  .filterSectionToggleDetails {
+    interpolate-size: allow-keywords;
+  }
+
+  .filterSectionToggleDetails::details-content {
+    block-size: 0;
+    opacity: 0;
+    overflow: clip;
+    transition: block-size 400ms ease-in-out, opacity 400ms ease-in-out,
+      content-visibility 400ms allow-discrete;
+  }
+
+  .filterSectionToggleDetails[open]::details-content {
+    block-size: auto;
+    opacity: 1;
+  }
+
+  .filterSectionContainer,
+  .filterSectionContainer.isOpen {
+    height: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .filterSectionToggleDetails::details-content,
+  .filterSectionContainer,
+  .filterSectionContainer.isOpen {
+    transition: none;
+  }
 }
 
 .darkMode .filterSectionContainer.isOpen {
