@@ -18,7 +18,7 @@ const ToggleTheme = ({ onChange, state, icons }) => {
   return (
     <div className="toggleContainer">
       {/* texte invisible pour vocaliser le changement d'état */}
-      <div aria-live="polite" className="srOnly">
+      <div role="status" className="srOnly">
         {liveText}
       </div>
       <button

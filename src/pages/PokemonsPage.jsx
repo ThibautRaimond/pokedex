@@ -43,6 +43,17 @@ const PokemonsPage = () => {
   useEffect(() => {
     let delayTimeoutId;
     let reinsertTimeoutId;
+    let clearStatusTimeoutId;
+
+    const srSpeak = (message, clearAfter = 0) => {
+      setStatusMessage(message);
+
+      if (clearAfter > 0) {
+        return setTimeout(() => setStatusMessage(""), clearAfter);
+      }
+
+      return null;
+    };
 
     if (isLoading) {
       // Après 1 seconde, annoncer le chargement avec re-insertion
@@ -58,13 +69,14 @@ const PokemonsPage = () => {
       // Quand le chargement est termine, re-insertion rapide
       setStatusMessage("");
       reinsertTimeoutId = setTimeout(() => {
-        setStatusMessage(LOADEDMESSAGE);
+        clearStatusTimeoutId = srSpeak(LOADEDMESSAGE, 5000);
       }, 100);
     }
 
     return () => {
       if (delayTimeoutId) clearTimeout(delayTimeoutId);
       if (reinsertTimeoutId) clearTimeout(reinsertTimeoutId);
+      if (clearStatusTimeoutId) clearTimeout(clearStatusTimeoutId);
     };
   }, [isLoading, data]);
 
